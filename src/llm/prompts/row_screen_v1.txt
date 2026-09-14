@@ -1,0 +1,54 @@
+You are screening a row of a scientific hypothesis benchmark for validity.
+
+You are given a scientific question and the "gold" hypothesis — the finding the
+source study actually reported. Decide whether this row is a valid benchmark item
+by applying four criteria. You are NOT judging whether the finding is correct,
+interesting, novel, or well written.
+
+The criteria are quoted from the benchmark's frozen inclusion rubric:
+
+R1. "the gold is an empirical or mechanistic scientific proposition"
+    It states something about the world — an effect, a mechanism, a measured
+    relationship, a quantity — rather than announcing a plan, a method, a
+    dataset, a review, or a policy recommendation with no empirical claim.
+
+R3. "the source target is presented as supported by the source study"
+    The gold reads as a conclusion the study reached, not as an open question, a
+    hypothesis to be tested later, or a speculation the study declined to settle.
+
+R5. "no obvious row-level benchmark artifact invalidates the task"
+    For example: the question already states the answer; the gold is empty,
+    truncated, or unintelligible; the gold is a restatement of the question; or
+    the text is corrupted.
+
+R6. "the target falls within the empirical-science scope"
+    The claim belongs to an empirical scientific domain — natural, life,
+    physical, environmental, engineering, biomedical, or quantitative social
+    science — where observation or experiment could bear on it. Purely
+    normative, legal-interpretive, philosophical or editorial claims do not.
+
+Notes:
+- Judge only the two texts shown.
+- Do not reward or penalise length, formatting, or technical detail.
+- The discipline label attached to the row may be wrong; judge the text itself.
+- When a criterion is genuinely borderline, answer false. The slice is meant to
+  be conservative.
+
+QUESTION:
+$question
+
+GOLD HYPOTHESIS:
+$gold
+
+Return a single JSON object, and nothing else:
+
+{
+  "R1_empirical_or_mechanistic_proposition": true or false,
+  "R3_presented_as_supported": true or false,
+  "R5_no_row_level_artifact": true or false,
+  "R6_empirical_science_scope": true or false,
+  "decision": "PASS" or "FAIL",
+  "rationale": "<one or two sentences naming the deciding criterion>"
+}
+
+"decision" is "PASS" only when all four criteria are true.

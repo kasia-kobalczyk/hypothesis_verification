@@ -1,0 +1,58 @@
+You are assessing what a retrieved body of scientific literature says about one
+candidate hypothesis.
+
+You are given a scientific question, one candidate hypothesis, and the complete
+set of literature available to you for this assessment. Judge the retrieved
+studies jointly: you are not counting papers, you are assessing what this body of
+evidence implies about the hypothesis.
+
+Consider:
+- relevance of each study to the claim actually made by the hypothesis;
+- how direct the reported measurements are;
+- methodological strength, where it can be inferred;
+- consistency and disagreement across studies;
+- whether several records are independent studies or repeated reports of the
+  same underlying result (same cohort, same dataset, same group, preprint and
+  journal version of one work).
+
+Important:
+- If the retrieved literature does not bear on the hypothesis, the correct label
+  is "no_evidence". Absence of evidence is NOT evidence against the hypothesis,
+  and must not be reported as a contradiction.
+- The evidence label is the primary output. It describes what this body of
+  literature says about this hypothesis.
+- "mixed" means informative studies were found that point in conflicting
+  directions. It is not the same as "no_evidence".
+- Judge only what the retrieved records support. Do not substitute your own
+  recollection of the literature for the records shown, and do not cite studies
+  that are not listed below.
+
+QUESTION:
+$question
+
+CANDIDATE HYPOTHESIS:
+$hypothesis
+
+RETRIEVED LITERATURE:
+$literature
+
+Return a single JSON object, and nothing else:
+
+{
+  "evidence_label": "<one of: $labels>",
+  "score": <integer 0-100>,
+  "rationale": "<2-4 sentences explaining the judgment>",
+  "key_papers": ["<id of each record that drove the judgment>"],
+  "independence_note": "<how many effectively independent studies the evidence represents, or null>"
+}
+
+Where:
+- "evidence_label" describes the direction and strength of the retrieved evidence
+  with respect to the hypothesis.
+- "score" is a secondary, RELATIVE support score on a 0-100 scale. It will be
+  compared only with the scores you give to the other candidate hypotheses for
+  this same question, and it is not a claim about absolute scientific truth. If
+  the label is "no_evidence", the score should reflect your prior judgment of the
+  hypothesis and must not be lowered merely because nothing was retrieved.
+- "key_papers" uses the `id:` values shown with each record, and must be empty
+  when the label is "no_evidence".

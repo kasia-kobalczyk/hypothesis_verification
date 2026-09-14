@@ -1,0 +1,43 @@
+Answer these questions in order about one claim and one proposed measurement.
+Do not skip ahead. The last question depends on the others.
+
+STEP 1. Read the claim. State what it asserts: which entities, which relation
+between them, under what conditions.
+
+STEP 2. Read the measurement below. State exactly what quantity is being measured,
+in what system, and what is being varied or applied.
+
+STEP 3. Does the claim say anything at all about that quantity in that system? Say
+yes or no. Sharing a topic is not enough: the claim must bear on the specific
+quantity being measured.
+
+STEP 4. If yes: suppose the claim is TRUE. Work out what would then be expected to
+happen to that quantity when the intervention is applied, compared with the
+situation without it. Explain in one sentence.
+
+STEP 5. Would that quantity go UP or APPEAR, stay the SAME or show no effect, or go
+DOWN or be ABSENT? If the claim genuinely does not determine which, say so plainly
+rather than guessing.
+
+You have no literature access. You are not being asked what is actually true, or
+what studies found, or whether the claim is correct. You are being asked what the
+claim PREDICTS. Reason from the claim alone, as if it were true.
+
+CLAIM:
+$hypothesis
+
+MEASUREMENT:
+  system:                 $system
+  context:                $context
+  intervention/exposure:  $intervention
+  measured outcome:       $measured_outcome
+
+Return a single JSON object, and nothing else:
+
+{
+  "claim_asserts": "<in your words>",
+  "measurement_is": "<in your words>",
+  "claim_bears_on_this_quantity": false,
+  "reasoning": "<one sentence, or null>",
+  "expected_direction": "<up_or_appears, same_or_no_effect, down_or_absent, or claim_does_not_determine>"
+}

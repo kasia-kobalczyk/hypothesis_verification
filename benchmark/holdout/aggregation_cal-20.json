@@ -1,0 +1,282 @@
+[
+  {
+    "row": "RBV2-0058-N03",
+    "n_inf": 2,
+    "independent": {
+      "rank": 2,
+      "margin": 0.22669400428515046,
+      "flip": 0.0
+    },
+    "family": {
+      "rank": 2,
+      "margin": 0.21877096211262426,
+      "flip": 0.0
+    }
+  },
+  {
+    "row": "RBV2-0065-N07",
+    "n_inf": 15,
+    "independent": {
+      "rank": 1,
+      "margin": 0.09312057891184278,
+      "flip": 0.225
+    },
+    "family": {
+      "rank": 1,
+      "margin": 0.07767593785253207,
+      "flip": 0.275
+    }
+  },
+  {
+    "row": "RBV2-0095-N03",
+    "n_inf": 13,
+    "independent": {
+      "rank": 1,
+      "margin": 0.003398238691570521,
+      "flip": 0.225
+    },
+    "family": {
+      "rank": 2,
+      "margin": 0.0019037740865123776,
+      "flip": 0.75
+    }
+  },
+  {
+    "row": "RBV2-0098-N08",
+    "n_inf": 3,
+    "independent": {
+      "rank": 1,
+      "margin": 0.6322944191368309,
+      "flip": 0.0
+    },
+    "family": {
+      "rank": 1,
+      "margin": 0.6322944191368306,
+      "flip": 0.0
+    }
+  },
+  {
+    "row": "RBV2-0114-N00",
+    "n_inf": 7,
+    "independent": {
+      "rank": 2,
+      "margin": 0.15813596021064596,
+      "flip": 0.2
+    },
+    "family": {
+      "rank": 2,
+      "margin": 0.15683799611282884,
+      "flip": 0.2
+    }
+  },
+  {
+    "row": "RBV2-0122-N08",
+    "n_inf": 6,
+    "independent": {
+      "rank": 2,
+      "margin": 0.020588089019992983,
+      "flip": 0.1
+    },
+    "family": {
+      "rank": 2,
+      "margin": 0.018368043218804475,
+      "flip": 0.1
+    }
+  },
+  {
+    "row": "RBV2-0125-N08",
+    "n_inf": 14,
+    "independent": {
+      "rank": 2,
+      "margin": 0.40799825349266444,
+      "flip": 0.0
+    },
+    "family": {
+      "rank": 2,
+      "margin": 0.35083868514588534,
+      "flip": 0.0
+    }
+  },
+  {
+    "row": "RBV2-0140-N01",
+    "n_inf": 4,
+    "independent": {
+      "rank": 1,
+      "margin": 0.06260667162992473,
+      "flip": 0.025
+    },
+    "family": {
+      "rank": 1,
+      "margin": 0.052252525332687816,
+      "flip": 0.025
+    }
+  },
+  {
+    "row": "RBV2-0163-N04",
+    "n_inf": 13,
+    "independent": {
+      "rank": 1,
+      "margin": 0.22249581044046252,
+      "flip": 0.375
+    },
+    "family": {
+      "rank": 1,
+      "margin": 0.20886375258567347,
+      "flip": 0.35
+    }
+  },
+  {
+    "row": "RBV2-0199-N04",
+    "n_inf": 8,
+    "independent": {
+      "rank": 1,
+      "margin": 0.11514670318361708,
+      "flip": 0.075
+    },
+    "family": {
+      "rank": 1,
+      "margin": 0.11642719106503102,
+      "flip": 0.075
+    }
+  },
+  {
+    "row": "RBV2-0200-N03",
+    "n_inf": 6,
+    "independent": {
+      "rank": 1,
+      "margin": 0.15541025967035194,
+      "flip": 0.0
+    },
+    "family": {
+      "rank": 1,
+      "margin": 0.15371003097685482,
+      "flip": 0.0
+    }
+  },
+  {
+    "row": "RBV2-0203-N00",
+    "n_inf": 6,
+    "independent": {
+      "rank": 1,
+      "margin": 0.18925350738668723,
+      "flip": 0.2
+    },
+    "family": {
+      "rank": 1,
+      "margin": 0.16838798774119446,
+      "flip": 0.15
+    }
+  },
+  {
+    "row": "RBV2-0210-N05",
+    "n_inf": 7,
+    "independent": {
+      "rank": 1,
+      "margin": 0.04278692042510568,
+      "flip": 0.35
+    },
+    "family": {
+      "rank": 1,
+      "margin": 0.04116157531349729,
+      "flip": 0.35
+    }
+  },
+  {
+    "row": "RBV2-0218-N09",
+    "n_inf": 7,
+    "independent": {
+      "rank": 1,
+      "margin": 0.045252625581737926,
+      "flip": 0.2
+    },
+    "family": {
+      "rank": 1,
+      "margin": 0.04362524119062039,
+      "flip": 0.2
+    }
+  },
+  {
+    "row": "RBV2-0232-N00",
+    "n_inf": 7,
+    "independent": {
+      "rank": 2,
+      "margin": 0.0717639766905318,
+      "flip": 0.325
+    },
+    "family": {
+      "rank": 2,
+      "margin": 0.0513119161068224,
+      "flip": 0.425
+    }
+  },
+  {
+    "row": "RBV2-0256-N04",
+    "n_inf": 6,
+    "independent": {
+      "rank": 1,
+      "margin": 0.24236894375453055,
+      "flip": 0.0
+    },
+    "family": {
+      "rank": 1,
+      "margin": 0.22776485938836072,
+      "flip": 0.0
+    }
+  },
+  {
+    "row": "RBV2-0284-N01",
+    "n_inf": 10,
+    "independent": {
+      "rank": 1,
+      "margin": 0.02133521252079912,
+      "flip": 0.7
+    },
+    "family": {
+      "rank": 1,
+      "margin": 0.020598419310841276,
+      "flip": 0.7
+    }
+  },
+  {
+    "row": "RBV2-0285-N04",
+    "n_inf": 4,
+    "independent": {
+      "rank": 2,
+      "margin": 0.19678337708366977,
+      "flip": 0.0
+    },
+    "family": {
+      "rank": 2,
+      "margin": 0.19226295747918615,
+      "flip": 0.0
+    }
+  },
+  {
+    "row": "RBV2-0295-N08",
+    "n_inf": 5,
+    "independent": {
+      "rank": 2,
+      "margin": 0.37725207904786634,
+      "flip": 0.0
+    },
+    "family": {
+      "rank": 2,
+      "margin": 0.33655136039692374,
+      "flip": 0.0
+    }
+  },
+  {
+    "row": "RBV2-0305-N01",
+    "n_inf": 11,
+    "independent": {
+      "rank": 2,
+      "margin": 0.1384759921725051,
+      "flip": 0.3
+    },
+    "family": {
+      "rank": 2,
+      "margin": 0.16707288599725417,
+      "flip": 0.125
+    }
+  }
+]

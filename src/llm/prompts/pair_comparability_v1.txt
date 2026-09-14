@@ -1,0 +1,51 @@
+You are screening a pair of scientific hypotheses for a benchmark.
+
+Both hypotheses were written in response to the same scientific question. The
+first ("GOLD") states what a published study actually concluded. The second
+("ALTERNATIVE") is a competing candidate. Your job is to decide whether this is a
+meaningful pair to compare — not which one is correct.
+
+Apply exactly two criteria:
+
+1. SAME SCIENTIFIC TARGET.
+   The alternative addresses the same scientific target as the gold: the same
+   system, population, phenomenon or quantity, in a way that makes the two
+   claims about the same thing. An alternative that changes the subject, answers
+   a different question, or only proposes methodology without committing to an
+   outcome on the gold's target does NOT satisfy this.
+
+2. SUBSTANTIVE DISAGREEMENT.
+   The alternative disagrees with a substantive part of the gold: it asserts a
+   different direction, mechanism, magnitude, or conclusion, such that the two
+   cannot both be straightforwardly correct. An alternative that merely adds
+   detail, restates the gold in other words, or is fully compatible with it does
+   NOT satisfy this.
+
+Notes:
+- Do not judge which hypothesis is scientifically correct.
+- Do not reward or penalise length, formatting, technical detail, confidence of
+  tone, or the presence of numbers and citations. Elaborate alternatives and
+  terse ones are judged by the same two criteria.
+- If the alternative is internally incoherent or largely unintelligible, it
+  cannot address the same target: mark criterion 1 false.
+- Judge only the two texts shown.
+
+QUESTION:
+$question
+
+GOLD:
+$gold
+
+ALTERNATIVE:
+$alternative
+
+Return a single JSON object, and nothing else:
+
+{
+  "same_target": true or false,
+  "disagrees_substantively": true or false,
+  "decision": "PASS" or "FAIL",
+  "rationale": "<one or two sentences naming the specific point of agreement or disagreement>"
+}
+
+"decision" is "PASS" only when both criteria are true.

@@ -1,0 +1,90 @@
+You are deriving the scientific consequences of a hypothesis.
+
+Given a scientific question and one claim, list scientific propositions that should
+become more likely (or less likely) if that claim holds.
+
+Each proposition must be ATOMIC. One relation, one mechanism, or one measurement:
+exactly one thing that could be true or false.
+- Do not join several assertions with "and", "as well as", "together with", or
+  "while also". If a consequence has three parts, write the single part that is
+  most directly checkable, or use separate propositions for the others.
+- Do not build in a control arm, an inhibitor condition, or a qualifying clause
+  such as "... but not when X is blocked". State the positive relation alone.
+- One measurement per proposition.
+
+WRITE AT MORE THAN ONE LEVEL OF ABSTRACTION
+
+A claim worth verifying is usually NEW. If every proposition names the claim's own
+novel specifics -- a newly synthesised composite, a particular gene combination, an
+exact layer thickness -- then no earlier study can address any of them, because the
+specific thing did not exist yet. Earlier work will concern the surrounding system:
+the material family, the mechanism class, the general effect.
+
+So produce propositions at several levels:
+
+  SPECIFIC     the consequence as it applies to the claim's own entities and
+               conditions, stated exactly.
+  MECHANISTIC  the same consequence stated as the underlying process, with the
+               claim's incidental novelty removed -- the mechanism rather than the
+               particular implementation of it.
+  CLASS        the consequence at the level of the family or class the claim's
+               entity belongs to, where that family's behaviour is what matters.
+
+Give the level in "abstraction_level" for each proposition. Aim for a spread rather
+than a set clustered at one level.
+
+THE RULE THAT MAKES THIS LEGITIMATE
+
+**You may only abstract away a specific when the claim still probabilistically
+implies the more general proposition.** If the claim were true, the general
+proposition must become more likely (or less likely) as a result. State that link
+in "why_implied": one sentence saying why the claim bears on the more general
+statement.
+
+Do NOT write a proposition because it sounds easier to find literature about. A
+proposition whose truth is independent of the claim is worse than useless: it adds
+a node that carries evidence but no information, and it moves an unsupported
+inferential leap into the graph where it will be treated as sound. If you cannot
+say why the claim implies the general form, keep the proposition specific.
+
+Concretely: from a claim about a novel carbon-coated composite catalyst, "this exact
+composite retains activity over cycles" is SPECIFIC; "carbon coating on sulfide
+photocatalysts of this family alters charge separation" is CLASS and legitimate,
+because the claim asserts the coating is what does the work; "hydrogen is produced
+under visible light" is too general to bear on the claim and must not be written.
+
+Do NOT try to make a proposition distinguish this claim from any other claim. You
+are not shown the competing claims and should not speculate about them. Whether a
+proposition tells candidates apart is measured separately, afterwards, by comparing
+how likely it is under each of them. A consequence that many claims would predict
+is acceptable here.
+
+What else makes a good proposition:
+- It could in principle be checked against published research: a measurement, an
+  effect, a mechanism, a comparison.
+- It explores a distinct line of reasoning. Do not restate one mechanism several
+  near-identical ways.
+- It is self-contained: a reader who has not seen the claim still understands what
+  is being asserted, including the system or population.
+
+Direct evidence is allowed and welcome.
+
+QUESTION:
+$question
+
+CLAIM:
+$focal
+
+Return a single JSON object, and nothing else, with at most $max_children
+propositions:
+
+{
+  "propositions": [
+    {
+      "text": "<one atomic, self-contained scientific proposition>",
+      "abstraction_level": "<specific, mechanistic, or class>",
+      "why_implied": "<one sentence: why the claim makes this more or less likely. REQUIRED when the level is not 'specific'>",
+      "empirically_assessable": true
+    }
+  ]
+}

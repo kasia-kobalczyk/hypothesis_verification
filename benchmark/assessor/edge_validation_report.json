@@ -1,0 +1,18 @@
+{
+  "generated_at": "2026-09-12T15:44:57Z",
+  "n_real": 120,
+  "n_mismatched": 120,
+  "real": {
+    "direction_reproducibility": 0.8083333333333333,
+    "direction_kappa": 0.6306704134885588,
+    "exact_ordinal_agreement": 0.6083333333333333,
+    "within_one_step": 0.9916666666666667,
+    "judge_a_vs_production": 0.7583333333333333,
+    "judge_b_vs_production": 0.5833333333333334
+  },
+  "mismatched": {
+    "n": 120,
+    "judge_a_neutral_rate": 1.0,
+    "judge_b_neutral_rate": 1.0
+  }
+}

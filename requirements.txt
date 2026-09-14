@@ -1,0 +1,11 @@
+# Runtime
+pydantic>=2.6,<3
+PyYAML>=6.0
+requests>=2.31
+openai>=1.30          # Azure OpenAI chat completions
+                      # NOTE: must be installed for the interpreter that runs the
+                      # code (`python3 -m pip install openai`), not just whichever
+                      # `pip` is first on PATH.
+
+# Development
+pytest>=8.0

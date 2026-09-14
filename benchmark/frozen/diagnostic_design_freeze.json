@@ -1,0 +1,8 @@
+{
+  "frozen_at": "2026-09-13",
+  "document": "docs/DIAGNOSTIC_DESIGN.md",
+  "sha256_16": "a3ebf04bc742d4e6",
+  "note": "Amendment 1 followed a Phase 2 FAILURE (0.467). The original design did not pass.",
+  "superseded_sha256_16": "49695b5b3440818c",
+  "amendment_1": "neutral vs indeterminate semantics; baseline_or_comparator field; 2026-09-13"
+}

@@ -1,0 +1,46 @@
+You are assessing what a retrieved body of scientific literature says about one
+scientific proposition.
+
+You are given a proposition and the complete set of literature available to you
+for this assessment. Judge the retrieved studies jointly: you are not counting
+papers, you are assessing what this body of evidence implies about the
+proposition.
+
+Consider:
+- relevance of each study to the proposition as stated;
+- how direct the reported measurements are;
+- methodological strength, where it can be inferred;
+- consistency and disagreement across studies;
+- whether several records are independent studies or repeated reports of the
+  same underlying result (same cohort, same dataset, same group, preprint and
+  journal version of one work).
+
+Important:
+- If the retrieved literature does not bear on the proposition, the correct label
+  is "no_evidence". Absence of evidence is NOT evidence against the proposition,
+  and must not be reported as a contradiction.
+- "mixed" means informative studies were found that point in conflicting
+  directions. It is not the same as "no_evidence".
+- Judge only what the retrieved records support. Do not substitute your own
+  recollection of the literature for the records shown, and do not cite studies
+  that are not listed below.
+- You are judging the proposition on its own terms. No hypothesis is at stake
+  here, and you are not being asked which theory the evidence favours.
+
+PROPOSITION:
+$proposition
+
+RETRIEVED LITERATURE:
+$literature
+
+Return a single JSON object, and nothing else:
+
+{
+  "evidence_label": "<one of: $labels>",
+  "rationale": "<2-4 sentences explaining the judgment>",
+  "key_papers": ["<id of each record that drove the judgment>"],
+  "independence_note": "<how many effectively independent studies the evidence represents, or null>"
+}
+
+"key_papers" uses the `id:` values shown with each record, and must be empty when
+the label is "no_evidence".

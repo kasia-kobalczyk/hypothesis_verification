@@ -1,0 +1,2549 @@
+{
+  "generated_at": "2026-09-13T16:53:39Z",
+  "run": "runs/consequence_graph_20260913T085212Z_27ff8a54",
+  "repeats": 3,
+  "assess_prompt": "evidence_assess_v2",
+  "nuisance_varied": "record presentation order only",
+  "rows": [
+    {
+      "instance": "RBV2-0050-N04",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X12": [
+          "support",
+          "support",
+          "strong_support"
+        ],
+        "X13": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X14": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X15": [
+          "support",
+          "weak_support",
+          "weak_support"
+        ],
+        "X16": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X17": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X18": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X19": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X2": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X20": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X3": [
+          "support",
+          "support",
+          "weak_support"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X6": [
+          "strong_support",
+          "strong_support",
+          "support"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X9": [
+          "support",
+          "no_evidence",
+          "no_evidence"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "no_evidence",
+        "X3": "weak_support",
+        "X4": "no_evidence",
+        "X5": "no_evidence",
+        "X6": "strong_support",
+        "X7": "no_evidence",
+        "X8": "strong_support",
+        "X9": "no_evidence",
+        "X10": "no_evidence",
+        "X11": "no_evidence",
+        "X12": "support",
+        "X13": "no_evidence",
+        "X14": "no_evidence",
+        "X15": "weak_support",
+        "X16": "no_evidence",
+        "X17": "no_evidence",
+        "X18": "support",
+        "X19": "no_evidence",
+        "X20": "no_evidence"
+      }
+    },
+    {
+      "instance": "RBV2-0052-N08",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X12": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X13": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X14": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X15": [
+          "strong_support",
+          "support",
+          "strong_support"
+        ],
+        "X16": [
+          "support",
+          "no_evidence",
+          "support"
+        ],
+        "X17": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X18": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X19": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X2": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X20": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X3": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X6": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X9": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "no_evidence",
+        "X3": "no_evidence",
+        "X4": "no_evidence",
+        "X5": "strong_support",
+        "X6": "no_evidence",
+        "X7": "no_evidence",
+        "X8": "no_evidence",
+        "X9": "no_evidence",
+        "X10": "no_evidence",
+        "X11": "no_evidence",
+        "X12": "no_evidence",
+        "X13": "no_evidence",
+        "X14": "no_evidence",
+        "X15": "strong_support",
+        "X16": "no_evidence",
+        "X17": "strong_support",
+        "X18": "support",
+        "X19": "no_evidence",
+        "X20": "no_evidence"
+      }
+    },
+    {
+      "instance": "RBV2-0084-N05",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "support"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "no_evidence",
+          "weak_support",
+          "support"
+        ],
+        "X12": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X13": [
+          "strong_support",
+          "support",
+          "strong_support"
+        ],
+        "X14": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X15": [
+          "support",
+          "support",
+          "strong_support"
+        ],
+        "X16": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X17": [
+          "mixed",
+          "strong_support",
+          "strong_support"
+        ],
+        "X18": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X19": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X2": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X20": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X3": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X6": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X7": [
+          "support",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "support",
+          "weak_support",
+          "support"
+        ],
+        "X9": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "support",
+        "X3": "strong_support",
+        "X4": "no_evidence",
+        "X5": "strong_support",
+        "X6": "no_evidence",
+        "X7": "no_evidence",
+        "X8": "weak_support",
+        "X9": "support",
+        "X10": "no_evidence",
+        "X11": "support",
+        "X12": "strong_support",
+        "X13": "strong_support",
+        "X14": "no_evidence",
+        "X15": "support",
+        "X16": "strong_support",
+        "X17": "support",
+        "X18": "strong_support",
+        "X19": "no_evidence",
+        "X20": "strong_support"
+      }
+    },
+    {
+      "instance": "RBV2-0110-N03",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "weak_support",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X12": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X13": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X14": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X15": [
+          "support",
+          "no_evidence",
+          "weak_support"
+        ],
+        "X16": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X17": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X18": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X19": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X2": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X20": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X3": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X6": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X9": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "no_evidence",
+        "X3": "no_evidence",
+        "X4": "no_evidence",
+        "X5": "no_evidence",
+        "X6": "no_evidence",
+        "X7": "no_evidence",
+        "X8": "no_evidence",
+        "X9": "no_evidence",
+        "X10": "no_evidence",
+        "X11": "weak_support",
+        "X12": "no_evidence",
+        "X13": "no_evidence",
+        "X14": "no_evidence",
+        "X15": "weak_support",
+        "X16": "no_evidence",
+        "X17": "no_evidence",
+        "X18": "no_evidence",
+        "X19": "no_evidence",
+        "X20": "weak_support"
+      }
+    },
+    {
+      "instance": "RBV2-0117-N06",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X12": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X13": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X14": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X15": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X16": [
+          "strong_support",
+          "strong_support",
+          "support"
+        ],
+        "X17": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X18": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X19": [
+          "support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X2": [
+          "support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X20": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X3": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X6": [
+          "weak_support",
+          "support",
+          "strong_support"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X9": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "support",
+        "X3": "strong_support",
+        "X4": "no_evidence",
+        "X5": "strong_support",
+        "X6": "weak_support",
+        "X7": "no_evidence",
+        "X8": "strong_support",
+        "X9": "strong_support",
+        "X10": "no_evidence",
+        "X11": "no_evidence",
+        "X12": "strong_support",
+        "X13": "strong_support",
+        "X14": "strong_support",
+        "X15": "support",
+        "X16": "strong_support",
+        "X17": "strong_support",
+        "X18": "strong_support",
+        "X19": "strong_support",
+        "X20": "strong_support"
+      }
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X12": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X13": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X14": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X15": [
+          "support",
+          "no_evidence",
+          "weak_support"
+        ],
+        "X16": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X17": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X18": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X19": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X2": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X20": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X3": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X6": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X9": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "strong_support",
+        "X3": "no_evidence",
+        "X4": "no_evidence",
+        "X5": "no_evidence",
+        "X6": "no_evidence",
+        "X7": "no_evidence",
+        "X8": "no_evidence",
+        "X9": "no_evidence",
+        "X10": "no_evidence",
+        "X11": "no_evidence",
+        "X12": "no_evidence",
+        "X13": "support",
+        "X14": "no_evidence",
+        "X15": "no_evidence",
+        "X16": "no_evidence",
+        "X17": "no_evidence",
+        "X18": "no_evidence",
+        "X19": "no_evidence",
+        "X20": "no_evidence"
+      }
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X12": [
+          "weak_support",
+          "weak_support",
+          "weak_support"
+        ],
+        "X13": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X14": [
+          "support",
+          "no_evidence",
+          "support"
+        ],
+        "X15": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X16": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X17": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X18": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X19": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X2": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X20": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X3": [
+          "support",
+          "support",
+          "no_evidence"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X6": [
+          "support",
+          "strong_support",
+          "support"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          null,
+          "support",
+          "support"
+        ],
+        "X9": [
+          "support",
+          "no_evidence",
+          "no_evidence"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "no_evidence",
+        "X3": "no_evidence",
+        "X4": "no_evidence",
+        "X5": "no_evidence",
+        "X6": "support",
+        "X7": "no_evidence",
+        "X8": "support",
+        "X9": "support",
+        "X10": "no_evidence",
+        "X11": "strong_support",
+        "X12": "weak_support",
+        "X13": "no_evidence",
+        "X14": "no_evidence",
+        "X15": "no_evidence",
+        "X16": "no_evidence",
+        "X17": "support",
+        "X18": "support",
+        "X19": "no_evidence",
+        "X20": "no_evidence"
+      }
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X12": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X13": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X14": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X15": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X16": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X17": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X18": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X19": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X2": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X20": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X3": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X6": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X9": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "no_evidence",
+        "X3": "support",
+        "X4": "no_evidence",
+        "X5": "no_evidence",
+        "X6": "no_evidence",
+        "X7": "no_evidence",
+        "X8": "support",
+        "X9": "strong_support",
+        "X10": "no_evidence",
+        "X11": "no_evidence",
+        "X12": "no_evidence",
+        "X13": "no_evidence",
+        "X14": "support",
+        "X15": "no_evidence",
+        "X16": "no_evidence",
+        "X17": "no_evidence",
+        "X18": "no_evidence",
+        "X19": "weak_support",
+        "X20": "support"
+      }
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X12": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X13": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X14": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X15": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X16": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X17": [
+          "weak_support",
+          "no_evidence",
+          "support"
+        ],
+        "X18": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X19": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X2": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X20": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X3": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X6": [
+          "weak_support",
+          "support",
+          "support"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X9": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "no_evidence",
+        "X3": "no_evidence",
+        "X4": "no_evidence",
+        "X5": "no_evidence",
+        "X6": "weak_support",
+        "X7": "no_evidence",
+        "X8": "no_evidence",
+        "X9": "no_evidence",
+        "X10": "no_evidence",
+        "X11": "no_evidence",
+        "X12": "no_evidence",
+        "X13": "no_evidence",
+        "X14": "no_evidence",
+        "X15": "no_evidence",
+        "X16": "no_evidence",
+        "X17": "weak_support",
+        "X18": "no_evidence",
+        "X19": "no_evidence",
+        "X20": "no_evidence"
+      }
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X12": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X13": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X14": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X15": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X16": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X17": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X18": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X19": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X2": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X20": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X3": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X6": [
+          "strong_support",
+          "strong_support",
+          "support"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X9": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "no_evidence",
+        "X3": "no_evidence",
+        "X4": "no_evidence",
+        "X5": "support",
+        "X6": "strong_support",
+        "X7": "no_evidence",
+        "X8": "no_evidence",
+        "X9": "no_evidence",
+        "X10": "no_evidence",
+        "X11": "support",
+        "X12": "no_evidence",
+        "X13": "no_evidence",
+        "X14": "no_evidence",
+        "X15": "no_evidence",
+        "X16": "no_evidence",
+        "X17": "strong_support",
+        "X18": "strong_support",
+        "X19": "no_evidence",
+        "X20": "no_evidence"
+      }
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X12": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X13": [
+          "no_evidence",
+          "weak_support",
+          "no_evidence"
+        ],
+        "X14": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X15": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X16": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X17": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X18": [
+          "support",
+          "support",
+          "weak_support"
+        ],
+        "X19": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X2": [
+          "no_evidence",
+          "weak_support",
+          "no_evidence"
+        ],
+        "X20": [
+          "no_evidence",
+          "support",
+          "support"
+        ],
+        "X3": [
+          "support",
+          "support",
+          "strong_support"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X6": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X9": [
+          "support",
+          "support",
+          "support"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "no_evidence",
+        "X3": "support",
+        "X4": "no_evidence",
+        "X5": "no_evidence",
+        "X6": "no_evidence",
+        "X7": "no_evidence",
+        "X8": "no_evidence",
+        "X9": "support",
+        "X10": "no_evidence",
+        "X11": "no_evidence",
+        "X12": "no_evidence",
+        "X13": "no_evidence",
+        "X14": "no_evidence",
+        "X15": "no_evidence",
+        "X16": "no_evidence",
+        "X17": "no_evidence",
+        "X18": "support",
+        "X19": "support",
+        "X20": "support"
+      }
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X12": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X13": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X14": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X15": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X16": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X17": [
+          "weak_support",
+          "support",
+          "support"
+        ],
+        "X18": [
+          "weak_support",
+          "support",
+          "weak_support"
+        ],
+        "X19": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X2": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X20": [
+          "weak_support",
+          "weak_support",
+          "weak_support"
+        ],
+        "X3": [
+          "strong_support",
+          "support",
+          "strong_support"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X6": [
+          "support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X9": [
+          "support",
+          "weak_support",
+          "weak_support"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "no_evidence",
+        "X3": "strong_support",
+        "X4": "no_evidence",
+        "X5": "no_evidence",
+        "X6": "support",
+        "X7": "no_evidence",
+        "X8": "strong_support",
+        "X9": "support",
+        "X10": "no_evidence",
+        "X11": "no_evidence",
+        "X12": "no_evidence",
+        "X13": "no_evidence",
+        "X14": "no_evidence",
+        "X15": "no_evidence",
+        "X16": "no_evidence",
+        "X17": "support",
+        "X18": "weak_support",
+        "X19": "no_evidence",
+        "X20": "weak_support"
+      }
+    },
+    {
+      "instance": "RBV2-0230-N02",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X12": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X13": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X14": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X15": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X16": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X17": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X18": [
+          "strong_support",
+          "support",
+          "support"
+        ],
+        "X19": [
+          "strong_support",
+          "support",
+          "strong_support"
+        ],
+        "X2": [
+          "support",
+          "strong_support",
+          "support"
+        ],
+        "X20": [
+          "strong_support",
+          "support",
+          "strong_support"
+        ],
+        "X3": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X6": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X9": [
+          "support",
+          "support",
+          "support"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "support",
+        "X3": "support",
+        "X4": "no_evidence",
+        "X5": "support",
+        "X6": "no_evidence",
+        "X7": "no_evidence",
+        "X8": "no_evidence",
+        "X9": "support",
+        "X10": "no_evidence",
+        "X11": "no_evidence",
+        "X12": "strong_support",
+        "X13": "no_evidence",
+        "X14": "support",
+        "X15": "no_evidence",
+        "X16": "support",
+        "X17": "support",
+        "X18": "strong_support",
+        "X19": "strong_support",
+        "X20": "support"
+      }
+    },
+    {
+      "instance": "RBV2-0233-N00",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X12": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X13": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X14": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X15": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X16": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X17": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X18": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X19": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X2": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X20": [
+          "weak_support",
+          "no_evidence",
+          "support"
+        ],
+        "X3": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X6": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X9": [
+          "support",
+          "support",
+          "support"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "no_evidence",
+        "X3": "no_evidence",
+        "X4": "no_evidence",
+        "X5": "no_evidence",
+        "X6": "no_evidence",
+        "X7": "no_evidence",
+        "X8": "no_evidence",
+        "X9": "support",
+        "X10": "no_evidence",
+        "X11": "no_evidence",
+        "X12": "support",
+        "X13": "no_evidence",
+        "X14": "no_evidence",
+        "X15": "strong_support",
+        "X16": "no_evidence",
+        "X17": "no_evidence",
+        "X18": "no_evidence",
+        "X19": "no_evidence",
+        "X20": "no_evidence"
+      }
+    },
+    {
+      "instance": "RBV2-0246-N04",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X12": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X13": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X14": [
+          "support",
+          "weak_support",
+          "weak_support"
+        ],
+        "X15": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X16": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X17": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X18": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X19": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X2": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X20": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X3": [
+          "weak_support",
+          "no_evidence",
+          "weak_support"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "weak_support"
+        ],
+        "X5": [
+          "weak_support",
+          "no_evidence",
+          "weak_support"
+        ],
+        "X6": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "support",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X9": [
+          "weak_support",
+          "weak_support",
+          "weak_support"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "no_evidence",
+        "X3": "weak_support",
+        "X4": "support",
+        "X5": "weak_support",
+        "X6": "no_evidence",
+        "X7": "no_evidence",
+        "X8": "no_evidence",
+        "X9": "weak_support",
+        "X10": "no_evidence",
+        "X11": "no_evidence",
+        "X12": "no_evidence",
+        "X13": "no_evidence",
+        "X14": "weak_support",
+        "X15": "no_evidence",
+        "X16": "no_evidence",
+        "X17": "no_evidence",
+        "X18": "no_evidence",
+        "X19": "no_evidence",
+        "X20": "no_evidence"
+      }
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "support",
+          "no_evidence",
+          "support"
+        ],
+        "X11": [
+          "support",
+          "support",
+          "strong_support"
+        ],
+        "X12": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X13": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X14": [
+          "weak_support",
+          "weak_support",
+          "support"
+        ],
+        "X15": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X16": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X17": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X18": [
+          "mixed",
+          "mixed",
+          "mixed"
+        ],
+        "X19": [
+          "weak_support",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X2": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X20": [
+          "weak_support",
+          "weak_support",
+          "weak_support"
+        ],
+        "X3": [
+          "weak_support",
+          "weak_support",
+          "weak_support"
+        ],
+        "X4": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X5": [
+          "strong_support",
+          "support",
+          "strong_support"
+        ],
+        "X6": [
+          "strong_support",
+          "support",
+          "strong_support"
+        ],
+        "X7": [
+          "support",
+          "weak_support",
+          "support"
+        ],
+        "X8": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X9": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "support",
+        "X3": "weak_support",
+        "X4": "strong_support",
+        "X5": "strong_support",
+        "X6": "strong_support",
+        "X7": "support",
+        "X8": "support",
+        "X9": "no_evidence",
+        "X10": "support",
+        "X11": "support",
+        "X12": "support",
+        "X13": "no_evidence",
+        "X14": "weak_support",
+        "X15": "no_evidence",
+        "X16": "no_evidence",
+        "X17": "strong_support",
+        "X18": "mixed",
+        "X19": "weak_support",
+        "X20": "no_evidence"
+      }
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X12": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X13": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X14": [
+          "support",
+          "support",
+          "strong_support"
+        ],
+        "X15": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X16": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X17": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X18": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X19": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X2": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X20": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X3": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "support",
+          "weak_support",
+          "support"
+        ],
+        "X6": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X9": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "no_evidence",
+        "X3": "no_evidence",
+        "X4": "no_evidence",
+        "X5": "no_evidence",
+        "X6": "no_evidence",
+        "X7": "no_evidence",
+        "X8": "no_evidence",
+        "X9": "no_evidence",
+        "X10": "no_evidence",
+        "X11": "no_evidence",
+        "X12": "no_evidence",
+        "X13": "no_evidence",
+        "X14": "support",
+        "X15": "no_evidence",
+        "X16": "no_evidence",
+        "X17": "no_evidence",
+        "X18": "weak_support",
+        "X19": "no_evidence",
+        "X20": "no_evidence"
+      }
+    },
+    {
+      "instance": "RBV2-0281-N03",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ],
+        "X12": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X13": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X14": [
+          "no_evidence",
+          "no_evidence",
+          "support"
+        ],
+        "X15": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X16": [
+          "no_evidence",
+          "support",
+          "support"
+        ],
+        "X17": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X18": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X19": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X2": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X20": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X3": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X6": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X9": [
+          "strong_support",
+          "strong_support",
+          "strong_support"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "no_evidence",
+        "X3": "no_evidence",
+        "X4": "no_evidence",
+        "X5": "no_evidence",
+        "X6": "no_evidence",
+        "X7": "no_evidence",
+        "X8": "no_evidence",
+        "X9": "strong_support",
+        "X10": "no_evidence",
+        "X11": "strong_support",
+        "X12": "strong_support",
+        "X13": "support",
+        "X14": "support",
+        "X15": "no_evidence",
+        "X16": "support",
+        "X17": "no_evidence",
+        "X18": "support",
+        "X19": "no_evidence",
+        "X20": "no_evidence"
+      }
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "weak_support",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X12": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X13": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X14": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X15": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X16": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X17": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X18": [
+          "weak_support",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X19": [
+          "support",
+          "weak_support",
+          "support"
+        ],
+        "X2": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X20": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X3": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X6": [
+          "support",
+          "support",
+          "support"
+        ],
+        "X7": [
+          "no_evidence",
+          "weak_support",
+          "support"
+        ],
+        "X8": [
+          "support",
+          "support",
+          "mixed"
+        ],
+        "X9": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "no_evidence",
+        "X3": "support",
+        "X4": "no_evidence",
+        "X5": "support",
+        "X6": "support",
+        "X7": "no_evidence",
+        "X8": "support",
+        "X9": "no_evidence",
+        "X10": "no_evidence",
+        "X11": "support",
+        "X12": "no_evidence",
+        "X13": "no_evidence",
+        "X14": "no_evidence",
+        "X15": "no_evidence",
+        "X16": "no_evidence",
+        "X17": "support",
+        "X18": "no_evidence",
+        "X19": "support",
+        "X20": "no_evidence"
+      }
+    },
+    {
+      "instance": "RBV2-0317-N03",
+      "labels": {
+        "X1": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X10": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X11": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X12": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X13": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X14": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X15": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X16": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X17": [
+          "support",
+          "weak_support",
+          "weak_support"
+        ],
+        "X18": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X19": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X2": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X20": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X3": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X4": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X5": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X6": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X7": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X8": [
+          "no_evidence",
+          "no_evidence",
+          "no_evidence"
+        ],
+        "X9": [
+          "no_evidence",
+          "no_evidence",
+          "support"
+        ]
+      },
+      "original": {
+        "X1": "no_evidence",
+        "X2": "no_evidence",
+        "X3": "no_evidence",
+        "X4": "no_evidence",
+        "X5": "no_evidence",
+        "X6": "no_evidence",
+        "X7": "no_evidence",
+        "X8": "no_evidence",
+        "X9": "no_evidence",
+        "X10": "no_evidence",
+        "X11": "no_evidence",
+        "X12": "no_evidence",
+        "X13": "no_evidence",
+        "X14": "no_evidence",
+        "X15": "no_evidence",
+        "X16": "no_evidence",
+        "X17": "support",
+        "X18": "no_evidence",
+        "X19": "no_evidence",
+        "X20": "no_evidence"
+      }
+    }
+  ]
+}

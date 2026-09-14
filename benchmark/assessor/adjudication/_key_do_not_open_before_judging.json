@@ -1,0 +1,300 @@
+{
+  "generated_at": "2026-09-12T11:49:20Z",
+  "warning": "Contains the current assessor's labels. Opening this before you have submitted your judgments invalidates your contribution to the inter-judge agreement statistic.",
+  "cases": {
+    "2e09d5ed::K-0108-K2::X7": {
+      "run": "consequence_graph_20260912T093743Z_2e09d5ed",
+      "instance": "K-0108-K2",
+      "node": "X7",
+      "current_label": "contradiction",
+      "stratum": "contradiction"
+    },
+    "3cce1d6b::RBV2-0012-N00::X15": {
+      "run": "consequence_graph_20260911T204302Z_3cce1d6b",
+      "instance": "RBV2-0012-N00",
+      "node": "X15",
+      "current_label": "contradiction",
+      "stratum": "contradiction"
+    },
+    "3cce1d6b::RBV2-0012-N00::X3": {
+      "run": "consequence_graph_20260911T204302Z_3cce1d6b",
+      "instance": "RBV2-0012-N00",
+      "node": "X3",
+      "current_label": "contradiction",
+      "stratum": "contradiction"
+    },
+    "29ba6b44::RBV2-0012-N00::X15": {
+      "run": "consequence_graph_20260912T084714Z_29ba6b44",
+      "instance": "RBV2-0012-N00",
+      "node": "X15",
+      "current_label": "mixed",
+      "stratum": "mixed"
+    },
+    "be139301::RBV2-0012-N00::X13": {
+      "run": "consequence_graph_20260912T113255Z_be139301",
+      "instance": "RBV2-0012-N00",
+      "node": "X13",
+      "current_label": "mixed",
+      "stratum": "mixed"
+    },
+    "fa07107f::RBV2-0034-N04::X1": {
+      "run": "consequence_graph_20260911T205509Z_fa07107f",
+      "instance": "RBV2-0034-N04",
+      "node": "X1",
+      "current_label": "mixed",
+      "stratum": "mixed"
+    },
+    "29ba6b44::RBV2-0005-N07::X11": {
+      "run": "consequence_graph_20260912T084714Z_29ba6b44",
+      "instance": "RBV2-0005-N07",
+      "node": "X11",
+      "current_label": "no_evidence",
+      "stratum": "no_evidence/clean"
+    },
+    "2e09d5ed::K-0038-K2::X23": {
+      "run": "consequence_graph_20260912T093743Z_2e09d5ed",
+      "instance": "K-0038-K2",
+      "node": "X23",
+      "current_label": "no_evidence",
+      "stratum": "no_evidence/clean"
+    },
+    "802860c3::K-0113-K4::X12": {
+      "run": "consequence_graph_20260912T100237Z_802860c3",
+      "instance": "K-0113-K4",
+      "node": "X12",
+      "current_label": "no_evidence",
+      "stratum": "no_evidence/clean"
+    },
+    "fa07107f::RBV2-0038-N04::X19": {
+      "run": "consequence_graph_20260911T205509Z_fa07107f",
+      "instance": "RBV2-0038-N04",
+      "node": "X19",
+      "current_label": "no_evidence",
+      "stratum": "no_evidence/clean"
+    },
+    "29ba6b44::RBV2-0005-N07::X12": {
+      "run": "consequence_graph_20260912T084714Z_29ba6b44",
+      "instance": "RBV2-0005-N07",
+      "node": "X12",
+      "current_label": "no_evidence",
+      "stratum": "no_evidence/concedes_related"
+    },
+    "29ba6b44::RBV2-0034-N04::X16": {
+      "run": "consequence_graph_20260912T084714Z_29ba6b44",
+      "instance": "RBV2-0034-N04",
+      "node": "X16",
+      "current_label": "no_evidence",
+      "stratum": "no_evidence/concedes_related"
+    },
+    "2e09d5ed::K-0095-K2::X8": {
+      "run": "consequence_graph_20260912T093743Z_2e09d5ed",
+      "instance": "K-0095-K2",
+      "node": "X8",
+      "current_label": "no_evidence",
+      "stratum": "no_evidence/concedes_related"
+    },
+    "2e09d5ed::K-0113-K2::X3": {
+      "run": "consequence_graph_20260912T093743Z_2e09d5ed",
+      "instance": "K-0113-K2",
+      "node": "X3",
+      "current_label": "no_evidence",
+      "stratum": "no_evidence/concedes_related"
+    },
+    "4f5bf099::RBV-19::X27": {
+      "run": "consequence_graph_20260912T092229Z_4f5bf099",
+      "instance": "RBV-19",
+      "node": "X27",
+      "current_label": "no_evidence",
+      "stratum": "no_evidence/concedes_related"
+    },
+    "802860c3::K-0038-K4::X22": {
+      "run": "consequence_graph_20260912T100237Z_802860c3",
+      "instance": "K-0038-K4",
+      "node": "X22",
+      "current_label": "no_evidence",
+      "stratum": "no_evidence/concedes_related"
+    },
+    "802860c3::K-0095-K4::X33": {
+      "run": "consequence_graph_20260912T100237Z_802860c3",
+      "instance": "K-0095-K4",
+      "node": "X33",
+      "current_label": "no_evidence",
+      "stratum": "no_evidence/concedes_related"
+    },
+    "802860c3::K-0108-K4::X28": {
+      "run": "consequence_graph_20260912T100237Z_802860c3",
+      "instance": "K-0108-K4",
+      "node": "X28",
+      "current_label": "no_evidence",
+      "stratum": "no_evidence/concedes_related"
+    },
+    "802860c3::K-0113-K4::X29": {
+      "run": "consequence_graph_20260912T100237Z_802860c3",
+      "instance": "K-0113-K4",
+      "node": "X29",
+      "current_label": "no_evidence",
+      "stratum": "no_evidence/concedes_related"
+    },
+    "be139301::RBV2-0018-N05::X10": {
+      "run": "consequence_graph_20260912T113255Z_be139301",
+      "instance": "RBV2-0018-N05",
+      "node": "X10",
+      "current_label": "no_evidence",
+      "stratum": "no_evidence/concedes_related"
+    },
+    "fa07107f::RBV2-0018-N05::X15": {
+      "run": "consequence_graph_20260911T205509Z_fa07107f",
+      "instance": "RBV2-0018-N05",
+      "node": "X15",
+      "current_label": "no_evidence",
+      "stratum": "no_evidence/concedes_related"
+    },
+    "fedc0735::RBV-19::X13": {
+      "run": "consequence_graph_20260911T213919Z_fedc0735",
+      "instance": "RBV-19",
+      "node": "X13",
+      "current_label": "no_evidence",
+      "stratum": "no_evidence/concedes_related"
+    },
+    "29ba6b44::RBV2-0005-N07::X6": {
+      "run": "consequence_graph_20260912T084714Z_29ba6b44",
+      "instance": "RBV2-0005-N07",
+      "node": "X6",
+      "current_label": "strong_support",
+      "stratum": "strong_support"
+    },
+    "29ba6b44::RBV2-0018-N05::X3": {
+      "run": "consequence_graph_20260912T084714Z_29ba6b44",
+      "instance": "RBV2-0018-N05",
+      "node": "X3",
+      "current_label": "strong_support",
+      "stratum": "strong_support"
+    },
+    "802860c3::K-0095-K4::X13": {
+      "run": "consequence_graph_20260912T100237Z_802860c3",
+      "instance": "K-0095-K4",
+      "node": "X13",
+      "current_label": "strong_support",
+      "stratum": "strong_support"
+    },
+    "be139301::RBV2-0012-N00::X15": {
+      "run": "consequence_graph_20260912T113255Z_be139301",
+      "instance": "RBV2-0012-N00",
+      "node": "X15",
+      "current_label": "strong_support",
+      "stratum": "strong_support"
+    },
+    "29ba6b44::RBV2-0005-N07::X10": {
+      "run": "consequence_graph_20260912T084714Z_29ba6b44",
+      "instance": "RBV2-0005-N07",
+      "node": "X10",
+      "current_label": "support",
+      "stratum": "support"
+    },
+    "2e09d5ed::K-0038-K2::X20": {
+      "run": "consequence_graph_20260912T093743Z_2e09d5ed",
+      "instance": "K-0038-K2",
+      "node": "X20",
+      "current_label": "support",
+      "stratum": "support"
+    },
+    "802860c3::K-0038-K4::X3": {
+      "run": "consequence_graph_20260912T100237Z_802860c3",
+      "instance": "K-0038-K4",
+      "node": "X3",
+      "current_label": "support",
+      "stratum": "support"
+    },
+    "be139301::RBV2-0005-N07::X2": {
+      "run": "consequence_graph_20260912T113255Z_be139301",
+      "instance": "RBV2-0005-N07",
+      "node": "X2",
+      "current_label": "support",
+      "stratum": "support"
+    },
+    "29ba6b44::RBV2-0012-N00::X13": {
+      "run": "consequence_graph_20260912T084714Z_29ba6b44",
+      "instance": "RBV2-0012-N00",
+      "node": "X13",
+      "current_label": "weak_contradiction",
+      "stratum": "weak_contradiction"
+    },
+    "29ba6b44::RBV2-0034-N04::X8": {
+      "run": "consequence_graph_20260912T084714Z_29ba6b44",
+      "instance": "RBV2-0034-N04",
+      "node": "X8",
+      "current_label": "weak_contradiction",
+      "stratum": "weak_contradiction"
+    },
+    "fa07107f::RBV2-0034-N04::X4": {
+      "run": "consequence_graph_20260911T205509Z_fa07107f",
+      "instance": "RBV2-0034-N04",
+      "node": "X4",
+      "current_label": "weak_contradiction",
+      "stratum": "weak_contradiction"
+    },
+    "fa07107f::RBV2-0034-N04::X6": {
+      "run": "consequence_graph_20260911T205509Z_fa07107f",
+      "instance": "RBV2-0034-N04",
+      "node": "X6",
+      "current_label": "weak_contradiction",
+      "stratum": "weak_contradiction"
+    },
+    "29ba6b44::RBV2-0005-N07::X1": {
+      "run": "consequence_graph_20260912T084714Z_29ba6b44",
+      "instance": "RBV2-0005-N07",
+      "node": "X1",
+      "current_label": "weak_support",
+      "stratum": "weak_support"
+    },
+    "2e09d5ed::K-0113-K2::X13": {
+      "run": "consequence_graph_20260912T093743Z_2e09d5ed",
+      "instance": "K-0113-K2",
+      "node": "X13",
+      "current_label": "weak_support",
+      "stratum": "weak_support"
+    },
+    "802860c3::K-0108-K4::X40": {
+      "run": "consequence_graph_20260912T100237Z_802860c3",
+      "instance": "K-0108-K4",
+      "node": "X40",
+      "current_label": "weak_support",
+      "stratum": "weak_support"
+    },
+    "be139301::RBV2-0012-N00::X2": {
+      "run": "consequence_graph_20260912T113255Z_be139301",
+      "instance": "RBV2-0012-N00",
+      "node": "X2",
+      "current_label": "weak_support",
+      "stratum": "weak_support"
+    },
+    "802860c3::K-0038-K4::X45": {
+      "run": "consequence_graph_20260912T100237Z_802860c3",
+      "instance": "K-0038-K4",
+      "node": "X45",
+      "current_label": "no_evidence",
+      "stratum": "forced"
+    },
+    "2e09d5ed::K-0038-K2::X1": {
+      "run": "consequence_graph_20260912T093743Z_2e09d5ed",
+      "instance": "K-0038-K2",
+      "node": "X1",
+      "current_label": "no_evidence",
+      "stratum": "forced"
+    },
+    "802860c3::K-0095-K4::X34": {
+      "run": "consequence_graph_20260912T100237Z_802860c3",
+      "instance": "K-0095-K4",
+      "node": "X34",
+      "current_label": "no_evidence",
+      "stratum": "forced"
+    },
+    "802860c3::K-0113-K4::X19": {
+      "run": "consequence_graph_20260912T100237Z_802860c3",
+      "instance": "K-0113-K4",
+      "node": "X19",
+      "current_label": "no_evidence",
+      "stratum": "forced"
+    }
+  }
+}

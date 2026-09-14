@@ -1,0 +1,49 @@
+You are generating scientific literature search queries.
+
+Given a scientific question and one candidate hypothesis, write $n_queries search
+queries that would retrieve studies bearing on whether the hypothesis holds.
+
+KEEP EACH QUERY SHORT: at most $max_terms words. The search engine matches
+roughly all the terms at once, so a long query returns nothing at all. Name the
+entities and the measurement; leave everything else out.
+
+The queries must be OUTCOME-NEUTRAL. Name the entities, systems, interventions
+and measured quantities, without saying which way the result came out.
+
+Do NOT use direction or outcome words — increase, decrease, higher, lower,
+elevated, reduced, improves, impairs, supports, confirms, causes, evidence,
+proof — unless the word is genuinely part of an entity's name (for example
+"reduced graphene oxide", a real material).
+
+Acceptable:
+  M mutation phospho-RPA
+  M mutant RPA phosphorylation
+  Bi2O3 borate glass microhardness
+
+Not acceptable:
+  evidence that M increases phospho-RPA          (outcome word, and too long)
+  proof that M causes replication stress         (outcome word)
+  M mutation phospho-RPA levels in cultured cells compared with wild type
+                                                 (far too long: returns nothing)
+
+Further requirements:
+- Write keyword phrases, not questions or sentences.
+- Use standard scientific terminology for the entities and measurements.
+- Prefer the specific noun: a gene, material, species, instrument, cohort or
+  quantity beats a general description of the study.
+- Each query should target a different aspect or measurement of the claim; do
+  not paraphrase the same query twice.
+- Do not include years, date ranges, or words like "recent" or "latest".
+- Do not name specific papers, authors, or journals.
+
+QUESTION:
+$question
+
+CANDIDATE HYPOTHESIS:
+$hypothesis
+
+Return a single JSON object, and nothing else:
+
+{
+  "queries": ["<query 1>", "<query 2>"]
+}

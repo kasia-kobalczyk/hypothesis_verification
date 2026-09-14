@@ -1,0 +1,45 @@
+You are converting a scientific hypothesis into a short declarative claim.
+
+You are given a research question and ONE candidate answer to it. The candidate
+may be a terse summary of a finding, or a long proposal full of methodology,
+instruments, numbers and sub-hypotheses. Your job is the same either way: state
+the scientific claim it makes about the world, in one short sentence.
+
+Keep:
+- the subject: the system, population, material, or phenomenon;
+- the asserted relationship: what affects what, in which direction;
+- the mechanism, if one is genuinely asserted, in a few words.
+
+Remove:
+- methodology, instruments, datasets, software, sample sizes, statistics;
+- proposed experiments, validation plans, simulations, future work;
+- hedging and framing ("we hypothesize", "the paper concludes", "this study
+  proposes", "we will test whether");
+- numbered lists, sub-claims, citations, references and placeholders;
+- justification, motivation, significance and implications.
+
+Rules:
+- ONE sentence, at most $max_tokens words, plain declarative present or past tense.
+- State the claim as an assertion, not as a question or a proposal.
+- Do NOT judge whether the claim is true, likely, or well supported. You are
+  translating, not evaluating.
+- Do NOT make the claim more or less confident than the original. If the original
+  asserts a direction, keep that direction exactly.
+- If the candidate makes several claims, state its single central claim: the one
+  the rest depends on.
+- Use the original's own terminology for entities and quantities.
+- If the candidate asserts no claim about the world at all (it only proposes a
+  method), say so by returning "claim": null.
+
+QUESTION:
+$question
+
+CANDIDATE:
+$candidate
+
+Return a single JSON object, and nothing else:
+
+{
+  "claim": "<one short declarative sentence, or null>",
+  "central_relationship": "<what affects what, in a few words>"
+}

@@ -1,0 +1,98 @@
+[
+  {
+    "row": "RBV2-0063-N05",
+    "point_gold_first": false,
+    "n_inf": 4,
+    "edge": 0.0,
+    "evidence": 0.04,
+    "both": 0.045
+  },
+  {
+    "row": "RBV2-0083-N01",
+    "point_gold_first": true,
+    "n_inf": 16,
+    "edge": 0.995,
+    "evidence": 0.995,
+    "both": 0.97
+  },
+  {
+    "row": "RBV2-0108-N03",
+    "point_gold_first": true,
+    "n_inf": 8,
+    "edge": 0.9,
+    "evidence": 0.78,
+    "both": 0.815
+  },
+  {
+    "row": "RBV2-0113-N08",
+    "point_gold_first": true,
+    "n_inf": 7,
+    "edge": 1.0,
+    "evidence": 1.0,
+    "both": 1.0
+  },
+  {
+    "row": "RBV2-0132-N09",
+    "point_gold_first": true,
+    "n_inf": 1,
+    "edge": 1.0,
+    "evidence": 0.79,
+    "both": 0.8
+  },
+  {
+    "row": "RBV2-0159-N04",
+    "point_gold_first": false,
+    "n_inf": 11,
+    "edge": 0.04,
+    "evidence": 0.03,
+    "both": 0.075
+  },
+  {
+    "row": "RBV2-0193-N06",
+    "point_gold_first": false,
+    "n_inf": 4,
+    "edge": 0.015,
+    "evidence": 0.0,
+    "both": 0.075
+  },
+  {
+    "row": "RBV2-0206-N00",
+    "point_gold_first": false,
+    "n_inf": 3,
+    "edge": 0.46,
+    "evidence": 0.295,
+    "both": 0.475
+  },
+  {
+    "row": "RBV2-0207-N00",
+    "point_gold_first": true,
+    "n_inf": 1,
+    "edge": 0.705,
+    "evidence": 0.72,
+    "both": 0.58
+  },
+  {
+    "row": "RBV2-0222-N05",
+    "point_gold_first": true,
+    "n_inf": 8,
+    "edge": 1.0,
+    "evidence": 1.0,
+    "both": 1.0
+  },
+  {
+    "row": "RBV2-0225-N02",
+    "point_gold_first": false,
+    "n_inf": 5,
+    "edge": 0.24,
+    "evidence": 0.375,
+    "both": 0.315
+  },
+  {
+    "row": "RBV2-0226-N06",
+    "point_gold_first": false,
+    "n_inf": 11,
+    "edge": 0.105,
+    "evidence": 0.125,
+    "both": 0.1
+  }
+]

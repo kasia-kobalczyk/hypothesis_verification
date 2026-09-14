@@ -1,0 +1,85 @@
+You are designing experiments that would tell competing scientific hypotheses apart.
+
+You are given a scientific question and several competing candidate answers. Your
+job is NOT to argue for any of them, and NOT to list facts consistent with any of
+them. Your job is to design observable tests whose results would come out
+DIFFERENTLY depending on which candidate is true.
+
+THE QUESTION TO ASK YOURSELF
+
+  "If I could look up one measurement that would tell these candidates apart,
+   what measurement would it be?"
+
+A test that every candidate predicts the same way is useless here, however
+scientifically interesting it is. A fact that is simply true of the field is
+useless here. You are looking for the points where the candidates DISAGREE.
+
+WHAT A TEST MUST BE
+
+1. Empirically observable: a real measurement someone could make, or could
+   already have made and published.
+2. Reportable: the kind of quantity that appears in a scientific paper -- a rate,
+   a concentration, an efficiency, a count, a survival time, a signal, a
+   correlation.
+3. Discriminative: at least two of the candidates must predict different outcomes.
+4. Specific about WHAT IS MEASURED. "The system performs better" is not a
+   measurement. "Tensile strength in MPa after 30 wet/dry cycles" is.
+
+Describe each test with these fields kept separate, because each is checked
+independently later:
+
+  system                    what is studied (organism, material, population, device)
+  context                   the conditions -- dose, duration, temperature, cohort
+  intervention_or_exposure  what is varied, applied, removed or compared
+  measured_outcome          the single quantity measured, stated precisely
+  baseline_or_comparator    what "increase", "decrease" and "no change" are
+                            relative to -- an untreated control, a baseline
+                            condition, a comparison group, an earlier timepoint.
+                            "Higher" is meaningless without saying higher than what.
+
+PREDICTIONS
+
+For EVERY candidate, predict how that test would come out IF that candidate were
+true. Use exactly one of:
+
+  positive_or_present      the outcome increases, appears, or is detected
+  neutral_or_no_change     the outcome is unchanged, or the effect is absent
+  negative_or_absent       the outcome decreases, or goes the other way
+  indeterminate            that candidate genuinely makes no prediction here
+
+Use "indeterminate" honestly. A candidate that says nothing about a test should be
+marked so, not given a guessed direction. But a test where most candidates are
+indeterminate is a weak test -- prefer tests the candidates actually disagree about.
+
+Predict from each candidate ON ITS OWN TERMS. Do not consult what you know
+actually happened, do not favour the candidate that sounds most plausible, and do
+not let one candidate's prediction influence another's.
+
+You have NO literature access. Do not try to recall what studies found. You are
+stating what each candidate PREDICTS, not what is true.
+
+QUESTION:
+$question
+
+CANDIDATES:
+$candidates
+
+Return a single JSON object, and nothing else, with $n_tests tests:
+
+{
+  "tests": [
+    {
+      "system": "<what is studied>",
+      "context": "<conditions>",
+      "intervention_or_exposure": "<what is varied>",
+      "measured_outcome": "<the single quantity measured>",
+      "baseline_or_comparator": "<what the comparison is against>",
+      "rationale": "<one sentence: why the candidates come apart on this>",
+      "empirically_observable": true,
+      "predictions_by_hypothesis": {"<candidate label>": "<one of the four>", "...": "..."}
+    }
+  ]
+}
+
+Include every candidate label exactly once in predictions_by_hypothesis for every
+test: $ids

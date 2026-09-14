@@ -1,0 +1,112 @@
+{
+  "derived": "This is a DERIVED benchmark. Every candidate was rewritten by a model. It is not untouched ResearchBench and must not be described as such.",
+  "diagnostic_verdict": {
+    "bar": "abs(accuracy - 0.5) <= 0.10",
+    "bar_provenance": "the frozen protocol said 'near 0.5' and 'substantially below 0.870' with no number; this bar was set explicitly by the research owner after that omission came to light",
+    "judge_noise_note": "the question-hidden judge scored 0.870 and 0.890 on two runs over the same 100 official v2 pairs; ~0.02 is noise",
+    "longest_text_first": {
+      "accuracy": 0.395,
+      "verdict": "fail"
+    },
+    "overall": "fail",
+    "question_hidden_judge": {
+      "accuracy": 0.686,
+      "verdict": "fail"
+    },
+    "question_hidden_judge_counterbalanced": {
+      "accuracy": 0.643,
+      "baseline": 0.5,
+      "comparison": {
+        "canonical": 0.643,
+        "v1": 0.777,
+        "v2_official": 0.91
+      },
+      "decomposition": {
+        "accuracy_on_those_pairs": 0.875,
+        "pairs_with_an_order_consistent_answer": 0.381,
+        "reading": "canonicalisation cut the FRACTION of pairs carrying a usable text-only cue from 0.86 (v2) to 0.38, while leaving the cue nearly as strong on the pairs that still have one (0.977 -> 0.875)",
+        "remaining_pairs": "flip with order; each credited 0.5"
+      },
+      "note": "Supersedes the single-order 0.686. Every pair judged in both orders and averaged, so position preference cancels exactly; a pure position-guesser scores 0.500 under this scheme.",
+      "order_consistency": 0.381,
+      "position_preference_chose_a": 0.809,
+      "verdict": "fail"
+    },
+    "shortest_text_first": {
+      "accuracy": 0.605,
+      "verdict": "fail"
+    }
+  },
+  "frozen_at": "2026-09-11T21:16:56Z",
+  "gates": [
+    "inherited R1/R3/R5/R6 row screen + R4 cutoff (reused verbatim from the v2 build)",
+    "symmetric canonicalisation, blind to candidate role",
+    "semantic preservation check on every canonical claim",
+    "R2 pair comparability re-applied to the CANONICAL texts"
+  ],
+  "length_profile": {
+    "gold_tokens_median": 30,
+    "negative_tokens_median": 30,
+    "ratio_max": 1.778,
+    "ratio_median": 1.042,
+    "ratio_min": 0.6,
+    "share_gold_shorter": 0.5714
+  },
+  "llm": {
+    "deployment": "gpt-4.1-kasia",
+    "provider": "azure",
+    "temperature": 0.0
+  },
+  "llm_usage": {
+    "completion_tokens": 50950,
+    "prompt_tokens": 379635,
+    "total_tokens": 430585
+  },
+  "max_claim_words": 30,
+  "n_pairs": 105,
+  "n_rows_canonicalised": 21,
+  "n_source_rows": 21,
+  "name": "ResearchBench-derived canonicalized evaluation benchmark",
+  "no_length_gate": "Length is measured and reported, never filtered. If a length cue survives canonicalisation that is a finding about the transformation.",
+  "not_used_in_construction": [
+    "literature retrieval",
+    "Direct-RAG output",
+    "consequence-graph output",
+    "any verifier score",
+    "any artifact-diagnostic result",
+    "knowledge of which candidate is the gold, at any transformation step"
+  ],
+  "preservation": {
+    "not_preserved": 12,
+    "preserved": 219
+  },
+  "prompts": {
+    "canonicalise": {
+      "name": "canonicalise_claim_v1",
+      "path": "/mnt/data/knk25.data/hypothesis_verification/src/llm/prompts/canonicalise_claim_v1.txt",
+      "sha256_16": "d969749ccd028d03"
+    },
+    "pair_comparability": {
+      "name": "pair_comparability_v1",
+      "path": "/mnt/data/knk25.data/hypothesis_verification/src/llm/prompts/pair_comparability_v1.txt",
+      "sha256_16": "714297d657f239b3"
+    },
+    "preservation": {
+      "name": "canonical_preservation_v1",
+      "path": "/mnt/data/knk25.data/hypothesis_verification/src/llm/prompts/canonical_preservation_v1.txt",
+      "sha256_16": "19a7d460fc0958a2"
+    }
+  },
+  "protocol": "docs/CANONICAL_PROTOCOL.md (frozen before this build ran)",
+  "rejected": {
+    "not_screened_for_validity": 31,
+    "row_screen": 8
+  },
+  "screening_order": "SHA256(DOI) ascending after DOI deduplication (v1 order)",
+  "source_dataset": "/mnt/data/knk25.data/hypothesis_verification/benchmark/ranking.jsonl",
+  "status": "EVALUATION CANDIDATE \u2014 FAILED the frozen style diagnostics; NOT usable as an evaluation benchmark",
+  "status_note": "Diagnostics run after freezing: shortest-text-first 0.605, longest-text-first 0.395, question-hidden judge 0.643 counterbalanced (0.686 single-order, which was confounded by an 81% preference for option A). All three are outside a within-0.1-of-chance band, so the slice does not clear the bar it was built to clear. It remains a useful measurement of what symmetric canonicalisation can remove: the share of pairs with a detectable text-only cue fell from 86% to 38%, and semantic preservation was 94.8%. It may be used for development, but aggregate accuracy on it must not be reported as evidence for the method. See benchmark/canonical/canonical_report.md and docs/DECISIONS.md #16 and #21.",
+  "target_pairs": 100,
+  "target_reached": true,
+  "version": "canonical-v1"
+}

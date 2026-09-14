@@ -1,0 +1,92 @@
+You are implementing the MVP for a research project on scientific hypothesis verification.
+
+You have two context files:
+
+1. The current paper draft (`.tex`), which describes the scientific motivation, problem setup, and intended method.
+2. `IMPLEMENTATION_SPEC.md`, which is the authoritative engineering specification for the MVP.
+3. A set of 20 development tasks in `researchbench_dev20_v1.jsonl`
+
+Read everything before writing code.
+
+Your task is to implement the project incrementally, starting with infrastructure and baselines before the consequence-graph verifier.
+
+Important constraints:
+
+- Do not modify the scientific method unless the specification explicitly asks you to.
+- If a methodological choice is underspecified, expose it through configuration or leave a clear TODO instead of inventing a sophisticated solution.
+- Preserve ResearchBench hypothesis text verbatim.
+- Do not rewrite or canonicalize benchmark hypotheses.
+- The literature cutoff must be enforced by the backend, not by prompting the model.
+- Post-cutoff literature must never be exposed to the agent.
+- Missing literature is not contradictory evidence.
+- Direct evidence is allowed.
+- Graph distance must not be used as a proxy for evidence strength.
+- Scientific proposition nodes use `X_v`; retrieved literature evidence uses `D_v`. Do not introduce a separate `C` variable/type.
+- Graph construction and proposition selection must be completed before literature outcomes are observed.
+- Search queries should be outcome-neutral.
+- Every experiment must save enough intermediate artifacts to diagnose failures.
+
+The first implementation milestone is:
+
+1. Create the repository structure described in `IMPLEMENTATION_SPEC.md`.
+2. Add a loader for the frozen ResearchBench 20-case development set.
+3. Implement source-paper temporal metadata resolution using Crossref.
+4. Implement a Semantic Scholar literature client.
+5. Implement hard cutoff filtering that cannot be overridden by the agent.
+6. Add literature-result normalization and caching.
+7. Add direct LLM judge baseline.
+8. Add direct-RAG baseline using the same temporally constrained search service.
+9. Add a common experiment runner and basic ranking metrics.
+10. Add unit tests for temporal leakage, cutoff boundaries, caching, missing evidence, and baseline isolation.
+
+Do NOT implement the consequence graph yet unless the first milestone is complete and tested.
+
+Before coding, inspect the provided files and produce a short implementation plan containing:
+- proposed repository structure;
+- key data models/interfaces;
+- external dependencies;
+- environment variables/API keys required;
+- assumptions or ambiguities that require a decision;
+- test strategy.
+
+Then implement the first milestone.
+
+For each significant step:
+- keep components modular;
+- use typed Python where practical;
+- keep configuration in YAML/JSON rather than hard-coding experimental constants;
+- log external API inputs/outputs and normalization decisions;
+- make runs reproducible from cached search responses;
+- write tests as you implement core components.
+
+For external APIs:
+- Semantic Scholar is the primary literature search provider.
+- Crossref is used for DOI/date metadata validation.
+- Handle missing dates, missing DOI, missing abstracts, rate limits, malformed responses, and transient failures explicitly.
+- API failure must not be interpreted as `no_evidence`.
+
+For temporal safety:
+- every path by which a paper can reach the model must pass through the cutoff filter;
+- this includes search, citation/reference expansion, metadata lookup, and any future full-text retrieval;
+- add tests that deliberately return post-cutoff papers and verify they never reach the model.
+
+For experiment outputs, each run should save:
+- config;
+- input instance;
+- prompts/prompt versions;
+- queries;
+- raw retrieval responses;
+- eligible retrieval results;
+- model outputs;
+- parsed scores;
+- metrics;
+- errors/retries.
+
+Use the current 20-case development set only for development/debugging. Do not optimize the method to these cases or change dataset membership based on method performance.
+
+At the end of the first milestone, report:
+1. what was implemented;
+2. what remains TODO;
+3. any assumptions made;
+4. any scientific ambiguities that should be resolved before consequence-graph implementation;
+5. exact commands to run the baselines and tests.

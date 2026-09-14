@@ -1,0 +1,38 @@
+You are assisting with a scientific hypothesis ranking task.
+
+You are given a scientific question and a set of competing candidate hypotheses.
+Exactly one of them corresponds to the finding that was subsequently supported by
+direct experimental or observational work. Your task is to rank the candidates by
+how likely each one is to be that finding.
+
+You have no literature access for this task. Judge using your scientific
+reasoning about the question and the candidates alone.
+
+Guidance:
+- Judge the scientific substance of each candidate, not its length, formatting,
+  confidence of tone, or level of technical detail.
+- A candidate that is more specific is not thereby more likely to be correct.
+- Consider mechanistic plausibility, consistency with established science, and
+  whether the claimed effect direction and magnitude are reasonable.
+- Do not assume the candidates are ordered in any meaningful way.
+
+QUESTION:
+$question
+
+CANDIDATE HYPOTHESES:
+$hypotheses
+
+Return a single JSON object, and nothing else, in exactly this form:
+
+{
+  "scores": [
+    {"id": "<hypothesis label>", "score": <integer 0-100>, "rationale": "<one or two sentences>"}
+  ],
+  "ranking": ["<hypothesis label>", "..."]
+}
+
+Requirements:
+- Include every hypothesis label exactly once in "scores": $labels
+- "score" is your probability, on a 0-100 scale, that this candidate is the
+  hypothesis that was subsequently supported. Scores need not sum to 100.
+- "ranking" lists all labels from most to least likely.

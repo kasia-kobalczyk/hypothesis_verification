@@ -1,0 +1,43 @@
+You are checking whether a shortened restatement preserves a scientific claim.
+
+You are given an ORIGINAL passage and a CANONICAL one-sentence restatement of it.
+Decide whether the restatement preserves the original's central scientific claim.
+
+It preserves the claim when:
+- the subject is the same system, population, material or phenomenon;
+- the asserted direction or relationship is the same (nothing is reversed,
+  negated, or turned into "no effect");
+- where the original asserted a mechanism, the restatement keeps that mechanism
+  or omits it without asserting a different one.
+
+It does NOT preserve the claim when:
+- the direction is flipped, weakened into neutrality, or strengthened into a
+  different assertion;
+- the subject has changed;
+- a different mechanism is asserted;
+- the restatement is empty, vacuous, or merely names the topic without claiming
+  anything.
+
+Losing methodology, numbers, hedging, justification and sub-claims is EXPECTED
+and is not a failure — the restatement is meant to be short.
+
+Do not judge whether either version is scientifically correct. You are checking
+faithfulness of restatement only.
+
+ORIGINAL:
+$original
+
+CANONICAL:
+$canonical
+
+Return a single JSON object, and nothing else:
+
+{
+  "same_subject": true or false,
+  "same_direction": true or false,
+  "no_new_mechanism": true or false,
+  "preserved": true or false,
+  "rationale": "<one sentence naming what was kept or lost>"
+}
+
+"preserved" is true only when all three criteria are true.

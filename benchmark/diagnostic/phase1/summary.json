@@ -1,0 +1,112 @@
+{
+  "generated_at": "2026-09-13T19:12:35Z",
+  "phase": 1,
+  "design_freeze": "49695b5b3440818c",
+  "n_instances": 10,
+  "n_failed": 0,
+  "n_tests_generated": 60,
+  "n_empirically_observable": 60,
+  "n_discriminative": 35,
+  "n_usable": 35,
+  "prediction_distribution": {
+    "positive_or_present": 58,
+    "neutral_or_no_change": 31,
+    "negative_or_absent": 18,
+    "indeterminate": 13
+  },
+  "rejection_reasons": {
+    "every candidate predicts the same, or all indeterminate": 25
+  },
+  "per_instance": [
+    {
+      "instance": "RBV2-0131-N03",
+      "n_generated": 6,
+      "n_empirically_observable": 6,
+      "n_discriminative": 2,
+      "n_usable": 2,
+      "n_rejected": 4,
+      "mean_distinct_predictions": 1.3333333333333333
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "n_generated": 6,
+      "n_empirically_observable": 6,
+      "n_discriminative": 4,
+      "n_usable": 4,
+      "n_rejected": 2,
+      "mean_distinct_predictions": 1.6666666666666667
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "n_generated": 6,
+      "n_empirically_observable": 6,
+      "n_discriminative": 4,
+      "n_usable": 4,
+      "n_rejected": 2,
+      "mean_distinct_predictions": 1.6666666666666667
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "n_generated": 6,
+      "n_empirically_observable": 6,
+      "n_discriminative": 3,
+      "n_usable": 3,
+      "n_rejected": 3,
+      "mean_distinct_predictions": 1.5
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "n_generated": 6,
+      "n_empirically_observable": 6,
+      "n_discriminative": 6,
+      "n_usable": 6,
+      "n_rejected": 0,
+      "mean_distinct_predictions": 2.0
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "n_generated": 6,
+      "n_empirically_observable": 6,
+      "n_discriminative": 5,
+      "n_usable": 5,
+      "n_rejected": 1,
+      "mean_distinct_predictions": 1.8333333333333333
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "n_generated": 6,
+      "n_empirically_observable": 6,
+      "n_discriminative": 2,
+      "n_usable": 2,
+      "n_rejected": 4,
+      "mean_distinct_predictions": 1.3333333333333333
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "n_generated": 6,
+      "n_empirically_observable": 6,
+      "n_discriminative": 2,
+      "n_usable": 2,
+      "n_rejected": 4,
+      "mean_distinct_predictions": 1.3333333333333333
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "n_generated": 6,
+      "n_empirically_observable": 6,
+      "n_discriminative": 5,
+      "n_usable": 5,
+      "n_rejected": 1,
+      "mean_distinct_predictions": 1.8333333333333333
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "n_generated": 6,
+      "n_empirically_observable": 6,
+      "n_discriminative": 2,
+      "n_usable": 2,
+      "n_rejected": 4,
+      "mean_distinct_predictions": 1.3333333333333333
+    }
+  ]
+}

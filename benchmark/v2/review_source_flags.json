@@ -1,0 +1,93 @@
+{
+  "n_checked": 57,
+  "n_flagged": 4,
+  "by_basis": {
+    "title_pattern": 1,
+    "venue_pattern": 3
+  },
+  "flagged": {
+    "10.1007/s13399-020-01243-6": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": "a review of",
+      "venue": "Biomass Conversion and Biorefinery",
+      "title": "A review of the traditional pulping methods and the recent improvements in the pulping processes"
+    },
+    "10.1016/j.tcb.2023.07.009": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Trends in ",
+      "venue": "Trends in Cell Biology",
+      "title": "Disulfidptosis: disulfide stress–induced cell death"
+    },
+    "10.1016/j.tree.2023.09.014": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Trends in ",
+      "venue": "Trends in Ecology &amp; Evolution",
+      "title": "Afforestation and climate mitigation: lessons from Chile"
+    },
+    "10.1038/s41579-023-00967-2": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Microbiology",
+      "title": "The soil plastisphere"
+    }
+  },
+  "limitation": "venue/title matching only. Crossref types review articles as journal-article, so a review in a general-purpose journal is not detected. TODO(research): classify from the abstract.",
+  "generated_at": "2026-09-12T08:46:08Z",
+  "slice": "/mnt/data/knk25.data/hypothesis_verification/benchmark/v2/researchbench_v2_pairs.jsonl",
+  "n_rows": 100,
+  "n_distinct_dois": 57,
+  "n_dois_without_cached_metadata": 0,
+  "dois_without_cached_metadata": [],
+  "lookup_errors": [],
+  "policy": {
+    "enabled": true,
+    "action": "exclude",
+    "venue_patterns": [
+      "Trends in ",
+      "Nature Reviews",
+      "Annual Review",
+      "Annual Reviews",
+      "Current Opinion in",
+      "Chemical Reviews",
+      "Reviews of Modern Physics",
+      "Physics Reports",
+      "Living Reviews in",
+      "Clinical Microbiology Reviews",
+      "Pharmacological Reviews",
+      "Physiological Reviews",
+      "Endocrine Reviews",
+      "Chemical Society Reviews",
+      "WIREs",
+      "Wiley Interdisciplinary Reviews",
+      "Reviews in ",
+      " Reviews",
+      "Annu. Rev."
+    ],
+    "title_patterns": [
+      "a review of",
+      "a review on",
+      "a systematic review",
+      "systematic review and meta-analysis",
+      "a survey of",
+      ": a review",
+      "current perspectives on",
+      "recent advances in",
+      "recent progress in",
+      "an overview of"
+    ]
+  },
+  "affected_row_ids": [
+    "RBV2-0005-N07",
+    "RBV2-0005-N09",
+    "RBV2-0012-N00",
+    "RBV2-0012-N03",
+    "RBV2-0083-N01",
+    "RBV2-0083-N03",
+    "RBV2-0288-N00"
+  ],
+  "note": "Flags only. This file does not modify the slice. For a newly built evaluation benchmark the same policy is applied as an exclusion gate at construction time."
+}

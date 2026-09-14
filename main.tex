@@ -1,0 +1,608 @@
+\documentclass[twoside]{article}
+
+\usepackage{aistats2026}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+% If your paper is accepted, change the options for the package
+% aistats2026 as follows:
+%
+%\usepackage[accepted]{aistats2026}
+%
+% This option will print headings for the title of your paper and
+% headings for the authors names, plus a copyright note at the end of
+% the first column of the first page.
+
+% We also include a `preprint' option for non-anonymous preprints. 
+% Change the options for the package aistats2026 as follows:
+%
+%\usepackage[preprint]{aistats2026}
+%
+% This option will print headings for the title of your paper and
+% headings for the authors names, but does not print the copyright and 
+% venue note at the end of the first column of the first page.
+
+% If you set papersize explicitly, activate the following three lines:
+%\special{papersize = 8.5in, 11in}
+%\setlength{\pdfpageheight}{11in}
+%\setlength{\pdfpagewidth}{8.5in}
+
+% If you use the natbib package, activate the following three lines:
+%\usepackage[round]{natbib}
+%\renewcommand{\bibname}{References}
+%\renewcommand{\bibsection}{\subsubsection*{\bibname}}
+
+% If you use BibTeX in apalike style, activate the following line:
+%\bibliographystyle{apalike}
+
+\begin{document}
+
+% If your paper is accepted and the title of your paper is very long,
+% the style will print as headings an error message. Use the following
+% command to supply a shorter title of your paper so that it can be
+% used as headings.
+%
+%\runningtitle{I use this title instead because the last one was very long}
+
+% If your paper is accepted and the number of authors is large, the
+% style will print as headings an error message. Use the following
+% command to supply a shorter version of the author names so that
+% they can be used as headings (for example, use only the surnames)
+%
+%\runningauthor{Surname 1, Surname 2, Surname 3, ...., Surname n}
+
+\twocolumn[
+
+\aistatstitle{What Else Should Be True? Verifying Scientific Hypotheses from Indirect Evidence}
+
+\aistatsauthor{ Author 1 \And Author 2 \And  Author 3 }
+
+\aistatsaddress{ Institution 1 \And  Institution 2 \And Institution 3 } ]
+
+\begin{abstract}
+Hypothesis generation is becoming increasingly accessible to large language models and scientific agents, shifting the bottleneck in automated discovery towards deciding which candidate hypotheses are most valuable to pursue experimentally. This is particularly difficult due to the intrinsic tension between novelty and support: presence of strong direct evidence may imply that a hypothesis is already established, while the absence of such evidence does not immediately imply that it is false. We propose to address this tension by verifying hypotheses through their consequences. Our verifier asks: ``If (H) is true, what else should be true?'' Our verifier searches the scientific literature for evidence concerning these derived consequences, which may lie at different inferential distances from the original hypothesis. We organize these consequences in an explicit consequence graph and aggregate the retrieved evidence with a Bayesian interpretation. This yields a decomposable and auditable alternative to holistic LLM judging or debate, designed to recover support for novel hypotheses even when direct evidence is sparse.
+\end{abstract}
+
+\section{Introduction}
+
+\paragraph{How should we verify scientific hypotheses?}
+Recent advances in large language models and scientific agents have made it
+increasingly easy to generate plausible scientific hypotheses. As hypothesis
+generation scales, however, the bottleneck shifts from proposing candidate
+ideas to deciding which of them are most likely to be correct and therefore
+worth pursuing experimentally. A useful scientific discovery system should not
+only generate hypotheses, but also distinguish promising candidates from
+plausible but incorrect alternatives before expensive experiments are carried
+out.
+
+We study scientific hypothesis verification as a ranking problem. Given a scientific question and a set of competing hypotheses the goal is to rank the hypotheses according to how likely they are to be valid using only scientific knowledge available prior to their eventual direct validation or refutation. This setting reflects a realistic scientific decision problem: experimental resources are limited, and the value of a hypothesis generating system depends on whether promising hypotheses can be distinguished from plausible but incorrect alternatives before expensive experiments are performed.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\linewidth]{figures/figure1_chatgpt.png}
+    \caption{\textbf{Illustrative consequence graph for scientific hypothesis
+    verification.} Three competing hypotheses about mutation $M$ imply
+    overlapping mechanistic and observable consequences at different
+    inferential distances. Literature evidence can attach to any empirically
+    assessable proposition in the graph, providing direct or indirect evidence
+    for the competing hypotheses. Colors denote hypothesis-associated pathways;
+    purple nodes are shared consequences. Literature entries are illustrative
+    placeholders, not real citations.}
+    \label{fig:consequence-graph}
+\end{figure*}
+
+\paragraph{Novel hypotheses are difficult to verify directly.}
+A central difficulty is that novelty and direct verifiability are naturally in
+tension. If a hypothesis is genuinely novel, the existing literature is
+unlikely to contain strong direct evidence establishing the same claim;
+otherwise, the hypothesis would already be close to established knowledge. At
+the same time, absence of direct evidence does not imply that the hypothesis is
+unsupported. Scientific hypotheses make commitments about the world, and many
+of their consequences may already have been studied independently and for
+unrelated purposes. Evidence relevant to a novel hypothesis may therefore be
+distributed across its consequences, even when no paper explicitly discusses
+the hypothesis itself.
+
+This observation creates a distinct verification problem from standard claim matching. Evidence may occur at different inferential distances from the focal hypothesis, and its relevance depends on how strongly the corresponding observation is implied by that hypothesis. Moreover, a consequence that is compatible with all competing hypotheses provides little evidence for ranking them, even if the consequence itself is well established. Verification must therefore identify evidence that is not only relevant, but discriminative among plausible alternatives. Figure~\ref{fig:consequence-graph} illustrates this setting for three competing hypotheses. Each hypothesis induces a branching set of consequences, with some pathways shared across candidates and literature evidence attaching to different parts of the graph.
+
+
+\paragraph{Beyond holistic hypothesis evaluation.}
+Existing approaches largely evaluate scientific hypotheses holistically. A
+language model can be asked to directly score candidate hypotheses according to
+plausibility or expected experimental success, while debate or tournament-style
+procedures encourage explicit comparison between competing candidates. These
+approaches can improve hypothesis ranking, but they place substantial burden on
+the model's latent scientific knowledge and reasoning ability: the model must
+implicitly identify which facts matter, determine how they bear on each
+hypothesis, and combine them into a final judgment.
+
+Retrieval-augmented approaches provide a complementary strategy by grounding evaluation in the scientific literature. When relevant evidence directly concerns the focal hypothesis, retrieving and assessing that evidence is natural. For a novel hypothesis, however, the informative literature may not discuss the hypothesis itself. As Figure~\ref{fig:consequence-graph} illustrates, relevant observations may instead be distributed across downstream propositions that are only indirectly connected to the focal claim. The challenge is therefore partly one of evidence formulation. Rather than asking only, ``Which papers discuss this hypothesis?'', we should ask, ``What else should hold if this hypothesis were correct, and has any of it already been observed?''
+
+\paragraph{Verification through consequences.}
+We propose to decompose hypothesis verification into a sequence of smaller,
+explicitly grounded tasks. Given competing hypotheses, we construct scientific
+consequences whose expected outcomes differ across candidates, search the
+literature for evidence concerning these consequences, assess the strength and
+direction of the retrieved evidence, and aggregate this evidence into a ranking
+of the original hypotheses. Consequences may occur at different inferential
+distances from the focal claim: direct evidence is used when available, while
+more remote evidence can provide weaker but complementary support.
+
+The resulting procedure has a natural Bayesian interpretation. If a
+proposition $X$ is substantially more likely to hold under $H_i$ than under
+$H_j$, then evidence supporting $X$ should increase the relative support for
+$H_i$ over $H_j$. This perspective shifts the goal from accumulating facts that are merely
+compatible with a hypothesis to identifying observations that change the
+relative evidence for competing hypotheses. It also yields a decomposable
+verification trace, in which the final ranking can be attributed to explicit
+consequences, retrieved evidence, and inferential relationships instead of
+being collapsed into a single holistic model judgment.
+
+\paragraph{Contributions.}
+$\blacktriangleright$~\textbf{Scientific hypothesis verification.}
+We formulate the problem of ranking competing scientific hypotheses using only
+scientific evidence available prior to their eventual direct validation.
+$\blacktriangleright$~\textbf{Consequence-based evidence discovery.}
+We introduce a verification framework that searches beyond direct mentions of
+the focal hypotheses by identifying discriminative scientific consequences at
+multiple inferential distances.
+$\blacktriangleright$~\textbf{Structured evidence aggregation.}
+We develop a structured representation of inferential relationships that
+supports evidence accumulation while distinguishing evidence strength,
+dependence, contradiction, and missing evidence.
+$\blacktriangleright$~\textbf{Decomposable verification.}
+Our framework exposes the intermediate consequences and retrieved evidence that
+drive each ranking decision, allowing failures of consequence generation,
+retrieval, evidence assessment, and aggregation to be analysed separately.
+$\blacktriangleright$~\textbf{Empirical evaluation.}
+We compare consequence-based verification with direct LLM judging,
+debate-based ranking, direct retrieval-augmented verification, and unstructured
+scientific search.
+
+\begin{table*}[h]
+\centering
+\caption{\textbf{Comparison of methods for scientific hypothesis verification
+and ranking.} $\checkmark$ denotes a capability explicitly represented by the
+method, $\circ$ denotes partial or implicit support, and $\times$ denotes that
+the capability is not explicitly modeled.}
+\scriptsize
+\setlength{\tabcolsep}{5pt}
+\vspace{0.5em}
+\begin{tabular}{lcccccc}
+\hline
+\textbf{Method}
+& \shortstack{Literature\\grounding}
+& \shortstack{Competing\\hypotheses}
+& \shortstack{Indirect\\consequences}
+& \shortstack{Structured\\evidence}
+& \shortstack{Missing\\$\mathbf{\neq}$refuting}
+& \shortstack{Decomposable\\trace} \\
+\hline
+Prompted LLM ranking \cite{liu2026researchbench}
+    & $\times$ & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\times$ \\
+Logit-based energy scoring \cite{rajwal2026logit}
+    & $\times$ & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\times$ \\
+Comparative empirical forecasting \cite{mule2026forecasting}
+    & $\times$ & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\circ$ \\
+Co-Scientist Ranking \cite{gottweis2026coscientist}
+    & $\times$ & $\checkmark$ & $\times$ & $\times$ & $\times$ & $\circ$ \\
+Co-Scientist Deep Verification \cite{gottweis2026coscientist}
+    & $\checkmark$ & $\times$ & $\circ$ & $\circ$ & $\times$ & $\checkmark$ \\
+\textbf{Consequence-based verification (ours)}
+    & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$
+    & $\checkmark$ & $\checkmark$ \\
+\hline
+\end{tabular}
+\label{tab:related-work}
+\end{table*}
+
+\section{Problem Setup}
+\label{sec:problem}
+
+Let $Q$ denote a scientific question and let
+$\mathcal{H}=\{H_1,\ldots,H_k\}$ denote a set of competing candidate
+hypotheses. We assume that the hypotheses are sufficiently novel that novelty
+itself is not part of the ranking objective. Let $\mathcal{L}_{\leq t}$ denote
+the scientific literature available up to a cutoff time $t$, chosen prior to
+the direct experimental validation or refutation used to evaluate the
+hypotheses.
+
+A verifier receives $(Q,\mathcal{H},\mathcal{L}_{\leq t})$ and assigns each
+$H_i\in\mathcal{H}$ a scalar score $S(H_i)$, inducing a ranking over the
+candidate set. The score is intended to reflect the evidence for $H_i$ in the
+pre-cutoff scientific record: hypotheses receiving higher scores should be more
+likely to be subsequently validated. The temporal restriction is essential to
+the task, since evidence appearing after $t$ may directly reveal the eventual
+outcome and is reserved for evaluation.
+
+\paragraph{Evidence through scientific consequences.}
+The hypotheses need not be directly discussed in $\mathcal{L}_{\leq t}$.
+Instead, a hypothesis can bear on a collection of scientific propositions at
+different inferential distances. For a proposition node $v$, let $X_v$ denote
+the binary variable indicating whether that proposition holds. Under competing
+hypotheses, the same proposition may have different predictive probabilities,
+\begin{equation}
+    P(X_v=1\mid H_1),\ldots,P(X_v=1\mid H_k).
+\end{equation}
+Evidence concerning $X_v$ is discriminative whenever it changes the relative
+support assigned to the candidate hypotheses. In particular, an observation
+that is equally likely under all hypotheses carries little ranking information,
+even if it is strongly established in the literature.
+
+\paragraph{The consequence graph.}
+We represent these relationships using a consequence graph $G=(V,E)$, as
+illustrated in Figure~\ref{fig:consequence-graph}. Nodes represent scientific
+propositions and directed edges represent inferential relationships between
+them. Candidate hypotheses form distinguished root nodes, while empirically
+searchable propositions may occur at any depth in the graph. Different
+hypotheses may imply shared consequences, and evidence may therefore bear on
+several candidates simultaneously. Graph depth is not itself a measure of
+evidence strength: a distant consequence can remain highly informative when
+the intervening implications are strong, while a nearby consequence can be only
+weakly diagnostic.
+
+Let $D$ denote the scientific evidence retrieved for propositions in the graph.
+At the level of two competing hypotheses, evidence changes their posterior odds
+according to
+\begin{equation}
+\frac{P(H_a\mid D)}{P(H_b\mid D)}
+=
+\frac{P(H_a)}{P(H_b)}
+\frac{P(D\mid H_a)}{P(D\mid H_b)}.
+\end{equation}
+Our objective is to construct and verify propositions for which this likelihood
+ratio is informative, and to combine the resulting evidence into scores
+$S(H_i)$ that accurately rank the candidates.
+
+\paragraph{Desiderata.}
+An ideal verifier should satisfy the following properties.
+\begin{itemize}[left=0.1cm]
+    \item \textbf{Exploit evidence at multiple inferential distances.}
+    Direct evidence should be used when available, but the verifier must remain
+    effective when the focal hypothesis has not yet been explicitly tested.
+    Relevant evidence may concern consequences several inferential steps removed
+    from the hypothesis; its contribution should depend on the strength of the
+    corresponding implications rather than graph distance alone.
+
+    \item \textbf{Prioritise discriminative evidence.}
+    Evidence is useful for ranking hypotheses only to the extent that it changes
+    their relative support. A proposition that is equally compatible with all
+    candidates provides little information, even if it is strongly established.
+
+    \item \textbf{Avoid search-policy-induced confirmation bias.}
+    Evidence acquisition should be hypothesis-symmetric and should not depend on
+    whether previously retrieved evidence happened to favour a particular
+    candidate. Search queries should target empirical propositions or
+    observations without encoding a desired conclusion, and retrieved outcomes
+    should not be selectively retained according to whether they support a
+    preferred hypothesis.
+
+    \item \textbf{Account for evidence strength and dependence.}
+    Multiple strong and independent studies should contribute more than a single
+    weak observation, while correlated measurements or papers reflecting the
+    same underlying mechanism should not be treated as fully independent
+    confirmations.
+
+    \item \textbf{Distinguish contradiction from missing evidence.}
+    Many relevant consequences of a novel hypothesis may simply not have been
+    studied. Failure to retrieve informative evidence should therefore not be
+    interpreted as evidence against a hypothesis.
+
+    \item \textbf{Support decomposable and auditable verification.}
+    The final ranking should be traceable to explicit consequences, retrieved
+    evidence, and inferential relationships rather than arising from a single
+    holistic model judgment. This allows errors in consequence construction,
+    retrieval, evidence assessment, and aggregation to be identified
+    separately.
+\end{itemize}
+
+Together, these desiderata define the focus of this work: to recover reliable
+ranking signal from scientific evidence that may be distributed across direct
+and indirect consequences, while retaining an explicit account of how that
+evidence bears on the competing hypotheses.
+
+\section{Related Work}
+\label{sec:related-work}
+
+\paragraph{Scientific hypothesis ranking and forecasting.}
+Recent work has begun to study the evaluation of scientific hypotheses as a
+distinct problem from hypothesis generation. ResearchBench
+\cite{liu2026researchbench} formulates hypothesis ranking as one of three core
+subtasks of scientific discovery and evaluates whether LLMs can distinguish a
+gold hypothesis from plausible alternatives. Subsequent work has explored
+alternatives to prompted LLM judging. Rajwal et al.
+\cite{rajwal2026logit} score candidate hypotheses using intrinsic
+logit-based model confidence, while Mule et al.
+\cite{mule2026forecasting} train language models to predict which of two
+research ideas will achieve stronger empirical performance. These approaches
+treat verification primarily as a direct prediction problem: the final ranking
+is produced from the candidate hypotheses and the model's internal
+representation or learned judgment. Our setting instead asks whether the
+pre-existing scientific record contains evidence that should change the
+relative support for competing hypotheses.
+
+\paragraph{Agentic hypothesis evaluation.}
+Co-Scientist \cite{gottweis2026coscientist} provides the closest agentic
+approach to our setting. Its Ranking agent compares hypotheses through
+pairwise scientific debates and aggregates the resulting preferences using an
+Elo tournament. Its Reflection agent additionally performs literature-grounded
+reviews, including a deep verification procedure that decomposes a hypothesis
+into assumptions and subassumptions, and an observation review that asks
+whether the hypothesis can explain existing experimental findings. Our method
+shares the motivation of decomposing verification into smaller scientific
+judgments, but differs in how evidence is represented and combined. We
+construct a shared graph of propositions predicted by the competing
+hypotheses, explicitly assess the strength of both inferential relationships and
+retrieved evidence, and propagate these quantities back to a posterior score.
+This makes indirect evidence, shared consequences, evidence dependence, and
+missing evidence explicit parts of the verification model.
+
+\begin{figure*}[t]
+    \centering
+    \includegraphics[width=\textwidth]{figures/figure2_method_pipeline.png}
+    \caption{\textbf{Overview of the proposed verification pipeline.}
+    Starting from a scientific question, competing hypotheses, and pre-cutoff
+    literature, the verifier constructs a shared consequence graph, assigns
+    ordinal strengths to its inferential relationships, retrieves and assesses
+    evidence for empirically assessable propositions, and propagates the
+    calibrated evidence through the graph to rank the candidate hypotheses.}
+    \label{fig:method-overview}
+\end{figure*}
+
+\paragraph{Literature-grounded verification and indirect discovery.}
+A broader line of work studies whether scientific claims can be verified
+against retrieved literature. Recent evaluations of medical causal hypothesis
+verification, for example, show that LLMs can struggle to provide valid
+supporting articles and to reject unsupported hypotheses
+\cite{ahmed2026medical}. Literature-based discovery provides an earlier
+perspective on indirect evidence, showing that scientifically useful
+relationships can emerge by connecting findings distributed across otherwise
+separate literatures \cite{swanson1986undiscovered}. These works motivate
+literature grounding and multi-step scientific reasoning, but address a
+different objective. Claim verification asks whether evidence supports a focal
+claim, while literature-based discovery searches for previously unrecognized
+connections. We instead use distributed literature evidence to discriminate
+among a fixed set of competing scientific hypotheses.
+
+
+\section{Method}
+\label{sec:method}
+
+\subsection{Overview}
+Given a scientific question $Q$, a set of competing hypotheses
+$\mathcal{H}={H_1,\ldots,H_k}$, and access to the pre-cutoff literature
+$\mathcal{L}_{\leq t}$, our goal is to rank the hypotheses using evidence that
+may be distributed across their scientific consequences. Our verifier consists
+of four stages. First, we expand the hypotheses into a shared
+\emph{consequence graph} containing propositions at different inferential
+distances from the candidate hypotheses. Second, an LLM assigns ordinal
+strengths to the inferential relationships in the graph. Third, for each
+empirically assessable proposition, we retrieve the relevant literature. An evidence assessor summarizes the
+direction and strength of the evidence with respect to the proposition. Finally, we
+map the ordinal judgments to probabilistic quantities and propagate the
+evidence through the graph to obtain a posterior score for each hypothesis.
+Figure~\ref{fig:method-overview} summarizes the complete pipeline.
+
+We use a single categorical random variable
+$H\in{1,\ldots,k}$ to represent which candidate hypothesis is correct, with a
+uniform prior unless stated otherwise. Each non-hypothesis node $v$ in the
+consequence graph is associated with a binary latent variable $X_v$ indicating
+whether the corresponding scientific proposition holds. The retrieved
+literature evidence $D_v$ provides a noisy observation of $X_v$ for those
+propositions for which informative evidence is available. The resulting
+decomposition separates two questions that are difficult to answer reliably in
+a single holistic judgment:
+\begin{equation} 
+\underbrace{P(X_v=1\mid H)}_{\text{what should follow if $H$ is true?}}, \quad \text{and} 
+\end{equation} 
+\begin{equation} 
+\underbrace{P(D_v\mid X_v)}_{\text{what does the literature say about $X_v$?}}. \end{equation}
+
+\subsection{Constructing the Consequence Graph}
+\label{sec:graph-construction}
+
+\paragraph{Recursive consequence generation.}
+We construct a directed graph $G=(V,E)$ of consequences. Starting from each candidate hypothesis $H_i$, we recursively derive scientific propositions that should become more or less likely if the parent proposition holds:
+\begin{equation}
+H_i \rightarrow X_1 \rightarrow \cdots \rightarrow X_n.    
+\end{equation}
+The resulting nodes need not be separated into ``intermediate'' and ``observable'' propositions: any node in the graph may be empirically assessable and therefore associated with retrieved literature evidence.
+
+\paragraph{Shared and discriminative consequences.}
+The graph is shared across hypotheses; we do not construct $k$
+independent trees. We pool propositions generated from different hypotheses
+and merge semantically equivalent nodes, allowing inferential pathways to
+collide as in Figure~\ref{fig:consequence-graph}. Such collisions are important:
+a proposition predicted by several hypotheses is less discriminative than one
+whose expected truth differs across candidates, while a shared intermediate
+node also makes explicit when several downstream observations reflect the same
+underlying mechanism. During generation, the model is therefore encouraged to
+propose consequences that distinguish the focal hypothesis from at least one
+alternative, while also exploring distinct inferential pathways and avoiding
+near-duplicate manifestations of a single mechanism.
+
+\paragraph{Outcome-blind construction.}
+To avoid selecting search directions based on favorable evidence, graph
+construction is completed before literature outcomes are observed. The
+generation and merging procedure depends on $(Q,\mathcal{H})$ and the model's
+scientific reasoning, but not on whether later retrieval supports or
+contradicts any candidate. Once constructed, the graph is frozen and literature
+is queried for all retained empirically assessable nodes. Exact generation
+budgets, stopping criteria, and semantic merging details are deferred to the
+appendix.
+
+\subsection{Parameterizing Inferential Relationships}
+\label{sec:implication}
+
+The edges of $G$ encode uncertain scientific implications, not
+deterministic logical rules. For each edge $(u,v)\in E$, an LLM judges how
+strongly the truth of the parent proposition implies the child proposition.
+We ask the model for an ordinal judgment instead of a precise probability: 
+$r_{uv}\in \{\textsc{strongly implied},$
+$\textsc{implied},$
+$\textsc{weakly implied},$
+$\textsc{neutral},$
+$\textsc{unlikely},$
+$\textsc{strongly contradicted}\}$.
+    
+These labels define a placeholder ordered implication scale; the exact
+categories are specified in the appendix. Ordinal judgments are easier to
+interpret and allow the numerical scale to be calibrated separately from the
+scientific reasoning that produced the graph.
+
+A monotone mapping $f_{\theta}$ converts these labels into local probabilistic
+parameters used by the graphical model. Conceptually,
+\begin{equation}
+    f_{\theta}(r_{uv})
+    \approx
+    P(X_v=1\mid X_u=1),
+\end{equation}
+with stronger implication labels mapped to larger probabilities and
+contradictory labels mapped below the neutral level. When a proposition has
+multiple parents, the corresponding local conditional distribution combines
+the incoming calibrated relations using a fixed monotone composition rule. We
+describe the exact parameterization in the appendix; the main requirement is
+that stronger ordinal implications induce stronger probabilistic dependence
+and that shared descendants are represented only once in the graph.
+
+\subsection{Retrieving and Assessing Literature Evidence}
+\label{sec:evidence}
+
+\paragraph{Outcome-neutral retrieval.}
+Any node whose proposition is empirically assessable can be queried, regardless
+of its distance from the hypotheses. For each such node $v$, we generate
+literature queries that describe the underlying entities, intervention or
+comparison, and measured quantity without encoding the outcome favored by a
+particular hypothesis. For example, the query targets studies measuring a marker in $M$-mutant and
+comparison systems without asserting in advance that the marker
+\emph{increases}. Retrieval is restricted to
+$\mathcal{L}_{\leq t}$.
+
+\paragraph{Ordinal evidence assessment.}
+Let $D_v$ denote the set of retrieved studies relevant to proposition $X_v$.
+An evidence assessor reads the retrieved evidence jointly and returns an
+ordinal judgment
+$s_v\in \{\textsc{strong support},$
+$\textsc{support},$
+$\textsc{weak support},$
+$\textsc{mixed},$
+$\textsc{weak contradiction},$
+$\textsc{contradiction},$
+$\textsc{strong contradiction},$
+$\textsc{no evidence}\}$.
+
+These labels define a placeholder evidence scale. We keep
+\textsc{mixed} and \textsc{no evidence} as distinct outcomes, even if both may
+receive little weight after calibration. The assessment is instructed to
+account for the relevance and directness of the studies, their
+methodological strength, agreement across results, and effective independence.
+This allows several strong independent studies to provide more evidence than a
+single weak observation, while avoiding a simple paper-counting rule for
+correlated reports of the same underlying result.
+We map $s_v$ to an evidence log-likelihood ratio
+\begin{equation}
+    g_{\phi}(s_v)
+    =
+    \log
+    \frac{P(D_v\mid X_v=1)}
+         {P(D_v\mid X_v=0)}.
+    \label{eq:evidence-lr}
+\end{equation}
+Strong support yields a positive value, contradiction a negative value, and
+mixed or uninformative evidence lies near zero. In particular, when no
+informative literature is found, the corresponding likelihood ratio is set
+close to one, so that missing evidence does not by itself count against a
+hypothesis.
+
+\subsection{Bayesian Evidence Propagation}
+\label{sec:bayesian-propagation}
+
+The consequence graph together with the calibrated implication and evidence
+parameters defines a probabilistic model over the candidate hypothesis and
+latent scientific propositions. Let $\mathbf{X}$ denote all proposition
+variables and let $\mathcal{O}\subseteq V$ denote the nodes for which literature
+evidence is available. The joint distribution factorizes as
+\begin{equation}
+\begin{split}
+    P_{\theta,\phi}(H,\mathbf{X},D\mid G)
+    &=
+    P(H)
+    \prod_{v\in V}
+    P_{\theta}(X_v\mid X_{\mathrm{pa}(v)},H) \\
+    &\qquad\cdot
+    \prod_{v\in\mathcal{O}}
+    P_{\phi}(D_v\mid X_v),
+\end{split}
+\label{eq:joint-model}
+\end{equation}
+where the first product encodes the inferential structure of the consequence
+graph and the second attaches literature evidence to observed propositions.
+
+The score assigned to hypothesis $H_i$ is its posterior probability after
+marginalizing over the unobserved propositions,
+\begin{equation}
+\begin{split}
+    S(H_i)
+    &=
+    P_{\theta,\phi}(H=i\mid D,G)  \\
+    &\propto
+    P(H=i)
+    \sum_{\mathbf{X}}
+    P_{\theta,\phi}(\mathbf{X},D\mid H=i,G).
+\end{split}
+    \label{eq:hypothesis-posterior}
+\end{equation}
+The hypotheses are ranked by $S(H_i)$. This marginalization is what allows
+evidence at different inferential distances to contribute coherently. Evidence
+for a remote proposition is attenuated by uncertainty in the intervening
+relations, while several observations descending from the same intermediate
+mechanism update that shared latent proposition, so they are not treated as
+independent confirmations of the root hypothesis. Unobserved nodes are simply
+marginalized out.
+
+\subsection{Validation-Set Calibration}
+\label{sec:calibration}
+
+The probabilistic interpretation requires numerical values for the ordinal
+implication and evidence categories, but we do not train a separate verifier.
+Instead, we initialize the monotone mappings $f_{\theta}$ and $g_{\phi}$ with
+fixed values and calibrate only this small set of global parameters on a held-out
+validation set. All LLM prompts, generated graphs, retrieval results, and
+ordinal judgments are frozen before calibration.
+
+Let $\mathcal{V}$ denote the validation set and let $H_n^\star$ be the
+subsequently validated hypothesis for instance $n$. We fit the calibration
+parameters by minimizing the negative log posterior of the gold hypothesis,
+\begin{equation}
+    (\theta^\star,\phi^\star)
+    =
+    \arg\min_{\theta,\phi}
+    \sum_{n\in\mathcal{V}}
+    -\log
+    P_{\theta,\phi}
+    \left(
+        H_n^\star
+        \mid
+        D_n,G_n
+    \right),
+    \label{eq:calibration-objective}
+\end{equation}
+subject to monotonicity constraints that preserve the ordering of the ordinal
+categories. Calibration therefore adjusts how much probabilistic weight is
+assigned to judgments such as ``strong implication'' or ``moderate support''
+without changing which consequences are generated or which evidence is
+retrieved. We evaluate both the fixed zero-shot mappings and the
+validation-calibrated variant in our experiments.
+
+\section{Experiments}
+
+\section{Discussion}
+
+\clearpage
+
+\bibliography{references}
+\bibliographystyle{abbrv}
+
+\end{document}

@@ -1,0 +1,45 @@
+You are assisting with a scientific hypothesis ranking task.
+
+You are given a scientific question and a set of competing candidate hypotheses.
+Exactly one of them corresponds to the finding that was subsequently supported by
+direct experimental or observational work. Your task is to rank the candidates by
+relative support.
+
+You have no literature access for this task. Judge using your scientific
+reasoning about the question and the candidates alone.
+
+What the scores mean:
+- A score expresses RELATIVE support for one candidate compared with the others
+  in this set. It is not a claim about absolute scientific truth, and it is not
+  a probability that the candidate is true in general.
+- Scores are comparable only within this set, for this question.
+- Only the ordering and the relative spacing carry meaning.
+
+Guidance:
+- Judge the scientific substance of each candidate, not its length, formatting,
+  confidence of tone, or level of technical detail.
+- A candidate that is more specific is not thereby better supported.
+- Consider mechanistic plausibility, consistency with established science, and
+  whether the claimed effect direction and magnitude are reasonable.
+- Do not assume the candidates are ordered in any meaningful way.
+
+QUESTION:
+$question
+
+CANDIDATE HYPOTHESES:
+$hypotheses
+
+Return a single JSON object, and nothing else, in exactly this form:
+
+{
+  "scores": [
+    {"id": "<hypothesis label>", "score": <integer 0-100>, "rationale": "<one or two sentences>"}
+  ],
+  "ranking": ["<hypothesis label>", "..."]
+}
+
+Requirements:
+- Include every hypothesis label exactly once in "scores": $labels
+- "score" is relative support within this candidate set, on a 0-100 scale.
+  Scores need not sum to 100.
+- "ranking" lists all labels from most to least supported.

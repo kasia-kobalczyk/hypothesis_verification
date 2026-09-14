@@ -1,0 +1,24 @@
+{
+  "name": "Corrections to the row-level R1-R6 screening decisions",
+  "version": "v1",
+  "recorded_at": "2026-09-11",
+  "why_this_file_exists": [
+    "accepted_screening_decisions_v1.jsonl is a frozen record of the row-level screen and is never edited.",
+    "The per-pair application of the same R2 criterion (benchmark/dev/pairs_v1.jsonl) can contradict it.",
+    "Corrections are recorded here so both the original decision and the audit outcome stay visible."
+  ],
+  "corrections": [
+    {
+      "dev_id": "RBV-14",
+      "doi": "10.1038/s41561-023-01335-8",
+      "original_field": "R2_raw_candidate_comparability",
+      "original_value": true,
+      "original_rationale": "Gold attributes the unprecedented recent European VPD increase to anthropogenic climate change with high probability; a raw negative attributes long-term variation predominantly to regional tree-species composition and competition. Competing causal explanation.",
+      "corrected_value": false,
+      "corrected_by": "per-pair R2 audit (prompt pair_comparability_v1), all 10 raw negatives screened",
+      "finding": "No raw negative both addresses the same scientific target and disagrees substantively with the gold. The two candidates that mention tree-species composition and competition (H4, H10) are VPD reconstruction-methodology proposals that make no attribution claim; the remainder either agree with the gold's attribution or propose methodology without committing to an outcome. The row-level rationale appears to have read H4/H10 generously.",
+      "consequence": "RBV-14 is marked `no_evaluable_pair`. It is excluded from the primary pairwise metric and retained in the dataset and in the secondary listwise diagnostics.",
+      "not_done": "No negative was written, rewritten or substituted for this instance. The slice text remains verbatim ResearchBench (IMPLEMENTATION_SPEC.md §2, §34)."
+    }
+  ]
+}

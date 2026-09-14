@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-09-13T10:38:51Z",
+  "run": "runs/consequence_graph_20260913T085212Z_27ff8a54",
+  "baseline": "runs/MERGED_baseline_narrow_dev20",
+  "n_rows": 20,
+  "levels": {
+    "specific": 142,
+    "mechanistic": 139,
+    "class": 119
+  },
+  "rows_perfectly_even": 0,
+  "abstracted": 258,
+  "abstracted_without_why_implied": 0,
+  "by_level": {
+    "specific": {
+      "nodes": 142,
+      "informative": 17,
+      "median_disc": 0.132,
+      "evidenced_but_inert": 1
+    },
+    "mechanistic": {
+      "nodes": 139,
+      "informative": 54,
+      "median_disc": 0.123,
+      "evidenced_but_inert": 2
+    },
+    "class": {
+      "nodes": 119,
+      "informative": 54,
+      "median_disc": 0.123,
+      "evidenced_but_inert": 2
+    }
+  },
+  "zero_yield": {
+    "baseline": 8,
+    "revision": 0,
+    "rescued": [
+      "RBV2-0050-N04",
+      "RBV2-0052-N08",
+      "RBV2-0131-N03",
+      "RBV2-0135-N03",
+      "RBV2-0165-N01",
+      "RBV2-0192-N05",
+      "RBV2-0230-N02",
+      "RBV2-0279-N03"
+    ],
+    "newly_zero": [],
+    "coverage_baseline": 0.6,
+    "coverage_revision": 1.0
+  }
+}

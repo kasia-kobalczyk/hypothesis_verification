@@ -1,0 +1,20 @@
+{
+  "frozen_at": "2026-09-13",
+  "n": 12,
+  "ids": [
+    "RBV2-0063-N05",
+    "RBV2-0083-N01",
+    "RBV2-0108-N03",
+    "RBV2-0113-N08",
+    "RBV2-0132-N09",
+    "RBV2-0159-N04",
+    "RBV2-0193-N06",
+    "RBV2-0206-N00",
+    "RBV2-0207-N00",
+    "RBV2-0222-N05",
+    "RBV2-0225-N02",
+    "RBV2-0226-N06"
+  ],
+  "definition": "source rows absent from both the calibration and test lists and never run end-to-end",
+  "use": "exactly once, against benchmark/frozen/narrow_graph_v3_complete.json"
+}

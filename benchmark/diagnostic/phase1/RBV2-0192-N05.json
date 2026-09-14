@@ -1,0 +1,221 @@
+{
+  "prompt_version": {
+    "name": "diagnostic_test_generate_v1",
+    "sha256_16": "0ff42001f55a928c",
+    "path": "/mnt/data/knk25.data/hypothesis_verification/src/llm/prompts/diagnostic_test_generate_v1.txt"
+  },
+  "n_requested": 6,
+  "stats": {
+    "n_generated": 6,
+    "n_empirically_observable": 6,
+    "n_discriminative": 2,
+    "n_usable": 2,
+    "n_rejected": 4,
+    "mean_distinct_predictions": 1.3333333333333333
+  },
+  "rejected": [
+    {
+      "test_id": "T1",
+      "reason": "every candidate predicts the same, or all indeterminate",
+      "unknown_labels": []
+    },
+    {
+      "test_id": "T2",
+      "reason": "every candidate predicts the same, or all indeterminate",
+      "unknown_labels": []
+    },
+    {
+      "test_id": "T3",
+      "reason": "every candidate predicts the same, or all indeterminate",
+      "unknown_labels": []
+    },
+    {
+      "test_id": "T4",
+      "reason": "every candidate predicts the same, or all indeterminate",
+      "unknown_labels": []
+    }
+  ],
+  "tests": [
+    {
+      "test_id": "T1",
+      "system": "CoCrFeNiMn HEA-based nanocomposite pin",
+      "context": "Room temperature, dry sliding against alumina counterface, 10 N load, 1 m/s sliding speed, 10,000 cycles",
+      "intervention_or_exposure": "Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite with honeycomb-spiral lattice and surface-functionalized graphene (Candidate A) and (2) HEA/graphene composite with partially reacted chemical interface (Candidate B)",
+      "measured_outcome": "Coefficient of friction (CoF) measured after 10,000 cycles",
+      "rationale": "Candidate A predicts a synergistic reduction in CoF due to both MG and graphene, while Candidate B attributes reduction mainly to graphene and carbide formation; the magnitude and mechanism of CoF reduction should differ.",
+      "predictions_by_hypothesis": {
+        "H1": "positive_or_present",
+        "H0": "positive_or_present"
+      },
+      "empirically_observable": true,
+      "rejected_reason": "every candidate predicts the same, or all indeterminate"
+    },
+    {
+      "test_id": "T2",
+      "system": "CoCrFeNiMn HEA-based nanocomposite pin",
+      "context": "Room temperature, dry sliding, 10 N load, 1 m/s, 10,000 cycles",
+      "intervention_or_exposure": "Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite and (2) HEA/graphene composite with partial chemical interface",
+      "measured_outcome": "Vickers hardness (HV) of the bulk composite after tribological testing",
+      "rationale": "Candidate A claims mechanical properties are maintained (no degradation), while Candidate B may risk some softening due to graphene addition unless carbide strengthening dominates.",
+      "predictions_by_hypothesis": {
+        "H1": "neutral_or_no_change",
+        "H0": "indeterminate"
+      },
+      "empirically_observable": true,
+      "rejected_reason": "every candidate predicts the same, or all indeterminate"
+    },
+    {
+      "test_id": "T3",
+      "system": "CoCrFeNiMn HEA-based nanocomposite pin",
+      "context": "Room temperature, dry sliding, 10 N load, 1 m/s, 10,000 cycles",
+      "intervention_or_exposure": "Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite and (2) HEA/graphene composite with partial chemical interface",
+      "measured_outcome": "Volume wear rate (mm^3/N·m) after 10,000 cycles",
+      "rationale": "Candidate A predicts wear resistance is enhanced by both MG self-healing and graphene, while Candidate B attributes it to graphene and carbide formation; the degree and mechanism of wear reduction may differ.",
+      "predictions_by_hypothesis": {
+        "H1": "positive_or_present",
+        "H0": "positive_or_present"
+      },
+      "empirically_observable": true,
+      "rejected_reason": "every candidate predicts the same, or all indeterminate"
+    },
+    {
+      "test_id": "T4",
+      "system": "CoCrFeNiMn HEA-based nanocomposite pin",
+      "context": "Room temperature, dry sliding, 10 N load, 1 m/s, 10,000 cycles",
+      "intervention_or_exposure": "Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite and (2) HEA/graphene composite with partial chemical interface",
+      "measured_outcome": "Presence and thickness of tribofilm (nm) on worn surface, characterized by TEM and Raman spectroscopy",
+      "rationale": "Candidate A expects a complex tribofilm with contributions from MG and functionalized graphene, while Candidate B expects a tribofilm dominated by graphene and possible carbides.",
+      "predictions_by_hypothesis": {
+        "H1": "positive_or_present",
+        "H0": "positive_or_present"
+      },
+      "empirically_observable": true,
+      "rejected_reason": "every candidate predicts the same, or all indeterminate"
+    },
+    {
+      "test_id": "T5",
+      "system": "CoCrFeNiMn HEA-based nanocomposite pin",
+      "context": "Room temperature, dry sliding, 10 N load, 1 m/s, 10,000 cycles",
+      "intervention_or_exposure": "Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite and (2) HEA/graphene composite with partial chemical interface",
+      "measured_outcome": "Detection of metallic glass phase at the worn surface (by XRD or TEM)",
+      "rationale": "Candidate A predicts the presence of a metallic glass phase at the surface due to the MG component, while Candidate B does not involve MG and thus predicts its absence.",
+      "predictions_by_hypothesis": {
+        "H1": "positive_or_present",
+        "H0": "negative_or_absent"
+      },
+      "empirically_observable": true,
+      "rejected_reason": null
+    },
+    {
+      "test_id": "T6",
+      "system": "CoCrFeNiMn HEA-based nanocomposite pin",
+      "context": "Room temperature, dry sliding, 10 N load, 1 m/s, 10,000 cycles",
+      "intervention_or_exposure": "Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite and (2) HEA/graphene composite with partial chemical interface",
+      "measured_outcome": "Concentration of in-situ formed carbides at the interface (wt%, measured by EDS or XPS)",
+      "rationale": "Candidate B predicts significant in-situ carbide formation at the interface, while Candidate A does not rely on this mechanism.",
+      "predictions_by_hypothesis": {
+        "H1": "neutral_or_no_change",
+        "H0": "positive_or_present"
+      },
+      "empirically_observable": true,
+      "rejected_reason": null
+    }
+  ],
+  "call": {
+    "call_id": "9376808382d1",
+    "purpose": "diagnostic.generate",
+    "prompt_version": "diagnostic_test_generate_v1",
+    "model": "gpt-4.1-2025-04-14",
+    "attempts": 1,
+    "latency_s": 6.615,
+    "usage": {
+      "prompt_tokens": 998,
+      "completion_tokens": 1219,
+      "total_tokens": 2217
+    },
+    "finish_reason": "stop",
+    "response_text": "{\n  \"tests\": [\n    {\n      \"system\": \"CoCrFeNiMn HEA-based nanocomposite pin\",\n      \"context\": \"Room temperature, dry sliding against alumina counterface, 10 N load, 1 m/s sliding speed, 10,000 cycles\",\n      \"intervention_or_exposure\": \"Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite with honeycomb-spiral lattice and surface-functionalized graphene (Candidate A) and (2) HEA/graphene composite with partially reacted chemical interface (Candidate B)\",\n      \"measured_outcome\": \"Coefficient of friction (CoF) measured after 10,000 cycles\",\n      \"rationale\": \"Candidate A predicts a synergistic reduction in CoF due to both MG and graphene, while Candidate B attributes reduction mainly to graphene and carbide formation; the magnitude and mechanism of CoF reduction should differ.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"positive_or_present\",\n        \"B\": \"positive_or_present\"\n      }\n    },\n    {\n      \"system\": \"CoCrFeNiMn HEA-based nanocomposite pin\",\n      \"context\": \"Room temperature, dry sliding, 10 N load, 1 m/s, 10,000 cycles\",\n      \"intervention_or_exposure\": \"Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite and (2) HEA/graphene composite with partial chemical interface\",\n      \"measured_outcome\": \"Vickers hardness (HV) of the bulk composite after tribological testing\",\n      \"rationale\": \"Candidate A claims mechanical properties are maintained (no degradation), while Candidate B may risk some softening due to graphene addition unless carbide strengthening dominates.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"neutral_or_no_change\",\n        \"B\": \"indeterminate\"\n      }\n    },\n    {\n      \"system\": \"CoCrFeNiMn HEA-based nanocomposite pin\",\n      \"context\": \"Room temperature, dry sliding, 10 N load, 1 m/s, 10,000 cycles\",\n      \"intervention_or_exposure\": \"Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite and (2) HEA/graphene composite with partial chemical interface\",\n      \"measured_outcome\": \"Volume wear rate (mm^3/N·m) after 10,000 cycles\",\n      \"rationale\": \"Candidate A predicts wear resistance is enhanced by both MG self-healing and graphene, while Candidate B attributes it to graphene and carbide formation; the degree and mechanism of wear reduction may differ.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"positive_or_present\",\n        \"B\": \"positive_or_present\"\n      }\n    },\n    {\n      \"system\": \"CoCrFeNiMn HEA-based nanocomposite pin\",\n      \"context\": \"Room temperature, dry sliding, 10 N load, 1 m/s, 10,000 cycles\",\n      \"intervention_or_exposure\": \"Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite and (2) HEA/graphene composite with partial chemical interface\",\n      \"measured_outcome\": \"Presence and thickness of tribofilm (nm) on worn surface, characterized by TEM and Raman spectroscopy\",\n      \"rationale\": \"Candidate A expects a complex tribofilm with contributions from MG and functionalized graphene, while Candidate B expects a tribofilm dominated by graphene and possible carbides.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"positive_or_present\",\n        \"B\": \"positive_or_present\"\n      }\n    },\n    {\n      \"system\": \"CoCrFeNiMn HEA-based nanocomposite pin\",\n      \"context\": \"Room temperature, dry sliding, 10 N load, 1 m/s, 10,000 cycles\",\n      \"intervention_or_exposure\": \"Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite and (2) HEA/graphene composite with partial chemical interface\",\n      \"measured_outcome\": \"Detection of metallic glass phase at the worn surface (by XRD or TEM)\",\n      \"rationale\": \"Candidate A predicts the presence of a metallic glass phase at the surface due to the MG component, while Candidate B does not involve MG and thus predicts its absence.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"positive_or_present\",\n        \"B\": \"negative_or_absent\"\n      }\n    },\n    {\n      \"system\": \"CoCrFeNiMn HEA-based nanocomposite pin\",\n      \"context\": \"Room temperature, dry sliding, 10 N load, 1 m/s, 10,000 cycles\",\n      \"intervention_or_exposure\": \"Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite and (2) HEA/graphene composite with partial chemical interface\",\n      \"measured_outcome\": \"Concentration of in-situ formed carbides at the interface (wt%, measured by EDS or XPS)\",\n      \"rationale\": \"Candidate B predicts significant in-situ carbide formation at the interface, while Candidate A does not rely on this mechanism.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"neutral_or_no_change\",\n        \"B\": \"positive_or_present\"\n      }\n    }\n  ]\n}",
+    "parsed": {
+      "tests": [
+        {
+          "system": "CoCrFeNiMn HEA-based nanocomposite pin",
+          "context": "Room temperature, dry sliding against alumina counterface, 10 N load, 1 m/s sliding speed, 10,000 cycles",
+          "intervention_or_exposure": "Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite with honeycomb-spiral lattice and surface-functionalized graphene (Candidate A) and (2) HEA/graphene composite with partially reacted chemical interface (Candidate B)",
+          "measured_outcome": "Coefficient of friction (CoF) measured after 10,000 cycles",
+          "rationale": "Candidate A predicts a synergistic reduction in CoF due to both MG and graphene, while Candidate B attributes reduction mainly to graphene and carbide formation; the magnitude and mechanism of CoF reduction should differ.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "positive_or_present",
+            "B": "positive_or_present"
+          }
+        },
+        {
+          "system": "CoCrFeNiMn HEA-based nanocomposite pin",
+          "context": "Room temperature, dry sliding, 10 N load, 1 m/s, 10,000 cycles",
+          "intervention_or_exposure": "Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite and (2) HEA/graphene composite with partial chemical interface",
+          "measured_outcome": "Vickers hardness (HV) of the bulk composite after tribological testing",
+          "rationale": "Candidate A claims mechanical properties are maintained (no degradation), while Candidate B may risk some softening due to graphene addition unless carbide strengthening dominates.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "neutral_or_no_change",
+            "B": "indeterminate"
+          }
+        },
+        {
+          "system": "CoCrFeNiMn HEA-based nanocomposite pin",
+          "context": "Room temperature, dry sliding, 10 N load, 1 m/s, 10,000 cycles",
+          "intervention_or_exposure": "Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite and (2) HEA/graphene composite with partial chemical interface",
+          "measured_outcome": "Volume wear rate (mm^3/N·m) after 10,000 cycles",
+          "rationale": "Candidate A predicts wear resistance is enhanced by both MG self-healing and graphene, while Candidate B attributes it to graphene and carbide formation; the degree and mechanism of wear reduction may differ.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "positive_or_present",
+            "B": "positive_or_present"
+          }
+        },
+        {
+          "system": "CoCrFeNiMn HEA-based nanocomposite pin",
+          "context": "Room temperature, dry sliding, 10 N load, 1 m/s, 10,000 cycles",
+          "intervention_or_exposure": "Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite and (2) HEA/graphene composite with partial chemical interface",
+          "measured_outcome": "Presence and thickness of tribofilm (nm) on worn surface, characterized by TEM and Raman spectroscopy",
+          "rationale": "Candidate A expects a complex tribofilm with contributions from MG and functionalized graphene, while Candidate B expects a tribofilm dominated by graphene and possible carbides.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "positive_or_present",
+            "B": "positive_or_present"
+          }
+        },
+        {
+          "system": "CoCrFeNiMn HEA-based nanocomposite pin",
+          "context": "Room temperature, dry sliding, 10 N load, 1 m/s, 10,000 cycles",
+          "intervention_or_exposure": "Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite and (2) HEA/graphene composite with partial chemical interface",
+          "measured_outcome": "Detection of metallic glass phase at the worn surface (by XRD or TEM)",
+          "rationale": "Candidate A predicts the presence of a metallic glass phase at the surface due to the MG component, while Candidate B does not involve MG and thus predicts its absence.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "positive_or_present",
+            "B": "negative_or_absent"
+          }
+        },
+        {
+          "system": "CoCrFeNiMn HEA-based nanocomposite pin",
+          "context": "Room temperature, dry sliding, 10 N load, 1 m/s, 10,000 cycles",
+          "intervention_or_exposure": "Comparison between (1) 3D printed hierarchical HEA/MG/graphene nanocomposite and (2) HEA/graphene composite with partial chemical interface",
+          "measured_outcome": "Concentration of in-situ formed carbides at the interface (wt%, measured by EDS or XPS)",
+          "rationale": "Candidate B predicts significant in-situ carbide formation at the interface, while Candidate A does not rely on this mechanism.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "neutral_or_no_change",
+            "B": "positive_or_present"
+          }
+        }
+      ]
+    },
+    "messages": [
+      {
+        "role": "user",
+        "content": "You are designing experiments that would tell competing scientific hypotheses apart.\n\nYou are given a scientific question and several competing candidate answers. Your\njob is NOT to argue for any of them, and NOT to list facts consistent with any of\nthem. Your job is to design observable tests whose results would come out\nDIFFERENTLY depending on which candidate is true.\n\nTHE QUESTION TO ASK YOURSELF\n\n  \"If I could look up one measurement that would tell these candidates apart,\n   what measurement would it be?\"\n\nA test that every candidate predicts the same way is useless here, however\nscientifically interesting it is. A fact that is simply true of the field is\nuseless here. You are looking for the points where the candidates DISAGREE.\n\nWHAT A TEST MUST BE\n\n1. Empirically observable: a real measurement someone could make, or could\n   already have made and published.\n2. Reportable: the kind of quantity that appears in a scientific paper -- a rate,\n   a concentration, an efficiency, a count, a survival time, a signal, a\n   correlation.\n3. Discriminative: at least two of the candidates must predict different outcomes.\n4. Specific about WHAT IS MEASURED. \"The system performs better\" is not a\n   measurement. \"Tensile strength in MPa after 30 wet/dry cycles\" is.\n\nDescribe each test with these fields kept separate, because each is checked\nindependently later:\n\n  system                    what is studied (organism, material, population, device)\n  context                   the conditions -- dose, duration, temperature, cohort\n  intervention_or_exposure  what is varied, applied, removed or compared\n  measured_outcome          the single quantity measured, stated precisely\n\nPREDICTIONS\n\nFor EVERY candidate, predict how that test would come out IF that candidate were\ntrue. Use exactly one of:\n\n  positive_or_present      the outcome increases, appears, or is detected\n  neutral_or_no_change     the outcome is unchanged, or the effect is absent\n  negative_or_absent       the outcome decreases, or goes the other way\n  indeterminate            that candidate genuinely makes no prediction here\n\nUse \"indeterminate\" honestly. A candidate that says nothing about a test should be\nmarked so, not given a guessed direction. But a test where most candidates are\nindeterminate is a weak test -- prefer tests the candidates actually disagree about.\n\nPredict from each candidate ON ITS OWN TERMS. Do not consult what you know\nactually happened, do not favour the candidate that sounds most plausible, and do\nnot let one candidate's prediction influence another's.\n\nYou have NO literature access. Do not try to recall what studies found. You are\nstating what each candidate PREDICTS, not what is true.\n\nQUESTION:\nHow can we improve the tribological performance (wear resistance and self-lubricating ability) of face-centered cubic (FCC) high-entropy alloys (HEAs), specifically CoCrFeNiMn, under dry sliding conditions, while avoiding the mechanical property degradation associated with conventional soft-solid lubricants?\n\nCANDIDATES:\nCandidate A:\nBy leveraging the exceptional strain-hardening capabilities and self-healing properties of metallic glass (MG) films, and the electro-mechanical coupling characteristics of graphene, a 3D printed, hierarchical CoCrFeNiMn HEA/MG/graphene nanocomposite with a hybrid \"honeycomb-spiral\" lattice structure and surface-functionalized graphene layers will exhibit superior wear resistance, self-lubricating ability, and reduced CoF under dry sliding conditions, while maintaining the mechanical properties of pristine CoCrFeNiMn HEAs.\n\nCandidate B:\nThe proper incorporation of few-layer graphene as a reinforcement in CoCrFeNiMn high-entropy alloy (HEA), achieved through a tunable fabrication process that promotes a partially chemical interface reaction, leads to a tailored composite structure with enhanced tribological properties. This enhancement is due to the combined effect of in-situ carbide strengthening and graphene self-lubrication, resulting in significantly reduced wear rate and friction coefficient compared to most HEA-based self-lubrication composites.\n\nReturn a single JSON object, and nothing else, with 6 tests:\n\n{\n  \"tests\": [\n    {\n      \"system\": \"<what is studied>\",\n      \"context\": \"<conditions>\",\n      \"intervention_or_exposure\": \"<what is varied>\",\n      \"measured_outcome\": \"<the single quantity measured>\",\n      \"rationale\": \"<one sentence: why the candidates come apart on this>\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\"<candidate label>\": \"<one of the four>\", \"...\": \"...\"}\n    }\n  ]\n}\n\nInclude every candidate label exactly once in predictions_by_hypothesis for every\ntest: A, B\n"
+      }
+    ]
+  }
+}

@@ -1,0 +1,302 @@
+{
+  "runs/direct_judge_20260911T182546Z_6e1853e8/events.jsonl": {
+    "offset": 419301,
+    "lines": 60
+  },
+  "runs/question_hidden_judge_20260911T182339Z_6e1853e8/events.jsonl": {
+    "offset": 400844,
+    "lines": 60
+  },
+  "runs/style_artifact_20260911T182338Z_6e1853e8/events.jsonl": {
+    "offset": 6530,
+    "lines": 40
+  },
+  "runs/style_artifact_20260911T182801Z_53e457fa/events.jsonl": {
+    "offset": 6530,
+    "lines": 40
+  },
+  "benchmark/dev/pairs_events.jsonl": {
+    "offset": 974941,
+    "lines": 200
+  },
+  "runs/direct_judge_20260911T183934Z_b3fe6429/events.jsonl": {
+    "offset": 21229,
+    "lines": 4
+  },
+  "runs/style_artifact_20260911T184655Z_b3fe6429/events.jsonl": {
+    "offset": 1810,
+    "lines": 11
+  },
+  "runs/style_artifact_20260911T184656Z_7cf953d5/events.jsonl": {
+    "offset": 1810,
+    "lines": 11
+  },
+  "runs/direct_judge_20260911T184656Z_b3fe6429/events.jsonl": {
+    "offset": 110686,
+    "lines": 16
+  },
+  "runs/question_hidden_judge_20260911T184734Z_b3fe6429/events.jsonl": {
+    "offset": 106028,
+    "lines": 16
+  },
+  "runs/direct_rag_20260911T184815Z_2ae93bd5/events.jsonl": {
+    "offset": 264204,
+    "lines": 204
+  },
+  "runs/direct_rag_20260911T192111Z_a67fbcdf/events.jsonl": {
+    "offset": 2356464,
+    "lines": 4466
+  },
+  "benchmark/v2/v2_build_events.jsonl": {
+    "offset": 389294,
+    "lines": 180
+  },
+  "benchmark/v2/v2_diagnostics_events.jsonl": {
+    "offset": 1342158,
+    "lines": 442
+  },
+  "benchmark/v2_widened_diagnostic/v2_build_events.jsonl": {
+    "offset": 1217361,
+    "lines": 533
+  },
+  "benchmark/v2_widened_diagnostic/v2_diagnostics_events.jsonl": {
+    "offset": 680086,
+    "lines": 223
+  },
+  "runs/consequence_graph_20260911T204302Z_3cce1d6b/events.jsonl": {
+    "offset": 889652,
+    "lines": 1441
+  },
+  "runs/consequence_graph_20260911T205509Z_fa07107f/events.jsonl": {
+    "offset": 3501682,
+    "lines": 6721
+  },
+  "benchmark/canonical/canonical_build_events.jsonl": {
+    "offset": 2354926,
+    "lines": 649
+  },
+  "benchmark/canonical/v2_diagnostics_events.jsonl": {
+    "offset": 2613057,
+    "lines": 978
+  },
+  "runs/consequence_graph_20260911T213919Z_fedc0735/events.jsonl": {
+    "offset": 2495007,
+    "lines": 3711
+  },
+  "runs/consequence_graph_20260912T084714Z_29ba6b44/events.jsonl": {
+    "offset": 3980128,
+    "lines": 7805
+  },
+  "runs/consequence_graph_20260912T092229Z_4f5bf099/events.jsonl": {
+    "offset": 2164993,
+    "lines": 3553
+  },
+  "runs/consequence_graph_20260912T093743Z_2e09d5ed/events.jsonl": {
+    "offset": 3732889,
+    "lines": 6627
+  },
+  "runs/consequence_graph_20260912T100237Z_802860c3/events.jsonl": {
+    "offset": 7630702,
+    "lines": 13499
+  },
+  "runs/consequence_graph_20260912T113255Z_be139301/events.jsonl": {
+    "offset": 4285874,
+    "lines": 8541
+  },
+  "benchmark/assessor/validation_events.jsonl": {
+    "offset": 16484923,
+    "lines": 2771
+  },
+  "benchmark/assessor/edge_validation_events.jsonl": {
+    "offset": 2780656,
+    "lines": 846
+  },
+  "runs/consequence_graph_20260912T161537Z_c0adcca5/events.jsonl": {
+    "offset": 632051,
+    "lines": 228
+  },
+  "runs/consequence_graph_20260912T165422Z_c0adcca5/events.jsonl": {
+    "offset": 4578687,
+    "lines": 8517
+  },
+  "runs/consequence_graph_20260912T183650Z_c0adcca5/events.jsonl": {
+    "offset": 18131,
+    "lines": 6
+  },
+  "runs/ABANDONED_arm_sequential_20260912T183650Z/events.jsonl": {
+    "offset": 650513,
+    "lines": 1000
+  },
+  "runs/consequence_graph_20260912T184117Z_2c9fa666/events.jsonl": {
+    "offset": 886037,
+    "lines": 1757
+  },
+  "runs/consequence_graph_20260912T184654Z_c0adcca5/events.jsonl": {
+    "offset": 940153,
+    "lines": 1788
+  },
+  "runs/consequence_graph_20260912T185007Z_2c9fa666/events.jsonl": {
+    "offset": 893878,
+    "lines": 1480
+  },
+  "runs/consequence_graph_20260912T185551Z_c0adcca5/events.jsonl": {
+    "offset": 923489,
+    "lines": 1435
+  },
+  "runs/consequence_graph_20260912T185921Z_c0adcca5/events.jsonl": {
+    "offset": 766292,
+    "lines": 1343
+  },
+  "runs/consequence_graph_20260912T190339Z_2c9fa666/events.jsonl": {
+    "offset": 725627,
+    "lines": 1362
+  },
+  "runs/consequence_graph_20260912T190722Z_c0adcca5/events.jsonl": {
+    "offset": 850065,
+    "lines": 1574
+  },
+  "runs/consequence_graph_20260912T191245Z_2c9fa666/events.jsonl": {
+    "offset": 791244,
+    "lines": 1484
+  },
+  "runs/consequence_graph_20260912T191558Z_2c9fa666/events.jsonl": {
+    "offset": 655833,
+    "lines": 1327
+  },
+  "runs/consequence_graph_20260912T192008Z_c0adcca5/events.jsonl": {
+    "offset": 700208,
+    "lines": 1297
+  },
+  "runs/consequence_graph_20260912T192237Z_2c9fa666/events.jsonl": {
+    "offset": 852808,
+    "lines": 1857
+  },
+  "runs/consequence_graph_20260912T192741Z_c0adcca5/events.jsonl": {
+    "offset": 884986,
+    "lines": 1855
+  },
+  "runs/consequence_graph_20260912T193059Z_2c9fa666/events.jsonl": {
+    "offset": 835119,
+    "lines": 1815
+  },
+  "runs/consequence_graph_20260912T193651Z_c0adcca5/events.jsonl": {
+    "offset": 884126,
+    "lines": 1837
+  },
+  "runs/consequence_graph_20260912T194030Z_c0adcca5/events.jsonl": {
+    "offset": 796473,
+    "lines": 1457
+  },
+  "runs/consequence_graph_20260912T194453Z_2c9fa666/events.jsonl": {
+    "offset": 774624,
+    "lines": 1495
+  },
+  "runs/consequence_graph_20260912T194820Z_c0adcca5/events.jsonl": {
+    "offset": 924369,
+    "lines": 1801
+  },
+  "runs/consequence_graph_20260912T195312Z_2c9fa666/events.jsonl": {
+    "offset": 869930,
+    "lines": 1851
+  },
+  "runs/consequence_graph_20260912T195727Z_c0adcca5/events.jsonl": {
+    "offset": 976111,
+    "lines": 1724
+  },
+  "runs/consequence_graph_20260912T200358Z_2c9fa666/events.jsonl": {
+    "offset": 888976,
+    "lines": 1652
+  },
+  "runs/consequence_graph_20260912T200902Z_2c9fa666/events.jsonl": {
+    "offset": 724514,
+    "lines": 1478
+  },
+  "runs/consequence_graph_20260912T201310Z_c0adcca5/events.jsonl": {
+    "offset": 875725,
+    "lines": 1728
+  },
+  "runs/consequence_graph_20260912T201628Z_c0adcca5/events.jsonl": {
+    "offset": 864139,
+    "lines": 1675
+  },
+  "runs/consequence_graph_20260912T202148Z_2c9fa666/events.jsonl": {
+    "offset": 860925,
+    "lines": 1743
+  },
+  "runs/consequence_graph_20260912T202642Z_2c9fa666/events.jsonl": {
+    "offset": 880917,
+    "lines": 1452
+  },
+  "runs/consequence_graph_20260912T203328Z_c0adcca5/events.jsonl": {
+    "offset": 937705,
+    "lines": 1454
+  },
+  "runs/consequence_graph_20260912T203724Z_2c9fa666/events.jsonl": {
+    "offset": 810105,
+    "lines": 1688
+  },
+  "runs/consequence_graph_20260912T204311Z_c0adcca5/events.jsonl": {
+    "offset": 873273,
+    "lines": 1775
+  },
+  "runs/consequence_graph_20260912T204709Z_c0adcca5/events.jsonl": {
+    "offset": 901933,
+    "lines": 1707
+  },
+  "runs/consequence_graph_20260912T205221Z_2c9fa666/events.jsonl": {
+    "offset": 849451,
+    "lines": 1728
+  },
+  "runs/consequence_graph_20260912T205617Z_c0adcca5/events.jsonl": {
+    "offset": 793981,
+    "lines": 1308
+  },
+  "runs/consequence_graph_20260912T210114Z_2c9fa666/events.jsonl": {
+    "offset": 804317,
+    "lines": 1530
+  },
+  "runs/consequence_graph_20260912T210530Z_c0adcca5/events.jsonl": {
+    "offset": 941494,
+    "lines": 1537
+  },
+  "runs/consequence_graph_20260912T211154Z_2c9fa666/events.jsonl": {
+    "offset": 869620,
+    "lines": 1564
+  },
+  "runs/consequence_graph_20260912T211651Z_2c9fa666/events.jsonl": {
+    "offset": 800284,
+    "lines": 1471
+  },
+  "runs/consequence_graph_20260912T212150Z_c0adcca5/events.jsonl": {
+    "offset": 844243,
+    "lines": 1488
+  },
+  "runs/consequence_graph_20260912T212440Z_2c9fa666/events.jsonl": {
+    "offset": 860096,
+    "lines": 1444
+  },
+  "runs/consequence_graph_20260912T212814Z_c0adcca5/events.jsonl": {
+    "offset": 895605,
+    "lines": 1442
+  },
+  "runs/consequence_graph_20260912T213111Z_2c9fa666/events.jsonl": {
+    "offset": 855678,
+    "lines": 1520
+  },
+  "runs/consequence_graph_20260912T213709Z_c0adcca5/events.jsonl": {
+    "offset": 873610,
+    "lines": 1435
+  },
+  "runs/consequence_graph_20260913T085212Z_27ff8a54/events.jsonl": {
+    "offset": 18504462,
+    "lines": 33654
+  },
+  "runs/consequence_graph_20260913T111254Z_27ff8a54/events.jsonl": {
+    "offset": 18566127,
+    "lines": 32980
+  },
+  "runs/consequence_graph_20260913T170715Z_e0bed1a0/events.jsonl": {
+    "offset": 11031303,
+    "lines": 20234
+  }
+}

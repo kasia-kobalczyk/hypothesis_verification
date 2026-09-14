@@ -1,0 +1,216 @@
+{
+  "prompt_version": {
+    "name": "diagnostic_test_generate_v1",
+    "sha256_16": "0ff42001f55a928c",
+    "path": "/mnt/data/knk25.data/hypothesis_verification/src/llm/prompts/diagnostic_test_generate_v1.txt"
+  },
+  "n_requested": 6,
+  "stats": {
+    "n_generated": 6,
+    "n_empirically_observable": 6,
+    "n_discriminative": 3,
+    "n_usable": 3,
+    "n_rejected": 3,
+    "mean_distinct_predictions": 1.5
+  },
+  "rejected": [
+    {
+      "test_id": "T4",
+      "reason": "every candidate predicts the same, or all indeterminate",
+      "unknown_labels": []
+    },
+    {
+      "test_id": "T5",
+      "reason": "every candidate predicts the same, or all indeterminate",
+      "unknown_labels": []
+    },
+    {
+      "test_id": "T6",
+      "reason": "every candidate predicts the same, or all indeterminate",
+      "unknown_labels": []
+    }
+  ],
+  "tests": [
+    {
+      "test_id": "T1",
+      "system": "Li-NRR continuous-flow reactor with carbon nanotube-supported iodine catalyst",
+      "context": "Operated with 1 mol% iodine, 100 m²/g surface area, using THF as solvent, under standard N2 flow and electrochemical conditions",
+      "intervention_or_exposure": "Replacement of THF solvent with diethylene glycol dimethyl ether (DG)",
+      "measured_outcome": "Ammonia faradaic efficiency (%) after 24 hours of continuous operation",
+      "rationale": "Candidate A focuses on catalyst modification and is agnostic to solvent, while Candidate B predicts DG is essential for high FE and stability.",
+      "predictions_by_hypothesis": {
+        "H1": "neutral_or_no_change",
+        "H0": "positive_or_present"
+      },
+      "empirically_observable": true,
+      "rejected_reason": null
+    },
+    {
+      "test_id": "T2",
+      "system": "Li-NRR continuous-flow reactor with carbon nanotube-supported iodine catalyst",
+      "context": "Operated with 1 mol% iodine, 100 m²/g surface area, using THF as solvent, under standard N2 flow and electrochemical conditions",
+      "intervention_or_exposure": "Continuous operation for 48 hours",
+      "measured_outcome": "Change in ammonia production rate (mmol/h) over 48 hours",
+      "rationale": "Candidate A predicts stability due to catalyst, while Candidate B expects instability in THF due to SEI and solvent degradation.",
+      "predictions_by_hypothesis": {
+        "H1": "positive_or_present",
+        "H0": "negative_or_absent"
+      },
+      "empirically_observable": true,
+      "rejected_reason": null
+    },
+    {
+      "test_id": "T3",
+      "system": "Li-NRR continuous-flow reactor with gas diffusion electrode (GDE)",
+      "context": "Operated with DG as solvent, no iodine catalyst, under standard N2 flow and electrochemical conditions",
+      "intervention_or_exposure": "Addition of 1 mol% iodine supported on carbon nanotubes",
+      "measured_outcome": "Percentage of ammonia detected in the gas phase after 24 hours",
+      "rationale": "Candidate A predicts iodine addition is key for gas-phase ammonia, while Candidate B predicts DG alone is sufficient.",
+      "predictions_by_hypothesis": {
+        "H1": "positive_or_present",
+        "H0": "neutral_or_no_change"
+      },
+      "empirically_observable": true,
+      "rejected_reason": null
+    },
+    {
+      "test_id": "T4",
+      "system": "Li-NRR continuous-flow reactor with GDE",
+      "context": "Operated with DG as solvent, no iodine catalyst, under standard N2 flow and electrochemical conditions",
+      "intervention_or_exposure": "Continuous operation for 48 hours",
+      "measured_outcome": "Electrolyte degradation products (e.g., polymerization byproducts) detected by NMR or GC-MS",
+      "rationale": "Candidate B predicts DG resists degradation, while Candidate A is agnostic to solvent stability.",
+      "predictions_by_hypothesis": {
+        "H1": "indeterminate",
+        "H0": "negative_or_absent"
+      },
+      "empirically_observable": true,
+      "rejected_reason": "every candidate predicts the same, or all indeterminate"
+    },
+    {
+      "test_id": "T5",
+      "system": "Li-NRR continuous-flow reactor with GDE",
+      "context": "Operated with THF as solvent, no iodine catalyst, under standard N2 flow and electrochemical conditions",
+      "intervention_or_exposure": "Continuous operation for 48 hours",
+      "measured_outcome": "Formation of solid-electrolyte interphase (SEI) on GDE, characterized by XPS or SEM",
+      "rationale": "Candidate B predicts THF forms unstable or non-compact SEI, while Candidate A is agnostic to SEI formation.",
+      "predictions_by_hypothesis": {
+        "H1": "indeterminate",
+        "H0": "negative_or_absent"
+      },
+      "empirically_observable": true,
+      "rejected_reason": "every candidate predicts the same, or all indeterminate"
+    },
+    {
+      "test_id": "T6",
+      "system": "Li-NRR continuous-flow reactor with GDE",
+      "context": "Operated with DG as solvent, no iodine catalyst, under standard N2 flow and electrochemical conditions",
+      "intervention_or_exposure": "Measurement of SEI properties after 24 hours",
+      "measured_outcome": "Compactness and stability of SEI layer (e.g., thickness, uniformity, elemental composition)",
+      "rationale": "Candidate B predicts DG forms a compact, stable SEI, while Candidate A is agnostic to SEI properties.",
+      "predictions_by_hypothesis": {
+        "H1": "indeterminate",
+        "H0": "positive_or_present"
+      },
+      "empirically_observable": true,
+      "rejected_reason": "every candidate predicts the same, or all indeterminate"
+    }
+  ],
+  "call": {
+    "call_id": "82d50f7c4aec",
+    "purpose": "diagnostic.generate",
+    "prompt_version": "diagnostic_test_generate_v1",
+    "model": "gpt-4.1-2025-04-14",
+    "attempts": 1,
+    "latency_s": 6.403,
+    "usage": {
+      "prompt_tokens": 988,
+      "completion_tokens": 1004,
+      "total_tokens": 1992
+    },
+    "finish_reason": "stop",
+    "response_text": "{\n  \"tests\": [\n    {\n      \"system\": \"Li-NRR continuous-flow reactor with carbon nanotube-supported iodine catalyst\",\n      \"context\": \"Operated with 1 mol% iodine, 100 m²/g surface area, using THF as solvent, under standard N2 flow and electrochemical conditions\",\n      \"intervention_or_exposure\": \"Replacement of THF solvent with diethylene glycol dimethyl ether (DG)\",\n      \"measured_outcome\": \"Ammonia faradaic efficiency (%) after 24 hours of continuous operation\",\n      \"rationale\": \"Candidate A focuses on catalyst modification and is agnostic to solvent, while Candidate B predicts DG is essential for high FE and stability.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"neutral_or_no_change\",\n        \"B\": \"positive_or_present\"\n      }\n    },\n    {\n      \"system\": \"Li-NRR continuous-flow reactor with carbon nanotube-supported iodine catalyst\",\n      \"context\": \"Operated with 1 mol% iodine, 100 m²/g surface area, using THF as solvent, under standard N2 flow and electrochemical conditions\",\n      \"intervention_or_exposure\": \"Continuous operation for 48 hours\",\n      \"measured_outcome\": \"Change in ammonia production rate (mmol/h) over 48 hours\",\n      \"rationale\": \"Candidate A predicts stability due to catalyst, while Candidate B expects instability in THF due to SEI and solvent degradation.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"positive_or_present\",\n        \"B\": \"negative_or_absent\"\n      }\n    },\n    {\n      \"system\": \"Li-NRR continuous-flow reactor with gas diffusion electrode (GDE)\",\n      \"context\": \"Operated with DG as solvent, no iodine catalyst, under standard N2 flow and electrochemical conditions\",\n      \"intervention_or_exposure\": \"Addition of 1 mol% iodine supported on carbon nanotubes\",\n      \"measured_outcome\": \"Percentage of ammonia detected in the gas phase after 24 hours\",\n      \"rationale\": \"Candidate A predicts iodine addition is key for gas-phase ammonia, while Candidate B predicts DG alone is sufficient.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"positive_or_present\",\n        \"B\": \"neutral_or_no_change\"\n      }\n    },\n    {\n      \"system\": \"Li-NRR continuous-flow reactor with GDE\",\n      \"context\": \"Operated with DG as solvent, no iodine catalyst, under standard N2 flow and electrochemical conditions\",\n      \"intervention_or_exposure\": \"Continuous operation for 48 hours\",\n      \"measured_outcome\": \"Electrolyte degradation products (e.g., polymerization byproducts) detected by NMR or GC-MS\",\n      \"rationale\": \"Candidate B predicts DG resists degradation, while Candidate A is agnostic to solvent stability.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"indeterminate\",\n        \"B\": \"negative_or_absent\"\n      }\n    },\n    {\n      \"system\": \"Li-NRR continuous-flow reactor with GDE\",\n      \"context\": \"Operated with THF as solvent, no iodine catalyst, under standard N2 flow and electrochemical conditions\",\n      \"intervention_or_exposure\": \"Continuous operation for 48 hours\",\n      \"measured_outcome\": \"Formation of solid-electrolyte interphase (SEI) on GDE, characterized by XPS or SEM\",\n      \"rationale\": \"Candidate B predicts THF forms unstable or non-compact SEI, while Candidate A is agnostic to SEI formation.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"indeterminate\",\n        \"B\": \"negative_or_absent\"\n      }\n    },\n    {\n      \"system\": \"Li-NRR continuous-flow reactor with GDE\",\n      \"context\": \"Operated with DG as solvent, no iodine catalyst, under standard N2 flow and electrochemical conditions\",\n      \"intervention_or_exposure\": \"Measurement of SEI properties after 24 hours\",\n      \"measured_outcome\": \"Compactness and stability of SEI layer (e.g., thickness, uniformity, elemental composition)\",\n      \"rationale\": \"Candidate B predicts DG forms a compact, stable SEI, while Candidate A is agnostic to SEI properties.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"indeterminate\",\n        \"B\": \"positive_or_present\"\n      }\n    }\n  ]\n}",
+    "parsed": {
+      "tests": [
+        {
+          "system": "Li-NRR continuous-flow reactor with carbon nanotube-supported iodine catalyst",
+          "context": "Operated with 1 mol% iodine, 100 m²/g surface area, using THF as solvent, under standard N2 flow and electrochemical conditions",
+          "intervention_or_exposure": "Replacement of THF solvent with diethylene glycol dimethyl ether (DG)",
+          "measured_outcome": "Ammonia faradaic efficiency (%) after 24 hours of continuous operation",
+          "rationale": "Candidate A focuses on catalyst modification and is agnostic to solvent, while Candidate B predicts DG is essential for high FE and stability.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "neutral_or_no_change",
+            "B": "positive_or_present"
+          }
+        },
+        {
+          "system": "Li-NRR continuous-flow reactor with carbon nanotube-supported iodine catalyst",
+          "context": "Operated with 1 mol% iodine, 100 m²/g surface area, using THF as solvent, under standard N2 flow and electrochemical conditions",
+          "intervention_or_exposure": "Continuous operation for 48 hours",
+          "measured_outcome": "Change in ammonia production rate (mmol/h) over 48 hours",
+          "rationale": "Candidate A predicts stability due to catalyst, while Candidate B expects instability in THF due to SEI and solvent degradation.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "positive_or_present",
+            "B": "negative_or_absent"
+          }
+        },
+        {
+          "system": "Li-NRR continuous-flow reactor with gas diffusion electrode (GDE)",
+          "context": "Operated with DG as solvent, no iodine catalyst, under standard N2 flow and electrochemical conditions",
+          "intervention_or_exposure": "Addition of 1 mol% iodine supported on carbon nanotubes",
+          "measured_outcome": "Percentage of ammonia detected in the gas phase after 24 hours",
+          "rationale": "Candidate A predicts iodine addition is key for gas-phase ammonia, while Candidate B predicts DG alone is sufficient.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "positive_or_present",
+            "B": "neutral_or_no_change"
+          }
+        },
+        {
+          "system": "Li-NRR continuous-flow reactor with GDE",
+          "context": "Operated with DG as solvent, no iodine catalyst, under standard N2 flow and electrochemical conditions",
+          "intervention_or_exposure": "Continuous operation for 48 hours",
+          "measured_outcome": "Electrolyte degradation products (e.g., polymerization byproducts) detected by NMR or GC-MS",
+          "rationale": "Candidate B predicts DG resists degradation, while Candidate A is agnostic to solvent stability.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "indeterminate",
+            "B": "negative_or_absent"
+          }
+        },
+        {
+          "system": "Li-NRR continuous-flow reactor with GDE",
+          "context": "Operated with THF as solvent, no iodine catalyst, under standard N2 flow and electrochemical conditions",
+          "intervention_or_exposure": "Continuous operation for 48 hours",
+          "measured_outcome": "Formation of solid-electrolyte interphase (SEI) on GDE, characterized by XPS or SEM",
+          "rationale": "Candidate B predicts THF forms unstable or non-compact SEI, while Candidate A is agnostic to SEI formation.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "indeterminate",
+            "B": "negative_or_absent"
+          }
+        },
+        {
+          "system": "Li-NRR continuous-flow reactor with GDE",
+          "context": "Operated with DG as solvent, no iodine catalyst, under standard N2 flow and electrochemical conditions",
+          "intervention_or_exposure": "Measurement of SEI properties after 24 hours",
+          "measured_outcome": "Compactness and stability of SEI layer (e.g., thickness, uniformity, elemental composition)",
+          "rationale": "Candidate B predicts DG forms a compact, stable SEI, while Candidate A is agnostic to SEI properties.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "indeterminate",
+            "B": "positive_or_present"
+          }
+        }
+      ]
+    },
+    "messages": [
+      {
+        "role": "user",
+        "content": "You are designing experiments that would tell competing scientific hypotheses apart.\n\nYou are given a scientific question and several competing candidate answers. Your\njob is NOT to argue for any of them, and NOT to list facts consistent with any of\nthem. Your job is to design observable tests whose results would come out\nDIFFERENTLY depending on which candidate is true.\n\nTHE QUESTION TO ASK YOURSELF\n\n  \"If I could look up one measurement that would tell these candidates apart,\n   what measurement would it be?\"\n\nA test that every candidate predicts the same way is useless here, however\nscientifically interesting it is. A fact that is simply true of the field is\nuseless here. You are looking for the points where the candidates DISAGREE.\n\nWHAT A TEST MUST BE\n\n1. Empirically observable: a real measurement someone could make, or could\n   already have made and published.\n2. Reportable: the kind of quantity that appears in a scientific paper -- a rate,\n   a concentration, an efficiency, a count, a survival time, a signal, a\n   correlation.\n3. Discriminative: at least two of the candidates must predict different outcomes.\n4. Specific about WHAT IS MEASURED. \"The system performs better\" is not a\n   measurement. \"Tensile strength in MPa after 30 wet/dry cycles\" is.\n\nDescribe each test with these fields kept separate, because each is checked\nindependently later:\n\n  system                    what is studied (organism, material, population, device)\n  context                   the conditions -- dose, duration, temperature, cohort\n  intervention_or_exposure  what is varied, applied, removed or compared\n  measured_outcome          the single quantity measured, stated precisely\n\nPREDICTIONS\n\nFor EVERY candidate, predict how that test would come out IF that candidate were\ntrue. Use exactly one of:\n\n  positive_or_present      the outcome increases, appears, or is detected\n  neutral_or_no_change     the outcome is unchanged, or the effect is absent\n  negative_or_absent       the outcome decreases, or goes the other way\n  indeterminate            that candidate genuinely makes no prediction here\n\nUse \"indeterminate\" honestly. A candidate that says nothing about a test should be\nmarked so, not given a guessed direction. But a test where most candidates are\nindeterminate is a weak test -- prefer tests the candidates actually disagree about.\n\nPredict from each candidate ON ITS OWN TERMS. Do not consult what you know\nactually happened, do not favour the candidate that sounds most plausible, and do\nnot let one candidate's prediction influence another's.\n\nYou have NO literature access. Do not try to recall what studies found. You are\nstating what each candidate PREDICTS, not what is true.\n\nQUESTION:\nHow can we achieve long-term, stable, and efficient continuous-flow ammonia electrosynthesis via lithium-mediated nitrogen reduction (Li-NRR) with high gas-phase ammonia output, while overcoming the limitations of commonly used solvents like tetrahydrofuran (THF)?\n\nCANDIDATES:\nCandidate A:\nThe incorporation of iodine as a supported catalyst in a modified lithium-mediated nitrogen reduction (Li-NRR) reactor design, with an optimal iodine concentration of 1 mol%, a surface area of 100 m²/g, and a supporting material of carbon nanotubes, can enhance the efficiency, stability, and gas-phase ammonia output of continuous-flow ammonia electrosynthesis, while reducing the limitations and costs associated with commonly used solvents like tetrahydrofuran (THF).\n\nCandidate B:\nA chain-ether-based solvent, specifically diethylene glycol dimethyl ether (DG), can enable long-term continuous ammonia synthesis in a lithium-mediated nitrogen reduction (Li-NRR) system by exhibiting non-polymerization properties, a high boiling point, forming a compact and stable solid-electrolyte interphase (SEI) on the gas diffusion electrode (GDE) that facilitates ammonia release into the gas phase, and avoiding electrolyte degradation, thereby leading to high ammonia faradaic efficiency (FE) and a high percentage of ammonia in the gas phase.\n\nReturn a single JSON object, and nothing else, with 6 tests:\n\n{\n  \"tests\": [\n    {\n      \"system\": \"<what is studied>\",\n      \"context\": \"<conditions>\",\n      \"intervention_or_exposure\": \"<what is varied>\",\n      \"measured_outcome\": \"<the single quantity measured>\",\n      \"rationale\": \"<one sentence: why the candidates come apart on this>\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\"<candidate label>\": \"<one of the four>\", \"...\": \"...\"}\n    }\n  ]\n}\n\nInclude every candidate label exactly once in predictions_by_hypothesis for every\ntest: A, B\n"
+      }
+    ]
+  }
+}

@@ -1,0 +1,3630 @@
+{
+  "generated_at": "2026-09-12T15:30:22Z",
+  "judges": {
+    "a": "edge_assess_v1 (production)",
+    "b": "edge_judge_b_v1"
+  },
+  "model": "one deployment; same-model caveat applies as in the evidence validation",
+  "n_edges_available": 2346,
+  "n_sampled": 120,
+  "conditions": [
+    "real",
+    "mismatched"
+  ],
+  "b_mapping": {
+    "follows|surprised": "strongly_implied",
+    "follows|mildly_surprised": "implied",
+    "follows|not_surprised": "implied",
+    "more_likely|surprised": "implied",
+    "more_likely|mildly_surprised": "weakly_implied",
+    "more_likely|not_surprised": "weakly_implied",
+    "unaffected|surprised": "neutral",
+    "unaffected|mildly_surprised": "neutral",
+    "unaffected|not_surprised": "neutral",
+    "less_likely|surprised": "strongly_contradicted",
+    "less_likely|mildly_surprised": "unlikely",
+    "less_likely|not_surprised": "unlikely"
+  },
+  "rows": [
+    {
+      "edge_id": "K-0038-K2::H0->X1",
+      "condition": "real",
+      "instance": "K-0038-K2",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's observed metabolic changes do not involve pathways affecting NADPH/NADP+ ratios, then the prediction does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0038-K2::H1->X10",
+      "condition": "real",
+      "instance": "K-0038-K2",
+      "production_label": "neutral",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's disruption of metabolic plasticity and redox states does not involve or affect the polyol pathway or sorbitol production, then the prediction about sorbitol concentration would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0038-K4::H0->X11",
+      "condition": "real",
+      "instance": "K-0038-K4",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's reference to altered metabolic profiles does not include changes in lactate metabolism or transporter expression, then the prediction does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0038-K4::H0->X33",
+      "condition": "real",
+      "instance": "K-0038-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's mention of altered metabolic profiles does not specifically include changes to the pentose phosphate pathway, then the prediction does not necessarily follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0038-K4::H0->X9",
+      "condition": "real",
+      "instance": "K-0038-K4",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's observed metabolic changes do not involve or affect the pentose phosphate pathway, then the prediction about altered flux in that pathway would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0038-K4::H1->X30",
+      "condition": "real",
+      "instance": "K-0038-K4",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's disruptions affect only glucose metabolism or only non-cardiac tissues, then fatty acid oxidation in cardiomyocytes might not be altered, so the prediction would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0038-K4::H1->X6",
+      "condition": "real",
+      "instance": "K-0038-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only affecting overall fetal growth or metabolic balance without specifying effects on cell division or heart tissue, then increased mitotic activity in cardiomyocytes would not necessarily follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0038-K4::H2->X28",
+      "condition": "real",
+      "instance": "K-0038-K4",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's metabolic shift is specific only to glucose and lactate, and does not affect fatty acid metabolism or its enzyme expression, then the prediction about fatty acid oxidation enzyme mRNA levels would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0038-K4::H2->X47",
+      "condition": "real",
+      "instance": "K-0038-K4",
+      "production_label": "weakly_implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the metabolic shift described in the claim occurs only in tissues other than muscle, or if hexokinase expression is regulated independently of the shift from glucose to lactate, the prediction would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0038-K4::H3->X23",
+      "condition": "real",
+      "instance": "K-0038-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as only affecting glucose and fatty acid metabolism, without altering lactate metabolism, then increased lactate uptake would not be expected.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0038-K4::H3->X43",
+      "condition": "real",
+      "instance": "K-0038-K4",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as being specific only to fetal heart tissue, with no effect on other organs, then the prediction about fetal liver would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0095-K2::H0->X19",
+      "condition": "real",
+      "instance": "K-0095-K2",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as being specific only to RMC-7977 and its combination with TEAD inhibitors, it has no bearing on what happens with Lonafarnib and Adagrasib.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0095-K2::H1->X18",
+      "condition": "real",
+      "instance": "K-0095-K2",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as only applying to the specific combination regimen and associated strategies, it has no bearing on the effects of RMC-7977, so the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0095-K4::H0->X2",
+      "condition": "real",
+      "instance": "K-0095-K4",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "strongly_implied",
+      "b_raw": [
+        "follows",
+        "surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to in vivo or animal models, and not to isolated PDAC cells in vitro, then the prediction might not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0095-K4::H0->X47",
+      "condition": "real",
+      "instance": "K-0095-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as being specific only to RMC-7977 (and not to Lonafarnib or Adagrasib), then it has no bearing on whether new KRAS mutations arise during treatment with those other drugs.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0095-K4::H1->X3",
+      "condition": "real",
+      "instance": "K-0095-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to regimens involving Lonafarnib and Adagrasib (and not RMC-7977 or TEAD inhibitors), then it has no bearing on the effects of the drug combination in the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0095-K4::H1->X8",
+      "condition": "real",
+      "instance": "K-0095-K4",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's improvement in efficacy is due solely to the specific drug combination or CRISPR screening, and not to ctDNA-guided adaptation, then the prediction about adaptive dosing based on ctDNA would not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0095-K4::H2->X36",
+      "condition": "real",
+      "instance": "K-0095-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to the AMG 510 and SEL-120 combination and not to Lonafarnib or Adagrasib, then the prediction about genetic alterations after Lonafarnib or Adagrasib exposure does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0095-K4::H3->X12",
+      "condition": "real",
+      "instance": "K-0095-K4",
+      "production_label": "weakly_implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as the triple therapy fully preventing resistance mutations from emerging (rather than just suppressing them), then ctDNA profiling might not detect new resistance mutations, so the prediction would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0095-K4::H3->X42",
+      "condition": "real",
+      "instance": "K-0095-K4",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's synergy and efficacy depend on the inclusion of a third agent (e.g., SHP2 inhibitor) or on adaptive dosing schedules, then using only AMG 510 and SEL-120 together without these conditions might not lower ERK1/2 phosphorylation as expected.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0108-K2::H0->X17",
+      "condition": "real",
+      "instance": "K-0108-K2",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to membranes with UiO-66-NH2 MOF nanoparticles and not to those with titanium dioxide, then the prediction about the graphene oxide–titanium dioxide membrane does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0108-K2::H1->X12",
+      "condition": "real",
+      "instance": "K-0108-K2",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "strongly_implied",
+      "b_raw": [
+        "follows",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's 'efficient separation' refers only to the removal of certain organic pollutants and not to crude oil itself, or if the efficiency is only under specific conditions not present during the filtration, then the prediction may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0108-K2::H1->X8",
+      "condition": "real",
+      "instance": "K-0108-K2",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as specific only to GO-TiO₂ membranes and their unique properties, it does not necessarily follow that a PVA/GO@MOF membrane would have the same antifouling or anti-adhesion performance.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0108-K4::H0->X27",
+      "condition": "real",
+      "instance": "K-0108-K4",
+      "production_label": "weakly_implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's 'photocatalytic activity' refers only to non-ROS mechanisms (e.g., dye degradation without ROS), the prediction may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0108-K4::H0->X45",
+      "condition": "real",
+      "instance": "K-0108-K4",
+      "production_label": "strongly_implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If 'harsh environments' in the claim does not include organic solvents, or if the stability only refers to mechanical and not chemical stability, then the prediction may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0108-K4::H1->X20",
+      "condition": "real",
+      "instance": "K-0108-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to membranes specifically made from GO and TiO₂, then it does not imply anything about the behavior of PVA/GO@MOF membranes containing UiO-66-NH2.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0108-K4::H1->X39",
+      "condition": "real",
+      "instance": "K-0108-K4",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If 'uniform dispersion' in the claim refers only to nanoscale mixing within individual layers but not across the entire membrane, or if EDX mapping lacks the resolution to detect the distribution, the prediction might not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0108-K4::H2->X12",
+      "condition": "real",
+      "instance": "K-0108-K4",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If 'enhanced fouling resistance' in the claim refers only to resistance against certain foulants (e.g., organic pollutants) and not specifically to oil fouling from high-viscosity crude oil emulsions, the prediction about oil residue and water flux may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0108-K4::H2->X31",
+      "condition": "real",
+      "instance": "K-0108-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the PVA/GO@MOF membrane lacks TiO2 or similar photocatalytic components, the claim about the TiO2-modified membrane would not imply anything about the PVA/GO@MOF membrane's degradation performance.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0108-K4::H2->X6",
+      "condition": "real",
+      "instance": "K-0108-K4",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's 'enhanced fouling resistance' only applies to certain types of foulants or conditions not present in high-viscosity crude oil emulsions, then the prediction may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0108-K4::H3->X25",
+      "condition": "real",
+      "instance": "K-0108-K4",
+      "production_label": "unlikely",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the photoactive nanoparticles in the membrane are only sensitive to visible light and not to UV light, then the membrane might not increase degradation rates under UV exposure.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0108-K4::H3->X43",
+      "condition": "real",
+      "instance": "K-0108-K4",
+      "production_label": "neutral",
+      "a_label": "weakly_implied",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to membranes with GO and zeolite (not MOF or PVA), or only to performance under oil emulsion separation and visible light, then it does not address acid stability of PVA/GO@MOF membranes at all.",
+      "a_direction": "implies",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0113-K2::H0->X17",
+      "condition": "real",
+      "instance": "K-0113-K2",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If 'improved algorithmic performance' and 'scaling to larger code distances' refer only to logical error rates or computational efficiency, not physical gate fidelity, then the prediction about gate fidelity does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0113-K2::H1->X12",
+      "condition": "real",
+      "instance": "K-0113-K2",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's improvements are limited to certain types of gates or error correction protocols that do not support transversal gates, then the prediction would not necessarily follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0113-K2::H1->X8",
+      "condition": "real",
+      "instance": "K-0113-K2",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "strongly_implied",
+      "b_raw": [
+        "follows",
+        "surprised"
+      ],
+      "b_caveat": null,
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0113-K4::H0->X25",
+      "condition": "real",
+      "instance": "K-0113-K4",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If 'scaling to larger code distances' in the claim only means modest increases (e.g., from 3 to 5) and not specifically to values greater than 10, then the prediction does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0113-K4::H0->X42",
+      "condition": "real",
+      "instance": "K-0113-K4",
+      "production_label": "neutral",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim refers only to algorithmic performance improvements due to logical encoding and parallelism, but not specifically to the physical fidelity of multi-qubit gates via coherent transport, then the prediction does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0113-K4::H1->X16",
+      "condition": "real",
+      "instance": "K-0113-K4",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "strongly_implied",
+      "b_raw": [
+        "follows",
+        "surprised"
+      ],
+      "b_caveat": null,
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0113-K4::H1->X33",
+      "condition": "real",
+      "instance": "K-0113-K4",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's 'quantum control algorithms' do not include or are incompatible with reinforcement learning, or if the error reduction is due to other aspects (like hardware improvements), then the prediction does not necessarily follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0113-K4::H1->X7",
+      "condition": "real",
+      "instance": "K-0113-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's quantum control algorithms do not include or resemble deep Q-networks, or if the coherence improvements are due to other factors (like hardware or error correction) rather than the control method, the prediction would not follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0113-K4::H2->X24",
+      "condition": "real",
+      "instance": "K-0113-K4",
+      "production_label": "neutral",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's optimization process only affects abstract control parameters without causing physical reconfiguration of the topological code architecture or without impacting interference patterns, the prediction would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0113-K4::H2->X41",
+      "condition": "real",
+      "instance": "K-0113-K4",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's improvements are limited to single-qubit operations or only affect logical encoding overhead without impacting multi-qubit gate error rates, the prediction would not follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0113-K4::H3->X15",
+      "condition": "real",
+      "instance": "K-0113-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's protocol is not compatible with neutral-atom arrays or does not support transversal gates, the prediction would not follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0113-K4::H3->X32",
+      "condition": "real",
+      "instance": "K-0113-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim's protocol is entirely unrelated to reinforcement learning or neutral-atom platforms, then the prediction about reinforcement learning-based control in neutral-atom processors does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0113-K4::H3->X6",
+      "condition": "real",
+      "instance": "K-0113-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only describing error correction and code architecture, without reference to physical qubit transport or gate fidelity improvements, then the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H0->X16",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If IL-10 only affects ceramide metabolism indirectly or only in certain cell types or conditions not present in macrophages, then IL-10 treatment might not reduce ceramide levels in macrophages.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H0->X25",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's effect is specific only to MUFA synthesis or ceramide synthesis inhibition, and not to SK or PP2A pathways, then the prediction about SK and PP2A synergy would not follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H0->X34",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as IL-10 acting solely through ceramide modulation and not involving STAT3 or the specific enzymes mentioned, the prediction about STAT3-dependent effects on SK and SCD2 would not necessarily follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H0->X43",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "weakly_implied",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If IL-10 regulates ceramide levels by inhibiting ceramide synthase activity or expression, then IL-10 treatment would not be expected to increase ceramide synthase mRNA.",
+      "a_direction": "implies",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H1->X12",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "unlikely",
+      "a_label": "unlikely",
+      "b_label": "unlikely",
+      "b_raw": [
+        "less_likely",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as IL-10 enhancing cell survival and reducing inflammation, there is no reason to expect it would increase apoptosis, so the prediction does not follow from the claim.",
+      "a_direction": "contradicts",
+      "b_direction": "contradicts"
+    },
+    {
+      "edge_id": "RBV-19::H1->X21",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's mechanism implicitly involves downstream effects on ceramide synthase, sphingomyelinase, or PP2A as part of the restoration process, then the prediction would not follow; however, the claim emphasizes SK and SCD2 as sufficient, so such a reading is possible but not primary.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H1->X30",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's effect of SK and SCD2 activation is strictly dependent on the presence of IL-10 or other IL-10-induced factors beyond lipid signaling, then SCD2 activation and MUFA supplementation alone in IL-10 knockout mice might not suffice to resolve inflammation, so the prediction would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H1->X4",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's effect is solely on the activity (via phosphorylation) of pre-existing sphingosine kinases and not on their gene expression or protein abundance, then IL-10 might not increase SphK1/2 expression at all.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H1->X9",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's effect of SCD2 activation on inflammation strictly requires the presence of IL-10 or other co-factors absent in IL-10-deficient macrophages, then enhanced MUFA synthesis alone might not decrease inflammatory markers.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H10->X18",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "unlikely",
+      "a_label": "unlikely",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as IL-10's effects being exclusively mediated by SphK-driven S1P production, then a PP2A-targeting molecule reducing inflammation without altering S1P would not be expected.",
+      "a_direction": "contradicts",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H10->X27",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's effect is specific to experimental models (e.g., only in cell lines or mouse models) and does not generalize to primary macrophages, the prediction may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H10->X36",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as IL-10 modulating the ceramide pathway broadly (including synthase or sphingomyelinase expression), then the prediction would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H10->X5",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as IL-10 acting only through sphingosine kinases and not affecting other lipid metabolic enzymes like SCD2, then the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H2->X14",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "unlikely",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only addressing interventions that directly target phosphatase activity or IL-10 mimetics, and not dietary interventions like MUFA supplementation, then the prediction about MUFA effects does not follow.",
+      "a_direction": "contradicts",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H2->X22",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's mechanism only involves decreasing ceramide production without affecting sphingosine kinase or S1P synthesis directly, then IL-10 might not increase sphingosine kinase activity.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H2->X31",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's reference to 'ceramide' does not include saturated very long chain ceramides, or if only total ceramide but not specific species are affected, the prediction would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H2->X41",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as stating that activation of PP2A alone is sufficient to restore anti-inflammatory balance, then the prediction would not follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H3->X10",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim only refers to IL-10 affecting sphingosine kinase activity and not the expression of ceramide synthase or sphingomyelinase, then the prediction about reduced expression of these enzymes would not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H3->X19",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "unlikely",
+      "a_label": "unlikely",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's effect of IL-10 on SK is only at the level of enzyme activity (e.g., post-translational modification) and not gene expression, then IL-10 would not necessarily increase SK expression.",
+      "a_direction": "contradicts",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H3->X28",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If SCD2 is not involved in sphingolipid metabolism or the SK/ceramide/S1P pathway described in the claim, then enhancing SCD2 would not be expected to affect inflammation as predicted.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H3->X38",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as stating that targeting SK alone is sufficient to fully restore normal function, then the prediction (which requires both SK and SCD2 activation for full effect) would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H3->X7",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as stating that only modulation of sphingolipid metabolism (not SCD2 or oleic acid pathways) can mitigate inflammation in IL-10-deficient macrophages, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H4->X15",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to sphingolipid metabolism and not to other lipid pathways such as those involving Stearoyl-CoA Desaturase-2, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H4->X24",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's effects on inflammation and barrier integrity are actually mediated by other pathways independent of ceramide synthesis, then inhibiting ceramide would not restore these functions, so the prediction would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H4->X33",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only relating to IL-10's effects via SK and PP2A, and not involving fatty acid supplementation or their impact on ceramide metabolism, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H4->X42",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only affecting sphingolipid metabolism and not fatty acid metabolism (such as SCD2 and oleic acid), then the prediction about SCD2 and oleic acid does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H5->X11",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to dietary interventions in IL-10-deficient mouse macrophages, it does not imply anything about the effect of IL-10 treatment on sphingolipid profiles in human macrophages.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H5->X20",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only affecting inflammatory pathways via MUFA and SCD2, and not directly influencing sphingolipid metabolism or SphK1/SphK2 activity, then the prediction about ceramide conversion and unchanged MUFA/SCD2 does not follow from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H5->X3",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "unlikely",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's effect is specific to dietary modulation and does not generalize to pharmacological activation, or if SK is not involved in the mechanism described in the claim, then the prediction may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H5->X39",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to IL-10 deficient conditions and dietary interventions, it does not address the effects of IL-10 stimulation on sphingosine kinase activity at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H5->X8",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's effect depends specifically on dietary MUFA precursors rather than SCD2 activity alone, then genetic overexpression without MUFA supplementation might not reduce pro-inflammatory cytokines.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H6->X17",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only relating to SCD2's effects on MUFA synthesis and cytokine levels, with no implication about IL-10's effects on PP2A or ceramide synthases, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H6->X26",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "strongly_contradicted",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only relating to SCD2's role in MUFA-mediated anti-inflammatory effects, and not to IL-10's direct actions on ceramide synthases, then the prediction about IL-10's effect on ceramide synthesis is unrelated and does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H6->X35",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as SCD2 modulation acting independently of IL-10 and STAT3 pathways, then the prediction about STAT3's necessity for IL-10-induced changes does not follow from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H6->X44",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as SCD2 modulation fully compensating for IL-10 deficiency in all functional aspects (not just cytokine reduction), then the prediction that only combined intervention restores barrier integrity would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H7->X13",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "unlikely",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as requiring both SCD2 activation and dietary supplementation for anti-inflammatory effects, then supplementation alone (as in the prediction) would not necessarily reduce inflammation, so the prediction would not follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H7->X21",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as only about the effects of SCD2 activation and dietary supplementation in macrophages, it does not address or imply anything about the effects of IL-10 administration on endothelial cells.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H7->X30",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "strongly_implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's effect depends critically on both CRISPR activation and dietary supplementation together, then CRISPR activation alone in culture may not decrease inflammation, so the prediction would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H7->X40",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's effect is entirely dependent on the specific method of SCD2 activation (CRISPR and dietary supplementation) and does not generalize to pharmacological activation or to combinations with other pathways, then the prediction would not necessarily follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H8->X1",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's mechanism does not involve STAT3 (e.g., IL-10 acts through a different signaling pathway), then the prediction about STAT3 dependence would not follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H8->X18",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as only involving S1P and MUFA pathways, with no implication about PP2A or alternative anti-inflammatory mechanisms, then the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H8->X27",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's reference to 'altered lipid profiles' in IL-10-deficient macrophages does not specifically entail increased ceramide (e.g., the alteration could be in other lipid species), then the prediction does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H8->X37",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's suggestion that both pathways must be restored is only speculative or if other downstream effects of IL-10 are necessary for full restoration, then the prediction may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H8->X6",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as S1P signaling alone being sufficient for membrane integrity and anti-inflammatory effects, then the prediction would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H9->X14",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only describing IL-10's effects in human macrophages and not addressing dietary interventions or IL-10-deficient conditions, then the prediction about dietary fatty acids in IL-10-deficient mouse macrophages does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H9->X23",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's effect of IL-10 on sphingolipid metabolism does not involve sphingosine kinase or S1P at all, then the prediction about SK activity and S1P levels would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H9->X32",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's effect on sphingolipid balance is entirely independent of pro-inflammatory cytokine production, or if apoptosis is the only outcome affected and cytokine production is not linked to ceramide synthase activity, then the prediction would not follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV-19::H9->X41",
+      "condition": "real",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only affecting sphingolipid metabolism and apoptosis, with no impact on SCD2 activity or oleic acid levels, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0005-N07::H0->X10",
+      "condition": "real",
+      "instance": "RBV2-0005-N07",
+      "production_label": "unlikely",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's improvements refer only to post-treatment uses of nanocellulose (not its addition during pulping), then the prediction about adding CNFs during pretreatment would not necessarily follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0005-N07::H0->X16",
+      "condition": "real",
+      "instance": "RBV2-0005-N07",
+      "production_label": "implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's reference to 'high-value products like nanocellulose' only means economic value or other properties (e.g., chemical reactivity) rather than mechanical strength, the prediction about tensile strength would not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0005-N07::H0->X3",
+      "condition": "real",
+      "instance": "RBV2-0005-N07",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only improving pulping by modifying the wood or process itself (not by adding external materials like nanofibrils), then the prediction about adding nanofibrils does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0005-N07::H1->X1",
+      "condition": "real",
+      "instance": "RBV2-0005-N07",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If 'improving pulp quality' refers only to yield or process efficiency and not to mechanical strength, the prediction about tensile strength may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0005-N07::H1->X15",
+      "condition": "real",
+      "instance": "RBV2-0005-N07",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is only about the benefits of adding CNFs during pulping and does not address post-treatment extraction processes, then the prediction about nanocellulose concentration after post-treatment does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0005-N07::H1->X3",
+      "condition": "real",
+      "instance": "RBV2-0005-N07",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's improvements in pulp quality and fiber bonding do not translate into properties relevant for nanotechnology applications (e.g., if the improvements are in yield or energy use only), then the prediction may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0005-N07::H1->X9",
+      "condition": "real",
+      "instance": "RBV2-0005-N07",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If 'improving pulp quality' refers only to yield or process efficiency and not to mechanical strength, the prediction about breaking force may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0012-N00::H0->X15",
+      "condition": "real",
+      "instance": "RBV2-0012-N00",
+      "production_label": "strongly_contradicted",
+      "a_label": "strongly_contradicted",
+      "b_label": "strongly_contradicted",
+      "b_raw": [
+        "less_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim is interpreted to mean that aberrant disulfide bonding occurs in proteins other than actin, or only after cell death, then the prediction could still hold, but this is not the main reading.",
+      "a_direction": "contradicts",
+      "b_direction": "contradicts"
+    },
+    {
+      "edge_id": "RBV2-0012-N00::H0->X20",
+      "condition": "real",
+      "instance": "RBV2-0012-N00",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "strongly_implied",
+      "b_raw": [
+        "follows",
+        "surprised"
+      ],
+      "b_caveat": "If the unique cell death (disulfidptosis) occurs only in very specific cancer cell types or requires additional factors beyond SLC7A11 overexpression and glucose deprivation, the prediction may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0012-N00::H0->X9",
+      "condition": "real",
+      "instance": "RBV2-0012-N00",
+      "production_label": "unlikely",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only describing disulfidptosis as a unique cell death pathway under glucose deprivation, without excluding other cell death mechanisms (like necroptosis or autophagy), then the prediction about alternative pathways does not follow from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0012-N00::H1->X14",
+      "condition": "real",
+      "instance": "RBV2-0012-N00",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim only applies to a very specific context (e.g., only with SLC7A11/xCT-mediated cystine uptake and not all NADPH depletion), then NADPH depletion in general might not always correlate with increased mitochondrial ROS.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0012-N00::H1->X2",
+      "condition": "real",
+      "instance": "RBV2-0012-N00",
+      "production_label": "implied",
+      "a_label": "strongly_implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's 'dysfunctional mitoROS' refers to altered quality rather than increased quantity, the prediction about increased mitoROS production may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0012-N00::H1->X8",
+      "condition": "real",
+      "instance": "RBV2-0012-N00",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the impairment of complex I activity only occurs under chronic glucose starvation and NADPH debt, but the prediction refers to cystine uptake in cancer cells generally (without specifying these conditions), then the prediction does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0018-N05::H0->X13",
+      "condition": "real",
+      "instance": "RBV2-0018-N05",
+      "production_label": "implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's 'multi-batch integration' does not specifically address batch effect metrics or if the model's adaptation does not actually impact batch effects, the prediction may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0018-N05::H0->X2",
+      "condition": "real",
+      "instance": "RBV2-0018-N05",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim only means scGPT can be adapted to similar datasets or tasks, but not to datasets that differ substantially in cell types or protocols, then the prediction does not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0018-N05::H0->X7",
+      "condition": "real",
+      "instance": "RBV2-0018-N05",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If 'effectively distill critical biological insights' and 'adapt for cell type annotation' only mean the model performs reasonably well but not necessarily with over 90% accuracy, then the prediction does not strictly follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0018-N05::H1->X12",
+      "condition": "real",
+      "instance": "RBV2-0018-N05",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim only refers to theoretical or mechanistic improvements (e.g., revealing regulatory mechanisms) without guaranteeing empirical performance gains, the prediction might not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0018-N05::H1->X19",
+      "condition": "real",
+      "instance": "RBV2-0018-N05",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim only refers to improved accuracy in gene expression prediction without specifically implying the identification of enhancer-promoter interactions or their validation by perturbation experiments, the prediction does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0018-N05::H1->X6",
+      "condition": "real",
+      "instance": "RBV2-0018-N05",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim only refers to technical improvements in prediction accuracy and resolution without actually identifying or revealing regulatory mechanisms, then the prediction may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0034-N04::H0->X11",
+      "condition": "real",
+      "instance": "RBV2-0034-N04",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's clustering is driven mainly by anthropogenic factors or the earthquake, and not by rainfall, then landslides might not correlate with high rainfall areas.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0034-N04::H0->X18",
+      "condition": "real",
+      "instance": "RBV2-0034-N04",
+      "production_label": "unlikely",
+      "a_label": "unlikely",
+      "b_label": "strongly_contradicted",
+      "b_raw": [
+        "less_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only asserting general increases and clustering without specifying the monsoon season as a peak period, the prediction could still be possible.",
+      "a_direction": "contradicts",
+      "b_direction": "contradicts"
+    },
+    {
+      "edge_id": "RBV2-0034-N04::H0->X5",
+      "condition": "real",
+      "instance": "RBV2-0034-N04",
+      "production_label": "strongly_contradicted",
+      "a_label": "unlikely",
+      "b_label": "unlikely",
+      "b_raw": [
+        "less_likely",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim's reference to increased landslides 'particularly during the monsoon season' is taken strictly, it does not support increased landslides during the pre-monsoon season at all.",
+      "a_direction": "contradicts",
+      "b_direction": "contradicts"
+    },
+    {
+      "edge_id": "RBV2-0034-N04::H1->X10",
+      "condition": "real",
+      "instance": "RBV2-0034-N04",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's effect of rainfall on landslides only occurs in combination with recent earthquakes and during the pre-monsoon season, then high rainfall alone may not lead to more landslides overall.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0034-N04::H1->X17",
+      "condition": "real",
+      "instance": "RBV2-0034-N04",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is only about increased probability and not about actual event density, or if other factors (like urbanization) dominate in practice, the prediction about spatial clustering and lack of correlation with urbanization may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0034-N04::H1->X4",
+      "condition": "real",
+      "instance": "RBV2-0034-N04",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's effect is limited only to the pre-monsoon season and not to the annual frequency overall, the prediction about annual frequency may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0038-N04::H0->X1",
+      "condition": "real",
+      "instance": "RBV2-0038-N04",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's mention of altered metabolic profiles does not include changes in redox state or specifically NADPH/NADP+ ratios, then the prediction does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0038-N04::H0->X16",
+      "condition": "real",
+      "instance": "RBV2-0038-N04",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's mention of sorbitol accumulation is limited to cases where redox-sensitive enzymes are altered, then the prediction (which specifies unchanged enzyme activity) would not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "K-0038-K2::H0->X1",
+      "condition": "mismatched",
+      "instance": "K-0038-K2",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as applying only to IL-10's effects on macrophage sphingolipid metabolism and not to fetal redox states or diabetic pregnancy, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0038-K2::H1->X10",
+      "condition": "mismatched",
+      "instance": "K-0038-K2",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as only addressing IL-10's effects on sphingolipid metabolism and inflammation, with no mention of glucose or sorbitol metabolism, it does not imply anything about fetal sorbitol levels in hyperglycemic pregnancies.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0038-K4::H0->X11",
+      "condition": "mismatched",
+      "instance": "K-0038-K4",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about IL-10, sphingolipid metabolism, and inflammation, and does not mention lactate transporters, fetal tissues, or maternal glycemic status, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0038-K4::H0->X33",
+      "condition": "mismatched",
+      "instance": "K-0038-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as only relating to IL-10, sphingolipid metabolism, and macrophage/endothelial inflammation, it does not address pentose phosphate pathway flux or fetal metabolism in diabetic pregnancies at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0038-K4::H0->X9",
+      "condition": "mismatched",
+      "instance": "K-0038-K4",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as only addressing IL-10's effects on sphingolipid metabolism in macrophages and not on fetal metabolism or the pentose phosphate pathway, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0038-K4::H1->X30",
+      "condition": "mismatched",
+      "instance": "K-0038-K4",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as applying only to macrophages and their sphingolipid metabolism, it does not address fatty acid oxidation in fetal cardiomyocytes at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0038-K4::H1->X6",
+      "condition": "mismatched",
+      "instance": "K-0038-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as relating only to macrophage inflammation and sphingolipid metabolism, and not to fetal heart development or diabetes-induced changes in cardiomyocyte proliferation, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0038-K4::H2->X28",
+      "condition": "mismatched",
+      "instance": "K-0038-K4",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only affecting macrophage sphingolipid metabolism and inflammation, and not influencing fetal cardiomyocyte fatty acid oxidation or maternal hyperglycemia effects, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0038-K4::H2->X47",
+      "condition": "mismatched",
+      "instance": "K-0038-K4",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to macrophage inflammation and sphingolipid metabolism, and not to fetal muscle glucose metabolism or hexokinase expression, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0038-K4::H3->X23",
+      "condition": "mismatched",
+      "instance": "K-0038-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only affecting macrophage sphingolipid metabolism and inflammation, without influencing fetal metabolic responses to maternal hyperglycemia, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0038-K4::H3->X43",
+      "condition": "mismatched",
+      "instance": "K-0038-K4",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about macrophage inflammation in a mouse model with IL-10 deficiency, not about fetal liver metabolism in diabetic pregnancies, so there is no direct connection.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0095-K2::H0->X19",
+      "condition": "mismatched",
+      "instance": "K-0095-K2",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about dietary interventions in mouse models of inflammation, while the prediction is about cancer drug resistance in humans, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0095-K2::H1->X18",
+      "condition": "mismatched",
+      "instance": "K-0095-K2",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about dietary effects on macrophage inflammation in IL-10 deficient mice, not about drug treatment or ERK signaling in KRAS-mutant pancreatic tumors, so the prediction does not follow at all from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0095-K4::H0->X2",
+      "condition": "mismatched",
+      "instance": "K-0095-K4",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about dietary effects on macrophage inflammation in IL-10 deficient mice, and does not address RAS inhibition or pancreatic cancer cells, so the prediction does not follow under any reading.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0095-K4::H0->X47",
+      "condition": "mismatched",
+      "instance": "K-0095-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about dietary effects on macrophage inflammation in mice, which is unrelated to KRAS mutation detection in PDAC patients, so the prediction does not follow at all from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0095-K4::H1->X3",
+      "condition": "mismatched",
+      "instance": "K-0095-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to immune cells (macrophages) and not to cancer cells or their response to RMC-7977 and TEAD inhibitors, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0095-K4::H1->X8",
+      "condition": "mismatched",
+      "instance": "K-0095-K4",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about immune cell modulation in the context of IL-10 deficiency, whereas the prediction is about cancer treatment efficacy in a specific tumor model, so the two topics are unrelated and the claim does not imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0095-K4::H2->X36",
+      "condition": "mismatched",
+      "instance": "K-0095-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to macrophages and IL-10 deficiency, it has no bearing on genetic alterations in KRAS-mutant PDAC cells exposed to Lonafarnib or Adagrasib.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0095-K4::H3->X12",
+      "condition": "mismatched",
+      "instance": "K-0095-K4",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about immune cell modulation and anti-inflammatory effects, not about cancer therapy resistance or DNA profiling, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0095-K4::H3->X42",
+      "condition": "mismatched",
+      "instance": "K-0095-K4",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about macrophage-mediated inflammation and does not address KRAS-mutant PDAC cells or the effects of AMG 510 and SEL-120, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0108-K2::H0->X17",
+      "condition": "mismatched",
+      "instance": "K-0108-K2",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about biological processes in mammals and does not address wastewater treatment or membrane technology, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0108-K2::H1->X12",
+      "condition": "mismatched",
+      "instance": "K-0108-K2",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about macrophage biology and inflammation, and does not address or imply anything about membrane filtration or oil separation.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0108-K2::H1->X8",
+      "condition": "mismatched",
+      "instance": "K-0108-K2",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about biological systems and interventions in macrophages, while the prediction is about material science and membrane performance, so under any straightforward reading, the claim does not entail or imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0108-K4::H0->X27",
+      "condition": "mismatched",
+      "instance": "K-0108-K4",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about immune cell metabolism and inflammation, not about the behavior of hybrid membranes under UV irradiation, so there is no connection.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0108-K4::H0->X45",
+      "condition": "mismatched",
+      "instance": "K-0108-K4",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as referring only to biological membranes and IL-10's effects, it has no bearing on the behavior of synthetic PVA/GO@MOF membranes.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0108-K4::H1->X20",
+      "condition": "mismatched",
+      "instance": "K-0108-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about biological processes in macrophages and does not address or imply anything about the behavior of synthetic membranes in oil-water separation.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0108-K4::H1->X39",
+      "condition": "mismatched",
+      "instance": "K-0108-K4",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about immune cell metabolism and inflammation, with no mention of graphene oxide, titanium, or hybrid membranes, so there is no reading where the prediction follows from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0108-K4::H2->X12",
+      "condition": "mismatched",
+      "instance": "K-0108-K4",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as only about biological processes in macrophages and not about material science or membrane technology, it does not imply anything about nanocomposite membrane antifouling performance.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0108-K4::H2->X31",
+      "condition": "mismatched",
+      "instance": "K-0108-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about cellular biology and macrophage responses to IL-10, with no mention of membranes, wastewater, or pollutant degradation, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0108-K4::H2->X6",
+      "condition": "mismatched",
+      "instance": "K-0108-K4",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about cellular biology and macrophage responses to IL-10, while the prediction is about material science and membrane performance, so there is no reading where the claim would lead to the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0108-K4::H3->X25",
+      "condition": "mismatched",
+      "instance": "K-0108-K4",
+      "production_label": "unlikely",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about cellular and molecular biology in macrophages, while the prediction is about materials science and wastewater treatment, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0108-K4::H3->X43",
+      "condition": "mismatched",
+      "instance": "K-0108-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about biological processes in macrophages and does not address or imply anything about the behavior of PVA/GO@MOF membranes in acidic environments.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0113-K2::H0->X17",
+      "condition": "mismatched",
+      "instance": "K-0113-K2",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": null,
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0113-K2::H1->X12",
+      "condition": "mismatched",
+      "instance": "K-0113-K2",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim and prediction are about entirely unrelated scientific domains, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0113-K2::H1->X8",
+      "condition": "mismatched",
+      "instance": "K-0113-K2",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about industrial pulping processes and does not address quantum computing or control algorithms in any way.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0113-K4::H0->X25",
+      "condition": "mismatched",
+      "instance": "K-0113-K4",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about materials science and paper production, and does not address quantum computing or logical qubits at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0113-K4::H0->X42",
+      "condition": "mismatched",
+      "instance": "K-0113-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about materials science and paper production, and does not address quantum computing or neutral atom arrays at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0113-K4::H1->X16",
+      "condition": "mismatched",
+      "instance": "K-0113-K4",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about materials science and paper production, with no mention of quantum computing or qubits, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0113-K4::H1->X33",
+      "condition": "mismatched",
+      "instance": "K-0113-K4",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about materials science and papermaking, and does not address quantum computing or error rates, so there is no reading where the prediction follows from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0113-K4::H1->X7",
+      "condition": "mismatched",
+      "instance": "K-0113-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about cellular biology and does not relate to quantum computing or qubit coherence, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0113-K4::H2->X24",
+      "condition": "mismatched",
+      "instance": "K-0113-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about cellular biology and does not relate to quantum processors or their interference patterns, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0113-K4::H2->X41",
+      "condition": "mismatched",
+      "instance": "K-0113-K4",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about cellular biology and does not relate to quantum computing or atom arrays, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0113-K4::H3->X15",
+      "condition": "mismatched",
+      "instance": "K-0113-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about biological processes in cancer cells and does not relate to quantum computing, so there is no reading where the prediction follows from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0113-K4::H3->X32",
+      "condition": "mismatched",
+      "instance": "K-0113-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about biological processes in cancer cells, and does not relate to quantum computing or reinforcement learning, so there is no reading where the prediction follows from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "K-0113-K4::H3->X6",
+      "condition": "mismatched",
+      "instance": "K-0113-K4",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about biological processes in cancer cells, while the prediction is about quantum computing hardware, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H0->X16",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only about the model's general capabilities and not about any specific biological findings, it does not entail any particular result such as the effect of IL-10 on ceramide levels.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H0->X25",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only stating that scGPT can perform general tasks like annotation and integration, without guaranteeing accurate mechanistic predictions for specific interventions in macrophages, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H0->X34",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only stating that scGPT can perform general tasks in single-cell biology without guaranteeing accuracy on every specific biological mechanism, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H0->X43",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only about methodological advances in prediction accuracy, without specifying any particular gene or treatment effect, then it does not imply anything about IL-10's effect on ceramide synthase mRNA.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H1->X12",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "unlikely",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim could be interpreted as only about methodological advances in gene expression prediction, without making any assertions about specific biological outcomes like IL-10-induced apoptosis in macrophages.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H1->X21",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only affecting computational modeling and not directly predicting specific experimental outcomes in IL-10 deficient mice, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H1->X30",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about landslides in Nepal and does not address macrophage biology or mouse experiments, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H1->X4",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about landslides and their causes, with no mention of IL-10, macrophages, or sphingosine kinases, so there is no reading where the claim supports the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H1->X9",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about landslides and environmental science, with no mention of macrophages, fatty acids, or inflammation, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H10->X18",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "unlikely",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim and prediction are about entirely unrelated domains (geology vs. immunology), so there is no reading where the claim would make the prediction follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H10->X27",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim and prediction are about entirely unrelated domains—landslides versus cell biology—so there is no reading where the claim would make the prediction follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H10->X36",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim and prediction are about entirely unrelated domains (geology vs. immunology), so there is no reading where the claim would make the prediction follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H10->X5",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim could be read as only addressing fetal metabolic responses to maternal glycemic state, without any implication about cytokine regulation or macrophage enzyme expression, so the prediction does not follow at all from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H2->X14",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as only about fetal metabolic responses to maternal glycemia, it does not address immune cell lipid mediator profiles in IL-10 deficient mice under dietary or pharmacological treatments.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H2->X22",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only describing fetal metabolic changes due to maternal glycemia, with no mention of IL-10, sphingosine kinase, or macrophages, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H2->X31",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to fetal metabolism in diabetic pregnancies and not to immune cell lipid metabolism or IL-10 deficiency, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H2->X41",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as describing only fetal metabolic responses to maternal glycemic state, with no implications for ceramide synthase, PP2A, or IL-10-deficient macrophage function, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H3->X10",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim could be read as only describing fetal mouse metabolism in the context of maternal glycemia, with no implications for IL-10 treatment or human macrophage sphingolipid metabolism.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H3->X19",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "unlikely",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about fetal metabolism in response to maternal glycemic state and does not mention IL-10, macrophages, or sphingosine kinases, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H3->X28",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only relating to fetal metabolic processes in diabetic pregnancies, it has no bearing on macrophage SCD2 activity or cytokine levels in IL-10 knockout mice.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H3->X38",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only relating to fetal metabolism in diabetic pregnancies and not to macrophage cytokine secretion or endothelial barrier function, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H3->X7",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about fetal metabolism in diabetic pregnancies, not about macrophage function or SCD2 activity, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H4->X15",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about fetal metabolic adaptation in diabetic pregnancies, which does not address or imply anything about Stearoyl-CoA Desaturase-2 activity or inflammation resolution in IL-10 deficient mice.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H4->X24",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as being limited to fetal cardiac glucose and nucleotide metabolism, it does not address sphingolipid metabolism or macrophage-mediated inflammation at all, so the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H4->X33",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as only applying to fetal cardiomyocytes in the context of maternal hyperglycemia, it has no implications for macrophage responses to fatty acids in IL-10 knockout mice.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H4->X42",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as being limited to the context of RAS inhibition in pancreatic cancer cells and not involving macrophage metabolism or SCD2 activity, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H5->X11",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about cancer therapy efficacy in a specific tumor context, while the prediction is about immune cell lipid metabolism after cytokine treatment, so there is no overlap or implication between them.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H5->X20",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about anti-tumor drug effects in cancer models, while the prediction is about lipid metabolism in immune cells, so there is no overlap or implication between them.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H5->X3",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "unlikely",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as being limited to RMC-7977 and TEAD inhibitor effects in PDAC tumor models, it has no bearing on ceramide signaling in IL-10-deficient macrophages.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H5->X39",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as being limited to the context of pancreatic cancer therapy and KRAS pathway resistance, it has no bearing on cytokine signaling or sphingosine kinase activity in macrophages.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H5->X8",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as applying only to therapeutic strategies and outcomes in KRAS-mutant pancreatic cancer, it has no bearing on the effects of SCD2 overexpression in IL-10-deficient macrophages.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H6->X17",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about cancer cell drug response and resistance, whereas the prediction is about immune cell signaling and lipid metabolism, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H6->X26",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "strongly_contradicted",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as applying only to KRAS-mutant pancreatic cancer therapy and not to macrophage biology or IL-10 signaling, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H6->X35",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as pertaining only to KRAS-mutant pancreatic cancer therapy and not to IL-10/STAT3 signaling or macrophage metabolism, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H6->X44",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about material science and membrane performance, while the prediction is about immunology and cell signaling, so under any reading, the claim does not lead to the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H7->X13",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "unlikely",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about material science and membrane technology, with no mention of dietary interventions, mouse models, or cytokine modulation, so there is no reading where the claim would entail or support the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H7->X21",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about material science and membrane technology, with no reference to IL-10, endothelial barriers, or mouse models, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H7->X30",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about material science and membrane performance in wastewater treatment, with no mention of macrophages, SCD2, CRISPR, or inflammation, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H7->X40",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about material science and membrane technology for wastewater treatment, and does not address macrophage biology or ceramide metabolism, so there is no reading where the claim would lead to the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H8->X1",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about material science and membrane technology, while the prediction is about immunological cell signaling, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H8->X18",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about material science and membrane technology, with no mention of PP2A, cytokines, or macrophages, so there is no reading where the claim would support the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H8->X27",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about material science and water treatment technology, with no mention of IL-10, macrophages, or ceramide, so under any straightforward reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H8->X37",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about material science and membrane technology for wastewater treatment, whereas the prediction is about immunological cell biology, so under any reading, the claim does not entail or suggest the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H8->X6",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about material science and water treatment, while the prediction is about immunology and cell signaling, so there is no overlap in subject matter or mechanism.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H9->X14",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about material science and environmental engineering, while the prediction is about immunology and dietary intervention in mice, so under any reading, the claim does not imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H9->X23",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as pertaining only to material science and membrane engineering, it has no bearing on immunological or cellular signaling processes described in the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H9->X32",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about quantum computing and does not address biological processes or therapeutic interventions, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV-19::H9->X41",
+      "condition": "mismatched",
+      "instance": "RBV-19",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about quantum information processing and does not address or imply anything about macrophage biology or oleic acid concentrations.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0005-N07::H0->X10",
+      "condition": "mismatched",
+      "instance": "RBV2-0005-N07",
+      "production_label": "unlikely",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about quantum computing and does not address or imply anything about pulp processing or the effects of CNFs, so the prediction does not follow under any reading.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0005-N07::H0->X16",
+      "condition": "mismatched",
+      "instance": "RBV2-0005-N07",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about quantum processors and does not mention nanocellulose or pulp treatment, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0005-N07::H0->X3",
+      "condition": "mismatched",
+      "instance": "RBV2-0005-N07",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about quantum processors and does not relate to pulp yield or cellulose nanofibrils, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0005-N07::H1->X1",
+      "condition": "mismatched",
+      "instance": "RBV2-0005-N07",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about quantum computing and does not address pulp production or cellulose nanofibrils, so there is no reading where the prediction follows from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0005-N07::H1->X15",
+      "condition": "mismatched",
+      "instance": "RBV2-0005-N07",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about quantum computing and does not address nanocellulose extraction or pulp treatment in any way.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0005-N07::H1->X3",
+      "condition": "mismatched",
+      "instance": "RBV2-0005-N07",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "Any reading, since the claim is about quantum computing and the prediction is about pulp processing, so the claim does not entail or suggest the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0005-N07::H1->X9",
+      "condition": "mismatched",
+      "instance": "RBV2-0005-N07",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about quantum computing and does not address paper manufacturing or material properties, so there is no reading where the prediction follows from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0012-N00::H0->X15",
+      "condition": "mismatched",
+      "instance": "RBV2-0012-N00",
+      "production_label": "strongly_contradicted",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about quantum technology and does not address biological processes or proteomic outcomes, so the prediction does not follow from the claim under any reading.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0012-N00::H0->X20",
+      "condition": "mismatched",
+      "instance": "RBV2-0012-N00",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about quantum computing and does not address cellular biology or SLC7A11, so there is no reading where the prediction follows from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0012-N00::H0->X9",
+      "condition": "mismatched",
+      "instance": "RBV2-0012-N00",
+      "production_label": "unlikely",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about quantum computing and error correction, with no reference to biological processes or cancer cell metabolism, so there is no reading where the prediction follows from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0012-N00::H1->X14",
+      "condition": "mismatched",
+      "instance": "RBV2-0012-N00",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about quantum error correction and does not relate to cellular processes or NADPH, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0012-N00::H1->X2",
+      "condition": "mismatched",
+      "instance": "RBV2-0012-N00",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to immune regulation via IL-10 and ceramides, and not to cancer cell metabolism or ROS production, then the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0012-N00::H1->X8",
+      "condition": "mismatched",
+      "instance": "RBV2-0012-N00",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only addressing immune regulation via ceramide metabolism and not involving cystine transport or mitochondrial respiration, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0018-N05::H0->X13",
+      "condition": "mismatched",
+      "instance": "RBV2-0018-N05",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about biological regulation and inflammation, not computational methods for batch correction, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0018-N05::H0->X2",
+      "condition": "mismatched",
+      "instance": "RBV2-0018-N05",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as a statement about biological processes and not about computational modeling, there is no connection to the prediction about model performance.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0018-N05::H0->X7",
+      "condition": "mismatched",
+      "instance": "RBV2-0018-N05",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about biological signaling and inflammation, with no mention of machine learning or cell type classification, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0018-N05::H1->X12",
+      "condition": "mismatched",
+      "instance": "RBV2-0018-N05",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as a statement about biological mechanisms in macrophages and not about computational modeling, then it does not imply anything about the performance of gene expression prediction models.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0018-N05::H1->X19",
+      "condition": "mismatched",
+      "instance": "RBV2-0018-N05",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as being about biochemical regulation in macrophages and not about computational genomics or enhancer-promoter prediction, then it does not lead to any expectation about the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0018-N05::H1->X6",
+      "condition": "mismatched",
+      "instance": "RBV2-0018-N05",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as being limited to IL-10's effects on inflammation and lipid metabolism in macrophages, it has no bearing on whether AI models can predict gene expression profiles related to cellular differentiation.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0034-N04::H0->X11",
+      "condition": "mismatched",
+      "instance": "RBV2-0034-N04",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about cellular biology and inflammation, with no reference to geography, rainfall, or landslides, so there is no reading where it would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0034-N04::H0->X18",
+      "condition": "mismatched",
+      "instance": "RBV2-0034-N04",
+      "production_label": "unlikely",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about immunology and cellular biology, while the prediction is about landslide frequency, so under any straightforward reading, the claim does not entail the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0034-N04::H0->X5",
+      "condition": "mismatched",
+      "instance": "RBV2-0034-N04",
+      "production_label": "strongly_contradicted",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about immunology and does not address or imply anything about landslide frequency in Nepal.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0034-N04::H1->X10",
+      "condition": "mismatched",
+      "instance": "RBV2-0034-N04",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "Any reading where the claim is interpreted strictly as a statement about immunology and not about geological or meteorological phenomena.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0034-N04::H1->X17",
+      "condition": "mismatched",
+      "instance": "RBV2-0034-N04",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about cellular biology and immune response, while the prediction is about geological events, so there is no reading where the claim would make the prediction follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0034-N04::H1->X4",
+      "condition": "mismatched",
+      "instance": "RBV2-0034-N04",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about immunological processes and does not address geological phenomena, so there is a clear reading where it does not relate to the prediction at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0038-N04::H0->X1",
+      "condition": "mismatched",
+      "instance": "RBV2-0038-N04",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as applying only to IL-10's effects in macrophages and not to fetal metabolic changes in diabetic pregnancies, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0038-N04::H0->X16",
+      "condition": "mismatched",
+      "instance": "RBV2-0038-N04",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted strictly as applying only to IL-10's effects on ceramide and S1P in macrophages, and not to sorbitol metabolism or fetal tissue responses in diabetes, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    }
+  ]
+}

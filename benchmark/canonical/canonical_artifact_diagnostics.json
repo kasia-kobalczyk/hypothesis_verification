@@ -1,0 +1,2390 @@
+{
+  "generated_at": "2026-09-11T21:23:06Z",
+  "note": "Characterisation only. These results did not influence selection and the length band was not adjusted on them.",
+  "tie_rule": "a tie scores 0.5; a model parse failure is an error, not a wrong answer",
+  "llm": {
+    "provider": "azure",
+    "deployment": "gpt-4.1-kasia"
+  },
+  "canonical": {
+    "slice": "canonical",
+    "length_profile": {
+      "n_pairs": 105,
+      "ratio_min": 0.6,
+      "ratio_median": 1.042,
+      "ratio_max": 1.778,
+      "share_gold_shorter": 0.5714
+    },
+    "shortest_text_first": {
+      "prefer": "shortest",
+      "n_pairs": 105,
+      "wins": 60,
+      "ties": 7,
+      "accuracy": 0.6048
+    },
+    "longest_text_first": {
+      "prefer": "longest",
+      "n_pairs": 105,
+      "wins": 38,
+      "ties": 7,
+      "accuracy": 0.3952
+    },
+    "question_hidden_judge": {
+      "prompt_version": "pair_judge_no_question_v1",
+      "n_pairs": 105,
+      "n_scored": 105,
+      "n_errors": 0,
+      "accuracy": 0.6857,
+      "rows": [
+        {
+          "pair_id": "RBC-0001-N01",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBC-0001-N02",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBC-0001-N03",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0001-N04",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0001-N05",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0001-N06",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBC-0001-N07",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0001-N08",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0002-N02",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0002-N04",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0002-N05",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0002-N06",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBC-0002-N07",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBC-0002-N08",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0002-N09",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0003-N02",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0003-N04",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBC-0003-N07",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0003-N09",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0005-N02",
+          "gold_was": "A",
+          "choice": "B",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0005-N03",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0005-N04",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0005-N08",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0005-N09",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0008-N01",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0011-N01",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBC-0011-N02",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0011-N03",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 75
+        },
+        {
+          "pair_id": "RBC-0011-N04",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0011-N05",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBC-0011-N06",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBC-0011-N07",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBC-0011-N08",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0011-N09",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 75
+        },
+        {
+          "pair_id": "RBC-0012-N00",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0012-N01",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0012-N02",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0012-N04",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBC-0012-N05",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0012-N06",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0012-N07",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBC-0018-N04",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0018-N08",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBC-0022-N00",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBC-0022-N01",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0022-N02",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0025-N09",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0027-N04",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0027-N05",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0027-N06",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0027-N09",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0028-N00",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBC-0033-N02",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBC-0033-N08",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0034-N04",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0034-N05",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0038-N00",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBC-0038-N01",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0038-N02",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0038-N03",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0038-N04",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 75
+        },
+        {
+          "pair_id": "RBC-0038-N05",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0038-N06",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0038-N07",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0038-N08",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0038-N09",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBC-0050-N01",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 75
+        },
+        {
+          "pair_id": "RBC-0050-N03",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 75
+        },
+        {
+          "pair_id": "RBC-0050-N04",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0050-N07",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0050-N09",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 75
+        },
+        {
+          "pair_id": "RBC-0052-N00",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 75
+        },
+        {
+          "pair_id": "RBC-0052-N01",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0052-N02",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0052-N03",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBC-0052-N04",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBC-0052-N05",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBC-0052-N06",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0052-N07",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBC-0052-N08",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0052-N09",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBC-0053-N01",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBC-0053-N02",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBC-0053-N05",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBC-0053-N06",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 75
+        },
+        {
+          "pair_id": "RBC-0053-N08",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBC-0053-N09",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBC-0058-N03",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0059-N00",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBC-0059-N01",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBC-0059-N02",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBC-0059-N03",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0059-N05",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0059-N06",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0059-N07",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 75
+        },
+        {
+          "pair_id": "RBC-0059-N08",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBC-0059-N09",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBC-0060-N00",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0060-N01",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 75
+        },
+        {
+          "pair_id": "RBC-0060-N02",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBC-0060-N03",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0060-N05",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0060-N06",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0060-N08",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBC-0060-N09",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 70
+        }
+      ]
+    }
+  },
+  "v1": {
+    "slice": "v1",
+    "length_profile": {
+      "n_pairs": 121,
+      "ratio_min": 0.962,
+      "ratio_median": 3.452,
+      "ratio_max": 40.642,
+      "share_gold_shorter": 0.9835
+    },
+    "shortest_text_first": {
+      "prefer": "shortest",
+      "n_pairs": 121,
+      "wins": 119,
+      "ties": 1,
+      "accuracy": 0.9876
+    },
+    "longest_text_first": {
+      "prefer": "longest",
+      "n_pairs": 121,
+      "wins": 1,
+      "ties": 1,
+      "accuracy": 0.0124
+    },
+    "question_hidden_judge": {
+      "prompt_version": "pair_judge_no_question_v1",
+      "n_pairs": 121,
+      "n_scored": 121,
+      "n_errors": 0,
+      "accuracy": 0.7851,
+      "rows": [
+        {
+          "pair_id": "RBV-01::H1",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 92
+        },
+        {
+          "pair_id": "RBV-01::H2",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 95
+        },
+        {
+          "pair_id": "RBV-01::H4",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 95
+        },
+        {
+          "pair_id": "RBV-01::H5",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 92
+        },
+        {
+          "pair_id": "RBV-01::H6",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 95
+        },
+        {
+          "pair_id": "RBV-01::H7",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-01::H8",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 95
+        },
+        {
+          "pair_id": "RBV-01::H9",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 92
+        },
+        {
+          "pair_id": "RBV-01::H10",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 92
+        },
+        {
+          "pair_id": "RBV-02::H1",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-02::H2",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-02::H3",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-02::H4",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-02::H5",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-02::H6",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-02::H8",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-02::H9",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-03::H2",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-03::H9",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-04::H3",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-04::H4",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-04::H6",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-04::H8",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-05::H1",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-05::H2",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-05::H4",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 92
+        },
+        {
+          "pair_id": "RBV-05::H5",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-05::H6",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-05::H8",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-05::H9",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-05::H10",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-06::H3",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-06::H7",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-06::H9",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-06::H10",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-07::H1",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-07::H3",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-07::H6",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 92
+        },
+        {
+          "pair_id": "RBV-07::H8",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-08::H1",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-08::H2",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-08::H3",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-08::H5",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-08::H7",
+          "gold_was": "A",
+          "choice": "B",
+          "chose_gold": false,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-08::H8",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-08::H9",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-08::H10",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-09::H1",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-09::H2",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-09::H3",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-09::H4",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-09::H5",
+          "gold_was": "A",
+          "choice": "B",
+          "chose_gold": false,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-09::H6",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-09::H7",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-09::H8",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-09::H10",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-10::H1",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-10::H2",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-10::H4",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-10::H8",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-10::H9",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-10::H10",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-11::H1",
+          "gold_was": "A",
+          "choice": "B",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-11::H2",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 75
+        },
+        {
+          "pair_id": "RBV-11::H3",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-11::H4",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-11::H6",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-11::H8",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-11::H10",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-12::H3",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-12::H5",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-12::H7",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-12::H8",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-13::H5",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-13::H6",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-13::H9",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-13::H10",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-15::H1",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 92
+        },
+        {
+          "pair_id": "RBV-15::H3",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-15::H4",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-15::H6",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-15::H8",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-15::H9",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-16::H1",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-16::H2",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-16::H3",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-16::H5",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-16::H6",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-16::H7",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-16::H8",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-16::H10",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-17::H1",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-17::H2",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-17::H3",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-17::H4",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-17::H6",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-17::H7",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-17::H9",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 92
+        },
+        {
+          "pair_id": "RBV-17::H10",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-18::H1",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-18::H3",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-18::H4",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-18::H5",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-18::H6",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-18::H8",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-18::H10",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-19::H2",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-19::H3",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-19::H4",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-19::H5",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-19::H6",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-19::H7",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-19::H9",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-19::H10",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-20::H1",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-20::H2",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-20::H4",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-20::H6",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-20::H7",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV-20::H8",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV-20::H10",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 90
+        }
+      ]
+    }
+  },
+  "v2": {
+    "slice": "v2",
+    "length_profile": {
+      "n_pairs": 100,
+      "ratio_min": 0.752,
+      "ratio_median": 1.148,
+      "ratio_max": 1.329,
+      "share_gold_shorter": 0.74
+    },
+    "shortest_text_first": {
+      "prefer": "shortest",
+      "n_pairs": 100,
+      "wins": 74,
+      "ties": 4,
+      "accuracy": 0.76
+    },
+    "longest_text_first": {
+      "prefer": "longest",
+      "n_pairs": 100,
+      "wins": 22,
+      "ties": 4,
+      "accuracy": 0.24
+    },
+    "question_hidden_judge": {
+      "prompt_version": "pair_judge_no_question_v1",
+      "n_pairs": 100,
+      "n_scored": 100,
+      "n_errors": 0,
+      "accuracy": 0.89,
+      "rows": [
+        {
+          "pair_id": "RBV2-0005-N07",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0005-N09",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0012-N00",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0012-N03",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 95
+        },
+        {
+          "pair_id": "RBV2-0018-N05",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0034-N04",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0038-N04",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0038-N09",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBV2-0050-N04",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0050-N06",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0052-N08",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0058-N03",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0063-N05",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0065-N07",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0083-N01",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0083-N03",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0084-N05",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0095-N03",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0095-N07",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0095-N09",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0098-N08",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0108-N03",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBV2-0108-N06",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0108-N09",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0110-N03",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0110-N05",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0113-N08",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0114-N00",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBV2-0114-N04",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 95
+        },
+        {
+          "pair_id": "RBV2-0117-N06",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0117-N08",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0122-N08",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0125-N08",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0131-N03",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0131-N07",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0132-N09",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0135-N03",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0138-N01",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0138-N02",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0140-N01",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0140-N03",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBV2-0140-N04",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0140-N05",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0140-N07",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0143-N04",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0153-N03",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0153-N04",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 80
+        },
+        {
+          "pair_id": "RBV2-0153-N07",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBV2-0153-N09",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0159-N04",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBV2-0163-N04",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0163-N08",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0165-N01",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0165-N04",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0165-N09",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0192-N05",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0193-N06",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0199-N04",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0199-N09",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0200-N03",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 75
+        },
+        {
+          "pair_id": "RBV2-0200-N05",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0200-N09",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 75
+        },
+        {
+          "pair_id": "RBV2-0203-N00",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0203-N03",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0203-N07",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0203-N09",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0206-N00",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0206-N08",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 92
+        },
+        {
+          "pair_id": "RBV2-0207-N00",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0207-N01",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0207-N05",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0210-N05",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0218-N09",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 70
+        },
+        {
+          "pair_id": "RBV2-0222-N05",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0225-N02",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0226-N06",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0230-N02",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0230-N07",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0230-N08",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0232-N00",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0232-N07",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0233-N00",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0233-N08",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0246-N04",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0256-N04",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0256-N06",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 90
+        },
+        {
+          "pair_id": "RBV2-0256-N07",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0256-N09",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0268-N03",
+          "gold_was": "B",
+          "choice": "A",
+          "chose_gold": false,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0279-N03",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0281-N03",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0284-N01",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0285-N04",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0285-N08",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0288-N00",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0295-N08",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0305-N01",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0305-N06",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0305-N08",
+          "gold_was": "A",
+          "choice": "A",
+          "chose_gold": true,
+          "confidence": 85
+        },
+        {
+          "pair_id": "RBV2-0317-N03",
+          "gold_was": "B",
+          "choice": "B",
+          "chose_gold": true,
+          "confidence": 85
+        }
+      ]
+    }
+  }
+}

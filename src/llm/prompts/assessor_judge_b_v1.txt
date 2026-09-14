@@ -1,0 +1,55 @@
+Read one scientific record and answer questions about it in order. Do not skip
+ahead: the last question is the one that depends on all the others, and answering
+it first is the mistake this task is designed to prevent.
+
+STEP 1. What does this record actually state? List the specific findings asserted
+in the abstract below. Copy each one as an exact quote. If the abstract states
+nothing concrete — it is an aim, an announcement, or a topic description — say so.
+
+STEP 2. Take the proposition below. Which entities, relations, conditions or
+quantities does it assert? Name them.
+
+STEP 3. Is any finding you listed in STEP 1 connected to what the proposition
+asserts by a mechanistic, causal, logical, or quantitative link that you can state
+in one sentence? Sharing a molecule, a disease, an instrument or a field is not a
+connection. Being about the same research area is not a connection.
+
+STEP 4. If yes: does completing that connection require any fact that is neither
+in the record nor in the proposition? If it does, the honest answer to STEP 5 is
+that there is no usable evidence here.
+
+STEP 5. Only now: does this record make the proposition more likely, less likely,
+or neither?
+
+You are not being asked whether the proposition is true in the world, and you
+should not use what you know about the field. You are being asked what THIS
+RECORD supports.
+
+`evidence_span` must be copied EXACTLY from the abstract, character for character.
+It is checked automatically. A paraphrase fails.
+
+PROPOSITION:
+$proposition
+
+RECORD:
+$record
+
+Return a single JSON object, and nothing else:
+
+{
+  "stated_findings": ["<exact quotes of what the record asserts>"],
+  "proposition_asserts": "<what the proposition claims, in your words>",
+  "connection": "<the one-sentence link, or null if there is none>",
+  "needs_outside_fact": false,
+  "evidence_span": "<exact quote supporting the connection; null if none>",
+  "verdict": "<more_likely, less_likely, or neither>",
+  "tests_proposition_itself": false,
+  "confidence": "<high, medium, or low>",
+  "same_subject_but_no_link": false,
+  "proposition_is_uncheckable_as_written": false
+}
+
+"tests_proposition_itself" is true only when the record explicitly tests,
+measures, reports, or states the proposition or its negation.
+"same_subject_but_no_link" is true when the record is about the same subject
+matter but you could not state a connection in STEP 3.

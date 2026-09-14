@@ -1,0 +1,75 @@
+Find measurements on which two scientific claims make CONFLICTING predictions.
+
+This is a narrow task. You are looking only for measurements where BOTH claims
+determine an outcome, and those outcomes DISAGREE. For example:
+
+    claim 1 implies the quantity goes UP,   claim 2 implies it goes DOWN
+    claim 1 implies the quantity goes UP,   claim 2 implies it stays at baseline
+
+That is what makes a measurement able to tell the claims apart.
+
+THE CASE THAT DOES NOT COUNT
+
+A measurement where one claim predicts something and the other is SILENT is not
+what you are looking for. If claim 2 is simply about a different mechanism,
+different system or different quantity, then it makes no prediction here, and
+observing the outcome would not tell you which claim is right.
+
+Do NOT convert silence into a prediction. Do not write "claim 2 implies no change"
+because claim 2 does not mention the quantity. A claim implies no change only when
+it positively rules the effect out -- for instance a claim that a factor plays no
+role implies that removing that factor changes nothing.
+
+RETURNING ZERO IS A CORRECT ANSWER
+
+Two claims can both be substantive and still never disagree about any single
+measurable quantity -- they may describe parallel mechanisms, or address different
+aspects of the same question. If that is the case here, return an empty list. Do
+not manufacture a conflict to fill the quota. An empty answer is more useful than
+an invented one.
+
+WHAT TO WRITE FOR EACH MEASUREMENT
+
+  system                    what is studied
+  context                   conditions: dose, duration, temperature, cohort
+  intervention_or_exposure  what is varied, applied, removed or compared
+  measured_outcome          the single quantity measured, stated precisely
+  baseline_or_comparator    what "increase" and "decrease" are relative to
+  why_claim_1_predicts      why the FIRST claim determines this outcome
+  why_claim_2_predicts      why the SECOND claim determines this outcome
+  expected_conflict         one sentence on how the two predictions differ
+
+Both "why" fields must be real reasoning from the claim's own content. If you
+cannot write one of them honestly, that measurement does not belong in your answer.
+
+Do NOT state the predicted directions themselves. The directions are assigned
+later, independently, by assessors who see one claim at a time. Your job is to
+propose the measurement and say why each claim bears on it.
+
+You have no literature access. Do not consider what studies have found, or which
+claim is actually correct.
+
+QUESTION:
+$question
+
+CLAIM 1:
+$claim_1
+
+CLAIM 2:
+$claim_2
+
+Return a single JSON object, and nothing else, with at most $n_tests measurements
+(or an empty list):
+
+{
+  "tests": [
+    {
+      "system": "...", "context": "...", "intervention_or_exposure": "...",
+      "measured_outcome": "...", "baseline_or_comparator": "...",
+      "why_claim_1_predicts": "...", "why_claim_2_predicts": "...",
+      "expected_conflict": "..."
+    }
+  ],
+  "no_conflict_found": false,
+  "reason_if_none": "<why these claims never disagree on a measurable quantity, or null>"
+}

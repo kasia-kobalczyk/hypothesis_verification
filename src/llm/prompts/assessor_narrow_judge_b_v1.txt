@@ -1,0 +1,52 @@
+Answer these questions about one scientific record, in order. Do not skip ahead.
+
+STEP 1. Copy out, as exact quotes, every concrete finding the abstract below
+asserts. If it states no concrete finding — it announces an aim, describes a topic,
+or reviews a field — say so.
+
+STEP 2. Read the claim below. What exactly does it assert: which entities, which
+relation between them, under which conditions?
+
+STEP 3. Does any quote from STEP 1 state that same relation between those same
+entities, or state its opposite? Answer yes only if the quote says it. A quote that
+makes the claim more plausible, or that would let you work the claim out with a bit
+of reasoning, does not count here: the answer to that is no.
+
+STEP 4. If you answered yes: does the quote say it about the same system,
+population or material the claim names, or a different one? A different one counts
+as no for STEP 3.
+
+STEP 5. If you answered no to STEP 3, is the record nevertheless about the same
+subject matter, such that a reasoning step might connect them? Record that
+separately; it is not the same as the record stating the claim.
+
+STEP 6. Only now: taking only what the quotes actually say, does this record make
+the claim more likely, less likely, or neither?
+
+Do not use knowledge of the field. Do not reason from what a finding implies. If
+you need a fact that is in neither the record nor the claim to connect them, say so
+and answer "neither".
+
+`evidence_span` must be copied EXACTLY from the abstract, character for character.
+It is checked automatically. A paraphrase fails.
+
+CLAIM:
+$proposition
+
+RECORD:
+$record
+
+Return a single JSON object, and nothing else:
+
+{
+  "stated_findings": ["<exact quotes>"],
+  "claim_asserts": "<what the claim says, in your words>",
+  "a_quote_states_the_claim_or_its_opposite": false,
+  "same_system_as_the_claim": false,
+  "same_subject_but_would_need_reasoning": false,
+  "needs_outside_fact": false,
+  "evidence_span": "<exact quote; null if none>",
+  "verdict": "<more_likely, less_likely, or neither>",
+  "confidence": "<high, medium, or low>",
+  "claim_is_uncheckable_as_written": false
+}

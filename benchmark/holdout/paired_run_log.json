@@ -1,0 +1,475 @@
+{
+  "started_at": "2026-09-12T18:41:16Z",
+  "split": "benchmark/holdout/split.json",
+  "which": "test",
+  "seed": 20260912,
+  "arms": {
+    "narrow": "evidence_assess_v2",
+    "broad": "evidence_assess_v1"
+  },
+  "rows": [
+    {
+      "pair_id": "RBV2-0268-N03",
+      "arm_order": [
+        "broad",
+        "narrow"
+      ],
+      "runs": {
+        "broad": {
+          "run_id": "consequence_graph_20260912T184117Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 337.1,
+          "finished_at": "2026-09-12T18:46:53Z",
+          "rate_limit_events": 6
+        },
+        "narrow": {
+          "run_id": "consequence_graph_20260912T184654Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 193.0,
+          "finished_at": "2026-09-12T18:50:06Z",
+          "rate_limit_events": 3
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0279-N03",
+      "arm_order": [
+        "broad",
+        "narrow"
+      ],
+      "runs": {
+        "broad": {
+          "run_id": "consequence_graph_20260912T185007Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 344.4,
+          "finished_at": "2026-09-12T18:55:51Z",
+          "rate_limit_events": 12
+        },
+        "narrow": {
+          "run_id": "consequence_graph_20260912T185551Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 210.0,
+          "finished_at": "2026-09-12T18:59:21Z",
+          "rate_limit_events": 5
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0131-N03",
+      "arm_order": [
+        "narrow",
+        "broad"
+      ],
+      "runs": {
+        "narrow": {
+          "run_id": "consequence_graph_20260912T185921Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 258.3,
+          "finished_at": "2026-09-12T19:03:39Z",
+          "rate_limit_events": 5
+        },
+        "broad": {
+          "run_id": "consequence_graph_20260912T190339Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 222.9,
+          "finished_at": "2026-09-12T19:07:22Z",
+          "rate_limit_events": 8
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0192-N05",
+      "arm_order": [
+        "narrow",
+        "broad"
+      ],
+      "runs": {
+        "narrow": {
+          "run_id": "consequence_graph_20260912T190722Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 322.4,
+          "finished_at": "2026-09-12T19:12:44Z",
+          "rate_limit_events": 13
+        },
+        "broad": {
+          "run_id": "consequence_graph_20260912T191245Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 193.7,
+          "finished_at": "2026-09-12T19:15:58Z",
+          "rate_limit_events": 1
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0135-N03",
+      "arm_order": [
+        "broad",
+        "narrow"
+      ],
+      "runs": {
+        "broad": {
+          "run_id": "consequence_graph_20260912T191558Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 249.9,
+          "finished_at": "2026-09-12T19:20:08Z",
+          "rate_limit_events": 8
+        },
+        "narrow": {
+          "run_id": "consequence_graph_20260912T192008Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 148.6,
+          "finished_at": "2026-09-12T19:22:36Z",
+          "rate_limit_events": 5
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0143-N04",
+      "arm_order": [
+        "broad",
+        "narrow"
+      ],
+      "runs": {
+        "broad": {
+          "run_id": "consequence_graph_20260912T192237Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 304.6,
+          "finished_at": "2026-09-12T19:27:41Z",
+          "rate_limit_events": 1
+        },
+        "narrow": {
+          "run_id": "consequence_graph_20260912T192741Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 197.5,
+          "finished_at": "2026-09-12T19:30:59Z",
+          "rate_limit_events": 0
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0138-N01",
+      "arm_order": [
+        "broad",
+        "narrow"
+      ],
+      "runs": {
+        "broad": {
+          "run_id": "consequence_graph_20260912T193059Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 352.3,
+          "finished_at": "2026-09-12T19:36:51Z",
+          "rate_limit_events": 10
+        },
+        "narrow": {
+          "run_id": "consequence_graph_20260912T193651Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 218.3,
+          "finished_at": "2026-09-12T19:40:29Z",
+          "rate_limit_events": 2
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0153-N03",
+      "arm_order": [
+        "narrow",
+        "broad"
+      ],
+      "runs": {
+        "narrow": {
+          "run_id": "consequence_graph_20260912T194030Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 263.3,
+          "finished_at": "2026-09-12T19:44:52Z",
+          "rate_limit_events": 6
+        },
+        "broad": {
+          "run_id": "consequence_graph_20260912T194453Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 207.7,
+          "finished_at": "2026-09-12T19:48:20Z",
+          "rate_limit_events": 1
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0165-N01",
+      "arm_order": [
+        "narrow",
+        "broad"
+      ],
+      "runs": {
+        "narrow": {
+          "run_id": "consequence_graph_20260912T194820Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 292.0,
+          "finished_at": "2026-09-12T19:53:12Z",
+          "rate_limit_events": 3
+        },
+        "broad": {
+          "run_id": "consequence_graph_20260912T195312Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 254.8,
+          "finished_at": "2026-09-12T19:57:27Z",
+          "rate_limit_events": 4
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0288-N00",
+      "arm_order": [
+        "narrow",
+        "broad"
+      ],
+      "runs": {
+        "narrow": {
+          "run_id": "consequence_graph_20260912T195727Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 390.3,
+          "finished_at": "2026-09-12T20:03:57Z",
+          "rate_limit_events": 13
+        },
+        "broad": {
+          "run_id": "consequence_graph_20260912T200358Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 304.6,
+          "finished_at": "2026-09-12T20:09:02Z",
+          "rate_limit_events": 7
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0084-N05",
+      "arm_order": [
+        "broad",
+        "narrow"
+      ],
+      "runs": {
+        "broad": {
+          "run_id": "consequence_graph_20260912T200902Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 247.3,
+          "finished_at": "2026-09-12T20:13:09Z",
+          "rate_limit_events": 4
+        },
+        "narrow": {
+          "run_id": "consequence_graph_20260912T201310Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 198.8,
+          "finished_at": "2026-09-12T20:16:28Z",
+          "rate_limit_events": 8
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0110-N03",
+      "arm_order": [
+        "narrow",
+        "broad"
+      ],
+      "runs": {
+        "narrow": {
+          "run_id": "consequence_graph_20260912T201628Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 319.5,
+          "finished_at": "2026-09-12T20:21:47Z",
+          "rate_limit_events": 12
+        },
+        "broad": {
+          "run_id": "consequence_graph_20260912T202148Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 294.4,
+          "finished_at": "2026-09-12T20:26:42Z",
+          "rate_limit_events": 8
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0281-N03",
+      "arm_order": [
+        "broad",
+        "narrow"
+      ],
+      "runs": {
+        "broad": {
+          "run_id": "consequence_graph_20260912T202642Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 405.7,
+          "finished_at": "2026-09-12T20:33:28Z",
+          "rate_limit_events": 8
+        },
+        "narrow": {
+          "run_id": "consequence_graph_20260912T203328Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 236.3,
+          "finished_at": "2026-09-12T20:37:24Z",
+          "rate_limit_events": 3
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0317-N03",
+      "arm_order": [
+        "broad",
+        "narrow"
+      ],
+      "runs": {
+        "broad": {
+          "run_id": "consequence_graph_20260912T203724Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 347.2,
+          "finished_at": "2026-09-12T20:43:11Z",
+          "rate_limit_events": 8
+        },
+        "narrow": {
+          "run_id": "consequence_graph_20260912T204311Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 238.0,
+          "finished_at": "2026-09-12T20:47:09Z",
+          "rate_limit_events": 9
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0117-N06",
+      "arm_order": [
+        "narrow",
+        "broad"
+      ],
+      "runs": {
+        "narrow": {
+          "run_id": "consequence_graph_20260912T204709Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 311.1,
+          "finished_at": "2026-09-12T20:52:20Z",
+          "rate_limit_events": 7
+        },
+        "broad": {
+          "run_id": "consequence_graph_20260912T205221Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 236.4,
+          "finished_at": "2026-09-12T20:56:17Z",
+          "rate_limit_events": 5
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0233-N00",
+      "arm_order": [
+        "narrow",
+        "broad"
+      ],
+      "runs": {
+        "narrow": {
+          "run_id": "consequence_graph_20260912T205617Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 297.1,
+          "finished_at": "2026-09-12T21:01:14Z",
+          "rate_limit_events": 9
+        },
+        "broad": {
+          "run_id": "consequence_graph_20260912T210114Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 256.1,
+          "finished_at": "2026-09-12T21:05:30Z",
+          "rate_limit_events": 2
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0246-N04",
+      "arm_order": [
+        "narrow",
+        "broad"
+      ],
+      "runs": {
+        "narrow": {
+          "run_id": "consequence_graph_20260912T210530Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 384.2,
+          "finished_at": "2026-09-12T21:11:54Z",
+          "rate_limit_events": 2
+        },
+        "broad": {
+          "run_id": "consequence_graph_20260912T211154Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 296.8,
+          "finished_at": "2026-09-12T21:16:51Z",
+          "rate_limit_events": 1
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0052-N08",
+      "arm_order": [
+        "broad",
+        "narrow"
+      ],
+      "runs": {
+        "broad": {
+          "run_id": "consequence_graph_20260912T211651Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 299.0,
+          "finished_at": "2026-09-12T21:21:50Z",
+          "rate_limit_events": 4
+        },
+        "narrow": {
+          "run_id": "consequence_graph_20260912T212150Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 170.0,
+          "finished_at": "2026-09-12T21:24:40Z",
+          "rate_limit_events": 3
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0050-N04",
+      "arm_order": [
+        "broad",
+        "narrow"
+      ],
+      "runs": {
+        "broad": {
+          "run_id": "consequence_graph_20260912T212440Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 213.9,
+          "finished_at": "2026-09-12T21:28:14Z",
+          "rate_limit_events": 0
+        },
+        "narrow": {
+          "run_id": "consequence_graph_20260912T212814Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 177.5,
+          "finished_at": "2026-09-12T21:31:11Z",
+          "rate_limit_events": 0
+        }
+      }
+    },
+    {
+      "pair_id": "RBV2-0230-N02",
+      "arm_order": [
+        "broad",
+        "narrow"
+      ],
+      "runs": {
+        "broad": {
+          "run_id": "consequence_graph_20260912T213111Z_2c9fa666",
+          "returncode": 0,
+          "seconds": 357.8,
+          "finished_at": "2026-09-12T21:37:09Z",
+          "rate_limit_events": 8
+        },
+        "narrow": {
+          "run_id": "consequence_graph_20260912T213709Z_c0adcca5",
+          "returncode": 0,
+          "seconds": 220.6,
+          "finished_at": "2026-09-12T21:40:50Z",
+          "rate_limit_events": 0
+        }
+      }
+    }
+  ],
+  "design": "both arms adjacent in time per row; arm order randomised per row from the seed, so retrieval drift cannot align with one arm",
+  "updated_at": "2026-09-12T21:40:50Z",
+  "finished_at": "2026-09-12T21:40:50Z"
+}

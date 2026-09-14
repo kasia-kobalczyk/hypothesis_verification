@@ -1,0 +1,1648 @@
+{
+  "generated_at": "2026-09-13T20:09:28Z",
+  "phase": "2-adjudicated",
+  "predictors": {
+    "A": "diagnostic_predict_a_v1",
+    "B": "diagnostic_predict_judge_b_v2"
+  },
+  "n_pairs": 120,
+  "predictor_agreement": 0.75,
+  "confusion_A_vs_B": {
+    "indeterminate|positive_or_present": 20,
+    "negative_or_absent|negative_or_absent": 14,
+    "indeterminate|indeterminate": 55,
+    "indeterminate|negative_or_absent": 7,
+    "positive_or_present|positive_or_present": 20,
+    "neutral_or_no_change|neutral_or_no_change": 1,
+    "neutral_or_no_change|positive_or_present": 1,
+    "indeterminate|neutral_or_no_change": 1,
+    "negative_or_absent|positive_or_present": 1
+  },
+  "n_tests": 60,
+  "generator_discriminative": 35,
+  "adjudicated_discriminative": 1,
+  "rows": [
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T1",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T1",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T2",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T2",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T3",
+      "hypothesis": "H0",
+      "generator": "negative_or_absent",
+      "A": "negative_or_absent",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T3",
+      "hypothesis": "H1",
+      "generator": "indeterminate",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T4",
+      "hypothesis": "H0",
+      "generator": "indeterminate",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T4",
+      "hypothesis": "H1",
+      "generator": "negative_or_absent",
+      "A": "negative_or_absent",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T5",
+      "hypothesis": "H0",
+      "generator": "negative_or_absent",
+      "A": "indeterminate",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T5",
+      "hypothesis": "H1",
+      "generator": "negative_or_absent",
+      "A": "indeterminate",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T6",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T6",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T1",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T1",
+      "hypothesis": "H0",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T2",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T2",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T3",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T3",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T4",
+      "hypothesis": "H1",
+      "generator": "indeterminate",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T4",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "neutral_or_no_change",
+      "B": "neutral_or_no_change"
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T5",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T5",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T6",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T6",
+      "hypothesis": "H0",
+      "generator": "indeterminate",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T1",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T1",
+      "hypothesis": "H1",
+      "generator": "negative_or_absent",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T2",
+      "hypothesis": "H0",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T2",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T3",
+      "hypothesis": "H0",
+      "generator": "negative_or_absent",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T3",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T4",
+      "hypothesis": "H0",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T4",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T5",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T5",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T6",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "neutral_or_no_change",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T6",
+      "hypothesis": "H1",
+      "generator": "indeterminate",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T1",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T1",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T2",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T2",
+      "hypothesis": "H0",
+      "generator": "negative_or_absent",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T3",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T3",
+      "hypothesis": "H0",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T4",
+      "hypothesis": "H1",
+      "generator": "indeterminate",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T4",
+      "hypothesis": "H0",
+      "generator": "negative_or_absent",
+      "A": "negative_or_absent",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T5",
+      "hypothesis": "H1",
+      "generator": "indeterminate",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T5",
+      "hypothesis": "H0",
+      "generator": "negative_or_absent",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T6",
+      "hypothesis": "H1",
+      "generator": "indeterminate",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T6",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T1",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T1",
+      "hypothesis": "H0",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T2",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "negative_or_absent",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T2",
+      "hypothesis": "H0",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T3",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "negative_or_absent",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T3",
+      "hypothesis": "H0",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T4",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T4",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "negative_or_absent",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T5",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T5",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T6",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T6",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T1",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T1",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T2",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T2",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T3",
+      "hypothesis": "H0",
+      "generator": "negative_or_absent",
+      "A": "negative_or_absent",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T3",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T4",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T4",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T5",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T5",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T6",
+      "hypothesis": "H0",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T6",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T1",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "negative_or_absent",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T1",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T2",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "neutral_or_no_change"
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T2",
+      "hypothesis": "H0",
+      "generator": "indeterminate",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T3",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T3",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T4",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T4",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T5",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T5",
+      "hypothesis": "H0",
+      "generator": "negative_or_absent",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T6",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T6",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T1",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T1",
+      "hypothesis": "H0",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T2",
+      "hypothesis": "H1",
+      "generator": "indeterminate",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T2",
+      "hypothesis": "H0",
+      "generator": "negative_or_absent",
+      "A": "negative_or_absent",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T3",
+      "hypothesis": "H1",
+      "generator": "indeterminate",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T3",
+      "hypothesis": "H0",
+      "generator": "negative_or_absent",
+      "A": "negative_or_absent",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T4",
+      "hypothesis": "H1",
+      "generator": "indeterminate",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T4",
+      "hypothesis": "H0",
+      "generator": "negative_or_absent",
+      "A": "negative_or_absent",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T5",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T5",
+      "hypothesis": "H0",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T6",
+      "hypothesis": "H1",
+      "generator": "indeterminate",
+      "A": "indeterminate",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T6",
+      "hypothesis": "H0",
+      "generator": "negative_or_absent",
+      "A": "negative_or_absent",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T1",
+      "hypothesis": "H1",
+      "generator": "negative_or_absent",
+      "A": "indeterminate",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T1",
+      "hypothesis": "H0",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T2",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T2",
+      "hypothesis": "H0",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T3",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T3",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T4",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T4",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T5",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T5",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "negative_or_absent",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T6",
+      "hypothesis": "H1",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T6",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T1",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T1",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T2",
+      "hypothesis": "H0",
+      "generator": "negative_or_absent",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T2",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "negative_or_absent",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T3",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "positive_or_present",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T3",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T4",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T4",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T5",
+      "hypothesis": "H0",
+      "generator": "neutral_or_no_change",
+      "A": "indeterminate",
+      "B": "indeterminate"
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T5",
+      "hypothesis": "H1",
+      "generator": "negative_or_absent",
+      "A": "negative_or_absent",
+      "B": "negative_or_absent"
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T6",
+      "hypothesis": "H0",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T6",
+      "hypothesis": "H1",
+      "generator": "positive_or_present",
+      "A": "indeterminate",
+      "B": "positive_or_present"
+    }
+  ],
+  "tests": [
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T1",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H0": null,
+        "H1": null
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 2
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T2",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H0": null,
+        "H1": null
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 2
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T3",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H0": "negative_or_absent",
+        "H1": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T4",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H0": "indeterminate",
+        "H1": "negative_or_absent"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T5",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H0": null,
+        "H1": null
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 2
+    },
+    {
+      "instance": "RBV2-0131-N03",
+      "test_id": "T6",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H0": "indeterminate",
+        "H1": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T1",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "positive_or_present",
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T2",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "positive_or_present"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T3",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "positive_or_present"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T4",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "neutral_or_no_change"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T5",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "positive_or_present"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0135-N03",
+      "test_id": "T6",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H1": "positive_or_present",
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T1",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H0": "indeterminate",
+        "H1": "positive_or_present"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T2",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H0": "indeterminate",
+        "H1": "positive_or_present"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T3",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H0": "indeterminate",
+        "H1": null
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 1
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T4",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H0": "indeterminate",
+        "H1": null
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 1
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T5",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H0": "indeterminate",
+        "H1": null
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 1
+    },
+    {
+      "instance": "RBV2-0138-N01",
+      "test_id": "T6",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H0": null,
+        "H1": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 1
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T1",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "positive_or_present"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T2",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": null,
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 1
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T3",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "positive_or_present",
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T4",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "negative_or_absent"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T5",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0143-N04",
+      "test_id": "T6",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "positive_or_present"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T1",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": null,
+        "H0": null
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 2
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T2",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "negative_or_absent",
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T3",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "negative_or_absent",
+        "H0": null
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 1
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T4",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "negative_or_absent"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T5",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0153-N03",
+      "test_id": "T6",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T1",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H0": "indeterminate",
+        "H1": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T2",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H0": "positive_or_present",
+        "H1": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T3",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H0": "negative_or_absent",
+        "H1": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T4",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H0": null,
+        "H1": null
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 2
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T5",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H0": null,
+        "H1": null
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 2
+    },
+    {
+      "instance": "RBV2-0165-N01",
+      "test_id": "T6",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H0": "indeterminate",
+        "H1": "positive_or_present"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T1",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H1": "negative_or_absent",
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T2",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H1": null,
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 1
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T3",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H1": null,
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 1
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T4",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T5",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0192-N05",
+      "test_id": "T6",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T1",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "positive_or_present",
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T2",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "negative_or_absent"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T3",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "negative_or_absent"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T4",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "negative_or_absent"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T5",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "positive_or_present",
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0268-N03",
+      "test_id": "T6",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H1": null,
+        "H0": "negative_or_absent"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 1
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T1",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": null,
+        "H0": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 1
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T2",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "positive_or_present",
+        "H0": null
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 1
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T3",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "positive_or_present"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T4",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": "positive_or_present"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T5",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H1": null,
+        "H0": null
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 2
+    },
+    {
+      "instance": "RBV2-0279-N03",
+      "test_id": "T6",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H1": "indeterminate",
+        "H0": null
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 1
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T1",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H0": null,
+        "H1": "positive_or_present"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 1
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T2",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H0": "positive_or_present",
+        "H1": "negative_or_absent"
+      },
+      "adjudicated_discriminative": true,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T3",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H0": "positive_or_present",
+        "H1": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T4",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H0": null,
+        "H1": "indeterminate"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 1
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T5",
+      "generator_discriminative": true,
+      "adjudicated": {
+        "H0": "indeterminate",
+        "H1": "negative_or_absent"
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 0
+    },
+    {
+      "instance": "RBV2-0288-N00",
+      "test_id": "T6",
+      "generator_discriminative": false,
+      "adjudicated": {
+        "H0": null,
+        "H1": null
+      },
+      "adjudicated_discriminative": false,
+      "unresolved": 2
+    }
+  ]
+}

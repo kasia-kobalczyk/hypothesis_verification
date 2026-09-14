@@ -1,0 +1,50 @@
+{
+  "name": "ResearchBench-derived hypothesis verification development slice",
+  "version": "dev20-v1",
+  "frozen_date": "2026-09-11",
+  "n_items": 20,
+  "source_rows": 1323,
+  "unique_doi_groups": 962,
+  "sampling_order": "SHA256(DOI) ascending after deterministic DOI deduplication",
+  "last_accepted_screen_rank": 873,
+  "selection_policy": [
+    "Apply the previously frozen R1-R6 method-independent inclusion rubric.",
+    "Require at least one raw ResearchBench negative to disagree with a substantive part of the gold hypothesis.",
+    "Do not rewrite gold or negative hypotheses.",
+    "Do not inspect pre-cutoff literature, consequence graphs, or verifier outputs for inclusion."
+  ],
+  "explicit_nonselection_features": [
+    "availability of indirect evidence",
+    "quality or depth of a consequence graph",
+    "retrieval success",
+    "expected advantage of the proposed method",
+    "manual evidence favoring the gold"
+  ],
+  "selected_screen_ranks": [
+    17,
+    84,
+    98,
+    184,
+    241,
+    315,
+    453,
+    463,
+    486,
+    566,
+    617,
+    627,
+    643,
+    702,
+    719,
+    721,
+    836,
+    837,
+    856,
+    873
+  ],
+  "next_steps": [
+    "Verify exact first-online publication dates and assign cutoffs.",
+    "Freeze a pair-level subset if experiments use pairwise rather than full-list ranking.",
+    "Only then perform pre-cutoff literature audits and method development."
+  ]
+}

@@ -1,0 +1,87 @@
+You are assessing what a retrieved body of scientific literature says about one
+scientific proposition.
+
+Judge ONLY whether the retrieved records bear directly on the proposition in front
+of you.
+
+WHAT "DIRECTLY" MEANS HERE
+
+It does NOT mean "direct evidence for some larger hypothesis". The proposition
+below may itself be several reasoning steps away from whatever question prompted
+it; that is expected and is not your concern. Your question is narrow:
+
+  Do these records report, measure, test, or state THIS proposition, or its
+  negation?
+
+A record that reports something from which the proposition could be *inferred* —
+via a mechanism, a related system, an upstream cause, a analogous molecule — is
+NOT direct evidence for it. Return "no_evidence" for that record's contribution.
+
+WHY THE LINE IS DRAWN HERE, SO YOU DO NOT TRY TO BE HELPFUL
+
+Inferential steps between propositions are represented elsewhere in this system,
+as explicit links between scientific claims, and they are judged separately. If
+you bridge from a reported finding to this proposition using scientific knowledge
+of your own, you are doing that job in the wrong place and invisibly: the bridge
+never gets recorded, never gets checked, and never gets weighted. A reproducibility
+study found that this is precisely where independent reviewers stop agreeing.
+
+So: do not reason from what a finding implies. Report what is stated.
+
+THE GROUNDING REQUIREMENT
+
+For any label other than "no_evidence" you must quote `supporting_spans`: spans
+copied EXACTLY, character for character, from the abstracts below. They are checked
+automatically against the text, and a span that cannot be found verbatim
+invalidates the judgment. Do not paraphrase, do not stitch sentences together, do
+not tidy the punctuation.
+
+If no span states the proposition or its negation, the answer is "no_evidence".
+Sharing a molecule, a disease, an instrument or a field with the proposition is not
+enough. Neither is reporting a fact that would make the proposition more plausible.
+
+If you find yourself needing a fact that is in neither the records nor the
+proposition in order to connect them, set "requires_external_bridge" to true and
+return "no_evidence".
+
+Also weigh, as before:
+- methodological strength, where it can be inferred;
+- consistency and disagreement across the records;
+- whether several records are independent studies or repeated reports of one
+  underlying result (same cohort, same dataset, same group, preprint and journal
+  version of one work).
+
+Important:
+- Absence of evidence is NOT evidence against the proposition, and must never be
+  reported as a contradiction.
+- "mixed" means records that directly address the proposition point in conflicting
+  directions. It is not the same as "no_evidence".
+- Judge only what the retrieved records support. Do not substitute your own
+  recollection of the literature, and do not cite records that are not listed.
+- You are judging the proposition on its own terms. No hypothesis is at stake here,
+  and you are not being asked which theory the evidence favours.
+- If the proposition cannot be checked AS WRITTEN — for example it refers to
+  "specific genetic alterations" without naming them — set
+  "proposition_unassessable" to true and return "no_evidence". That is a defect in
+  the proposition, not a fact about the literature, and it is recorded separately.
+
+PROPOSITION:
+$proposition
+
+RETRIEVED LITERATURE:
+$literature
+
+Return a single JSON object, and nothing else:
+
+{
+  "evidence_label": "<one of: $labels>",
+  "supporting_spans": ["<exact quote from an abstract>", "..."],
+  "requires_external_bridge": false,
+  "proposition_unassessable": false,
+  "rationale": "<2-4 sentences, describing what the records state rather than what it implies>",
+  "key_papers": ["<id of each record that drove the judgment>"],
+  "independence_note": "<how many effectively independent studies the evidence represents, or null>"
+}
+
+"key_papers" uses the `id:` values shown with each record, and must be empty when
+the label is "no_evidence".

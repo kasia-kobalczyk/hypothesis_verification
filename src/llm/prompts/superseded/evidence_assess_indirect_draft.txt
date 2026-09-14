@@ -1,0 +1,104 @@
+You are assessing what a retrieved body of scientific literature says about one
+scientific proposition.
+
+The question you are answering is:
+
+  Does this literature change the probability that the proposition is true, and
+  in which direction?
+
+It is NOT "does this literature study the proposition", and it is NOT "is this
+literature about the same topic". A proposition here is a CONSEQUENCE of some
+claim, so it is normal and expected that no study has tested it head-on. Evidence
+that bears on it indirectly still counts, provided you can say how.
+
+DIRECT evidence: the record explicitly tests, measures, reports, or states the
+proposition or its negation.
+
+INDIRECT evidence: the record does not test the proposition itself, but
+establishes a SPECIFIC INTERMEDIATE FACT that changes belief in the proposition
+through a named mechanistic, causal, logical, or quantitative link.
+
+The load-bearing words are "specific intermediate fact". You are claiming the
+record established some concrete fact F, and that F bears on the proposition. If
+you cannot name F, you do not have indirect evidence; you have a shared topic.
+Name it in "intermediate_fact".
+
+The forms such a link usually takes -- a guide, not a substitute for naming F:
+  - adjacent_system: the same relation reported in a different tissue, organism,
+    cell type or material than the proposition names;
+  - mechanism_component: a study establishes, or rules out, a necessary step of
+    the mechanism the proposition asserts;
+  - upstream_downstream: a study reports the immediate cause, or the immediate
+    effect, that the proposition's relation would produce;
+  - related_entity: the same relation for an entity of the same class (a paralog,
+    another member of a named family), together with a reason the substitution is
+    sound;
+  - quantitative_precondition: a reported magnitude or threshold that makes the
+    proposition's asserted magnitude more or less plausible.
+
+NO EVIDENCE: no such proposition-specific link can be stated from the record.
+Sharing a molecule, a disease, an instrument or a field with the proposition is
+NOT a link.
+
+The rule that keeps this honest: if you cannot write the inferential link in one
+sentence naming the specific record it comes from, the label is "no_evidence".
+Do not reach. An unsupported chain of plausibility is not evidence.
+
+For every INDIRECT judgment you must also lay out the minimal chain, as three
+separate steps:
+
+    paper finding  ->  intermediate fact  ->  target proposition
+
+Each step must follow from the one before using only what the record states or what
+the proposition itself supplies. If completing the chain requires you to add a fact
+that neither the record nor the proposition gives you -- a mechanism you happen to
+know, an assumption about a system nobody measured -- then set
+"requires_unsupported_facts" to true and return "no_evidence". A chain that needs a
+missing link is not indirect evidence; it is a guess.
+
+Also consider, as before:
+- methodological strength, where it can be inferred;
+- consistency and disagreement across studies;
+- whether several records are independent studies or repeated reports of one
+  underlying result (same cohort, same dataset, same group, preprint and journal
+  version of one work).
+
+Important:
+- Absence of evidence is NOT evidence against the proposition, and must never be
+  reported as a contradiction.
+- "mixed" means informative studies were found that point in conflicting
+  directions. It is not the same as "no_evidence".
+- Judge only what the retrieved records support. Do not substitute your own
+  recollection of the literature, and do not cite studies that are not listed.
+- You are judging the proposition on its own terms. No hypothesis is at stake
+  here, and you are not being asked which theory the evidence favours.
+- If the proposition cannot be checked AS WRITTEN — for example it refers to
+  "specific genetic alterations" without naming them — set
+  "proposition_unassessable" to true and return "no_evidence". That is a defect
+  in the proposition, not a fact about the literature, and it is recorded
+  separately.
+
+PROPOSITION:
+$proposition
+
+RETRIEVED LITERATURE:
+$literature
+
+Return a single JSON object, and nothing else:
+
+{
+  "evidence_label": "<one of: $labels>",
+  "evidence_directness": "<direct, indirect, or null when the label is no_evidence>",
+  "inference_link": "<REQUIRED when evidence_directness is indirect: one sentence, naming the record id, saying how it changes the proposition's probability. null otherwise>",
+  "inference_link_type": "<one of: adjacent_system, mechanism_component, upstream_downstream, related_entity, quantitative_precondition. null unless indirect>",
+  "intermediate_fact": "<REQUIRED when indirect: the specific fact the record establishes. null otherwise>",
+  "chain": ["<what the record found>", "<the intermediate fact>", "<what that implies about the proposition>"],
+  "requires_unsupported_facts": false,
+  "proposition_unassessable": false,
+  "rationale": "<2-4 sentences explaining the judgment>",
+  "key_papers": ["<id of each record that drove the judgment>"],
+  "independence_note": "<how many effectively independent studies the evidence represents, or null>"
+}
+
+"key_papers" uses the `id:` values shown with each record, and must be empty when
+the label is "no_evidence".

@@ -1,0 +1,77 @@
+{
+  "name": "ResearchBench-derived length-controlled pair slice",
+  "version": "v2",
+  "status": "DEVELOPMENT / DEBUGGING SET",
+  "status_note": "For method development and debugging only. Aggregate accuracy on this slice must NOT be reported as evidence for the method: a question-hidden judge recovers most pair labels from the candidate texts alone. The evaluation benchmark will be built separately by symmetric candidate canonicalisation.",
+  "frozen_at": "2026-09-11T20:34:28Z",
+  "motivation": "v1 artifact diagnostics: ranking candidates by shortest text alone scored 1.000 on the frozen v1 pair subset. Across the full ranking set the median negative is 3x the gold's length. v2 controls that confound by construction.",
+  "source_dataset": "/mnt/data/knk25.data/hypothesis_verification/benchmark/ranking.jsonl",
+  "screening_order": "SHA256(DOI) ascending after deterministic DOI deduplication (v1 order, reproduced: all 20 v1 screen_rank values match)",
+  "inherited_from_v1": [
+    "the R1-R6 scientific-validity rubric text (benchmark/dev/README-3.md)",
+    "the deterministic DOI screening order",
+    "verbatim hypothesis text; nothing is rewritten"
+  ],
+  "new_rule_in_v2": {
+    "length_ratio": "tokens(negative)/tokens(gold) in [0.75, 1.33]",
+    "band_history": "specified [0.75, 1.33]; widened to [0.67, 1.50] before screening; reverted to [0.75, 1.33] after diagnostics. Widened slice kept at benchmark/v2_widened_diagnostic/ as a characterisation artifact.",
+    "applied": "per gold-negative pair; all passing pairs retained"
+  },
+  "tokenizer": {
+    "name": "regex_word_punct_v1",
+    "pattern": "\\w+|[^\\w\\s]",
+    "note": "tiktoken is unavailable offline; this tokenizer needs no download"
+  },
+  "prompts": {
+    "row_screen_R1_R3_R5_R6": {
+      "name": "row_screen_v1",
+      "sha256_16": "9d1c76412bf5b890",
+      "path": "/mnt/data/knk25.data/hypothesis_verification/src/llm/prompts/row_screen_v1.txt"
+    },
+    "pair_comparability_R2": {
+      "name": "pair_comparability_v1",
+      "sha256_16": "714297d657f239b3",
+      "path": "/mnt/data/knk25.data/hypothesis_verification/src/llm/prompts/pair_comparability_v1.txt"
+    }
+  },
+  "provenance_caveat": "v1's R1-R6 rubric TEXT is frozen and quoted verbatim in row_screen_v1, but v1's screening PROMPT was not preserved in this repository. R1/R3/R5/R6 are therefore re-implemented, not replayed; R2 uses the prompt frozen during the v1 pair audit.",
+  "not_used_in_selection": [
+    "literature retrieval",
+    "Direct-RAG output",
+    "consequence-graph output",
+    "any verifier score",
+    "any artifact-diagnostic result"
+  ],
+  "llm": {
+    "provider": "azure",
+    "deployment": "gpt-4.1-kasia"
+  },
+  "length_statistics_full_dataset": {
+    "n_rows": 962,
+    "n_pairs": 9620,
+    "ratio_median": 3.0,
+    "ratio_mean": 4.218,
+    "share_negative_shorter": 0.011,
+    "share_in_band": 0.0605,
+    "share_negative_longer": 0.9285,
+    "n_length_passing_pairs": 582,
+    "n_rows_with_length_passing_pair": 336
+  },
+  "target_pairs": 100,
+  "target_reached": true,
+  "n_pairs_retained": 100,
+  "n_source_rows_represented": 57,
+  "n_rows_in_order": 962,
+  "n_rows_considered_after_length_gate": 114,
+  "n_rows_screened_with_model": 35,
+  "rejected_at": {
+    "length": 203,
+    "comparability": 37,
+    "row_screen": 20
+  },
+  "llm_usage": {
+    "prompt_tokens": 58519,
+    "completion_tokens": 8497,
+    "total_tokens": 67016
+  }
+}

@@ -1,0 +1,55 @@
+What does this claim predict about this measurement?
+
+You are shown ONE claim and ONE measurement. You are not shown any competing
+claims, and you must not speculate about them. Judge this claim on its own terms.
+
+Assume the claim is TRUE. Ask: does the claim, by itself, tell you what this
+measurement would show?
+
+There are only two ways to answer that.
+
+  THE CLAIM DETERMINES THE OUTCOME. It implies the measured quantity would go up
+  or appear, go down or be absent, or sit at approximately the comparator value.
+  All three are real predictions: an experiment could refute any of them.
+
+  THE CLAIM DOES NOT DETERMINE THE OUTCOME. The claim is about something else, or
+  is compatible with the measurement coming out any way at all. This is not a
+  prediction and must not be reported as one.
+
+Be careful with the third of those predictions. "Approximately unchanged" means the
+claim POSITIVELY IMPLIES that the effect is absent -- for example a claim that a
+factor plays no role in a process implies that removing it changes nothing. It does
+NOT mean the claim happens to be quiet on the subject. A claim that is quiet on the
+subject does not determine the outcome.
+
+  Claim: "Protein X is not involved in pathway Y."
+  Test:  knock down X, measure pathway Y activity.
+  -> approximately_unchanged. The claim positively implies no effect, and an
+     experiment finding an effect would refute it.
+
+  Claim: "Protein X affects mitochondrial morphology."
+  Test:  knock down X, measure pathway Y activity.
+  -> claim_does_not_determine. The claim is about morphology. It neither predicts
+     an effect on pathway Y nor predicts the absence of one.
+
+You have no literature access. You are not being asked what is true, what any study
+found, or whether the claim is correct. Only what the claim predicts.
+
+CLAIM:
+$hypothesis
+
+MEASUREMENT:
+  system:                 $system
+  context:                $context
+  intervention/exposure:  $intervention
+  measured outcome:       $measured_outcome
+  compared against:       $baseline
+
+Return a single JSON object, and nothing else:
+
+{
+  "what_the_claim_says": "<in your words>",
+  "does_the_claim_determine_this_measurement": false,
+  "why": "<one sentence>",
+  "expected_direction": "<up_or_appears, down_or_absent, approximately_unchanged, or claim_does_not_determine>"
+}

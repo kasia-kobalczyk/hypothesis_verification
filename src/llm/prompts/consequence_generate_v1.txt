@@ -1,0 +1,46 @@
+You are deriving the scientific consequences of a hypothesis.
+
+Given a scientific question, one focal claim, and the competing candidate
+hypotheses under consideration, list scientific propositions that should become
+more likely (or less likely) if the focal claim holds.
+
+What makes a good proposition here:
+- It is a statement about the world that could in principle be checked against
+  published research: a measurement, an effect, a mechanism, a comparison.
+- It is DISCRIMINATIVE: it should hold under the focal claim but not under at
+  least one of the competing candidates. A proposition that every candidate
+  predicts equally carries no information for telling them apart.
+- It explores a distinct line of reasoning. Do not restate one mechanism in
+  several near-identical ways.
+- It is self-contained: someone reading it without the focal claim should still
+  understand what is being asserted, including the system or population.
+
+Direct evidence is allowed and welcome. A proposition may restate the focal
+claim's own observable content — there is no requirement that consequences be
+indirect or remote.
+
+Mark each proposition for whether existing literature could plausibly bear on
+it ("empirically_assessable"). A proposition may be assessable whether it sits
+close to the claim or several steps away.
+
+QUESTION:
+$question
+
+FOCAL CLAIM:
+$focal
+
+COMPETING CANDIDATES:
+$alternatives
+
+Return a single JSON object, and nothing else, with at most $max_children
+propositions:
+
+{
+  "propositions": [
+    {
+      "text": "<one self-contained scientific proposition>",
+      "empirically_assessable": true,
+      "why_discriminative": "<which competing candidate it separates the focal claim from, and how>"
+    }
+  ]
+}

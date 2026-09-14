@@ -1,0 +1,162 @@
+[
+  {
+    "row": "RBV2-0050-N04",
+    "point": false,
+    "n_inf": 6,
+    "edge": 0.0,
+    "evidence": 0.0,
+    "both": 0.2
+  },
+  {
+    "row": "RBV2-0052-N08",
+    "point": true,
+    "n_inf": 4,
+    "edge": 1.0,
+    "evidence": 1.0,
+    "both": 1.0
+  },
+  {
+    "row": "RBV2-0084-N05",
+    "point": true,
+    "n_inf": 13,
+    "edge": 1.0,
+    "evidence": 1.0,
+    "both": 1.0
+  },
+  {
+    "row": "RBV2-0110-N03",
+    "point": false,
+    "n_inf": 3,
+    "edge": 0.0,
+    "evidence": 0.1,
+    "both": 0.0
+  },
+  {
+    "row": "RBV2-0117-N06",
+    "point": true,
+    "n_inf": 15,
+    "edge": 0.4666666666666667,
+    "evidence": 0.5666666666666667,
+    "both": 0.6166666666666667
+  },
+  {
+    "row": "RBV2-0131-N03",
+    "point": true,
+    "n_inf": 2,
+    "edge": 1.0,
+    "evidence": 1.0,
+    "both": 1.0
+  },
+  {
+    "row": "RBV2-0135-N03",
+    "point": true,
+    "n_inf": 7,
+    "edge": 1.0,
+    "evidence": 1.0,
+    "both": 1.0
+  },
+  {
+    "row": "RBV2-0138-N01",
+    "point": true,
+    "n_inf": 6,
+    "edge": 0.65,
+    "evidence": 1.0,
+    "both": 0.6166666666666667
+  },
+  {
+    "row": "RBV2-0143-N04",
+    "point": true,
+    "n_inf": 2,
+    "edge": 1.0,
+    "evidence": 1.0,
+    "both": 1.0
+  },
+  {
+    "row": "RBV2-0153-N03",
+    "point": true,
+    "n_inf": 5,
+    "edge": 1.0,
+    "evidence": 1.0,
+    "both": 1.0
+  },
+  {
+    "row": "RBV2-0165-N01",
+    "point": true,
+    "n_inf": 5,
+    "edge": 0.6166666666666667,
+    "evidence": 1.0,
+    "both": 0.7666666666666667
+  },
+  {
+    "row": "RBV2-0192-N05",
+    "point": true,
+    "n_inf": 7,
+    "edge": 0.6333333333333333,
+    "evidence": 1.0,
+    "both": 0.65
+  },
+  {
+    "row": "RBV2-0230-N02",
+    "point": true,
+    "n_inf": 11,
+    "edge": 0.9666666666666667,
+    "evidence": 1.0,
+    "both": 1.0
+  },
+  {
+    "row": "RBV2-0233-N00",
+    "point": true,
+    "n_inf": 3,
+    "edge": 0.5333333333333333,
+    "evidence": 1.0,
+    "both": 0.7
+  },
+  {
+    "row": "RBV2-0246-N04",
+    "point": true,
+    "n_inf": 5,
+    "edge": 0.8833333333333333,
+    "evidence": 0.15,
+    "both": 0.2
+  },
+  {
+    "row": "RBV2-0268-N03",
+    "point": true,
+    "n_inf": 14,
+    "edge": 0.85,
+    "evidence": 1.0,
+    "both": 0.8333333333333334
+  },
+  {
+    "row": "RBV2-0279-N03",
+    "point": true,
+    "n_inf": 2,
+    "edge": 0.95,
+    "evidence": 1.0,
+    "both": 1.0
+  },
+  {
+    "row": "RBV2-0281-N03",
+    "point": false,
+    "n_inf": 7,
+    "edge": 0.05,
+    "evidence": 0.8,
+    "both": 0.36666666666666664
+  },
+  {
+    "row": "RBV2-0288-N00",
+    "point": false,
+    "n_inf": 7,
+    "edge": 0.5,
+    "evidence": 0.25,
+    "both": 0.5333333333333333
+  },
+  {
+    "row": "RBV2-0317-N03",
+    "point": true,
+    "n_inf": 1,
+    "edge": 1.0,
+    "evidence": 0.6833333333333333,
+    "both": 0.6833333333333333
+  }
+]

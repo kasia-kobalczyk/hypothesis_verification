@@ -1,0 +1,96 @@
+{
+  "n_checked": 21,
+  "n_flagged": 3,
+  "by_basis": {
+    "title_pattern": 1,
+    "venue_pattern": 2
+  },
+  "flagged": {
+    "10.1007/s13399-020-01243-6": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": "a review of",
+      "venue": "Biomass Conversion and Biorefinery",
+      "title": "A review of the traditional pulping methods and the recent improvements in the pulping processes"
+    },
+    "10.1016/j.tcb.2023.07.009": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Trends in ",
+      "venue": "Trends in Cell Biology",
+      "title": "Disulfidptosis: disulfide stress–induced cell death"
+    },
+    "10.1038/s41580-023-00689-6": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "A guide to cell death pathways"
+    }
+  },
+  "limitation": "venue/title matching only. Crossref types review articles as journal-article, so a review in a general-purpose journal is not detected. TODO(research): classify from the abstract.",
+  "generated_at": "2026-09-12T08:45:28Z",
+  "slice": "/mnt/data/knk25.data/hypothesis_verification/benchmark/canonical/researchbench_canonical_pairs.jsonl",
+  "n_rows": 105,
+  "n_distinct_dois": 21,
+  "n_dois_without_cached_metadata": 0,
+  "dois_without_cached_metadata": [],
+  "policy": {
+    "enabled": true,
+    "action": "exclude",
+    "venue_patterns": [
+      "Trends in ",
+      "Nature Reviews",
+      "Annual Review",
+      "Annual Reviews",
+      "Current Opinion in",
+      "Chemical Reviews",
+      "Reviews of Modern Physics",
+      "Physics Reports",
+      "Living Reviews in",
+      "Clinical Microbiology Reviews",
+      "Pharmacological Reviews",
+      "Physiological Reviews",
+      "Endocrine Reviews",
+      "Chemical Society Reviews",
+      "WIREs",
+      "Wiley Interdisciplinary Reviews",
+      "Advances in ",
+      "Progress in ",
+      "Reviews in ",
+      " Reviews",
+      " Surveys",
+      "Annu. Rev."
+    ],
+    "title_patterns": [
+      "a review of",
+      "a review on",
+      "a systematic review",
+      "systematic review and meta-analysis",
+      "a survey of",
+      ": a review",
+      "current perspectives on",
+      "recent advances in",
+      "recent progress in",
+      "an overview of"
+    ]
+  },
+  "affected_row_ids": [
+    "RBC-0005-N02",
+    "RBC-0005-N03",
+    "RBC-0005-N04",
+    "RBC-0005-N08",
+    "RBC-0005-N09",
+    "RBC-0012-N00",
+    "RBC-0012-N01",
+    "RBC-0012-N02",
+    "RBC-0012-N04",
+    "RBC-0012-N05",
+    "RBC-0012-N06",
+    "RBC-0012-N07",
+    "RBC-0022-N00",
+    "RBC-0022-N01",
+    "RBC-0022-N02"
+  ],
+  "note": "Flags only. This file does not modify the slice. For a newly built evaluation benchmark the same policy is applied as an exclusion gate at construction time."
+}

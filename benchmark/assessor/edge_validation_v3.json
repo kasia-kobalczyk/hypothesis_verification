@@ -1,0 +1,3090 @@
+{
+  "generated_at": "2026-09-13T09:20:16Z",
+  "judges": {
+    "a": "edge_assess_v1 (production)",
+    "b": "edge_judge_b_v1"
+  },
+  "model": "one deployment; same-model caveat applies as in the evidence validation",
+  "n_edges_available": 120,
+  "n_sampled": 90,
+  "conditions": [
+    "real",
+    "mismatched"
+  ],
+  "b_mapping": {
+    "follows|surprised": "strongly_implied",
+    "follows|mildly_surprised": "implied",
+    "follows|not_surprised": "implied",
+    "more_likely|surprised": "implied",
+    "more_likely|mildly_surprised": "weakly_implied",
+    "more_likely|not_surprised": "weakly_implied",
+    "unaffected|surprised": "neutral",
+    "unaffected|mildly_surprised": "neutral",
+    "unaffected|not_surprised": "neutral",
+    "less_likely|surprised": "strongly_contradicted",
+    "less_likely|mildly_surprised": "unlikely",
+    "less_likely|not_surprised": "unlikely"
+  },
+  "rows": [
+    {
+      "edge_id": "RBV2-0050-N04::H0->X1",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "strongly_implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If 'enhance detection and localization' refers only to improved accuracy or localization precision rather than increased event count, the prediction about higher detection numbers may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X10",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "weakly_implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim refers only to a single instrument and not a network, or if the improvement is in detection but not localization, the prediction about a network's localization accuracy may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X11",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim only refers to improved detection and localization by a single instrument, without any benefit from synchronization or coordination with other arrays or observatories, then the prediction about improved localization from synchronization does not necessarily follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X12",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only referring to improvements from a single instrument's technology, it does not imply anything about the comparative performance of distributed networks versus single instruments.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X13",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "weakly_implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's enhancement is due solely to factors like larger detector area or improved data processing rather than the CsI:Tl+SiPM combination itself, then the prediction about count rates from identical-sized detectors with different materials/readouts would not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X14",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's improved detection is due to factors other than photon detection efficiency (such as larger area or better electronics), then the prediction about SiPMs' efficiency does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X15",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's improved sensitivity is due to factors other than the thallium doping (such as detector design, electronics, or array configuration), then the prediction about thallium-doped scintillators' intrinsic sensitivity does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X16",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is only about improving gamma-ray localization and does not imply anything about the effectiveness of combining gamma-ray and gravitational-wave data, then the prediction does not necessarily follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X17",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only referring to improvements in gamma-ray detection hardware, with no reference to data fusion or multimodal algorithms, then the prediction about algorithmic improvements does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X18",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only improving electromagnetic detection without any integration with gravitational-wave data, then the prediction about multimessenger localization accuracy does not necessarily follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X19",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim only asserts improved localization relative to existing detectors but does not specify the degree of improvement, it is possible that the median angular precision remains worse than 1 degree, so the prediction does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X2",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the StarBurst's increased sensitivity and effective area are due to factors other than the CsI:Tl+SiPM detector combination (such as larger detector size or improved data processing), then the prediction about the intrinsic sensitivity of CsI:Tl+SiPM detectors does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X20",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's improvement in localization is due solely to factors other than effective area (such as detector geometry or algorithmic advances), then increasing effective area alone might not improve angular precision.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X3",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's improvement in localization is due solely to factors other than effective area (such as detector geometry or software), then increased effective area alone might not improve angular precision.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X4",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the network uses detectors that are much less sensitive or effective than the StarBurst system, or if synchronization with gravitational-wave observatories does not improve localization, the prediction may not follow from the claim.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X5",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim only refers to improved gamma-ray detection without any integration with gravitational-wave data or advanced algorithms, the prediction about improved localization from data fusion does not necessarily follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X6",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only referring to improvements from a single, more sensitive detector (not a network), then it does not imply anything about the benefits of distributed networks.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X7",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If 'enhance detection and localization' refers only to improved localization accuracy rather than increased detection rate, the prediction about detecting more SGRBs would not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X8",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "strongly_implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim only refers to improved localization accuracy and not increased detection rate, then the prediction about higher annual detection would not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X9",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim only applies to the StarBurst instrument specifically and not to multimessenger observatories in general, then the prediction about all such observatories would not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X1",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the network only improves localization accuracy without increasing sensitivity or coverage, it would not necessarily detect more bursts than Fermi.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X10",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "strongly_implied",
+      "b_raw": [
+        "follows",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's improvement applies only to specific cases or metrics other than median localization error, the prediction might not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X11",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "strongly_implied",
+      "b_raw": [
+        "follows",
+        "surprised"
+      ],
+      "b_caveat": "If the improvement in localization is due only to the advanced data fusion algorithms or the specific configuration (e.g., number, placement, or type of detectors), and not to synchronization per se, then the prediction might not follow from the claim.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X12",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "strongly_implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's improvement depends entirely on the integration with gravitational-wave data and not on the distributed nature of the gamma-ray detectors themselves, the prediction about distributed gamma-ray networks alone may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X13",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only referring to the benefits of networked arrays and data fusion, without specifying or implying anything about the relative performance of CsI:Tl/SiPM versus NaI:Tl/PMT detectors, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X14",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim's improvement is achieved regardless of the specific photodetector technology used, then the prediction about silicon photomultipliers is irrelevant to the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X15",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim's improvement is achieved using other detector technologies or methods unrelated to thallium-doped alkali halide scintillators, the prediction about scintillator sensitivity is irrelevant.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X16",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "strongly_implied",
+      "b_raw": [
+        "follows",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's improvement is due solely to better gamma-ray detectors or algorithms unrelated to gravitational-wave data, then the prediction about the benefit of combining data would not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X17",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "strongly_implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's improvement is due solely to increased detector coverage or sensitivity, and not the data fusion algorithms themselves, then the prediction about the general effectiveness of such algorithms would not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X18",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's improvement is due solely to better gamma-ray detectors and not the combination with gravitational-wave data, then the prediction about multimessenger superiority would not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X19",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "weakly_implied",
+      "a_label": "weakly_implied",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to the specific networked configuration and not to single detectors, then it does not imply anything about the performance of an individual detector with a given area.",
+      "a_direction": "implies",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X2",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the network described in the claim uses different detector technology or achieves improved localization through means unrelated to the specific sensitivity of CsI:Tl+SiPM detectors, the prediction about their relative sensitivity does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X20",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's improvement is due solely to the network configuration, data fusion, or integration with gravitational-wave data rather than any change in the effective area of individual detectors, then increasing effective area alone might not improve localization.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X3",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's improvement is due solely to network configuration, data fusion, or synchronization with gravitational-wave observatories rather than increased effective area, then the prediction about effective area alone may not follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X4",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "strongly_implied",
+      "b_raw": [
+        "follows",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's improvement depends critically on unspecified advanced data fusion algorithms or other enhancements not present in the prediction's scenario, then the prediction might not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X5",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the improvement in localization is due solely to the increased number or distribution of detectors, and not to the integration or data fusion of gamma-ray and gravitational-wave data, then the prediction does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X6",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "strongly_implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the improvement in localization depends critically on synchronization with gravitational-wave observatories and advanced data fusion, and not on distribution alone, then the prediction about distributed networks in general does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X7",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim's improved localization does not affect the detection rate, then the prediction about detecting more bursts does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X8",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's improvement is solely in localization accuracy without any increase in sensitivity or detection efficiency, the annual detection rate might remain unchanged.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X9",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's improvement is only in localization accuracy and not in detection sensitivity or rate, then outperforming previous instruments in detection may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X1",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim only applies to composites with a specific S-scheme heterojunction between ZFO@C and CZS, and not to simple carbon-coated CZS nanoparticles, then the prediction does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X10",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "strongly_implied",
+      "b_raw": [
+        "follows",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's enhancement is only under specific conditions (e.g., UV light or in the presence of certain additives) not matching the prediction's visible light context, the prediction may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X11",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's enhanced performance is due solely to factors unrelated to charge separation (such as increased surface area or stability), then the prediction about charge separation efficiency would not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X12",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the composite in the prediction does not actually form an S-scheme heterojunction or lacks the specific structure described in the claim, then the enhanced performance may not occur.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X13",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's enhancement is due solely to the S-scheme heterojunction and not to the carbon coating itself, then the prediction about carbon coating alone does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X14",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's enhanced performance is due entirely to other factors (e.g., increased reactive sites or reduced recombination) and not to interfacial electron transfer, then the prediction does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X15",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's reduced recombination is due solely to the S-scheme heterojunction and not the carbon coating, then the prediction about carbon-coated photocatalysts in general would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X16",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's improved performance is due to factors unrelated to electron-hole recombination (such as only increased reactive sites or stability), then the prediction about photoluminescence intensity may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X17",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as the enhanced performance being due solely to factors unrelated to electron-hole separation (such as surface area or chemical stability), then the prediction would not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X18",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to the specific ZFO@C/CZS composite and not to S-scheme heterojunctions in general, then the prediction about all S-scheme heterojunctions would not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X19",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is only about the composite (ZFO@C/CZS) and not about the individual carbon-coated CZS material, then the prediction about the latter's stability does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X2",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "weakly_implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's enhanced performance is due solely to the S-scheme heterojunction and not the carbon coating, then the prediction about porous carbon coatings would not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X20",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's enhanced stability and recyclability are due solely to the S-scheme heterojunction and not the carbon coating, then the prediction about carbon coating alone inhibiting activity loss would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X3",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is only about a very specific composite (ZFO@C/CZS with S-scheme heterojunction) and not about carbon-coated metal sulfide photocatalysts in general, then the prediction about all such photocatalysts does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X4",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "strongly_implied",
+      "b_raw": [
+        "follows",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's enhancement refers only to stability, recyclability, or quantum efficiency and not to the actual hydrogen evolution rate under visible light, then the prediction may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X5",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's improved performance is due to factors unrelated to the S-scheme heterojunction (e.g., material morphology or external additives), then the prediction about S-scheme heterojunctions increasing charge separation and reducing recombination would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X6",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim only applies to a specific S-scheme heterojunction composite and not to all composites of Cd0.9Zn0.1S with carbon-coated ferrite materials, then the prediction does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X7",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as requiring the specific S-scheme heterojunction between ZFO@C and CZS for enhancement, then simply coating Cd0.9Zn0.1S with carbon (without forming the S-scheme or including ZFO) may not guarantee improved performance.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X8",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's enhanced performance is primarily due to the S-scheme heterojunction rather than the carbon coating itself, then the prediction about carbon coating alone may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X9",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to the specific ZFO@C/CZS composite with an S-scheme heterojunction, and not to porous carbon coatings on metal sulfides in general, then the prediction does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X1",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "strongly_implied",
+      "b_raw": [
+        "follows",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's improvements only apply to long-term stability or recyclability and not to initial hydrogen evolution rates, the prediction might not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X10",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the ZFO@C/CZS composite's performance is dominated by interactions between ZFO and CZS rather than the carbon coating on CZS, the claim about carbon-coated CZS alone would not guarantee the prediction.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X11",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's enhancement is specific only to single-phase carbon-coated CZS and does not generalize to heterojunctions with other materials, the prediction would not necessarily follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X12",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the enhancement is specific to the direct carbon-coating of Cd0.9Zn0.1S and does not extend to composites with other carbon-coated materials, the prediction would not follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X13",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "strongly_implied",
+      "b_raw": [
+        "follows",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's enhancement of charge carrier separation is only under specific conditions not present in the prediction (e.g., only with a certain carbon thickness or synthesis method), then the prediction might not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X14",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's enhancement of charge separation and HER is due to another mechanism (e.g., surface chemistry or light absorption) rather than interfacial electron transfer, the prediction would not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X15",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's effect on charge carrier separation is specific only to Cd0.9Zn0.1S nanoparticles with a particular carbon architecture and does not generalize to all carbon-coated semiconductor photocatalysts, then the prediction does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X16",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to carbon-coated CZS nanoparticles and not to S-scheme heterojunctions, then the prediction about heterojunctions does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X17",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only addressing carbon-coating effects on single-phase CZS nanoparticles without any heterojunction formation, it does not imply anything about S-scheme heterojunctions.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X18",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as being specific only to carbon-coated CZS nanoparticles and not making any general statement about S-scheme heterojunctions, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X19",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If 'multiple reaction cycles' in the claim refers to fewer than five cycles, the prediction might not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X2",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as being specific only to Cd0.9Zn0.1S nanoparticles and not to semiconductor photocatalysts in general, then the prediction (which is general) does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X20",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's effect is unique to Cd0.9Zn0.1S nanoparticles with specific synthesis and carbon layer parameters, it may not apply to all metal sulfide photocatalysts or other carbon coating conditions.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X3",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as applying only to Cd0.9Zn0.1S with specific synthesis and coating parameters, it does not guarantee that all carbon-coated metal sulfide photocatalysts will behave similarly.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X4",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is only about the performance of carbon-coated CZS alone and does not address composites or interactions with ZFO@C, then the prediction about the composite's superiority does not necessarily follow.",
+      "a_direction": "neutral",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X5",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only involving single-phase CZS nanoparticles with carbon coating, and not involving any heterojunction formation, then the prediction about S-scheme heterojunctions is unrelated.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X6",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the beneficial effects of carbon-coating are specific only to pure Cd0.9Zn0.1S and do not extend to composites with ferrite materials, then the prediction would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X7",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "strongly_implied",
+      "b_raw": [
+        "follows",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's enhancement refers only to long-term stability or recyclability and not to initial hydrogen production rate, the prediction might not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X8",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "implied",
+      "b_raw": [
+        "more_likely",
+        "surprised"
+      ],
+      "b_caveat": "If the claim's enhancement of charge carrier separation is due solely to increased reactive sites or stability, not to reduced recombination, the prediction might not follow, but the claim explicitly mentions improved separation via electron transfer, so this is unlikely.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X9",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's effect is unique to Cd0.9Zn0.1S or depends on specific synthesis methods or carbon thicknesses, it may not apply to all metal sulfide photocatalysts.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X1",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0084-N05",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If 'lower gamma-ray energies' in the claim refers only to energies significantly below 0.662 MeV, then the prediction about 0.662 MeV may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X10",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0084-N05",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If 'lower gamma-ray energies' in the claim does not include 0.662 MeV, then the prediction about 0.662 MeV may not follow from the claim.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X11",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0084-N05",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If 'lower gamma-ray energies' in the claim refers to energies significantly below 0.662 MeV, then the prediction about 0.662 MeV may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X12",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0084-N05",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's effect is unique to the specific glass system or only at certain energies, it may not generalize to all glasses with high-Z oxides.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X13",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0084-N05",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "strongly_implied",
+      "b_raw": [
+        "follows",
+        "surprised"
+      ],
+      "b_caveat": null,
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X14",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0084-N05",
+      "production_label": "implied",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the decrease in mechanical properties is due to factors other than network connectivity (e.g., changes in bond strength or density unrelated to connectivity), the prediction about network connectivity may not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X15",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0084-N05",
+      "production_label": "implied",
+      "a_label": "implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's effect is unique to the specific glass system or composition and does not generalize to other borate-based glasses or other heavy oxide substitutions, the prediction would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X16",
+      "condition": "real",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0084-N05",
+      "production_label": "neutral",
+      "a_label": "weakly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim's mention of decreased packing density refers to a decrease in mass density (rather than just atomic packing efficiency), then the prediction would not follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X17",
+      "condition": "real",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0084-N05",
+      "production_label": "strongly_implied",
+      "a_label": "strongly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the claim is interpreted as only applying to the specific 5Li2O-5BaO-10ZnO-(30-x)B2O3-(50+x)Bi2O3 system and not to borate-based glasses in general, the prediction does not necessarily follow.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X18",
+      "condition": "real",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0084-N05",
+      "production_label": "implied",
+      "a_label": "strongly_implied",
+      "b_label": "weakly_implied",
+      "b_raw": [
+        "more_likely",
+        "mildly_surprised"
+      ],
+      "b_caveat": "If the effect observed in the specific 5Li2O-5BaO-10ZnO-(30-x)B2O3-(50+x)Bi2O3 system does not generalize to other heavy metal oxide-doped borate glasses, the prediction would not follow from the claim.",
+      "a_direction": "implies",
+      "b_direction": "implies"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X1",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about material science and photocatalysis, while the prediction is about astrophysical observations, so under any reading the claim does not imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X10",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about photocatalytic hydrogen evolution and does not relate to gamma-ray detection or localization, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X11",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about material science and photocatalysis, with no connection to gamma-ray burst localization or astrophysics, so under any reading the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X12",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about photocatalysis and material science, with no reference to gamma-ray detection or localization, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X13",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about photocatalysis and does not address scintillation detection or gamma-ray counting, so under any reading, the prediction does not follow from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X14",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about photocatalytic composites and their performance in hydrogen evolution, which is unrelated to photon detection technologies for gamma rays, so the prediction does not follow at all from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X15",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about photocatalysis and does not mention scintillators or gamma-ray sensitivity, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X16",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about material science and photocatalysis, so under any reading, it does not relate to astrophysical data fusion or burst localization.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X17",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about material science and photocatalysis, and does not relate to astrophysical data fusion or event localization, so there is no reading where the prediction follows from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X18",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about material science and photocatalysis, while the prediction is about multimessenger astronomy, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X19",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about photocatalysis and does not relate to gamma-ray detection or localization, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X2",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about photocatalysis and does not address scintillation detectors or gamma-ray detection, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X20",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about photocatalysis and does not mention gamma-ray detection, so under any reading, it does not imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X3",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about photocatalysis and does not mention gamma-ray detection or astrophysics, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X4",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about photocatalysis and does not address gamma-ray detection or localization, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X5",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about materials science and photocatalysis, with no connection to astrophysical data fusion or gamma-ray bursts, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X6",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": null,
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X7",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about materials science and photocatalysis, while the prediction is about astrophysical observations, so there is no connection between them.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X8",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about materials science and photocatalysis, while the prediction is about astrophysical detection systems, so there is no overlap in subject matter or mechanism.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H0->X9",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about materials science and photocatalysis, while the prediction is about astrophysical instrumentation, so there is no logical connection between them.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X1",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about materials science and photocatalysis, while the prediction is about astrophysical observations, so there is no direct connection under any reasonable reading.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X10",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about photocatalysis and does not address gamma-ray detection or localization, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X11",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about materials science and photocatalysis, with no connection to gamma-ray bursts or observatory synchronization, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X12",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about materials science and photocatalysis, while the prediction is about astrophysical instrumentation, so there is no overlap in subject matter.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X13",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about photocatalysis and nanoparticle engineering, while the prediction is about scintillation detection of gamma rays, so there is no overlap in subject matter or mechanism.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X14",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about photocatalysis and does not address photon detection or photomultiplier technologies, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X15",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about photocatalysis in a specific sulfide nanoparticle system, while the prediction is about scintillation in alkali halide crystals, so there is no overlap in subject matter or mechanism.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X16",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about materials science and photocatalysis, with no connection to astrophysical signal analysis, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X17",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about material science and photocatalysis, with no mention or implication about astrophysical data analysis, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X18",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about materials science and photocatalysis, with no relevance to multimessenger astrophysics, so there is no reading where the prediction follows from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X19",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about materials for photocatalysis and does not address gamma-ray detection or localization, so there is no connection under any reasonable reading.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X2",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about photocatalysis and does not address scintillation detectors or gamma-ray detection, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X20",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about photocatalysis and does not address gamma-ray detection or localization, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X3",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about photocatalysis and nanoparticle engineering, while the prediction is about astrophysical instrumentation, so there is no overlap in subject matter or mechanism.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X4",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is only about the material properties of a glass and not about the design, deployment, or effectiveness of gamma-ray detector networks, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X5",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about material science and gamma-ray shielding in glasses, not about data fusion or astrophysical localization, so there is no direct connection.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X6",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about material science and gamma-ray shielding, not about detector network design or localization capabilities, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X7",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about material science and glass properties, while the prediction is about astrophysical instrument performance; there is no logical connection between them.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X8",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about material science properties of a glass composition, not about detection system sensitivity or astronomical event rates, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0050-N04::H1->X9",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0050-N04",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "If the claim is only about material science properties of a glass and not about the design or performance of gamma-ray observatories, then the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X1",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about a glass system's composition and properties, and does not address or imply anything about the behavior of carbon-coated Cd0.9Zn0.1S nanoparticles in hydrogen evolution.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X10",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about glass systems with Bi2O3 and their mechanical and shielding properties, while the prediction is about photocatalytic hydrogen evolution in a composite material unrelated to the glass system, so there is no connection between the two.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X11",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about glass composition and its physical properties, with no mention of heterojunctions, ZFO@C, CZS, or charge separation, so the prediction does not follow at all from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X12",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about glass systems with specific oxides and their mechanical and shielding properties, while the prediction is about semiconductor composites and photocatalysis, so there is no overlap in subject matter or mechanism.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X13",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about astrophysical instrumentation and gamma-ray detection, while the prediction is about photocatalyst material properties, so there is no overlap or implication between them.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X14",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about astrophysical instrumentation and detection, while the prediction is about materials science and photocatalysis, so there is no overlap in subject matter or mechanism.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X15",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about astrophysical instrumentation and gamma-ray detection, while the prediction is about photocatalyst material properties, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X16",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about astrophysical instrumentation and gamma-ray burst detection, while the prediction is about photocatalyst materials and their optical properties, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X17",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about astrophysical instrumentation and the prediction is about photocatalyst physics, so there is no reading where the claim implies the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X18",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about astrophysical instrumentation and gamma-ray burst detection, which is unrelated to photocatalyst properties, so there is no reading where the prediction follows from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X19",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about astrophysical instrumentation and has no bearing on photocatalyst performance, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X2",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "weakly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about astrophysical instrumentation and detection, while the prediction is about material science and photocatalysis, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X20",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim and prediction are about entirely unrelated scientific domains, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X3",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim and prediction are about entirely unrelated technologies and phenomena, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X4",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim and prediction are about entirely unrelated scientific domains—gamma-ray astronomy and photocatalysis—so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X5",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about astrophysical instrumentation and detection, while the prediction is about photocatalytic semiconductor physics, so there is no overlap in subject matter or mechanism.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X6",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about astrophysical instrumentation and gamma-ray burst detection, while the prediction is about material science and photocatalysis, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X7",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about astrophysical instrumentation and gamma-ray detection, while the prediction is about photocatalytic hydrogen production, so there is no reading where the claim implies the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X8",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about astrophysical instrumentation and gamma-ray detection, which has no bearing on nanoparticle photocatalysis, so the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H0->X9",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about astrophysical instrumentation and gamma-ray burst detection, while the prediction is about photocatalysis, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X1",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim and prediction are about entirely unrelated entities and phenomena, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X10",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim and prediction are about entirely unrelated scientific topics—gamma-ray detection and photocatalysis—so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X11",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about astrophysical instrumentation and detection, while the prediction is about material science and photocatalysis, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X12",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about astrophysical instrumentation and gamma-ray detection, which is unrelated to photocatalytic materials and hydrogen evolution, so under any reading the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X13",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about astrophysical detection systems and does not address photocatalyst materials or their properties, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X14",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about astrophysical detection systems and does not address or imply anything about semiconductor photocatalysts or electron transfer, so the prediction does not follow under any reading.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X15",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about astrophysical observation technology and does not address semiconductor photocatalysts at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X16",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about astrophysical detector networks and does not address photocatalyst materials or their photoluminescence properties, so the prediction does not follow under any reading.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X17",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about gamma-ray burst localization and does not address semiconductor physics or photocatalysis, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X18",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about astrophysical detection and does not address photocatalysts or electron-hole recombination, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X19",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about astrophysical detection and does not address photocatalysis or material science, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X2",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about astrophysical detection systems and does not address or imply anything about semiconductor photocatalysts or their surface coatings.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X20",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about astrophysical observation and does not mention or imply anything about photocatalysts or their coatings, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X3",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about astrophysical detection and does not address photocatalysts or their properties, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X4",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about astrophysics and detector networks, while the prediction is about material science and photocatalysis, so there is no reading where the claim entails the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X5",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about astrophysical detection systems and does not address semiconductor photocatalysts or their properties, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X6",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about astrophysical observation technology and does not address material science or photocatalysis, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X7",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about astrophysical detection systems and does not address or imply anything about the chemical or physical properties of nanoparticles used in hydrogen generation.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X8",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about astrophysical detector networks and data analysis, which is unrelated to the photocatalytic properties of coated nanoparticles.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0052-N08::H1->X9",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0052-N08",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is entirely about astrophysical detection systems and does not address photocatalysis or material coatings, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X1",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0084-N05",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about detector networks and data analysis for astrophysical events, not about material properties of glass, so there is no reading where the claim entails the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X10",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0084-N05",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim could be interpreted as making no assertion about the material properties of gamma-ray detector components, so the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X11",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0084-N05",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about detector network performance and data fusion, not about the material properties of detector components, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X12",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0084-N05",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about detector network performance and data integration, not about the gamma-ray attenuation properties of glass materials, so there is a clear reading where the prediction does not follow at all.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X13",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0084-N05",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about a photocatalyst composite and its performance, not about the mechanical properties of glass materials, so under any reading, the prediction does not follow from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X14",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0084-N05",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about photocatalytic composites and not about oxide glass matrices or their network connectivity, so under any reading, the prediction does not follow from the claim.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X15",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0084-N05",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about photocatalysis and composite materials, while the prediction is about glass chemistry and mechanics; there is no overlap in subject matter, so the prediction does not follow from the claim under any reading.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X16",
+      "condition": "mismatched",
+      "abstraction_level": "specific",
+      "has_why_implied": false,
+      "instance": "RBV2-0084-N05",
+      "production_label": "neutral",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about a ZFO@C/CZS composite and its photocatalytic properties, which are unrelated to the composition or density of Li2O-BaO-ZnO-B2O3-Bi2O3 glasses.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X17",
+      "condition": "mismatched",
+      "abstraction_level": "mechanistic",
+      "has_why_implied": true,
+      "instance": "RBV2-0084-N05",
+      "production_label": "strongly_implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about photocatalytic performance of a composite material, while the prediction is about gamma-ray attenuation in a different material system, so there is no reading where the claim would imply the prediction.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    },
+    {
+      "edge_id": "RBV2-0084-N05::H0->X18",
+      "condition": "mismatched",
+      "abstraction_level": "class",
+      "has_why_implied": true,
+      "instance": "RBV2-0084-N05",
+      "production_label": "implied",
+      "a_label": "neutral",
+      "b_label": "neutral",
+      "b_raw": [
+        "unaffected",
+        "not_surprised"
+      ],
+      "b_caveat": "The claim is about photocatalytic performance and does not mention gamma-ray shielding or borate glass systems, so under any reading, the prediction does not follow.",
+      "a_direction": "neutral",
+      "b_direction": "neutral"
+    }
+  ]
+}

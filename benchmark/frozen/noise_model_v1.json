@@ -1,0 +1,46 @@
+{
+  "name": "noise_model_v1",
+  "frozen_at": "2026-09-13T17:05:52Z",
+  "estimated_from": "benchmark/holdout/repeat_assessment_dev20.json",
+  "estimated_from_rows": 20,
+  "n_nodes": 400,
+  "node_instability": 0.165,
+  "evidence_transition_matrix": {
+    "no_evidence": {
+      "no_evidence": 0.9636,
+      "support": 0.023,
+      "weak_support": 0.0133
+    },
+    "support": {
+      "mixed": 0.0112,
+      "no_evidence": 0.0894,
+      "strong_support": 0.1676,
+      "support": 0.676,
+      "weak_support": 0.0559
+    },
+    "weak_support": {
+      "no_evidence": 0.2222,
+      "strong_support": 0.0159,
+      "support": 0.254,
+      "weak_support": 0.5079
+    },
+    "strong_support": {
+      "strong_support": 0.814,
+      "support": 0.186
+    },
+    "mixed": {
+      "mixed": 1.0
+    }
+  },
+  "evidence_nuisance_varied": "record presentation order only",
+  "edge_disagreement_by_level": {
+    "specific": 0.406,
+    "mechanistic": 0.516,
+    "class": 0.63,
+    "unknown": 0.5
+  },
+  "edge_perturbation": "adjacent ordinal label, direction preserved (an implied edge never becomes contradicting)",
+  "edge_source": "1 - exact-ordinal agreement between edge_assess_v1 and edge_judge_b_v1, measured per abstraction level",
+  "interpretation": "sensitivity to model-judgment variation. NOT a calibrated posterior over scientific truth; results derived from it are 'ranking stability', never 'posterior probability'.",
+  "estimated_from_reserve": false
+}

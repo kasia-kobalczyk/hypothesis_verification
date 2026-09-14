@@ -1,0 +1,151 @@
+{
+  "name": "narrow_graph_v3_complete",
+  "frozen_at": "2026-09-13T17:06:25Z",
+  "note": "COMPLETE FROZEN METHOD for the reserve run: v3 generation + narrow assessor + validated edges + independent inference + merging off. Uncertainty reported per docs/UNCERTAINTY_PROTOCOL.md with noise_model_v1.",
+  "evidence_assess_prompt": "evidence_assess_v2",
+  "prompt_shas": {
+    "consequence_generate_v3": {
+      "name": "consequence_generate_v3",
+      "sha256_16": "372057495d6e182f",
+      "path": "/mnt/data/knk25.data/hypothesis_verification/src/llm/prompts/consequence_generate_v3.txt"
+    },
+    "edge_assess_v1": {
+      "name": "edge_assess_v1",
+      "sha256_16": "86be9454752d082f",
+      "path": "/mnt/data/knk25.data/hypothesis_verification/src/llm/prompts/edge_assess_v1.txt"
+    },
+    "edge_assess_chain_v1": {
+      "name": "edge_assess_chain_v1",
+      "sha256_16": "090f6db68a221c11",
+      "path": "/mnt/data/knk25.data/hypothesis_verification/src/llm/prompts/edge_assess_chain_v1.txt"
+    },
+    "proposition_query_v1": {
+      "name": "proposition_query_v1",
+      "sha256_16": "f451df7d6ba29d65",
+      "path": "/mnt/data/knk25.data/hypothesis_verification/src/llm/prompts/proposition_query_v1.txt"
+    },
+    "evidence_assess_v2": {
+      "name": "evidence_assess_v2",
+      "sha256_16": "94156c126964eb50",
+      "path": "/mnt/data/knk25.data/hypothesis_verification/src/llm/prompts/evidence_assess_v2.txt"
+    }
+  },
+  "config": {
+    "graph": {
+      "max_depth": 2,
+      "generate_prompt": "consequence_generate_v3",
+      "max_root_consequences_per_hypothesis": 3,
+      "max_nodes": 80,
+      "max_children_per_node": 3,
+      "semantic_merge_mode": "none",
+      "merge_threshold": 0.82
+    },
+    "retrieval_query_policy": {
+      "max_terms": 6,
+      "min_terms": 3,
+      "backoff_steps": 2,
+      "strip_direction_words": true,
+      "direction_words": [
+        "increase",
+        "increases",
+        "increased",
+        "increasing",
+        "decrease",
+        "decreases",
+        "decreased",
+        "decreasing",
+        "higher",
+        "lower",
+        "elevated",
+        "reduces",
+        "reduction",
+        "enhance",
+        "enhances",
+        "enhanced",
+        "enhancement",
+        "improve",
+        "improves",
+        "improved",
+        "impair",
+        "impairs",
+        "impaired",
+        "worsen",
+        "worsens",
+        "worsened",
+        "support",
+        "supports",
+        "supporting",
+        "supported",
+        "refute",
+        "refutes",
+        "confirm",
+        "confirms",
+        "confirmed",
+        "prove",
+        "proves",
+        "proven",
+        "proof",
+        "evidence",
+        "demonstrates",
+        "demonstrate",
+        "shows",
+        "show",
+        "cause",
+        "causes",
+        "caused",
+        "causing"
+      ],
+      "protected_phrases": [
+        "reduced graphene oxide",
+        "increased intracranial pressure",
+        "reduced glutathione"
+      ],
+      "stopwords": [
+        "a",
+        "an",
+        "the",
+        "of",
+        "in",
+        "on",
+        "for",
+        "and",
+        "or",
+        "with",
+        "that",
+        "this",
+        "these",
+        "those",
+        "to",
+        "from",
+        "by",
+        "as",
+        "at",
+        "its",
+        "their",
+        "between",
+        "during",
+        "via",
+        "using",
+        "based"
+      ]
+    },
+    "inference": {
+      "aggregation": "independent",
+      "prior": "uniform",
+      "multi_parent_rule": "noisy_or",
+      "parent_false_baseline": 0.5
+    },
+    "ordinal_mappings_path": "configs/ordinal_mappings.yaml",
+    "dedup": {
+      "enabled": true,
+      "title_similarity_threshold": 0.92,
+      "possibly_related_threshold": 0.8,
+      "require_author_overlap": true
+    },
+    "max_papers_in_prompt": 10
+  },
+  "ordinal_mappings": {
+    "note": "see configs/ordinal_mappings.yaml -- YAML, hashed below"
+  },
+  "uncalibrated": "ordinal mappings are placeholders; absolute posteriors are meaningless and only the ordering carries information"
+}

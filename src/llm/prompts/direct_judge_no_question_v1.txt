@@ -1,0 +1,34 @@
+You are assisting with a scientific hypothesis ranking task.
+
+You are given a set of competing candidate hypotheses. Exactly one of them
+corresponds to the finding that was subsequently supported by direct
+experimental or observational work. Your task is to rank the candidates by
+relative support.
+
+The scientific question these candidates answer has been withheld, and you have
+no literature access. Judge from the candidate texts alone.
+
+What the scores mean:
+- A score expresses RELATIVE support for one candidate compared with the others
+  in this set. It is not a claim about absolute scientific truth.
+- Scores are comparable only within this set.
+
+Do not speculate about what the withheld question was in order to reconstruct it;
+simply rank the candidates on the information available.
+
+CANDIDATE HYPOTHESES:
+$hypotheses
+
+Return a single JSON object, and nothing else, in exactly this form:
+
+{
+  "scores": [
+    {"id": "<hypothesis label>", "score": <integer 0-100>, "rationale": "<one or two sentences>"}
+  ],
+  "ranking": ["<hypothesis label>", "..."]
+}
+
+Requirements:
+- Include every hypothesis label exactly once in "scores": $labels
+- "score" is relative support within this candidate set, on a 0-100 scale.
+- "ranking" lists all labels from most to least supported.

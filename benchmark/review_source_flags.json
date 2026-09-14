@@ -1,0 +1,858 @@
+{
+  "n_checked": 962,
+  "n_flagged": 94,
+  "by_basis": {
+    "venue_pattern": 75,
+    "title_pattern": 19
+  },
+  "flagged": {
+    "10.1007/s00787-022-02077-5": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": "a systematic review",
+      "venue": "European Child &amp; Adolescent Psychiatry",
+      "title": "Contextual determinants associated with children’s and adolescents’ mental health care utilization: a systematic review"
+    },
+    "10.1007/s10311-023-01682-3": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": ": a review",
+      "venue": "Environmental Chemistry Letters",
+      "title": "Synthesis of green nanoparticles for energy, biomedical, environmental, agricultural, and food applications: A review"
+    },
+    "10.1007/s10311-023-01689-w": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": ": a review",
+      "venue": "Environmental Chemistry Letters",
+      "title": "Biomaterials technology and policies in the building sector: a review"
+    },
+    "10.1007/s10346-024-02215-x": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": ": a review",
+      "venue": "Landslides",
+      "title": "Mapping landslides from space: A review"
+    },
+    "10.1007/s10490-023-09871-y": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": ": a review",
+      "venue": "Asia Pacific Journal of Management",
+      "title": "Reporting reliability, convergent and discriminant validity with structural equation modeling: A review and best-practice recommendations"
+    },
+    "10.1007/s11214-024-01048-3": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": " Reviews",
+      "venue": "Space Science Reviews",
+      "title": "Science with a Small Two-Band UV-Photometry Mission I: Mission Description and Follow-up Observations of Stellar Transients"
+    },
+    "10.1007/s12274-023-5770-3": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": "recent progress in",
+      "venue": "Nano Research",
+      "title": "Recent progress in MOFs-based nanozymes for biosensing"
+    },
+    "10.1007/s13399-020-01243-6": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": "a review of",
+      "venue": "Biomass Conversion and Biorefinery",
+      "title": "A review of the traditional pulping methods and the recent improvements in the pulping processes"
+    },
+    "10.1007/s13399-022-03604-9": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": ": a review",
+      "venue": "Biomass Conversion and Biorefinery",
+      "title": "Regeneration and reusability of non-conventional low-cost adsorbents to remove dyes from wastewaters in multiple consecutive adsorption–desorption cycles: a review"
+    },
+    "10.1007/s13399-023-05264-9": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": ": a review",
+      "venue": "Biomass Conversion and Biorefinery",
+      "title": "Green synthesis of CuFe2O4 nanoparticles from bioresource extracts and their applications in different areas: a review"
+    },
+    "10.1007/s13762-020-02738-5": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": "an overview of",
+      "venue": "International Journal of Environmental Science and Technology",
+      "title": "An overview of global energy scenarios by 2040: identifying the driving forces using cross-impact analysis method"
+    },
+    "10.1016/j.astropartphys.2023.102892": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": ": a review",
+      "venue": "Astroparticle Physics",
+      "title": "GRMHD study of accreting massive black hole binaries in astrophysical environment: A review"
+    },
+    "10.1016/j.cclet.2023.108977": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": "recent advances in",
+      "venue": "Chinese Chemical Letters",
+      "title": "Recent advances in visible light-mediated chemical transformations of enaminones"
+    },
+    "10.1016/j.ccr.2023.215468": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": " Reviews",
+      "venue": "Coordination Chemistry Reviews",
+      "title": "A review of carbon dots in synthesis strategy"
+    },
+    "10.1016/j.cj.2023.10.005": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": ": a review",
+      "venue": "The Crop Journal",
+      "title": "Remote sensing of quality traits in cereal and arable production systems: A review"
+    },
+    "10.1016/j.cofs.2024.101134": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Current Opinion in",
+      "venue": "Current Opinion in Food Science",
+      "title": "Food protein-based nanotechnology: from delivery to sensing systems"
+    },
+    "10.1016/j.corcom.2021.05.004": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": ": a review",
+      "venue": "Corrosion Communications",
+      "title": "Self-healing corrosion protective coatings based on micro/nanocarriers: A review"
+    },
+    "10.1016/j.esr.2024.101309": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": " Reviews",
+      "venue": "Energy Strategy Reviews",
+      "title": "Research on the evolution of China's photovoltaic technology innovation network from the perspective of patents"
+    },
+    "10.1016/j.foodchem.2023.137099": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": ": a review",
+      "venue": "Food Chemistry",
+      "title": "Effect of polysaccharide addition on food physical properties: A review"
+    },
+    "10.1016/j.ijbiomac.2023.127955": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": ": a review",
+      "venue": "International Journal of Biological Macromolecules",
+      "title": "Effect of monosaccharide composition and proportion on the bioactivity of polysaccharides: A review"
+    },
+    "10.1016/j.ijhydene.2023.09.033": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": "a review of",
+      "venue": "International Journal of Hydrogen Energy",
+      "title": "A review of CdS-based S-scheme for photocatalytic water splitting: Synthetic strategy and identification techniques"
+    },
+    "10.1016/j.jes.2023.01.021": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": "a review of",
+      "venue": "Journal of Environmental Sciences",
+      "title": "A review of low-carbon technologies and projects for the global cement industry"
+    },
+    "10.1016/j.rbmo.2023.103764": {
+      "is_review": true,
+      "basis": "title_pattern",
+      "matched": "a review of",
+      "venue": "Reproductive BioMedicine Online",
+      "title": "The future of surrogacy: a review of current global trends and national landscapes"
+    },
+    "10.1016/j.tcb.2023.06.001": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Trends in ",
+      "venue": "Trends in Cell Biology",
+      "title": "Pericytes in the disease spotlight"
+    },
+    "10.1016/j.tcb.2023.06.002": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Trends in ",
+      "venue": "Trends in Cell Biology",
+      "title": "Ferroptosis in mitochondrial cardiomyopathy"
+    },
+    "10.1016/j.tcb.2023.06.006": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Trends in ",
+      "venue": "Trends in Cell Biology",
+      "title": "The ins-and-outs of exosome biogenesis, secretion, and internalization"
+    },
+    "10.1016/j.tcb.2023.07.009": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Trends in ",
+      "venue": "Trends in Cell Biology",
+      "title": "Disulfidptosis: disulfide stress–induced cell death"
+    },
+    "10.1016/j.tim.2023.06.002": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Trends in ",
+      "venue": "Trends in Microbiology",
+      "title": "Structural diversity and modularity of photosynthetic RC−LH1 complexes"
+    },
+    "10.1016/j.tim.2023.06.006": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Trends in ",
+      "venue": "Trends in Microbiology",
+      "title": "Microbial regulation of feedbacks to ecosystem change"
+    },
+    "10.1016/j.tplants.2023.12.014": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Trends in ",
+      "venue": "Trends in Plant Science",
+      "title": "Plant organellar genomes: much done, much more to do"
+    },
+    "10.1016/j.tree.2023.09.014": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Trends in ",
+      "venue": "Trends in Ecology &amp; Evolution",
+      "title": "Afforestation and climate mitigation: lessons from Chile"
+    },
+    "10.1016/j.tree.2023.10.010": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Trends in ",
+      "venue": "Trends in Ecology &amp; Evolution",
+      "title": "Towards richer knowledge partnerships between ecology and ethnoecology"
+    },
+    "10.1038/s41568-023-00658-3": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Cancer",
+      "title": "Translating p53-based therapies for cancer into the clinic"
+    },
+    "10.1038/s41569-023-00964-1": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Cardiology",
+      "title": "Immune and inflammatory mechanisms in hypertension"
+    },
+    "10.1038/s41571-023-00842-2": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Clinical Oncology",
+      "title": "Pharmacological reactivation of p53 in the era of precision anticancer medicine"
+    },
+    "10.1038/s41571-023-00850-2": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Clinical Oncology",
+      "title": "Exploring the next generation of antibody–drug conjugates"
+    },
+    "10.1038/s41571-024-00859-1": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Clinical Oncology",
+      "title": "Dendritic cells as orchestrators of anticancer immunity and immunotherapy"
+    },
+    "10.1038/s41571-024-00876-0": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Clinical Oncology",
+      "title": "Targeting cuproplasia and cuproptosis in cancer"
+    },
+    "10.1038/s41573-023-00848-6": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Drug Discovery",
+      "title": "Targeting hypoxia-inducible factors: therapeutic opportunities and challenges"
+    },
+    "10.1038/s41573-024-00896-6": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Drug Discovery",
+      "title": "The present and future of bispecific antibodies for cancer therapy"
+    },
+    "10.1038/s41573-024-00920-9": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Drug Discovery",
+      "title": "Targeting immunogenic cell stress and death for cancer therapy"
+    },
+    "10.1038/s41574-023-00920-6": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Endocrinology",
+      "title": "Genomic alterations in thyroid cancer: biological and clinical insights"
+    },
+    "10.1038/s41575-023-00840-w": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Gastroenterology &amp; Hepatology",
+      "title": "Therapeutic developments in pancreatic cancer"
+    },
+    "10.1038/s41575-023-00846-4": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Gastroenterology &amp; Hepatology",
+      "title": "Recompensation in cirrhosis: unravelling the evolving natural history of nonalcoholic fatty liver disease"
+    },
+    "10.1038/s41575-023-00871-3": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Gastroenterology &amp; Hepatology",
+      "title": "Neutrophils: from IBD to the gut microbiota"
+    },
+    "10.1038/s41576-023-00626-5": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Genetics",
+      "title": "Genetics of human brain development"
+    },
+    "10.1038/s41576-023-00645-2": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Genetics",
+      "title": "RNA modifications in physiology and disease: towards clinical applications"
+    },
+    "10.1038/s41576-024-00718-w": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Genetics",
+      "title": "Genome assembly in the telomere-to-telomere era"
+    },
+    "10.1038/s41577-023-00926-1": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Immunology",
+      "title": "A guide to complement biology, pathology and therapeutic opportunity"
+    },
+    "10.1038/s41577-023-00943-0": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Immunology",
+      "title": "The effect of physical exercise on anticancer immunity"
+    },
+    "10.1038/s41577-023-00949-8": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Immunology",
+      "title": "The cancer-immune dialogue in the context of stress"
+    },
+    "10.1038/s41577-024-00995-w": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Immunology",
+      "title": "Mechanistic insights from inflammasome structures"
+    },
+    "10.1038/s41577-024-01014-8": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Immunology",
+      "title": "Short-chain fatty acids: linking diet, the microbiome and immunity"
+    },
+    "10.1038/s41578-023-00618-1": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Materials",
+      "title": "Advantages, challenges and molecular design of different material types used in organic solar cells"
+    },
+    "10.1038/s41578-023-00622-5": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Materials",
+      "title": "Organic mixed conductors for bioinspired electronics"
+    },
+    "10.1038/s41578-023-00623-4": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Materials",
+      "title": "Fluorination in advanced battery design"
+    },
+    "10.1038/s41578-023-00633-2": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Materials",
+      "title": "Co-catalytic metal–support interactions in single-atom electrocatalysts"
+    },
+    "10.1038/s41578-024-00654-5": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Materials",
+      "title": "High-entropy materials for energy and electronic applications"
+    },
+    "10.1038/s41578-024-00669-y": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Materials",
+      "title": "External-pressure–electrochemistry coupling in solid-state lithium metal batteries"
+    },
+    "10.1038/s41578-024-00672-3": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Materials",
+      "title": "Design principles for strong and tough hydrogels"
+    },
+    "10.1038/s41579-023-00926-x": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Microbiology",
+      "title": "Plasmids, a molecular cornerstone of antimicrobial resistance in the One Health era"
+    },
+    "10.1038/s41579-023-00963-6": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Microbiology",
+      "title": "The oral microbiome: diversity, biogeography and human health"
+    },
+    "10.1038/s41579-023-00967-2": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Microbiology",
+      "title": "The soil plastisphere"
+    },
+    "10.1038/s41579-023-00969-0": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Microbiology",
+      "title": "The gut microbiota and its biogeography"
+    },
+    "10.1038/s41579-023-00974-3": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Microbiology",
+      "title": "Structural and functional diversity of type IV secretion systems"
+    },
+    "10.1038/s41579-023-00980-5": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Microbiology",
+      "title": "The interplay between microbial communities and soil properties"
+    },
+    "10.1038/s41579-023-00984-1": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Microbiology",
+      "title": "Machine learning for microbiologists"
+    },
+    "10.1038/s41579-023-01003-z": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Microbiology",
+      "title": "SARS-CoV-2 biology and host interactions"
+    },
+    "10.1038/s41580-023-00624-9": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "The molecular basis of translation initiation and its regulation in eukaryotes"
+    },
+    "10.1038/s41580-023-00645-4": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "Understanding mechanisms of antioxidant action in health and disease"
+    },
+    "10.1038/s41580-023-00648-1": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "Mechanisms controlling cellular and systemic iron homeostasis"
+    },
+    "10.1038/s41580-023-00649-0": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "FOXO transcription factors as mediators of stress adaptation"
+    },
+    "10.1038/s41580-023-00668-x": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "Mechanisms of SNARE proteins in membrane fusion"
+    },
+    "10.1038/s41580-023-00673-0": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "The molecular basis for cellular function of intrinsically disordered protein regions"
+    },
+    "10.1038/s41580-023-00674-z": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "Activation of human endogenous retroviruses and its physiological consequences"
+    },
+    "10.1038/s41580-023-00676-x": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "Lysosomes as coordinators of cellular catabolism, metabolic signalling and organ physiology"
+    },
+    "10.1038/s41580-023-00680-1": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "White adipocyte dysfunction and obesity-associated pathologies in humans"
+    },
+    "10.1038/s41580-023-00689-6": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "A guide to cell death pathways"
+    },
+    "10.1038/s41580-023-00691-y": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "Structure and growth of plant cell walls"
+    },
+    "10.1038/s41580-023-00694-9": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "Transcription regulation by long non-coding RNAs: mechanisms and disease relevance"
+    },
+    "10.1038/s41580-023-00697-6": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "CRISPR technologies for genome, epigenome and transcriptome editing"
+    },
+    "10.1038/s41580-024-00703-5": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "The cell biology of ferroptosis"
+    },
+    "10.1038/s41580-024-00715-1": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "Cellular and molecular mechanisms of skin wound healing"
+    },
+    "10.1038/s41580-024-00716-0": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "Fibroblast and myofibroblast activation in normal tissue repair and fibrosis"
+    },
+    "10.1038/s41580-024-00727-x": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "The senescence-associated secretory phenotype and its physiological and pathological implications"
+    },
+    "10.1038/s41580-024-00729-9": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "Targeted protein degradation: from mechanisms to clinic"
+    },
+    "10.1038/s41580-024-00730-2": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Molecular Cell Biology",
+      "title": "Fundamentals of redox regulation in biology"
+    },
+    "10.1038/s41581-023-00787-w": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Nephrology",
+      "title": "Mechanisms and consequences of sex differences in immune responses"
+    },
+    "10.1038/s41584-023-01053-w": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Rheumatology",
+      "title": "Biological and clinical roles of IL-18 in inflammatory diseases"
+    },
+    "10.1038/s42254-023-00676-y": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Physics",
+      "title": "Robustness and resilience of complex networks"
+    },
+    "10.1038/s42254-024-00719-y": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Physics",
+      "title": "Physical insights into non-fullerene organic photovoltaics"
+    },
+    "10.1038/s43017-024-00516-2": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Earth &amp; Environment",
+      "title": "Assessing and addressing the global state of food production data scarcity"
+    },
+    "10.1038/s43017-024-00519-z": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Earth &amp; Environment",
+      "title": "Arsenic and other geogenic contaminants in global groundwater"
+    },
+    "10.1038/s43586-023-00278-z": {
+      "is_review": true,
+      "basis": "venue_pattern",
+      "matched": "Nature Reviews",
+      "venue": "Nature Reviews Methods Primers",
+      "title": "Electrospinning of nanofibres"
+    }
+  },
+  "limitation": "venue/title matching only. Crossref types review articles as journal-article, so a review in a general-purpose journal is not detected. TODO(research): classify from the abstract.",
+  "generated_at": "2026-09-12T08:49:01Z",
+  "slice": "/mnt/data/knk25.data/hypothesis_verification/benchmark/ranking.jsonl",
+  "n_rows": 1323,
+  "n_distinct_dois": 962,
+  "n_dois_without_cached_metadata": 0,
+  "dois_without_cached_metadata": [],
+  "lookup_errors": [],
+  "policy": {
+    "enabled": true,
+    "action": "exclude",
+    "venue_patterns": [
+      "Trends in ",
+      "Nature Reviews",
+      "Annual Review",
+      "Annual Reviews",
+      "Current Opinion in",
+      "Chemical Reviews",
+      "Reviews of Modern Physics",
+      "Physics Reports",
+      "Living Reviews in",
+      "Clinical Microbiology Reviews",
+      "Pharmacological Reviews",
+      "Physiological Reviews",
+      "Endocrine Reviews",
+      "Chemical Society Reviews",
+      "WIREs",
+      "Wiley Interdisciplinary Reviews",
+      "Reviews in ",
+      " Reviews",
+      "Annu. Rev."
+    ],
+    "title_patterns": [
+      "a review of",
+      "a review on",
+      "a systematic review",
+      "systematic review and meta-analysis",
+      "a survey of",
+      ": a review",
+      "current perspectives on",
+      "recent advances in",
+      "recent progress in",
+      "an overview of"
+    ]
+  },
+  "affected_row_ids": [
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?",
+    "?"
+  ],
+  "note": "Flags only. This file does not modify the slice. For a newly built evaluation benchmark the same policy is applied as an exclusion gate at construction time."
+}

@@ -1,0 +1,25 @@
+You are judging how strongly one scientific proposition implies another.
+
+If the PARENT proposition is true, how likely is the CHILD proposition?
+
+Use exactly one of these ordinal labels:
+$labels
+
+Guidance:
+- These are uncertain scientific implications, not logical rules.
+- "neutral" means the parent says nothing either way about the child.
+- Judge the relationship between the two statements only. You have no literature
+  access, and you are NOT being asked whether either statement is actually true.
+
+PARENT:
+$parent
+
+CHILD:
+$child
+
+Return a single JSON object, and nothing else:
+
+{
+  "strength": "<one ordinal label>",
+  "rationale": "<one sentence>"
+}

@@ -1,0 +1,182 @@
+[
+  {
+    "row": "RBV2-0050-N04",
+    "base_rank": 2,
+    "base_margin": 0.18787704508510472,
+    "adjacent_flip_rate": 0.0,
+    "observed_flip_rate": 0.0,
+    "direction_only_rank": 2,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0052-N08",
+    "base_rank": 1,
+    "base_margin": 0.35041636194171755,
+    "adjacent_flip_rate": 0.0,
+    "observed_flip_rate": 0.0,
+    "direction_only_rank": 1,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0084-N05",
+    "base_rank": 1,
+    "base_margin": 0.7503772597260121,
+    "adjacent_flip_rate": 0.0,
+    "observed_flip_rate": 0.0,
+    "direction_only_rank": 1,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0110-N03",
+    "base_rank": 2,
+    "base_margin": 0.05020927320154561,
+    "adjacent_flip_rate": 0.0,
+    "observed_flip_rate": 0.0,
+    "direction_only_rank": 2,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0117-N06",
+    "base_rank": 1,
+    "base_margin": 0.023835532047173258,
+    "adjacent_flip_rate": 0.375,
+    "observed_flip_rate": 0.475,
+    "direction_only_rank": 1,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0131-N03",
+    "base_rank": 1,
+    "base_margin": 0.3013258153482766,
+    "adjacent_flip_rate": 0.0,
+    "observed_flip_rate": 0.0,
+    "direction_only_rank": 1,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0135-N03",
+    "base_rank": 1,
+    "base_margin": 0.305331559865504,
+    "adjacent_flip_rate": 0.0,
+    "observed_flip_rate": 0.0,
+    "direction_only_rank": 1,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0138-N01",
+    "base_rank": 1,
+    "base_margin": 0.05502230299158911,
+    "adjacent_flip_rate": 0.6,
+    "observed_flip_rate": 0.375,
+    "direction_only_rank": 1,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0143-N04",
+    "base_rank": 1,
+    "base_margin": 0.12602333711156866,
+    "adjacent_flip_rate": 0.0,
+    "observed_flip_rate": 0.0,
+    "direction_only_rank": 1,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0153-N03",
+    "base_rank": 1,
+    "base_margin": 0.41942044495935155,
+    "adjacent_flip_rate": 0.0,
+    "observed_flip_rate": 0.0,
+    "direction_only_rank": 1,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0165-N01",
+    "base_rank": 1,
+    "base_margin": 0.06391232936302327,
+    "adjacent_flip_rate": 0.65,
+    "observed_flip_rate": 0.4,
+    "direction_only_rank": 2,
+    "direction_only_flips": 1
+  },
+  {
+    "row": "RBV2-0192-N05",
+    "base_rank": 1,
+    "base_margin": 0.0393398513080645,
+    "adjacent_flip_rate": 0.175,
+    "observed_flip_rate": 0.275,
+    "direction_only_rank": 1,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0230-N02",
+    "base_rank": 1,
+    "base_margin": 0.12250441447774263,
+    "adjacent_flip_rate": 0.0,
+    "observed_flip_rate": 0.025,
+    "direction_only_rank": 1,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0233-N00",
+    "base_rank": 1,
+    "base_margin": 0.018331009079520788,
+    "adjacent_flip_rate": 0.425,
+    "observed_flip_rate": 0.475,
+    "direction_only_rank": 1,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0246-N04",
+    "base_rank": 1,
+    "base_margin": 0.05787838412319418,
+    "adjacent_flip_rate": 0.1,
+    "observed_flip_rate": 0.1,
+    "direction_only_rank": 1,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0268-N03",
+    "base_rank": 1,
+    "base_margin": 0.26068159435811133,
+    "adjacent_flip_rate": 0.425,
+    "observed_flip_rate": 0.175,
+    "direction_only_rank": 1,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0279-N03",
+    "base_rank": 1,
+    "base_margin": 0.023860877804677383,
+    "adjacent_flip_rate": 0.15,
+    "observed_flip_rate": 0.05,
+    "direction_only_rank": 1,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0281-N03",
+    "base_rank": 2,
+    "base_margin": 0.04891726046327893,
+    "adjacent_flip_rate": 0.05,
+    "observed_flip_rate": 0.05,
+    "direction_only_rank": 2,
+    "direction_only_flips": 0
+  },
+  {
+    "row": "RBV2-0288-N00",
+    "base_rank": 2,
+    "base_margin": 0.06067235180274366,
+    "adjacent_flip_rate": 0.475,
+    "observed_flip_rate": 0.4,
+    "direction_only_rank": 1,
+    "direction_only_flips": 1
+  },
+  {
+    "row": "RBV2-0317-N03",
+    "base_rank": 1,
+    "base_margin": 0.04667886477823263,
+    "adjacent_flip_rate": 0.0,
+    "observed_flip_rate": 0.0,
+    "direction_only_rank": 1,
+    "direction_only_flips": 0
+  }
+]

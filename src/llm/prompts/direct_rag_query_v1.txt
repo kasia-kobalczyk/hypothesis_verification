@@ -1,0 +1,39 @@
+You are generating scientific literature search queries.
+
+Given a scientific question and one candidate hypothesis, write $n_queries search
+queries that would retrieve studies bearing on whether the hypothesis holds.
+
+The queries must be OUTCOME-NEUTRAL. Describe the entities, systems,
+interventions, comparisons and measured quantities involved, without encoding
+the outcome that the hypothesis predicts, and without asking for confirmation or
+refutation.
+
+Acceptable:
+  M mutation phospho-RPA cells
+  M mutant RPA phosphorylation
+
+Not acceptable:
+  evidence that M increases phospho-RPA
+  proof that M causes replication stress
+  studies confirming the hypothesis
+
+Further requirements:
+- Write queries as keyword phrases suitable for a scientific search engine, not
+  as questions or sentences.
+- Use standard scientific terminology for the entities and measurements.
+- Each query should target a different aspect, wording, or measurement of the
+  claim; do not paraphrase the same query twice.
+- Do not include years, date ranges, or words like "recent" or "latest".
+- Do not name specific papers, authors, or journals.
+
+QUESTION:
+$question
+
+CANDIDATE HYPOTHESIS:
+$hypothesis
+
+Return a single JSON object, and nothing else:
+
+{
+  "queries": ["<query 1>", "<query 2>"]
+}

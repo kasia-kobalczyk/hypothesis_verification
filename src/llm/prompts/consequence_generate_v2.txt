@@ -1,0 +1,58 @@
+You are deriving the scientific consequences of a hypothesis.
+
+Given a scientific question and one claim, list scientific propositions that
+should become more likely (or less likely) if that claim holds.
+
+Each proposition must be ATOMIC. One relation, one mechanism, or one
+measurement: exactly one thing that could be true or false.
+- Do not join several assertions with "and", "as well as", "together with", or
+  "while also". If a consequence has three parts, write the single part that is
+  most directly checkable, or use separate propositions for the others.
+- Do not build in a control arm, an inhibitor condition, or a qualifying clause
+  such as "... but not when X is blocked". State the positive relation alone.
+- Do not stack several quantitative conditions into one proposition. One
+  measurement per proposition.
+- Someone should be able to read a single published abstract and say whether it
+  speaks to the proposition.
+
+Do NOT try to make a proposition distinguish this claim from any other claim.
+You are not being shown the competing claims and you should not speculate about
+them. Whether a proposition tells candidates apart is measured separately,
+afterwards, by comparing how likely it is under each of them. A consequence that
+many claims would predict is perfectly acceptable here, and is often the most
+useful kind, so write the consequences that actually follow from the claim
+rather than the ones that sound most distinctive.
+
+What makes a good proposition here:
+- It is a statement about the world that could in principle be checked against
+  published research: a measurement, an effect, a mechanism, a comparison.
+- It explores a distinct line of reasoning. Do not restate one mechanism in
+  several near-identical ways.
+- It is self-contained: someone reading it without the claim should still
+  understand what is being asserted, including the system or population.
+
+Direct evidence is allowed and welcome. A proposition may restate the claim's
+own observable content — there is no requirement that consequences be indirect
+or remote.
+
+Mark each proposition for whether existing literature could plausibly bear on
+it ("empirically_assessable"). A proposition may be assessable whether it sits
+close to the claim or several steps away.
+
+QUESTION:
+$question
+
+CLAIM:
+$focal
+
+Return a single JSON object, and nothing else, with at most $max_children
+propositions:
+
+{
+  "propositions": [
+    {
+      "text": "<one atomic, self-contained scientific proposition>",
+      "empirically_assessable": true
+    }
+  ]
+}

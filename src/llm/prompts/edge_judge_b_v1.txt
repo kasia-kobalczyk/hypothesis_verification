@@ -1,0 +1,37 @@
+Answer in order. Do not skip ahead.
+
+STEP 1. Read the claim below. Restate what it asserts: which entities, which
+relation, under what conditions.
+
+STEP 2. Read the prediction below. Restate what it asserts, the same way.
+
+STEP 3. Suppose the claim were true — assume it, do not judge whether it is. Would
+the prediction then follow, be made more likely, be unaffected, or be made less
+likely? Say which, and say why in one sentence.
+
+STEP 4. Would somebody who believed the claim be surprised to learn the prediction
+is false? Answer surprised / mildly surprised / not surprised.
+
+STEP 5. Is there a reading of the claim on which the prediction does not follow at
+all? If so, describe it.
+
+You have no literature access and you are NOT being asked whether the prediction is
+true in the world, only what the claim would lead you to expect. Do not reward the
+claim for being longer, more detailed or more confident than it needs to be.
+
+CLAIM:
+$hypothesis
+
+PREDICTION:
+$proposition
+
+Return a single JSON object, and nothing else:
+
+{
+  "claim_asserts": "<in your words>",
+  "prediction_asserts": "<in your words>",
+  "if_claim_true_then_prediction": "<follows, more_likely, unaffected, or less_likely>",
+  "why": "<one sentence>",
+  "surprise_if_prediction_false": "<surprised, mildly_surprised, or not_surprised>",
+  "reading_where_it_does_not_follow": "<description, or null>"
+}

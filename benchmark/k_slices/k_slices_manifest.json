@@ -1,0 +1,375 @@
+{
+  "name": "Controlled listwise candidate sets at varying k",
+  "frozen_at": "2026-09-12T09:09:14Z",
+  "status": "DEVELOPMENT / SCALABILITY ANALYSIS",
+  "status_note": "Built from the v2 length-gated, R2-screened pool, so these sets inherit v2's development-set status: a question-hidden judge recovers much of the pair label from candidate text alone. Use them to measure how the METHOD scales with k -- graph size, informative-evidence rate, retrieval yield, cost -- not to claim verification accuracy.",
+  "formulation_vs_protocol": "The method is defined for arbitrary H = {H_1..H_k}. Results at different k are not directly comparable: chance top-1 is 1/k. Report stratified by k, and pool only metrics whose chance level is k-independent (normalised gold rank, pairwise win rate).",
+  "seed": 20260912,
+  "k_values": [
+    2,
+    3,
+    4
+  ],
+  "source_of_negatives": "negatives that passed the frozen R2 comparability criterion during the v2 build (benchmark/v2/v2_progress.jsonl), taken verbatim from benchmark/ranking.jsonl",
+  "nesting": "the set at k uses the first k-1 negatives of the row's frozen order, so sets are nested: k=2 subset of k=3 subset of ... ",
+  "n_sets_by_k": {
+    "2": 62,
+    "3": 27,
+    "4": 18
+  },
+  "n_rows_short_of_k": {
+    "2": 0,
+    "3": 35,
+    "4": 44
+  },
+  "n_rows_with_no_passing_negative": 71,
+  "n_balanced_panel_rows": 18,
+  "balanced_panel_row_ids": [
+    "K-0038",
+    "K-0095",
+    "K-0108",
+    "K-0113",
+    "K-0131",
+    "K-0140",
+    "K-0153",
+    "K-0163",
+    "K-0165",
+    "K-0192",
+    "K-0199",
+    "K-0200",
+    "K-0203",
+    "K-0206",
+    "K-0207",
+    "K-0230",
+    "K-0256",
+    "K-0305"
+  ],
+  "frozen_negative_order": {
+    "K-0002": [
+      2
+    ],
+    "K-0011": [
+      1
+    ],
+    "K-0018": [
+      5
+    ],
+    "K-0034": [
+      4
+    ],
+    "K-0038": [
+      4,
+      6,
+      9
+    ],
+    "K-0050": [
+      4,
+      6
+    ],
+    "K-0052": [
+      8
+    ],
+    "K-0058": [
+      3
+    ],
+    "K-0059": [
+      2
+    ],
+    "K-0060": [
+      5
+    ],
+    "K-0062": [
+      6
+    ],
+    "K-0063": [
+      5
+    ],
+    "K-0065": [
+      7
+    ],
+    "K-0084": [
+      5
+    ],
+    "K-0092": [
+      2
+    ],
+    "K-0095": [
+      8,
+      9,
+      0,
+      3,
+      7,
+      2
+    ],
+    "K-0098": [
+      8
+    ],
+    "K-0108": [
+      6,
+      3,
+      7,
+      9
+    ],
+    "K-0110": [
+      3,
+      5
+    ],
+    "K-0113": [
+      5,
+      8,
+      9
+    ],
+    "K-0114": [
+      0,
+      4
+    ],
+    "K-0117": [
+      8,
+      6
+    ],
+    "K-0122": [
+      8
+    ],
+    "K-0125": [
+      8
+    ],
+    "K-0127": [
+      8
+    ],
+    "K-0131": [
+      1,
+      3,
+      7
+    ],
+    "K-0132": [
+      9
+    ],
+    "K-0135": [
+      3
+    ],
+    "K-0138": [
+      2,
+      1
+    ],
+    "K-0140": [
+      0,
+      3,
+      6,
+      7,
+      4,
+      1,
+      5
+    ],
+    "K-0143": [
+      4,
+      0
+    ],
+    "K-0148": [
+      2
+    ],
+    "K-0153": [
+      9,
+      3,
+      4,
+      7,
+      6
+    ],
+    "K-0159": [
+      4
+    ],
+    "K-0163": [
+      4,
+      1,
+      8
+    ],
+    "K-0165": [
+      2,
+      8,
+      1,
+      4,
+      7,
+      9
+    ],
+    "K-0183": [
+      4
+    ],
+    "K-0192": [
+      9,
+      0,
+      5
+    ],
+    "K-0193": [
+      6
+    ],
+    "K-0199": [
+      4,
+      6,
+      9
+    ],
+    "K-0200": [
+      3,
+      5,
+      9
+    ],
+    "K-0203": [
+      2,
+      0,
+      3,
+      7,
+      9
+    ],
+    "K-0206": [
+      0,
+      8,
+      7
+    ],
+    "K-0207": [
+      5,
+      1,
+      0
+    ],
+    "K-0210": [
+      5
+    ],
+    "K-0218": [
+      9
+    ],
+    "K-0222": [
+      5
+    ],
+    "K-0225": [
+      2
+    ],
+    "K-0226": [
+      6
+    ],
+    "K-0230": [
+      2,
+      8,
+      7
+    ],
+    "K-0232": [
+      0,
+      7
+    ],
+    "K-0233": [
+      0,
+      8
+    ],
+    "K-0246": [
+      4
+    ],
+    "K-0256": [
+      7,
+      6,
+      4,
+      9
+    ],
+    "K-0268": [
+      3
+    ],
+    "K-0279": [
+      3
+    ],
+    "K-0281": [
+      3
+    ],
+    "K-0284": [
+      1
+    ],
+    "K-0285": [
+      8,
+      4
+    ],
+    "K-0295": [
+      8
+    ],
+    "K-0305": [
+      8,
+      6,
+      1
+    ],
+    "K-0317": [
+      3
+    ]
+  },
+  "review_source_exclusion": {
+    "policy": {
+      "enabled": true,
+      "action": "exclude",
+      "venue_patterns": [
+        "Trends in ",
+        "Nature Reviews",
+        "Annual Review",
+        "Annual Reviews",
+        "Current Opinion in",
+        "Chemical Reviews",
+        "Reviews of Modern Physics",
+        "Physics Reports",
+        "Living Reviews in",
+        "Clinical Microbiology Reviews",
+        "Pharmacological Reviews",
+        "Physiological Reviews",
+        "Endocrine Reviews",
+        "Chemical Society Reviews",
+        "WIREs",
+        "Wiley Interdisciplinary Reviews",
+        "Reviews in ",
+        " Reviews",
+        "Annu. Rev."
+      ],
+      "title_patterns": [
+        "a review of",
+        "a review on",
+        "a systematic review",
+        "systematic review and meta-analysis",
+        "a survey of",
+        ": a review",
+        "current perspectives on",
+        "recent advances in",
+        "recent progress in",
+        "an overview of"
+      ]
+    },
+    "n_excluded": 4,
+    "excluded": [
+      {
+        "doi": "10.1007/s13399-020-01243-6",
+        "screen_rank": 5,
+        "is_review": true,
+        "basis": "title_pattern",
+        "matched": "a review of",
+        "venue": "Biomass Conversion and Biorefinery",
+        "title": "A review of the traditional pulping methods and the recent improvements in the pulping processes"
+      },
+      {
+        "doi": "10.1016/j.tcb.2023.07.009",
+        "screen_rank": 12,
+        "is_review": true,
+        "basis": "venue_pattern",
+        "matched": "Trends in ",
+        "venue": "Trends in Cell Biology",
+        "title": "Disulfidptosis: disulfide stress–induced cell death"
+      },
+      {
+        "doi": "10.1038/s41579-023-00967-2",
+        "screen_rank": 83,
+        "is_review": true,
+        "basis": "venue_pattern",
+        "matched": "Nature Reviews",
+        "venue": "Nature Reviews Microbiology",
+        "title": "The soil plastisphere"
+      },
+      {
+        "doi": "10.1016/j.tree.2023.09.014",
+        "screen_rank": 288,
+        "is_review": true,
+        "basis": "venue_pattern",
+        "matched": "Trends in ",
+        "venue": "Trends in Ecology &amp; Evolution",
+        "title": "Afforestation and climate mitigation: lessons from Chile"
+      }
+    ]
+  },
+  "availability_note": "The v2 screen stopped at the 100-pair target after 137 of 962 rows, so the number of rows available at each k is bounded by how much screening was done, not by the dataset. Larger k needs more rows screened with R2; no negative is manufactured to reach a target size."
+}

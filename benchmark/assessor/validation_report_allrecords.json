@@ -1,0 +1,86 @@
+{
+  "generated_at": "2026-09-12T15:02:10Z",
+  "rubric_freeze": {
+    "frozen_at": "2026-09-12T12:05:00Z",
+    "sha256_16_of_construct": "5d8465ae0088c1ee",
+    "note": "Hash of docs/ASSESSOR_RUBRIC.md as it stood at freeze time, before the freeze banner was prepended. Validation runs record this value."
+  },
+  "criteria": {
+    "criterion_1_boundary_reproducibility": {
+      "value": 0.8815331010452961,
+      "n": 287,
+      "threshold": 0.8,
+      "pass": true,
+      "kappa": 0.459869367873353
+    },
+    "criterion_2_direction_reproducibility": {
+      "value": 0.8969072164948454,
+      "n": 291,
+      "threshold": 0.8,
+      "pass": true,
+      "kappa": 0.5776487663280119
+    },
+    "criterion_3_grounded_and_independently_reproduced": {
+      "value": 0.46153846153846156,
+      "n_positives": 52,
+      "n_qualifying": 24,
+      "threshold": 0.9,
+      "pass": false
+    },
+    "criterion_4_negative_control": {
+      "value": 0.0,
+      "threshold_max": 0.1,
+      "pass": true
+    }
+  },
+  "controls": {
+    "real": {
+      "n": 582,
+      "n_informative": 78,
+      "p_informative": 0.13402061855670103,
+      "n_grounded": 78
+    },
+    "mismatched": {
+      "n": 582,
+      "n_informative": 0,
+      "p_informative": 0.0,
+      "n_grounded": 0
+    },
+    "span_removed": {
+      "n": 78,
+      "n_informative": 42,
+      "p_informative": 0.5384615384615384,
+      "n_grounded": 41
+    }
+  },
+  "direction_flip_under_negation": {
+    "n": 0,
+    "n_flipped": 0,
+    "n_same": 0,
+    "flip_rate": null
+  },
+  "span_removal": {
+    "n": 78,
+    "n_survived": 42,
+    "survival_rate": 0.5384615384615384,
+    "survivors_cited_different_span": 42,
+    "survivors_cited_same_span": 0,
+    "survivors_cited_no_span": 0,
+    "interpretation": "control limitation (redundant support in the abstract)"
+  },
+  "judge_divergence": {
+    "both_evidential": 24,
+    "a_only": 28,
+    "b_only": 2,
+    "systematic_offset": true,
+    "matrix": {
+      "NO_EVIDENCE|NO_EVIDENCE": 237,
+      "INDIRECT|INDIRECT": 16,
+      "DIRECT|DIRECT": 4,
+      "INDIRECT|NO_EVIDENCE": 28,
+      "DIRECT|INDIRECT": 4,
+      "NO_EVIDENCE|INDIRECT": 2
+    }
+  },
+  "overall_pass": false
+}

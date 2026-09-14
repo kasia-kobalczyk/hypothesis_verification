@@ -1,0 +1,221 @@
+{
+  "prompt_version": {
+    "name": "diagnostic_test_generate_v1",
+    "sha256_16": "0ff42001f55a928c",
+    "path": "/mnt/data/knk25.data/hypothesis_verification/src/llm/prompts/diagnostic_test_generate_v1.txt"
+  },
+  "n_requested": 6,
+  "stats": {
+    "n_generated": 6,
+    "n_empirically_observable": 6,
+    "n_discriminative": 2,
+    "n_usable": 2,
+    "n_rejected": 4,
+    "mean_distinct_predictions": 1.3333333333333333
+  },
+  "rejected": [
+    {
+      "test_id": "T1",
+      "reason": "every candidate predicts the same, or all indeterminate",
+      "unknown_labels": []
+    },
+    {
+      "test_id": "T3",
+      "reason": "every candidate predicts the same, or all indeterminate",
+      "unknown_labels": []
+    },
+    {
+      "test_id": "T4",
+      "reason": "every candidate predicts the same, or all indeterminate",
+      "unknown_labels": []
+    },
+    {
+      "test_id": "T6",
+      "reason": "every candidate predicts the same, or all indeterminate",
+      "unknown_labels": []
+    }
+  ],
+  "tests": [
+    {
+      "test_id": "T1",
+      "system": "reforested plots in Latin America (e.g., 10 ha each)",
+      "context": "5 years after establishment, similar climate and soil conditions",
+      "intervention_or_exposure": "monoculture plantation vs. native forest restoration vs. mixed-species reforestation",
+      "measured_outcome": "aboveground carbon stock (Mg C/ha)",
+      "rationale": "Candidate B predicts mixed-species reforestation will outperform monocultures in carbon sequestration, while Candidate A prioritizes native restoration and expects monocultures to underperform.",
+      "predictions_by_hypothesis": {
+        "H0": "positive_or_present",
+        "H1": "positive_or_present"
+      },
+      "empirically_observable": true,
+      "rejected_reason": "every candidate predicts the same, or all indeterminate"
+    },
+    {
+      "test_id": "T2",
+      "system": "forest landscapes in Chile and other Latin American countries",
+      "context": "during and after major wildfire events over a 10-year period",
+      "intervention_or_exposure": "landscape dominated by monoculture plantations vs. mixed-species reforestation vs. native forest restoration",
+      "measured_outcome": "area burned per year (ha/year)",
+      "rationale": "Candidate A expects monocultures to have higher wildfire risk, while Candidate B predicts mixed-species and integrated management will reduce wildfire risk compared to monocultures.",
+      "predictions_by_hypothesis": {
+        "H0": "negative_or_absent",
+        "H1": "positive_or_present"
+      },
+      "empirically_observable": true,
+      "rejected_reason": null
+    },
+    {
+      "test_id": "T3",
+      "system": "soil samples from reforested areas",
+      "context": "10 years post-planting, same region and soil type",
+      "intervention_or_exposure": "monoculture plantation vs. mixed-species reforestation vs. native forest restoration",
+      "measured_outcome": "soil organic carbon content (g C/kg soil)",
+      "rationale": "Candidate B predicts mixed-species will enhance soil carbon more than monocultures, while Candidate A expects native restoration to be superior to monocultures.",
+      "predictions_by_hypothesis": {
+        "H0": "positive_or_present",
+        "H1": "positive_or_present"
+      },
+      "empirically_observable": true,
+      "rejected_reason": "every candidate predicts the same, or all indeterminate"
+    },
+    {
+      "test_id": "T4",
+      "system": "biodiversity surveys in reforested landscapes",
+      "context": "5 years after intervention, standardized sampling effort",
+      "intervention_or_exposure": "monoculture plantation vs. mixed-species reforestation vs. native forest restoration",
+      "measured_outcome": "species richness (number of plant and animal species per plot)",
+      "rationale": "Candidate A expects native restoration to maximize biodiversity, while Candidate B expects mixed-species to increase biodiversity over monocultures but may not match native restoration.",
+      "predictions_by_hypothesis": {
+        "H0": "positive_or_present",
+        "H1": "positive_or_present"
+      },
+      "empirically_observable": true,
+      "rejected_reason": "every candidate predicts the same, or all indeterminate"
+    },
+    {
+      "test_id": "T5",
+      "system": "fire-prone forested regions in Latin America",
+      "context": "areas managed with vs. without integrated land management (controlled burns, buffer zones, community involvement)",
+      "intervention_or_exposure": "implementation of integrated land management strategies",
+      "measured_outcome": "frequency of high-intensity wildfires (events/year)",
+      "rationale": "Candidate B specifically predicts that integrated management will reduce wildfire frequency, while Candidate A does not emphasize these strategies.",
+      "predictions_by_hypothesis": {
+        "H0": "neutral_or_no_change",
+        "H1": "negative_or_absent"
+      },
+      "empirically_observable": true,
+      "rejected_reason": null
+    },
+    {
+      "test_id": "T6",
+      "system": "carbon sequestration projects registered under national climate policies",
+      "context": "comparison of projects using monocultures, mixed-species, and native restoration over 10 years",
+      "intervention_or_exposure": "policy exclusion of monocultures (as in Chilean CCL) vs. inclusion of mixed-species and native restoration",
+      "measured_outcome": "total verified carbon credits issued (tCO2e/year)",
+      "rationale": "Candidate A predicts excluding monocultures and focusing on native restoration will yield more sustainable carbon credits, while Candidate B predicts mixed-species projects will generate more credits than monocultures.",
+      "predictions_by_hypothesis": {
+        "H0": "positive_or_present",
+        "H1": "positive_or_present"
+      },
+      "empirically_observable": true,
+      "rejected_reason": "every candidate predicts the same, or all indeterminate"
+    }
+  ],
+  "call": {
+    "call_id": "5f7fa57e4d7e",
+    "purpose": "diagnostic.generate",
+    "prompt_version": "diagnostic_test_generate_v1",
+    "model": "gpt-4.1-2025-04-14",
+    "attempts": 1,
+    "latency_s": 7.157,
+    "usage": {
+      "prompt_tokens": 973,
+      "completion_tokens": 978,
+      "total_tokens": 1951
+    },
+    "finish_reason": "stop",
+    "response_text": "{\n  \"tests\": [\n    {\n      \"system\": \"reforested plots in Latin America (e.g., 10 ha each)\",\n      \"context\": \"5 years after establishment, similar climate and soil conditions\",\n      \"intervention_or_exposure\": \"monoculture plantation vs. native forest restoration vs. mixed-species reforestation\",\n      \"measured_outcome\": \"aboveground carbon stock (Mg C/ha)\",\n      \"rationale\": \"Candidate B predicts mixed-species reforestation will outperform monocultures in carbon sequestration, while Candidate A prioritizes native restoration and expects monocultures to underperform.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"positive_or_present\",\n        \"B\": \"positive_or_present\"\n      }\n    },\n    {\n      \"system\": \"forest landscapes in Chile and other Latin American countries\",\n      \"context\": \"during and after major wildfire events over a 10-year period\",\n      \"intervention_or_exposure\": \"landscape dominated by monoculture plantations vs. mixed-species reforestation vs. native forest restoration\",\n      \"measured_outcome\": \"area burned per year (ha/year)\",\n      \"rationale\": \"Candidate A expects monocultures to have higher wildfire risk, while Candidate B predicts mixed-species and integrated management will reduce wildfire risk compared to monocultures.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"negative_or_absent\",\n        \"B\": \"positive_or_present\"\n      }\n    },\n    {\n      \"system\": \"soil samples from reforested areas\",\n      \"context\": \"10 years post-planting, same region and soil type\",\n      \"intervention_or_exposure\": \"monoculture plantation vs. mixed-species reforestation vs. native forest restoration\",\n      \"measured_outcome\": \"soil organic carbon content (g C/kg soil)\",\n      \"rationale\": \"Candidate B predicts mixed-species will enhance soil carbon more than monocultures, while Candidate A expects native restoration to be superior to monocultures.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"positive_or_present\",\n        \"B\": \"positive_or_present\"\n      }\n    },\n    {\n      \"system\": \"biodiversity surveys in reforested landscapes\",\n      \"context\": \"5 years after intervention, standardized sampling effort\",\n      \"intervention_or_exposure\": \"monoculture plantation vs. mixed-species reforestation vs. native forest restoration\",\n      \"measured_outcome\": \"species richness (number of plant and animal species per plot)\",\n      \"rationale\": \"Candidate A expects native restoration to maximize biodiversity, while Candidate B expects mixed-species to increase biodiversity over monocultures but may not match native restoration.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"positive_or_present\",\n        \"B\": \"positive_or_present\"\n      }\n    },\n    {\n      \"system\": \"fire-prone forested regions in Latin America\",\n      \"context\": \"areas managed with vs. without integrated land management (controlled burns, buffer zones, community involvement)\",\n      \"intervention_or_exposure\": \"implementation of integrated land management strategies\",\n      \"measured_outcome\": \"frequency of high-intensity wildfires (events/year)\",\n      \"rationale\": \"Candidate B specifically predicts that integrated management will reduce wildfire frequency, while Candidate A does not emphasize these strategies.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"neutral_or_no_change\",\n        \"B\": \"negative_or_absent\"\n      }\n    },\n    {\n      \"system\": \"carbon sequestration projects registered under national climate policies\",\n      \"context\": \"comparison of projects using monocultures, mixed-species, and native restoration over 10 years\",\n      \"intervention_or_exposure\": \"policy exclusion of monocultures (as in Chilean CCL) vs. inclusion of mixed-species and native restoration\",\n      \"measured_outcome\": \"total verified carbon credits issued (tCO2e/year)\",\n      \"rationale\": \"Candidate A predicts excluding monocultures and focusing on native restoration will yield more sustainable carbon credits, while Candidate B predicts mixed-species projects will generate more credits than monocultures.\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\n        \"A\": \"positive_or_present\",\n        \"B\": \"positive_or_present\"\n      }\n    }\n  ]\n}",
+    "parsed": {
+      "tests": [
+        {
+          "system": "reforested plots in Latin America (e.g., 10 ha each)",
+          "context": "5 years after establishment, similar climate and soil conditions",
+          "intervention_or_exposure": "monoculture plantation vs. native forest restoration vs. mixed-species reforestation",
+          "measured_outcome": "aboveground carbon stock (Mg C/ha)",
+          "rationale": "Candidate B predicts mixed-species reforestation will outperform monocultures in carbon sequestration, while Candidate A prioritizes native restoration and expects monocultures to underperform.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "positive_or_present",
+            "B": "positive_or_present"
+          }
+        },
+        {
+          "system": "forest landscapes in Chile and other Latin American countries",
+          "context": "during and after major wildfire events over a 10-year period",
+          "intervention_or_exposure": "landscape dominated by monoculture plantations vs. mixed-species reforestation vs. native forest restoration",
+          "measured_outcome": "area burned per year (ha/year)",
+          "rationale": "Candidate A expects monocultures to have higher wildfire risk, while Candidate B predicts mixed-species and integrated management will reduce wildfire risk compared to monocultures.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "negative_or_absent",
+            "B": "positive_or_present"
+          }
+        },
+        {
+          "system": "soil samples from reforested areas",
+          "context": "10 years post-planting, same region and soil type",
+          "intervention_or_exposure": "monoculture plantation vs. mixed-species reforestation vs. native forest restoration",
+          "measured_outcome": "soil organic carbon content (g C/kg soil)",
+          "rationale": "Candidate B predicts mixed-species will enhance soil carbon more than monocultures, while Candidate A expects native restoration to be superior to monocultures.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "positive_or_present",
+            "B": "positive_or_present"
+          }
+        },
+        {
+          "system": "biodiversity surveys in reforested landscapes",
+          "context": "5 years after intervention, standardized sampling effort",
+          "intervention_or_exposure": "monoculture plantation vs. mixed-species reforestation vs. native forest restoration",
+          "measured_outcome": "species richness (number of plant and animal species per plot)",
+          "rationale": "Candidate A expects native restoration to maximize biodiversity, while Candidate B expects mixed-species to increase biodiversity over monocultures but may not match native restoration.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "positive_or_present",
+            "B": "positive_or_present"
+          }
+        },
+        {
+          "system": "fire-prone forested regions in Latin America",
+          "context": "areas managed with vs. without integrated land management (controlled burns, buffer zones, community involvement)",
+          "intervention_or_exposure": "implementation of integrated land management strategies",
+          "measured_outcome": "frequency of high-intensity wildfires (events/year)",
+          "rationale": "Candidate B specifically predicts that integrated management will reduce wildfire frequency, while Candidate A does not emphasize these strategies.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "neutral_or_no_change",
+            "B": "negative_or_absent"
+          }
+        },
+        {
+          "system": "carbon sequestration projects registered under national climate policies",
+          "context": "comparison of projects using monocultures, mixed-species, and native restoration over 10 years",
+          "intervention_or_exposure": "policy exclusion of monocultures (as in Chilean CCL) vs. inclusion of mixed-species and native restoration",
+          "measured_outcome": "total verified carbon credits issued (tCO2e/year)",
+          "rationale": "Candidate A predicts excluding monocultures and focusing on native restoration will yield more sustainable carbon credits, while Candidate B predicts mixed-species projects will generate more credits than monocultures.",
+          "empirically_observable": true,
+          "predictions_by_hypothesis": {
+            "A": "positive_or_present",
+            "B": "positive_or_present"
+          }
+        }
+      ]
+    },
+    "messages": [
+      {
+        "role": "user",
+        "content": "You are designing experiments that would tell competing scientific hypotheses apart.\n\nYou are given a scientific question and several competing candidate answers. Your\njob is NOT to argue for any of them, and NOT to list facts consistent with any of\nthem. Your job is to design observable tests whose results would come out\nDIFFERENTLY depending on which candidate is true.\n\nTHE QUESTION TO ASK YOURSELF\n\n  \"If I could look up one measurement that would tell these candidates apart,\n   what measurement would it be?\"\n\nA test that every candidate predicts the same way is useless here, however\nscientifically interesting it is. A fact that is simply true of the field is\nuseless here. You are looking for the points where the candidates DISAGREE.\n\nWHAT A TEST MUST BE\n\n1. Empirically observable: a real measurement someone could make, or could\n   already have made and published.\n2. Reportable: the kind of quantity that appears in a scientific paper -- a rate,\n   a concentration, an efficiency, a count, a survival time, a signal, a\n   correlation.\n3. Discriminative: at least two of the candidates must predict different outcomes.\n4. Specific about WHAT IS MEASURED. \"The system performs better\" is not a\n   measurement. \"Tensile strength in MPa after 30 wet/dry cycles\" is.\n\nDescribe each test with these fields kept separate, because each is checked\nindependently later:\n\n  system                    what is studied (organism, material, population, device)\n  context                   the conditions -- dose, duration, temperature, cohort\n  intervention_or_exposure  what is varied, applied, removed or compared\n  measured_outcome          the single quantity measured, stated precisely\n\nPREDICTIONS\n\nFor EVERY candidate, predict how that test would come out IF that candidate were\ntrue. Use exactly one of:\n\n  positive_or_present      the outcome increases, appears, or is detected\n  neutral_or_no_change     the outcome is unchanged, or the effect is absent\n  negative_or_absent       the outcome decreases, or goes the other way\n  indeterminate            that candidate genuinely makes no prediction here\n\nUse \"indeterminate\" honestly. A candidate that says nothing about a test should be\nmarked so, not given a guessed direction. But a test where most candidates are\nindeterminate is a weak test -- prefer tests the candidates actually disagree about.\n\nPredict from each candidate ON ITS OWN TERMS. Do not consult what you know\nactually happened, do not favour the candidate that sounds most plausible, and do\nnot let one candidate's prediction influence another's.\n\nYou have NO literature access. Do not try to recall what studies found. You are\nstating what each candidate PREDICTS, not what is true.\n\nQUESTION:\nHow can climate change mitigation policies in Latin America be improved to avoid the pitfalls of tree monoculture plantations, specifically considering their impact on carbon sequestration and wildfire risk, and thus promote more resilient landscapes?\n\nCANDIDATES:\nCandidate A:\nThe Chilean Climate Change Law's (CCL) exclusion of tree monocultures as a climate mitigation strategy and its focus on native forest restoration provide a valuable model for other Latin American countries. The experiences of Chile with mega-fires and the negative ecological impacts of homogeneous forest plantations demonstrate that relying on monocultures is not a sustainable or effective approach for carbon sequestration and climate resilience. Therefore, diverse landscapes, with a priority on native ecosystems, should be prioritized.\n\nCandidate B:\nImproving climate change mitigation policies in Latin America through the adoption of mixed-species reforestation (e.g., combining native species such as Melia azedarach and Eucalyptus robusta, along with other region-specific species like Cedrela odorata and Swietenia macrophylla) and integrated land management strategies (including controlled burns, buffer zones, and community-led conservation initiatives) can enhance carbon sequestration by 30% and reduce wildfire risk by 25% over five years compared to traditional tree monocultures.\n\nReturn a single JSON object, and nothing else, with 6 tests:\n\n{\n  \"tests\": [\n    {\n      \"system\": \"<what is studied>\",\n      \"context\": \"<conditions>\",\n      \"intervention_or_exposure\": \"<what is varied>\",\n      \"measured_outcome\": \"<the single quantity measured>\",\n      \"rationale\": \"<one sentence: why the candidates come apart on this>\",\n      \"empirically_observable\": true,\n      \"predictions_by_hypothesis\": {\"<candidate label>\": \"<one of the four>\", \"...\": \"...\"}\n    }\n  ]\n}\n\nInclude every candidate label exactly once in predictions_by_hypothesis for every\ntest: A, B\n"
+      }
+    ]
+  }
+}

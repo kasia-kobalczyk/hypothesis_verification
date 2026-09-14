@@ -1,0 +1,1133 @@
+{
+  "generated_at": "2026-09-11T20:39:36Z",
+  "dataset": "/mnt/data/knk25.data/hypothesis_verification/benchmark/v2/researchbench_v2_pairs.jsonl",
+  "output": "/mnt/data/knk25.data/hypothesis_verification/data/metadata/source_dates.jsonl",
+  "n_dois": 57,
+  "n_records": 75,
+  "n_resolved_this_run": 57,
+  "n_resolved": 75,
+  "n_ambiguous": 41,
+  "n_unresolved": 0,
+  "n_request_failures": 0,
+  "policy": {
+    "cutoff_offset_days": 1,
+    "include_preprints_in_cutoff_basis": true,
+    "date_fields": [
+      "published-online",
+      "published-print",
+      "published",
+      "issued",
+      "posted",
+      "created"
+    ]
+  },
+  "needs_manual_inspection": [
+    {
+      "doi": "10.1016/j.radphyschem.2024.111640",
+      "instance_ids": [
+        "RBV2-0084-N05"
+      ],
+      "cutoff_date": "2024-04-30",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2024-02-28) precedes the selected basis 'issued' by 63 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.ribaf.2023.102118",
+      "instance_ids": [
+        "RBV2-0098-N08"
+      ],
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-09-28) precedes the selected basis 'issued' by 95 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.watres.2023.120861",
+      "instance_ids": [
+        "RBV-04"
+      ],
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-11-13) precedes the selected basis 'issued' by 49 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.jclepro.2023.140533",
+      "instance_ids": [
+        "RBV-08"
+      ],
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period"
+    },
+    {
+      "doi": "10.1016/j.scitotenv.2024.174595",
+      "instance_ids": [
+        "RBV-11"
+      ],
+      "cutoff_date": "2024-09-30",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2024-07-08) precedes the selected basis 'issued' by 85 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.icarus.2024.115977",
+      "instance_ids": [
+        "RBV-13"
+      ],
+      "cutoff_date": "2024-08-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2024-01-28) precedes the selected basis 'issued' by 217 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.jaac.2023.06.014",
+      "instance_ids": [
+        "RBV-16"
+      ],
+      "cutoff_date": "2024-02-29",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-06-26) precedes the selected basis 'issued' by 249 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.irfa.2023.102960",
+      "instance_ids": [
+        "RBV-17"
+      ],
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-10-02) precedes the selected basis 'issued' by 91 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.fuel.2023.130205",
+      "instance_ids": [
+        "RBV-18"
+      ],
+      "cutoff_date": "2024-01-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-11-03) precedes the selected basis 'issued' by 90 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.frl.2024.105130",
+      "instance_ids": [
+        "RBV-20"
+      ],
+      "cutoff_date": "2024-03-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2024-02-09) precedes the selected basis 'issued' by 52 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.tcb.2023.07.009",
+      "instance_ids": [
+        "RBV2-0012-N00",
+        "RBV2-0012-N03"
+      ],
+      "cutoff_date": "2024-03-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-08-12) precedes the selected basis 'issued' by 233 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.nima.2024.169329",
+      "instance_ids": [
+        "RBV2-0050-N04",
+        "RBV2-0050-N06"
+      ],
+      "cutoff_date": "2024-06-30",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2024-04-15) precedes the selected basis 'issued' by 77 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.jcis.2023.11.159",
+      "instance_ids": [
+        "RBV2-0052-N08"
+      ],
+      "cutoff_date": "2024-02-29",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-11-30) precedes the selected basis 'issued' by 92 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.foodchem.2023.136990",
+      "instance_ids": [
+        "RBV2-0058-N03"
+      ],
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-07-28) precedes the selected basis 'issued' by 157 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.techfore.2023.123153",
+      "instance_ids": [
+        "RBV2-0063-N05"
+      ],
+      "cutoff_date": "2024-02-29",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2024-01-03) precedes the selected basis 'issued' by 58 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.jhazmat.2023.132803",
+      "instance_ids": [
+        "RBV2-0108-N03",
+        "RBV2-0108-N06",
+        "RBV2-0108-N09"
+      ],
+      "cutoff_date": "2022-12-31",
+      "basis": "version:10.2139/ssrn.4499981",
+      "notes": "version search found 1 other record(s) of this study: 10.2139/ssrn.4499981; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'version:10.2139/ssrn.4499981' has year granularity; resolved to the earliest day of the period"
+    },
+    {
+      "doi": "10.1007/s10915-023-02412-1",
+      "instance_ids": [
+        "RBV2-0110-N03",
+        "RBV2-0110-N05"
+      ],
+      "cutoff_date": "2021-12-31",
+      "basis": "version:10.2139/ssrn.4224074",
+      "notes": "version search found 4 other record(s) of this study: 10.2139/ssrn.4224074, 10.36227/techrxiv.19391279.v3, 10.36227/techrxiv.19391279, 10.36227/techrxiv.19391279.v1; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'version:10.2139/ssrn.4224074' has year granularity; resolved to the earliest day of the period"
+    },
+    {
+      "doi": "10.1016/j.diamond.2023.110713",
+      "instance_ids": [
+        "RBV2-0117-N06",
+        "RBV2-0117-N08"
+      ],
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period"
+    },
+    {
+      "doi": "10.1016/j.jallcom.2024.174187",
+      "instance_ids": [
+        "RBV2-0131-N03",
+        "RBV2-0131-N07"
+      ],
+      "cutoff_date": "2024-05-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2024-03-20) precedes the selected basis 'issued' by 73 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.apcatb.2023.123669",
+      "instance_ids": [
+        "RBV2-0132-N09"
+      ],
+      "cutoff_date": "2024-04-30",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-12-28) precedes the selected basis 'issued' by 125 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.newast.2024.102233",
+      "instance_ids": [
+        "RBV2-0135-N03"
+      ],
+      "cutoff_date": "2023-12-31",
+      "basis": "version:10.2139/ssrn.4720134",
+      "notes": "version search found 3 other record(s) of this study: 10.2139/ssrn.4720134, 10.1016/j.newast.2025.102358, 10.1016/j.newast.2024.102318; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'version:10.2139/ssrn.4720134' has year granularity; resolved to the earliest day of the period"
+    },
+    {
+      "doi": "10.1016/j.cej.2023.147667",
+      "instance_ids": [
+        "RBV2-0138-N01",
+        "RBV2-0138-N02"
+      ],
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-11-26) precedes the selected basis 'issued' by 36 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.applthermaleng.2023.121578",
+      "instance_ids": [
+        "RBV2-0140-N01",
+        "RBV2-0140-N03",
+        "RBV2-0140-N04",
+        "RBV2-0140-N05",
+        "RBV2-0140-N07"
+      ],
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-09-10) precedes the selected basis 'issued' by 113 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.cej.2023.147980",
+      "instance_ids": [
+        "RBV2-0153-N03",
+        "RBV2-0153-N04",
+        "RBV2-0153-N07",
+        "RBV2-0153-N09"
+      ],
+      "cutoff_date": "2021-12-31",
+      "basis": "version:10.2139/ssrn.4310540",
+      "notes": "version search found 2 other record(s) of this study: 10.2139/ssrn.4423031, 10.2139/ssrn.4310540; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'version:10.2139/ssrn.4310540' has year granularity; resolved to the earliest day of the period"
+    },
+    {
+      "doi": "10.1016/j.jenvman.2023.119545",
+      "instance_ids": [
+        "RBV2-0159-N04"
+      ],
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-11-22) precedes the selected basis 'issued' by 40 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.cej.2024.149776",
+      "instance_ids": [
+        "RBV2-0165-N01",
+        "RBV2-0165-N04",
+        "RBV2-0165-N09"
+      ],
+      "cutoff_date": "2024-03-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2024-02-18) precedes the selected basis 'issued' by 43 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.carbon.2024.119040",
+      "instance_ids": [
+        "RBV2-0192-N05"
+      ],
+      "cutoff_date": "2024-03-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period"
+    },
+    {
+      "doi": "10.1016/j.jbusres.2023.114325",
+      "instance_ids": [
+        "RBV2-0193-N06"
+      ],
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-10-11) precedes the selected basis 'issued' by 82 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.jes.2023.05.028",
+      "instance_ids": [
+        "RBV2-0200-N03",
+        "RBV2-0200-N05",
+        "RBV2-0200-N09"
+      ],
+      "cutoff_date": "2024-05-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-05-30) precedes the selected basis 'issued' by 368 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.rinp.2024.107509",
+      "instance_ids": [
+        "RBV2-0203-N00",
+        "RBV2-0203-N03",
+        "RBV2-0203-N07",
+        "RBV2-0203-N09"
+      ],
+      "cutoff_date": "2024-02-29",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period"
+    },
+    {
+      "doi": "10.1016/j.apcatb.2023.123196",
+      "instance_ids": [
+        "RBV2-0207-N00",
+        "RBV2-0207-N01",
+        "RBV2-0207-N05"
+      ],
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-08-21) precedes the selected basis 'issued' by 133 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.carbon.2024.119215",
+      "instance_ids": [
+        "RBV2-0210-N05"
+      ],
+      "cutoff_date": "2024-05-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period"
+    },
+    {
+      "doi": "10.1016/j.heliyon.2024.e28601",
+      "instance_ids": [
+        "RBV2-0218-N09"
+      ],
+      "cutoff_date": "2024-03-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period"
+    },
+    {
+      "doi": "10.1016/j.csite.2023.103928",
+      "instance_ids": [
+        "RBV2-0226-N06"
+      ],
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period"
+    },
+    {
+      "doi": "10.1016/j.marpol.2024.106017",
+      "instance_ids": [
+        "RBV2-0246-N04"
+      ],
+      "cutoff_date": "2024-02-29",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2024-01-17) precedes the selected basis 'issued' by 44 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.cej.2024.148982",
+      "instance_ids": [
+        "RBV2-0256-N04",
+        "RBV2-0256-N06",
+        "RBV2-0256-N07",
+        "RBV2-0256-N09"
+      ],
+      "cutoff_date": "2024-01-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period"
+    },
+    {
+      "doi": "10.1016/j.gsf.2023.101689",
+      "instance_ids": [
+        "RBV2-0268-N03"
+      ],
+      "cutoff_date": "2024-06-30",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-08-11) precedes the selected basis 'issued' by 325 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.fuel.2023.129688",
+      "instance_ids": [
+        "RBV2-0284-N01"
+      ],
+      "cutoff_date": "2024-01-31",
+      "basis": "issued",
+      "notes": "version search found 1 other record(s) of this study: 10.1016/j.fuel.2024.133819; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-09-04) precedes the selected basis 'issued' by 150 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.tree.2023.09.014",
+      "instance_ids": [
+        "RBV2-0288-N00"
+      ],
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2023-10-25) precedes the selected basis 'issued' by 68 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.nima.2024.169242",
+      "instance_ids": [
+        "RBV2-0295-N08"
+      ],
+      "cutoff_date": "2024-05-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2024-03-12) precedes the selected basis 'issued' by 81 days; the article may have been public before the cutoff"
+    },
+    {
+      "doi": "10.1016/j.eng.2022.06.005",
+      "instance_ids": [
+        "RBV2-0317-N03"
+      ],
+      "cutoff_date": "2023-07-31",
+      "basis": "issued",
+      "notes": "version search found no other record of this study; date field(s) created recorded but excluded from the cutoff basis by configuration; selected basis 'issued' has month granularity; resolved to the earliest day of the period; Crossref 'created' (2022-07-05) precedes the selected basis 'issued' by 392 days; the article may have been public before the cutoff"
+    }
+  ],
+  "request_failures": [],
+  "cutoffs": {
+    "RBV-01": {
+      "doi": "10.1038/s41550-024-02237-4",
+      "cutoff_date": "2024-04-11",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0084-N05": {
+      "doi": "10.1016/j.radphyschem.2024.111640",
+      "cutoff_date": "2024-04-30",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0098-N08": {
+      "doi": "10.1016/j.ribaf.2023.102118",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV-04": {
+      "doi": "10.1016/j.watres.2023.120861",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV-05": {
+      "doi": "10.1007/s00181-023-02460-4",
+      "cutoff_date": "2023-06-30",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV-06": {
+      "doi": "10.1007/s13132-023-01220-0",
+      "cutoff_date": "2023-03-14",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV-07": {
+      "doi": "10.1007/s11356-023-25699-x",
+      "cutoff_date": "2023-02-07",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV-08": {
+      "doi": "10.1016/j.jclepro.2023.140533",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV-09": {
+      "doi": "10.1038/s41550-023-02183-7",
+      "cutoff_date": "2024-02-08",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV-10": {
+      "doi": "10.1007/s10668-023-03641-y",
+      "cutoff_date": "2023-08-06",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV-11": {
+      "doi": "10.1016/j.scitotenv.2024.174595",
+      "cutoff_date": "2024-09-30",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV-12": {
+      "doi": "10.1038/s41586-023-06618-z",
+      "cutoff_date": "2022-09-25",
+      "basis": "preprint:10.1101/2022.09.23.509097",
+      "ambiguous": false
+    },
+    "RBV-13": {
+      "doi": "10.1016/j.icarus.2024.115977",
+      "cutoff_date": "2024-08-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV-14": {
+      "doi": "10.1038/s41561-023-01335-8",
+      "cutoff_date": "2023-12-26",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV-15": {
+      "doi": "10.1007/s10668-022-02780-y",
+      "cutoff_date": "2022-11-27",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV-16": {
+      "doi": "10.1016/j.jaac.2023.06.014",
+      "cutoff_date": "2024-02-29",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV-17": {
+      "doi": "10.1016/j.irfa.2023.102960",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV-18": {
+      "doi": "10.1016/j.fuel.2023.130205",
+      "cutoff_date": "2024-01-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV-19": {
+      "doi": "10.1038/s41586-024-07098-5",
+      "cutoff_date": "2023-05-07",
+      "basis": "version:10.1101/2023.05.07.539780",
+      "ambiguous": false
+    },
+    "RBV-20": {
+      "doi": "10.1016/j.frl.2024.105130",
+      "cutoff_date": "2024-03-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0005-N07": {
+      "doi": "10.1007/s13399-020-01243-6",
+      "cutoff_date": "2021-01-02",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0005-N09": {
+      "doi": "10.1007/s13399-020-01243-6",
+      "cutoff_date": "2021-01-02",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0012-N00": {
+      "doi": "10.1016/j.tcb.2023.07.009",
+      "cutoff_date": "2024-03-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0012-N03": {
+      "doi": "10.1016/j.tcb.2023.07.009",
+      "cutoff_date": "2024-03-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0018-N05": {
+      "doi": "10.1038/s41592-024-02201-0",
+      "cutoff_date": "2023-04-30",
+      "basis": "preprint:10.1101/2023.04.30.538439",
+      "ambiguous": false
+    },
+    "RBV2-0034-N04": {
+      "doi": "10.1007/s12665-023-11347-7",
+      "cutoff_date": "2023-12-28",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0038-N04": {
+      "doi": "10.1016/j.cell.2023.11.011",
+      "cutoff_date": "2023-03-18",
+      "basis": "preprint:10.1101/2023.03.16.532852",
+      "ambiguous": false
+    },
+    "RBV2-0038-N09": {
+      "doi": "10.1016/j.cell.2023.11.011",
+      "cutoff_date": "2023-03-18",
+      "basis": "preprint:10.1101/2023.03.16.532852",
+      "ambiguous": false
+    },
+    "RBV2-0050-N04": {
+      "doi": "10.1016/j.nima.2024.169329",
+      "cutoff_date": "2024-06-30",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0050-N06": {
+      "doi": "10.1016/j.nima.2024.169329",
+      "cutoff_date": "2024-06-30",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0052-N08": {
+      "doi": "10.1016/j.jcis.2023.11.159",
+      "cutoff_date": "2024-02-29",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0058-N03": {
+      "doi": "10.1016/j.foodchem.2023.136990",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0063-N05": {
+      "doi": "10.1016/j.techfore.2023.123153",
+      "cutoff_date": "2024-02-29",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0065-N07": {
+      "doi": "10.1038/s41556-024-01360-8",
+      "cutoff_date": "2024-02-28",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0083-N01": {
+      "doi": "10.1038/s41579-023-00967-2",
+      "cutoff_date": "2023-09-10",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0083-N03": {
+      "doi": "10.1038/s41579-023-00967-2",
+      "cutoff_date": "2023-09-10",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0095-N03": {
+      "doi": "10.1038/s41586-024-07379-z",
+      "cutoff_date": "2024-04-07",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0095-N07": {
+      "doi": "10.1038/s41586-024-07379-z",
+      "cutoff_date": "2024-04-07",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0095-N09": {
+      "doi": "10.1038/s41586-024-07379-z",
+      "cutoff_date": "2024-04-07",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0108-N03": {
+      "doi": "10.1016/j.jhazmat.2023.132803",
+      "cutoff_date": "2022-12-31",
+      "basis": "version:10.2139/ssrn.4499981",
+      "ambiguous": true
+    },
+    "RBV2-0108-N06": {
+      "doi": "10.1016/j.jhazmat.2023.132803",
+      "cutoff_date": "2022-12-31",
+      "basis": "version:10.2139/ssrn.4499981",
+      "ambiguous": true
+    },
+    "RBV2-0108-N09": {
+      "doi": "10.1016/j.jhazmat.2023.132803",
+      "cutoff_date": "2022-12-31",
+      "basis": "version:10.2139/ssrn.4499981",
+      "ambiguous": true
+    },
+    "RBV2-0110-N03": {
+      "doi": "10.1007/s10915-023-02412-1",
+      "cutoff_date": "2021-12-31",
+      "basis": "version:10.2139/ssrn.4224074",
+      "ambiguous": true
+    },
+    "RBV2-0110-N05": {
+      "doi": "10.1007/s10915-023-02412-1",
+      "cutoff_date": "2021-12-31",
+      "basis": "version:10.2139/ssrn.4224074",
+      "ambiguous": true
+    },
+    "RBV2-0113-N08": {
+      "doi": "10.1038/s41586-023-06927-3",
+      "cutoff_date": "2023-12-05",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0114-N00": {
+      "doi": "10.1038/s41586-023-06855-2",
+      "cutoff_date": "2023-04-30",
+      "basis": "preprint:10.1101/2023.05.01.538945",
+      "ambiguous": false
+    },
+    "RBV2-0114-N04": {
+      "doi": "10.1038/s41586-023-06855-2",
+      "cutoff_date": "2023-04-30",
+      "basis": "preprint:10.1101/2023.05.01.538945",
+      "ambiguous": false
+    },
+    "RBV2-0117-N06": {
+      "doi": "10.1016/j.diamond.2023.110713",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0117-N08": {
+      "doi": "10.1016/j.diamond.2023.110713",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0122-N08": {
+      "doi": "10.1038/s41563-023-01702-1",
+      "cutoff_date": "2023-10-25",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0125-N08": {
+      "doi": "10.1007/s12011-023-03645-9",
+      "cutoff_date": "2023-04-12",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0131-N03": {
+      "doi": "10.1016/j.jallcom.2024.174187",
+      "cutoff_date": "2024-05-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0131-N07": {
+      "doi": "10.1016/j.jallcom.2024.174187",
+      "cutoff_date": "2024-05-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0132-N09": {
+      "doi": "10.1016/j.apcatb.2023.123669",
+      "cutoff_date": "2024-04-30",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0135-N03": {
+      "doi": "10.1016/j.newast.2024.102233",
+      "cutoff_date": "2023-12-31",
+      "basis": "version:10.2139/ssrn.4720134",
+      "ambiguous": true
+    },
+    "RBV2-0138-N01": {
+      "doi": "10.1016/j.cej.2023.147667",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0138-N02": {
+      "doi": "10.1016/j.cej.2023.147667",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0140-N01": {
+      "doi": "10.1016/j.applthermaleng.2023.121578",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0140-N03": {
+      "doi": "10.1016/j.applthermaleng.2023.121578",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0140-N04": {
+      "doi": "10.1016/j.applthermaleng.2023.121578",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0140-N05": {
+      "doi": "10.1016/j.applthermaleng.2023.121578",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0140-N07": {
+      "doi": "10.1016/j.applthermaleng.2023.121578",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0143-N04": {
+      "doi": "10.1038/s41586-024-07276-5",
+      "cutoff_date": "2024-03-18",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0153-N03": {
+      "doi": "10.1016/j.cej.2023.147980",
+      "cutoff_date": "2021-12-31",
+      "basis": "version:10.2139/ssrn.4310540",
+      "ambiguous": true
+    },
+    "RBV2-0153-N04": {
+      "doi": "10.1016/j.cej.2023.147980",
+      "cutoff_date": "2021-12-31",
+      "basis": "version:10.2139/ssrn.4310540",
+      "ambiguous": true
+    },
+    "RBV2-0153-N07": {
+      "doi": "10.1016/j.cej.2023.147980",
+      "cutoff_date": "2021-12-31",
+      "basis": "version:10.2139/ssrn.4310540",
+      "ambiguous": true
+    },
+    "RBV2-0153-N09": {
+      "doi": "10.1016/j.cej.2023.147980",
+      "cutoff_date": "2021-12-31",
+      "basis": "version:10.2139/ssrn.4310540",
+      "ambiguous": true
+    },
+    "RBV2-0159-N04": {
+      "doi": "10.1016/j.jenvman.2023.119545",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0163-N04": {
+      "doi": "10.1038/s41588-024-01664-3",
+      "cutoff_date": "2022-04-14",
+      "basis": "preprint:10.1101/2022.04.14.488259",
+      "ambiguous": false
+    },
+    "RBV2-0163-N08": {
+      "doi": "10.1038/s41588-024-01664-3",
+      "cutoff_date": "2022-04-14",
+      "basis": "preprint:10.1101/2022.04.14.488259",
+      "ambiguous": false
+    },
+    "RBV2-0165-N01": {
+      "doi": "10.1016/j.cej.2024.149776",
+      "cutoff_date": "2024-03-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0165-N04": {
+      "doi": "10.1016/j.cej.2024.149776",
+      "cutoff_date": "2024-03-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0165-N09": {
+      "doi": "10.1016/j.cej.2024.149776",
+      "cutoff_date": "2024-03-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0192-N05": {
+      "doi": "10.1016/j.carbon.2024.119040",
+      "cutoff_date": "2024-03-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0193-N06": {
+      "doi": "10.1016/j.jbusres.2023.114325",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0199-N04": {
+      "doi": "10.1038/s41566-024-01382-6",
+      "cutoff_date": "2024-01-25",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0199-N09": {
+      "doi": "10.1038/s41566-024-01382-6",
+      "cutoff_date": "2024-01-25",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0200-N03": {
+      "doi": "10.1016/j.jes.2023.05.028",
+      "cutoff_date": "2024-05-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0200-N05": {
+      "doi": "10.1016/j.jes.2023.05.028",
+      "cutoff_date": "2024-05-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0200-N09": {
+      "doi": "10.1016/j.jes.2023.05.028",
+      "cutoff_date": "2024-05-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0203-N00": {
+      "doi": "10.1016/j.rinp.2024.107509",
+      "cutoff_date": "2024-02-29",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0203-N03": {
+      "doi": "10.1016/j.rinp.2024.107509",
+      "cutoff_date": "2024-02-29",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0203-N07": {
+      "doi": "10.1016/j.rinp.2024.107509",
+      "cutoff_date": "2024-02-29",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0203-N09": {
+      "doi": "10.1016/j.rinp.2024.107509",
+      "cutoff_date": "2024-02-29",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0206-N00": {
+      "doi": "10.1007/s11846-023-00631-2",
+      "cutoff_date": "2023-03-06",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0206-N08": {
+      "doi": "10.1007/s11846-023-00631-2",
+      "cutoff_date": "2023-03-06",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0207-N00": {
+      "doi": "10.1016/j.apcatb.2023.123196",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0207-N01": {
+      "doi": "10.1016/j.apcatb.2023.123196",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0207-N05": {
+      "doi": "10.1016/j.apcatb.2023.123196",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0210-N05": {
+      "doi": "10.1016/j.carbon.2024.119215",
+      "cutoff_date": "2024-05-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0218-N09": {
+      "doi": "10.1016/j.heliyon.2024.e28601",
+      "cutoff_date": "2024-03-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0222-N05": {
+      "doi": "10.1007/s13399-022-02664-1",
+      "cutoff_date": "2022-02-08",
+      "basis": "version:10.21203/rs.3.rs-1324698/v1",
+      "ambiguous": false
+    },
+    "RBV2-0225-N02": {
+      "doi": "10.1038/s41550-023-02107-5",
+      "cutoff_date": "2023-10-29",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0226-N06": {
+      "doi": "10.1016/j.csite.2023.103928",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0230-N02": {
+      "doi": "10.1038/s41586-024-07723-3",
+      "cutoff_date": "2024-06-25",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0230-N07": {
+      "doi": "10.1038/s41586-024-07723-3",
+      "cutoff_date": "2024-06-25",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0230-N08": {
+      "doi": "10.1038/s41586-024-07723-3",
+      "cutoff_date": "2024-06-25",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0232-N00": {
+      "doi": "10.1038/s41560-023-01375-9",
+      "cutoff_date": "2023-10-04",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0232-N07": {
+      "doi": "10.1038/s41560-023-01375-9",
+      "cutoff_date": "2023-10-04",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0233-N00": {
+      "doi": "10.1038/s41586-023-06786-y",
+      "cutoff_date": "2024-01-02",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0233-N08": {
+      "doi": "10.1038/s41586-023-06786-y",
+      "cutoff_date": "2024-01-02",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0246-N04": {
+      "doi": "10.1016/j.marpol.2024.106017",
+      "cutoff_date": "2024-02-29",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0256-N04": {
+      "doi": "10.1016/j.cej.2024.148982",
+      "cutoff_date": "2024-01-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0256-N06": {
+      "doi": "10.1016/j.cej.2024.148982",
+      "cutoff_date": "2024-01-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0256-N07": {
+      "doi": "10.1016/j.cej.2024.148982",
+      "cutoff_date": "2024-01-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0256-N09": {
+      "doi": "10.1016/j.cej.2024.148982",
+      "cutoff_date": "2024-01-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0268-N03": {
+      "doi": "10.1016/j.gsf.2023.101689",
+      "cutoff_date": "2024-06-30",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0279-N03": {
+      "doi": "10.1038/s41586-024-07018-7",
+      "cutoff_date": "2023-11-01",
+      "basis": "version:10.1182/blood-2023-180895",
+      "ambiguous": false
+    },
+    "RBV2-0281-N03": {
+      "doi": "10.1038/s43587-023-00560-5",
+      "cutoff_date": "2023-09-25",
+      "basis": "preprint:10.21203/rs.3.rs-3385749/v1",
+      "ambiguous": false
+    },
+    "RBV2-0284-N01": {
+      "doi": "10.1016/j.fuel.2023.129688",
+      "cutoff_date": "2024-01-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0285-N04": {
+      "doi": "10.1038/s41586-023-06799-7",
+      "cutoff_date": "2024-01-02",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0285-N08": {
+      "doi": "10.1038/s41586-023-06799-7",
+      "cutoff_date": "2024-01-02",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0288-N00": {
+      "doi": "10.1016/j.tree.2023.09.014",
+      "cutoff_date": "2023-12-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0295-N08": {
+      "doi": "10.1016/j.nima.2024.169242",
+      "cutoff_date": "2024-05-31",
+      "basis": "issued",
+      "ambiguous": true
+    },
+    "RBV2-0305-N01": {
+      "doi": "10.1007/s10639-023-12080-1",
+      "cutoff_date": "2023-08-14",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0305-N06": {
+      "doi": "10.1007/s10639-023-12080-1",
+      "cutoff_date": "2023-08-14",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0305-N08": {
+      "doi": "10.1007/s10639-023-12080-1",
+      "cutoff_date": "2023-08-14",
+      "basis": "issued",
+      "ambiguous": false
+    },
+    "RBV2-0317-N03": {
+      "doi": "10.1016/j.eng.2022.06.005",
+      "cutoff_date": "2023-07-31",
+      "basis": "issued",
+      "ambiguous": true
+    }
+  }
+}

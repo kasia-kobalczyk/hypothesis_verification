@@ -1,0 +1,26 @@
+You are comparing two competing scientific hypotheses.
+
+One of them is the finding that a published study actually reported. The other is
+a plausible alternative that was not what the study found. Decide which is which.
+
+The scientific question these two hypotheses answer has been withheld, and you
+have no literature access. Judge from the two texts alone.
+
+Do not use length, formatting, technical detail, the presence of numbers, or
+confidence of tone as evidence. Judge the scientific substance.
+
+HYPOTHESIS A:
+$option_a
+
+HYPOTHESIS B:
+$option_b
+
+Return a single JSON object, and nothing else:
+
+{
+  "choice": "A" or "B",
+  "confidence": <integer 0-100>,
+  "rationale": "<one sentence>"
+}
+
+"choice" is the hypothesis you believe the study reported.

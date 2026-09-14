@@ -1,0 +1,1277 @@
+[
+  {
+    "row": "RBV2-0063-N05",
+    "p_both": 0.045,
+    "verdict": "WRONG",
+    "margin": -0.27352699999999996,
+    "nodes": [
+      {
+        "node": "X2",
+        "delta": -0.13710699999999998,
+        "p_gold": 0.5,
+        "p_neg": 0.8,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.15000000000000002,
+        "level": "mechanistic",
+        "origin_gold": false,
+        "text": "Tailored digital literacy training for industry-specific workers increases the rate at which digital technologies are integrated into existing workflows.",
+        "spans": [
+          "Fondasi bisnis yang kokoh, yang sangat dibutuhkan, dapat diciptakan dengan melatih UMKM tentang literasi keuangan dan digital secara sistematis, terintegrasi, dan berkelanjutan.",
+          "The findings highlight the importance of cost-cutting measures, subsidies, improved electricity supply, information dissemination in local languages, the establishment of service centres, and the provision of training programs. Implementing these solutions can help bridge the digital divide and enhance farming practices.",
+          "Broadband, tablet computers, training, and support were offered at 1 affordable older-adult housing community. Three 60-minute classes covered device basics, Google Translate, YouTube, and Zoom; in-language user guides were provided. Resident Ambassadors offered weekly in-language tech support. Mixed methods evaluation included surveys at entry, 30 days, and 90 days and key informant interviews.",
+          "At 30 and 90 days, 82% of the participants reported using their tablet at least twice per week for various activities."
+        ]
+      },
+      {
+        "node": "X14",
+        "delta": -0.05066999999999999,
+        "p_gold": 0.825,
+        "p_neg": 0.948,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.0615,
+        "level": "mechanistic",
+        "origin_gold": false,
+        "text": "Tailored digital literacy training increases the likelihood that workers incorporate digital technologies into their routine job tasks.",
+        "spans": [
+          "Broadband, tablet computers, training, and support were offered at 1 affordable older-adult housing community. Three 60-minute classes covered device basics, Google Translate, YouTube, and Zoom; in-language user guides were provided. Resident Ambassadors offered weekly in-language tech support. Mixed methods evaluation included surveys at entry, 30 days, and 90 days and key informant interviews.",
+          "At 30 and 90 days, 82% of the participants reported using their tablet at least twice per week for various activities.",
+          "Implementing these solutions can help to bridge the digital divide, improve information access, and promote sustainable agriculture."
+        ]
+      },
+      {
+        "node": "X15",
+        "delta": -0.044543,
+        "p_gold": 0.8625,
+        "p_neg": 0.972,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.054749999999999965,
+        "level": "class",
+        "origin_gold": false,
+        "text": "Digital literacy interventions designed for specific industries accelerate digital technology adoption among workers in those industries.",
+        "spans": [
+          "This study analyses m-commerce adoption and digital literacy among fisher woman retailers. Study identifies an insight into the degree of acceptance, zeal to learn and willingness to experiment technology change and shift in the trade practices with a digital platform.",
+          "Broadband, tablet computers, training, and support were offered at 1 affordable older-adult housing community. Three 60-minute classes covered device basics, Google Translate, YouTube, and Zoom; in-language user guides were provided. Resident Ambassadors offered weekly in-language tech support. Mixed methods evaluation included surveys at entry, 30 days, and 90 days and key informant interviews.",
+          "At 30 and 90 days, 82% of the participants reported using their tablet at least twice per week for various activities."
+        ]
+      },
+      {
+        "node": "X8",
+        "delta": -0.041206999999999994,
+        "p_gold": 0.8475,
+        "p_neg": 0.948,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.05024999999999996,
+        "level": "mechanistic",
+        "origin_gold": false,
+        "text": "Tailoring digital literacy programs to the needs of a specific industry increases the rate at which digital tools are adopted in that industry.",
+        "spans": [
+          "managers and chief information officers may want to start by identifying which work groups or individuals require literacy training and instruction, and then provide specific and relevant training or literacy interventions to help those who lack sufficient literacy.",
+          "it appears that inculcation of accessible financial information and user-specificities into the design of digital banking applications, in addition to offering giveaways could improve user adoption rates in young adults."
+        ]
+      }
+    ]
+  },
+  {
+    "row": "RBV2-0083-N01",
+    "p_both": 0.97,
+    "verdict": "CORRECT",
+    "margin": 0.734926,
+    "nodes": [
+      {
+        "node": "X4",
+        "delta": 0.5220230000000001,
+        "p_gold": 0.95,
+        "p_neg": 0.5,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.8999999999999999,
+        "level": "specific",
+        "origin_gold": true,
+        "text": "Microbial diversity is lower on microplastic particles in soil than in adjacent bulk soil.",
+        "spans": [
+          "the diversity indexes of microbiota on plastic fragments were significantly lower than those in the control and amended soils.",
+          "Results from high-throughput sequencing of 16S rRNA revealed that the alpha diversities (richness, evenness, and diversity) of the microbiota in soil were not obviously changed by the PE amendment, whereas the diversity indexes of microbiota on plastic fragments were significantly lower than those in the control and amended soils."
+        ]
+      },
+      {
+        "node": "X6",
+        "delta": 0.31624700000000017,
+        "p_gold": 0.95,
+        "p_neg": 0.65,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.5999999999999999,
+        "level": "class",
+        "origin_gold": true,
+        "text": "Anthropogenic polymer surfaces in terrestrial environments create distinct microbial assemblages compared to natural soil matrices.",
+        "spans": [
+          "The high plastic content of the soils was associated with a reduced alpha diversity and a significantly different structure of the microbial communities.",
+          "membranous PE and fibrous PP raised the alpha diversities of the soil microbiota, whereas the diversity indexes of microbiota on MPs surfaces were significantly lower than those in the amended soils. MPs significantly altered the microbial community structure, especially for the enrichment of Acidobacteria and Bacteroidetes, the depletion of Deinococcus\u2010Thermus and Chloroflexi. Aeromicrobium, Streptomyces, Mycobacterium, Janibacter, Nocardia, Arthrobacter were prone to inhabit on the MPs surfaces.",
+          "High-throughput 16S rRNA gene sequencing revealed that the 300\u202f\u03bcm-PE MPs resulted in an increase in the phylum Nitrospirae, which is associated with microplastic degradation. The data implied that smaller PE MPs improved the growth of polyethylene-degrading bacteria by adsorbing more EPS and DOM, resulting in the degradation of microplastics. Co-occurrence network analysis revealed that smaller PE MPs had lower toxicity to microbial populations than larger PE MPs, increasing the stability of the network.",
+          "Results revealed that the effect of MPs on soil physicochemical properties was type-dependent and could influenced by the presence of Pennisetum alopecuroides. MPs could enrich bacterial genera related to nitrogen cycle and some pathogens of eukaryotes. The presence of MPs changed bacterial and eukaryotic community assembly, in which diversity drove the deterministic/stochastic assembly processes. MPs addition increased the complexity of bacterial network, while had a minor effect on eukaryotic network."
+        ]
+      },
+      {
+        "node": "X5",
+        "delta": 0.27932,
+        "p_gold": 0.8,
+        "p_neg": 0.5,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.36000000000000004,
+        "level": "mechanistic",
+        "origin_gold": true,
+        "text": "The presence of plastic particles in soil selects for microbial taxa that carry antibiotic resistance genes.",
+        "spans": [
+          "Metagenome sequencing studies revealed that the addition of PE microplastics inhibited the dissipation of ARGs in tetracycline-contaminated soils.",
+          "There were strong positive correlations between Multidrug, Aminoglycoside and Clycopeptide resistance genes and Chloroflexi and Proteobacteria in tetracycline contaminated soils, and there was a strong positive correlation between Aminoglycoside resistance genes and Actinobacteria in combined contamination of PE microplastics and tetracycline."
+        ]
+      },
+      {
+        "node": "X1",
+        "delta": -0.1992,
+        "p_gold": 0.5,
+        "p_neg": 0.95,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.22499999999999998,
+        "level": "specific",
+        "origin_gold": false,
+        "text": "In high-diversity soils with intermediate pH variability, exposure to microplastics leads to a measurable decline in the abundance of beneficial soil fungi.",
+        "spans": [
+          "MPs mainly increased the abundance of Proteobacteria, Actinobacteria, and Ascomycota as well as declined the abundance of Acidobacteria, Basidiomycota, and Chytridiomycota.",
+          "The response of fungi to MPs was stronger than that of bacteria, and the diversity of fungal communities was more sensitive to the impact of MPs than that of bacterial communities.",
+          "MPs altered AMF community structure and diversity, depending on their type and dose."
+        ]
+      },
+      {
+        "node": "X2",
+        "delta": -0.1992,
+        "p_gold": 0.5,
+        "p_neg": 0.95,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.22499999999999998,
+        "level": "mechanistic",
+        "origin_gold": false,
+        "text": "Disturbances in soil pH and nutrient cycling can trigger a shift in soil microbial community composition, reducing the prevalence of taxa associated with organic matter turnover.",
+        "spans": [
+          "Soil pH and total carbon (TC) were the major factors explaining changes in microbial composition.",
+          "Via a redundancy analysis, we identified fire and management-induced changes to pH, soil water repellency, nutrient stoichiometry, and total nutrient content as significant drivers of the composition of soil microbial communities.",
+          "Nitrogen addition affected microbial community composition, and prokaryotic communities were less sensitive to N addition than fungal communities.",
+          "Structural equation modelling revealed that changes in the composition of the microbial community were attributable to changes in soil pH but unrelated to plant characteristics."
+        ]
+      },
+      {
+        "node": "X15",
+        "delta": -0.12617999999999996,
+        "p_gold": 0.825,
+        "p_neg": 0.957,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.264,
+        "level": "class",
+        "origin_gold": false,
+        "text": "Soil microbial community composition is sensitive to environmental changes that affect nutrient availability and acidity.",
+        "spans": [
+          "Thus, the study describes how poor nutrient availability in opencast coalmine influences microbial community composition and diversity in exposed and underground soil profiles.",
+          "Overall, our results provide insights into the importance of overstory tree composition and the availability of soil nutrients in affecting soil microbial diversity and composition, while provi [...]",
+          "Planting legumes reduced soil salinity, and increased total carbon, total nitrogen, and NO3--N contents. Among the soil microbiota, some nitrogen-fixing bacteria (e.g., Azotobacter) were enriched in legumes, which were probably responsible for soil nitrogen accumulation. The complexity of the bacterial, fungal, and diazotrophic networks increased significantly from the control to the phytoremediated soils, suggesting that the soil microbial community formed closer ecological interactions during remediation.",
+          "Redundancy analysis (RDA) showed that soil pH was a key variable modulating ppa-harboring and phoD-harboring microbial communities.",
+          "Partial least squares path modeling (PLS-PM) revealed that long-term N application indirectly reduced soil P availability by altering the abundances of phoD-harboring biomarker taxa."
+        ]
+      },
+      {
+        "node": "X16",
+        "delta": 0.11806399999999995,
+        "p_gold": 0.948,
+        "p_neg": 0.825,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.246,
+        "level": "specific",
+        "origin_gold": true,
+        "text": "Soil samples containing plastic particles have a higher relative abundance of microbial taxa harboring antibiotic resistance genes compared to plastic-free soils.",
+        "spans": [
+          "The total ARG abundances significantly increased in the plastisphere and varied across plastic types.",
+          "The PP plastisphere contained higher relative abundances of the pathogenic bacteria Acinetobacter johnsonii and Escherichia coli, demonstrating the higher pathogenic risk of the microbial communities enriched in the plastisphere.",
+          "A range of potential pathogens and ARGs were detected in the plastisphere, which were enriched compared to the soil but varied across MPs and soil types.",
+          "Soils from regions with a longer history of plastic film use (such as Xinjiang province) had a higher abundance of ARGs and MGEs.",
+          "A higher level of multi-drug resistance and altered metabolisms was observed in the test sample."
+        ]
+      },
+      {
+        "node": "X17",
+        "delta": 0.11806399999999995,
+        "p_gold": 0.948,
+        "p_neg": 0.825,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.246,
+        "level": "mechanistic",
+        "origin_gold": true,
+        "text": "Exposure to plastic particles in soil increases the selection pressure for microbes with antibiotic resistance genes.",
+        "spans": [
+          "The total ARG abundances significantly increased in the plastisphere and varied across plastic types.",
+          "A higher level of multi-drug resistance and altered metabolisms was observed in the test sample.",
+          "Soils from regions with a longer history of plastic film use (such as Xinjiang province) had a higher abundance of ARGs and MGEs.",
+          "A range of potential pathogens and ARGs were detected in the plastisphere, which were enriched compared to the soil but varied across MPs and soil types."
+        ]
+      },
+      {
+        "node": "X11",
+        "delta": 0.10262299999999991,
+        "p_gold": 0.9892,
+        "p_neg": 0.8775,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.22340000000000004,
+        "level": "mechanistic",
+        "origin_gold": true,
+        "text": "Microplastic surfaces in soil select for a subset of the total soil microbial community, resulting in reduced microbial diversity compared to the surrounding soil matrix.",
+        "spans": [
+          "Results from high-throughput sequencing of 16S rRNA revealed that the alpha diversities (richness, evenness, and diversity) of the microbiota in soil were not obviously changed by the PE amendment, whereas the diversity indexes of microbiota on plastic fragments were significantly lower than those in the control and amended soils. Different taxonomic composition was observed in between the control and amended soils after 90 days of incubation. Bacterial assemblages with distinct community structure colonized the PE microplastics.",
+          "Microbial diversity is affected by the type, dose, size and interaction of MPs, with fungi being more sensitive than bacteria. Under high-dose PE treatment, the dominant bacteria and fungi enriched, and the diversity indexes declined significantly.",
+          "Results revealed that the alpha diversities (richness, evenness and diversity) of microbiota in the rhizosphere soil were variously decreased by the microplastics, especially the PE MPs.",
+          "PA MP decreased the soil microbial diversity (Shannon and Simpson indices, P\u202f<\u202f0.05). At the phylum level, PA MP increased the abundance of Acidobacteria, Firmicutes, and Crenarchaeota (P\u202f<\u202f0.05); at the genus level, it enhanced that of Geobacter, Thiobacillus, Pseudomonas, and Bradyrhizobium (P\u202f<\u202f0.01) while decreased that of Bacillus, Flavisolibacter, Geothrix, and Pseudarthrobacter (P\u202f<\u202f0.05).",
+          "Evidence indicates that microplastics can shift microbial community composition, reduce microbial diversity, and affect functional guilds involved in decomposition and nutrient transformations.",
+          "The biodegradation of PLA led to a higher bioavailable C and wider bioavailable C:N ratio, which further filtered out specific microbial species. Both new and aged PLA had a higher abundance of copiotrophic members (Proteobacteria, 35-51\u202f% in PLA, 26-34\u202f% in CK/PE treatments) and rrn copy number. The addition of PLA resulted in a lower alpha diversity and reduced network complexity."
+        ]
+      },
+      {
+        "node": "X18",
+        "delta": 0.09342499999999987,
+        "p_gold": 0.948,
+        "p_neg": 0.825,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.14759999999999998,
+        "level": "class",
+        "origin_gold": true,
+        "text": "Anthropogenic pollutants in soil, such as microplastics, can alter the composition of soil microbial communities by enriching for antibiotic resistance gene carriers.",
+        "spans": [
+          "Metagenome sequencing studies revealed that the addition of PE microplastics inhibited the dissipation of ARGs in tetracycline-contaminated soils. There were strong positive correlations between Multidrug, Aminoglycoside and Clycopeptide resistance genes and Chloroflexi and Proteobacteria in tetracycline contaminated soils, and there was a strong positive correlation between Aminoglycoside resistance genes and Actinobacteria in combined contamination of PE microplastics and tetracycline.",
+          "the presence of microplastics in the soil environment has been widely noticed. Secondly, due to the overuse of antibiotics, a large amount of antibiotics that cannot be fully absorbed by humans and livestock enter the soil environment in the form of urine or manure, making the soil suffer from serious antibiotic contamination problems. To address the environmental problems of microplastics and antibiotic contamination in soil, this study was conducted to investigate the effects of PE microplastics on antibiotic degradation, microbial community characteristics and ARGs in tetracycline-contaminated soils."
+        ]
+      },
+      {
+        "node": "X9",
+        "delta": -0.08194999999999997,
+        "p_gold": 0.8775,
+        "p_neg": 0.9892,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.13404000000000002,
+        "level": "class",
+        "origin_gold": false,
+        "text": "Microplastic pollution alters the composition of soil microbial communities in soils with moderate pH variability.",
+        "spans": [
+          "different doses and types of MPs could affect microbial community structure",
+          "V and microplastics directly affected the microbial structure in the topsoil",
+          "three types of microplastics, i.e., polyethylene (PE), polyvinylchloride (PVC) and polystyrene (PS), with the same particle size (200\u00a0\u00b5m) and concentration (2%) were used to investigate their influences on the rhizosphere soil bacterial communities. Results revealed that the alpha diversities (richness, evenness and diversity) of microbiota in the rhizosphere soil were variously decreased by the microplastics",
+          "Nanopolystyrene addition consistently reduced the abundance of ammonia oxidizer genes but showed contrasting effects on denitrifying genes. Metagenomic sequencing data revealed no significant effects of nanopolystyrene on the N-cycle pathway, while it significantly altered the composition of bacterial and fungal communities.",
+          "LDPE microplastic films alter microbial community composition and enzymatic activities in soil.",
+          "Results from high-throughput sequencing of 16S rRNA revealed that the alpha diversities (richness, evenness, and diversity) of the microbiota in soil were not obviously changed by the PE amendment, whereas the diversity indexes of microbiota on plastic fragments were significantly lower than those in the control and amended soils. Different taxonomic composition was observed in between the control and amended soils after 90 days of incubation.",
+          "PCoA analysis also indicated that there were differences between PLA and other MP groups, and different MP concentrations and exposure times had a great impact on microbial composition.",
+          "Treatments of polystyrene plastics with different particle sizes reprogramed the rhizosphere and root endophytic microbial communities. Different effects of microplastics and nanoplastics were found on the diversity, composition, network structure and function of bacteria and fungi, which might be due to the variation in particle sizes."
+        ]
+      },
+      {
+        "node": "X14",
+        "delta": -0.06709300000000007,
+        "p_gold": 0.9038,
+        "p_neg": 0.9964,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.11111999999999989,
+        "level": "mechanistic",
+        "origin_gold": false,
+        "text": "Disturbances to soil chemical properties can lead to a reduction in microbial groups responsible for organic matter turnover.",
+        "spans": [
+          "long-term continuous cropping changed the chemical properties of the soil, altered the structure and function of the soil bacterial and fungal communities in peanut rhizosphere, which to some extent reduced the relative abundance of potentially beneficial microbial genera and increased the relative abundance of potentially pathogenic fungal genera, thus increasing the potential risk of soil-borne diseases and reducing the yield and quality of peanut.",
+          "The total PLFAs, bacterial PLFAs, fungal PLFAs, actinomycetic PLFAs, richness, and Simpson and Shannon-Wiener indexes were all significantly negatively correlated with soil pH, total organic carbon (TOC), total nitrogen (TN) and the cation exchange capacity (CEC) (P < 0.05)."
+        ]
+      },
+      {
+        "node": "X20",
+        "delta": -0.05898200000000009,
+        "p_gold": 0.8775,
+        "p_neg": 0.957,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.09540000000000001,
+        "level": "mechanistic",
+        "origin_gold": false,
+        "text": "The presence of microplastics in soil disrupts microbial-mediated organic matter breakdown processes.",
+        "spans": [
+          "Microplastics (MPs) can alter microbial communities and carbon (C) cycling in agricultural soils. However, the mechanism by which MPs affect the decomposition of microbe-driven soil organic matter remains unknown. We investigated the bacterial community succession and temporal turnover during soil organic matter decomposition in MP-amended paddy soils (none, low [0.01% w/w], or high [1% w/w]). We observed that MPs reduced the CO2 efflux rate on day 3 and subsequently promoted it on day 15 of incubation. This increased CO2 emission in MP-amended soil may be related to (i) enhanced hydrolase enzyme activities or; (ii) shifts in the Shannon diversity, positive group interactions, and temporal turnover rates (from 0.018 to 0.040).",
+          "Compared with the soils without MPs, low doses (0.01% and 0.1%) of both virgin and aged MPs had negligible effects on SOC decomposition, whereas a high dose (1.0%) of these two MPs significantly (p\u202f<\u202f0.05) accelerated the production of CO2 in soils by 15-17%, showing a dose-dependent effect.",
+          "Exposure to virgin MPs significantly reduced the functional genes related to hemicellulose (abfA and manB) degradation, whereas increasing the aged MPs concentrations significantly decreased the abundances of functional genes encoding starch (sga), hemicellulose (abfA, manB and xylA), and cellulose (cex) hydrolysis.",
+          "Microplastic pollution is increasingly recognized as a pervasive contaminant in terrestrial ecosystems, particularly agricultural soils where plastics from mulching, irrigation, and waste application accumulate. Microplastics alter soil physical properties, interact with microbial communities, and may influence nutrient cycling processes critical to soil fertility and ecosystem functioning. This review synthesizes current evidence on microplastic occurrence in agricultural soils, mechanisms by which microplastics affect soil microbiota, and their impact on nutrient cycling, including carbon, nitrogen, and phosphorus dynamics. Evidence indicates that microplastics can shift microbial community composition, reduce microbial diversity, and affect functional guilds involved in decomposition and nutrient transformations."
+        ]
+      },
+      {
+        "node": "X13",
+        "delta": -0.04989899999999997,
+        "p_gold": 0.8625,
+        "p_neg": 0.9855,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.0615,
+        "level": "specific",
+        "origin_gold": false,
+        "text": "In soils experiencing altered pH and nutrient cycling, the relative abundance of microbial taxa known for decomposing organic matter is decreased.",
+        "spans": [
+          "abundance and diversity of greater fraction of microbes (fungi and bacteria) narrowed down with intensified application in cultivated soils in majority of trails studied. Increased efflux of CO2 and N2O was observed in soil fertilized with N however, CH4 emission was limited as methanotrophs were replaced with nitrifiers. Acid rain was highly favored with such emissions. No changes in soil organic carbon pool were seen in short period but in due course of time, decomposition or turnover rate decreased increasing the stability of carbon under lignin rich root residues.",
+          "Liming increased carbon dioxide (CO2) fluxes from ecosystem respiration, but there were no differences between limed treatments. The increased respiration was due to higher plant carbon (C) inputs and root respiration, enhanced decomposition activity (\u03b2-glucosidase) and increased abundance of specific microbial groups (e.g., cellulose-decomposing bacteria)."
+        ]
+      },
+      {
+        "node": "X8",
+        "delta": -0.032335999999999976,
+        "p_gold": 0.8775,
+        "p_neg": 0.957,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.03975000000000001,
+        "level": "mechanistic",
+        "origin_gold": false,
+        "text": "Microplastic contamination reduces the population of beneficial fungi in soil microbial communities.",
+        "spans": [
+          "PVC-MPs alone significantly reduced the soil urease and dehydrogenase activity, soil organic and microbial biomass carbon, bacterial/fungal community percentage, and their abundance (16S rRNA and 18S rRNA genes, respectively).",
+          "MPs mainly increased the abundance of Proteobacteria, Actinobacteria, and Ascomycota as well as declined the abundance of Acidobacteria, Basidiomycota, and Chytridiomycota.",
+          "Microplastics and their coexistence with biochar (except for PP) significantly reduced the soil fungal diversity indices.",
+          "Microplastics and their coexistence with biochar promoted the Basidiomycota and Mortierella and inhibited the Ascomycota and Fusarium.",
+          "FUNGuild functional prediction results showed that microplastics and their coexistence with biochar had a significant influence on the functional group."
+        ]
+      }
+    ]
+  },
+  {
+    "row": "RBV2-0108-N03",
+    "p_both": 0.815,
+    "verdict": "CORRECT",
+    "margin": 0.12062100000000014,
+    "nodes": [
+      {
+        "node": "X3",
+        "delta": 0.27932,
+        "p_gold": 0.8,
+        "p_neg": 0.5,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.36000000000000004,
+        "level": "class",
+        "origin_gold": true,
+        "text": "Membranes containing graphene oxide nanosheets exhibit enhanced mechanical stability compared to membranes without graphene oxide.",
+        "spans": [
+          "Based on the cation-\u03c0, coordination, and electrostatic interaction between metal cations and GO nanosheets, the aqueous stability and mechanical strength of the membranes are significantly improved.",
+          "Processing robust mechanical properties is important for elastomeric materials. In this work, different molecular weights of polyethylene glycols (PEG) were used to modify graphene oxide (GO) in order to study the relationship between the number of hydrogen bonds and the properties of the polyurethane/graphene oxide membrane.",
+          "The mechanical stability of multilayer membrane has enhanced significantly due to the tightly locked structure achieved by nylon 6 nanofibers network.",
+          "Furthermore, in contrast to the ZIF-8 mixed-matrix membrane, which showed decreased mechanical stability, it was found that the incorporation of GO could improve the mechanical strength of mixed-matrix membranes."
+        ]
+      },
+      {
+        "node": "X17",
+        "delta": -0.09993099999999999,
+        "p_gold": 0.825,
+        "p_neg": 0.957,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.1584,
+        "level": "mechanistic",
+        "origin_gold": false,
+        "text": "Covalent attachment of TiO2 nanoparticles to a membrane surface enhances photocatalytic degradation of organic pollutants under visible light compared to membranes lacking TiO2.",
+        "spans": [
+          "TiO2 nanoparticles (NPs) synthesized in the laboratory were anchored to the surface of the PAN_F NFs membrane by electrospray to prepare a TiO2 NPs coated NFs membrane (PAN_Coa). A second TiO2/PAN_P composite membrane (PAN_Co) was prepared by embedding TiO2 NPs into the PAN_P NFs by electrospinning.",
+          "The photocatalytic activities of PAN_Coa and PAN_Co NFs membranes against methyl orange dye degradation were evaluated and compared with those of bare TiO2 NPs.The higher photocatalytic activity of PAN_Coa membrane (92%, 20 ppm) compared to (PAN_Co) NFs membrane (41.64%, 20 ppm) and bare TiO2 (49.60%, 20 ppm) was attributed to the synergy between adsorption, lower band gap, high surface roughness and surface area."
+        ]
+      },
+      {
+        "node": "X18",
+        "delta": -0.08194999999999997,
+        "p_gold": 0.8775,
+        "p_neg": 0.9892,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.13404000000000002,
+        "level": "class",
+        "origin_gold": false,
+        "text": "Hybrid membranes composed of MOFs and photocatalytic nanoparticles show improved visible-light-driven degradation of organic contaminants in wastewater relative to pure MOF membranes.",
+        "spans": [
+          "According to the experimental obtained results the composite photocatalyst with the weight ratio of (2:1) showed the highest photocatalytic activity to the degradation of methyl orange (MO) and 4-Nitrophenol (4-NP) water contaminants. Moreover, the ratio of (2:1) serves as the optimum amount in this system. It is noteworthy that the MOF substrate have a synergistic effect for the enhancing of photocatalytic ability.",
+          "As a result, the NiCo2O4@MOF-801@MIL88A composite can completely reduce Cr(VI) in 45 min, which is strongly preferable to any pure component\u2019s performance. Overall, this work offers a low-cost but high-efficiency material that can remove organic and inorganic contaminants from water."
+        ]
+      },
+      {
+        "node": "X20",
+        "delta": 0.08126000000000011,
+        "p_gold": 0.972,
+        "p_neg": 0.8625,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.1313999999999999,
+        "level": "mechanistic",
+        "origin_gold": true,
+        "text": "Incorporation of graphene oxide nanosheets into membrane matrices increases the mechanical stability of the resulting composite membranes.",
+        "spans": [
+          "Based on the cation-\u03c0, coordination, and electrostatic interaction between metal cations and GO nanosheets, the aqueous stability and mechanical strength of the membranes are significantly improved.",
+          "When the molecular weight of PEG grafted on the surface of GO was 600, the tensile strength and elongation at break of the composite membrane were optimal. The reason for the improvement of physical and mechanical properties was that the dispersion of filler in the rubber matrix and the compatibility between filler and rubber had been improved.",
+          "Furthermore, in contrast to the ZIF-8 mixed-matrix membrane, which showed decreased mechanical stability, it was found that the incorporation of GO could improve the mechanical strength of mixed-matrix membranes."
+        ]
+      },
+      {
+        "node": "X11",
+        "delta": -0.054278999999999966,
+        "p_gold": 0.825,
+        "p_neg": 0.957,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.066,
+        "level": "mechanistic",
+        "origin_gold": false,
+        "text": "Covalent grafting of TiO2 nanoparticles onto MOF-based membranes enhances their resistance to fouling during repeated oil/water separation cycles.",
+        "spans": [
+          "The PAA film has introduced \u2013COOH functional groups for the surface immobilization of green nitrogen-doped carbon quantum dots-titanium dioxide (NCQDs-TiO2) photocatalyst via a self-assembly approach. ... The antifouling property of the modified membrane was proven by the rapid flux stabilization and the high flux recovery ratio of 83.92%.",
+          "The characterization results evidenced that the NTO nancomposites were firmly attached on the PES-based supporting layer through the chemical bonding between surface-grafted carboxylic group and Ti atom. ... The novel NTO/PAA/PES membrane also demonstrated high resistance to MB fouling and was able to revive 93.7% of original water fluxes upon 15\u00a0min of visible-light irradiation.",
+          "Titanium dioxide (TiO2) nanoparticles were grafted uniformly on membrane surface with the assistance of 1, 6-hexamethylene diisocyanate (HMDI), resulting in the enhancement of surface hydrophilicity and separation performance of the resultant membranes. ... Moreover, the membrane possessed good antifouling performance with a high flux recovery ratio of 93.7% after fouled by humic acid (HA)."
+        ]
+      },
+      {
+        "node": "X15",
+        "delta": -0.030758000000000063,
+        "p_gold": 0.948,
+        "p_neg": 0.9825,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.06900000000000017,
+        "level": "class",
+        "origin_gold": true,
+        "text": "Incorporation of photocatalytic nanomaterials into hydrophilic membrane matrices increases the rate of organic pollutant degradation under irradiation.",
+        "spans": [
+          "The prepared PVDF/LDH@g-C3N4@PDA/GO composite membrane has excellent performance in contaminant separation and photocatalytic degradation. ... More importantly, under visible-light irradiation, the membrane could achieve continuous and simultaneous flow-through separation and degradation of dye in short time.",
+          "The hydrophilic PM exhibits excellent performance for photo-degradation of organic dyes, photo-reduction of Cr(VI), and photocatalytic inactivation of mixed-culture biofilm under visible light irradiation.",
+          "The optimal PNF-4 membrane was expectedly consisted of an inside tight sub-nanopore structured separation layer and an outside thinner, smoother, super hydrophilic mesoporous degradation layer, respectively. Consequently, the activated PNF-4 membrane could synergistically reduce trimethoprim and sulfamethoxazole concentrations to below two orders of magnitude, accompanying with almost constant high water permeability, suggesting that the hydrophilic modification of the mesoporous degradation layer basically offsets its inherent hydraulic resistance.",
+          "Thanks to these porous and hydrophilic MIL-100(Fe), along with a robust photocatalysis-Fenton synergy from \u03b2-FeOOH@MIL-100(Fe), the as-prepared ENM shows outstanding performances with simultaneous high removal efficiency for oils (99.5 %), dyes (99.4 %) and chromium ion (Cr(VI)) (99.7 %).",
+          "The Fe-TiO2/PVDF-0.10 composite membrane achieved a higher BPA degradation efficiency (69.9%) within reaction time of 180\u00a0min than pristine PVDF membrane 45.1%. ... The incorporation of Fe(III)-TiO2 could improve physical and chemical properties of UF membrane in terms of hydrophilicity, mechanical properties and thus photocatalytic anti-fouling performance, which broadens the application field of membrane filtration technology.",
+          "On the contrary, the increased loading content of PEG-TiO2 renders the obtained hybrid porous membrane with larger pore size and more hydrophilic surface, which contributed to the enhanced in-situ photocatalytic degradation of adsorbed MB, and as high as 99.9% adsorbed MB by hybrid porous membrane can be in-situ photo-catalytically degraded under optimized condition."
+        ]
+      },
+      {
+        "node": "X9",
+        "delta": 0.02695900000000001,
+        "p_gold": 0.9821,
+        "p_neg": 0.915,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.03354999999999997,
+        "level": "class",
+        "origin_gold": true,
+        "text": "Membranes containing metal-organic frameworks (MOFs) exhibit higher separation efficiency for high-viscosity oil-in-water emulsions than membranes without MOFs.",
+        "spans": [
+          "However, the majority of works on anti-fouling membranes mainly focused on low-viscosity oils, which greatly limited the development and application of a membrane to face the real crude oil wastewater. Inspired by the hydrophilicity of sodium carboxymethyl cellulose (CMC) and zirconium base metal-organic frame (Zr-MOF), an anti-oil-fouling CMC/UiO-66-NH2 composite membrane was constructed by a self-assembly method. Profiting from the hydrophilicity and micro-nanostructure of the CMC/UiO-66-NH2 layer, the obtained CMC/UiO-66-NH2 membranes displayed underwater superoleophobicity and desired oil resistance. It could display the effective separation capability with 1282 \u00b1 62 to 6160 \u00b1 81 L/(m2\u00b7h\u00b7bar) and above 99.08% toward the different light oil emulsions. More importantly, the CMC/UiO-66-NH2 membrane displayed ultralow crude oil adhesion behaviors toward the crude oil emulsions, which could achieve a considerably high flux (746 \u00b1 60 to 5224 \u00b1 87 L/(m2\u00b7h\u00b7bar)). Furthermore, electrostatic interaction and physical enwinding-wrapping between CMC and UiO-66-NH2 also endowed the composite membranes with outstanding stability. After immersing the as-prepared membranes into the harsh environments for 24 h, the membranes still maintained high underwater-oil contact angles (UWOCA > 155\u00b0) and separation ability (oil rejection was above 99.0%). Therefore, CMC/UiO-66-NH2 composite membranes could demonstrate promising prospects in real oily emulsion treatment."
+        ]
+      }
+    ]
+  },
+  {
+    "row": "RBV2-0113-N08",
+    "p_both": 1.0,
+    "verdict": "CORRECT",
+    "margin": 0.7260379999999999,
+    "nodes": [
+      {
+        "node": "X5",
+        "delta": 0.27932,
+        "p_gold": 0.8,
+        "p_neg": 0.5,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.36000000000000004,
+        "level": "mechanistic",
+        "origin_gold": true,
+        "text": "Transversal gate operations enable fault-tolerant logical qubit manipulation with reduced control overhead compared to individual physical qubit addressing.",
+        "spans": [
+          "Logical operators of this form are fault-tolerant because each qubit is acted upon by at most one gate, limiting the spread of errors, and are referred to as transversal logical operators.",
+          "Transversal gates are the simplest type of fault-tolerant gate, but the potential of transversal gates on LDPC codes has hitherto been largely neglected.",
+          "We show that in these codes transversal gates can implement Hadamard (up to logical SWAP gates) and control-Z on all logical qubits.",
+          "We further implement logical Pauli operations with a fidelity of ... within the code space."
+        ]
+      },
+      {
+        "node": "X12",
+        "delta": 0.15473000000000003,
+        "p_gold": 0.9892,
+        "p_neg": 0.825,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.3284,
+        "level": "class",
+        "origin_gold": true,
+        "text": "Neutral-atom array quantum processors can support parallel logical gate operations on multiple encoded qubits.",
+        "spans": [
+          "The gates are mediated by excitation to strongly interacting Rydberg states and are implemented in parallel on several clusters of atoms in a one-dimensional array of optical tweezers.",
+          "Performing parallel gate operations while retaining low crosstalk is an essential step in transforming neutral atom arrays into powerful quantum computers and simulators.",
+          "With the assistance of additional addressing light or multiple modulation frequencies, we develop two efficient implementations of parallel-gate operations.",
+          "Here we report the realization of two-qubit entangling gates with 99.5% fidelity on up to 60 atoms in parallel, surpassing the surface-code threshold for error correction.",
+          "The realization of two-qubit entangling gates with 99.5% fidelity on up to 60 rubidium atoms in parallel is reported, surpassing the surface-code threshold for error correction and laying the groundwork for neutral-atom quantum computers."
+        ]
+      },
+      {
+        "node": "X6",
+        "delta": 0.128299,
+        "p_gold": 0.95,
+        "p_neg": 0.65,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.14999999999999997,
+        "level": "class",
+        "origin_gold": true,
+        "text": "Quantum processors based on neutral-atom arrays can scale to larger code distances while maintaining logical qubit fidelity suitable for running classically hard circuits.",
+        "spans": [
+          "Neutral atoms are a promising platform for scalable quantum computing, however, prior demonstration of high fidelity gates or low-loss readout methods have employed restricted numbers of qubits. Using randomized benchmarking of microwave-driven single-qubit gates, we demonstrate average gate errors of 7(2)\u00d710^{-5} on a 225 site atom array using conventional, destructive readout.",
+          "Neutral-atom arrays have recently emerged as a promising quantum computing platform, featuring coherent control over hundreds of qubits^ 2 , 3 and any-to-any gate connectivity in a flexible, dynamically reconfigurable architecture^ 4 .",
+          "By enabling high-fidelity operation in a scalable, highly connected system, these advances lay the groundwork for large-scale implementation of quantum algorithms^ 14 , error-corrected circuits^ 7 and digital simulations^ 15 . The realization of two-qubit entangling gates with 99.5% fidelity on up to 60 rubidium atoms in parallel is reported, surpassing the surface-code threshold for error correction and laying the groundwork for neutral-atom quantum computers.",
+          "A programmable neutral-atom quantum computer based on a two-dimensional array of qubits led to the creation of 2\u20136-qubit Greenberger\u2013Horne\u2013Zeilinger states and showed the ability to execute quantum phase estimation and optimization algorithms."
+        ]
+      },
+      {
+        "node": "X10",
+        "delta": 0.1094949999999999,
+        "p_gold": 0.9285,
+        "p_neg": 0.7875,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.16920000000000002,
+        "level": "specific",
+        "origin_gold": true,
+        "text": "A reconfigurable neutral-atom array quantum processor with a zoned architecture can perform parallel transversal CNOT gates between logical qubits encoded using the surface code.",
+        "spans": [
+          "We propose groups of interleaved logical qubits, gaining all-to-all connectivity within the group via efficient transversal CNOT gates.",
+          "Neutral-atom arrays have recently emerged as a promising quantum computing platform, featuring coherent control over hundreds of qubits^ 2 , 3 and any-to-any gate connectivity in a flexible, dynamically reconfigurable architecture^ 4 .",
+          "The realization of two-qubit entangling gates with 99.5% fidelity on up to 60 rubidium atoms in parallel is reported, surpassing the surface-code threshold for error correction and laying the groundwork for neutral-atom quantum computers."
+        ]
+      },
+      {
+        "node": "X17",
+        "delta": 0.09342499999999987,
+        "p_gold": 0.948,
+        "p_neg": 0.825,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.14759999999999998,
+        "level": "mechanistic",
+        "origin_gold": true,
+        "text": "Transversal gate operations allow fault-tolerant logical operations to be implemented without requiring individual addressing of each constituent physical qubit.",
+        "spans": [
+          "For the logical qubit, we measure an average fault-tolerant preparation and measurement error of 0.6% and a transversal Clifford gate with an error of 0.3% after error correction.",
+          "Then, gate operations are implemented by transversal measurements on the prepared logical cluster states.",
+          "A suitable code such as the Steane seven-qubit code is adopted for transversal operations.",
+          "Transversal gates are the simplest type of fault-tolerant gate, but the potential of transversal gates on LDPC codes has hitherto been largely neglected. We investigate the transversal gates that can be implemented in hypergraph product codes, a class of LDPC codes. ... We show that in these codes transversal gates can implement Hadamard (up to logical SWAP gates) and control-Z on all logical qubits.",
+          "In this paper, we introduce a very simple protocol to potentially reduce this overhead for non-Clifford gates: transversal injection. Transversal injection modi\ufb01es the initial physical states of all data qubits in a stabilizer code before standard encoding and results in the direct preparation of a large class of single qubit states, including resource states for non-Clifford logic gates.",
+          "A suitable code such as the Steane seven-qubit code is adopted for transversal operations.",
+          "We investigate the implementation of fault\u2010tolerant logical Hadamard gates in Reed\u2013Muller quantum codes (RMQCs)."
+        ]
+      },
+      {
+        "node": "X9",
+        "delta": -0.09342499999999987,
+        "p_gold": 0.825,
+        "p_neg": 0.948,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.14759999999999998,
+        "level": "class",
+        "origin_gold": false,
+        "text": "Advanced machine learning-based control strategies can improve qubit coherence times in neutral-atom quantum computing platforms.",
+        "spans": [
+          "Here, two machine\u2010learning based approaches are proposed respectively to estimate the noise parameters and to mitigate their effects using only measurements of the final quantum state. Our analysis is then tested on a real neutral atom platform, comparing our predictions with a priori estimated parameters.",
+          "Finally, reinforcement learning is employed to design a pulse that mitigates the noise effects.",
+          "Our machine learning\u2010based approach is espected to be very useful for the noise benchmarking of NISQ processors and, more in general, of real quantum technologies."
+        ]
+      },
+      {
+        "node": "X11",
+        "delta": 0.054193999999999964,
+        "p_gold": 0.9964,
+        "p_neg": 0.8625,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.06694999999999995,
+        "level": "mechanistic",
+        "origin_gold": true,
+        "text": "Zoned architectures in neutral-atom quantum processors enable the simultaneous execution of transversal logical gates across multiple logical qubits.",
+        "spans": [
+          "Second, we divide the architecture into separate sections, and run the circuit in each section, free of lost atoms. Provided the architecture is large enough, this resets the circuit without having to reload the entire architecture. This increases the number of effective shots before reloading by a factor of two for a circuit that utilizes 30% of the architecture. We also explore using these sections to parallelize execution of circuits, reducing the overall runtime by a total 50% for 30 qubit circuit."
+        ]
+      }
+    ]
+  },
+  {
+    "row": "RBV2-0132-N09",
+    "p_both": 0.8,
+    "verdict": "CORRECT",
+    "margin": 0.09993099999999999,
+    "nodes": [
+      {
+        "node": "X18",
+        "delta": 0.09993099999999999,
+        "p_gold": 0.957,
+        "p_neg": 0.825,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.1584,
+        "level": "class",
+        "origin_gold": true,
+        "text": "Photocatalysts based on direct Z-scheme heterojunctions show improved separation of photogenerated electron-hole pairs compared to conventional heterojunction photocatalysts.",
+        "spans": [
+          "The significantly promoted catalytic activity was ascribed to the greatly enhanced charge separation efficiency by forming spatial separated reservoirs of photo activated electrons and holes in the Z-scheme heterojunction, corresponding to the conduction band of g-C3N4 and the valence band of \u03b2-FeOOH, respectively.",
+          "Ag2O@rGO@TiO2-x builds a Z-scheme structure, which promotes the separation of electron/hole pairs and retains prominent redox ability;",
+          "The ingenious cooperation of the Z-scheme heterojunction with the hollow structure optimizes the photogenerated charges transport channel, spatially separated the oxidation and reduction half-reactions, decreases the charge recombination probability, and simultaneously improves the light harvesting efficiency.",
+          "Characterization results show that the synergistic effect of remarkable charge carrier separation efficiency and broadened solar light absorption is responsible for the enhanced photocatalytic performance. The well-matched band structures of the two semiconductors facilitate the charge transfer in Z-scheme transfer model, resulting in high charge separation rate.",
+          "the built-in electric field in Ag3PO4/BiVO4 was produced by the interfacial interaction between Ag3PO4 and BiVO4, which served as a charge carrier space that facilitated the transfer and separation of photogenerated carriers.",
+          "In all photocatalytic experiments, the nanocomposite activity was higher than that of B-TiO2 and CTO, which improved its performance due to more generation, separation, and transport of charge carriers, which was confirmed by PL, EIS, and photocurrent techniques.",
+          "Driven by the newly-built internal electric field (IEF), the formation of Fe-O-Bi electron migration channel allows for rapid separation and transfer of charge carriers at the heterojunction interface, confirmed by the material characterization and density functional theory (DFT) calculation."
+        ]
+      }
+    ]
+  },
+  {
+    "row": "RBV2-0159-N04",
+    "p_both": 0.075,
+    "verdict": "WRONG",
+    "margin": -0.305082,
+    "nodes": [
+      {
+        "node": "X3",
+        "delta": 0.5220230000000001,
+        "p_gold": 0.95,
+        "p_neg": 0.5,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.8999999999999999,
+        "level": "class",
+        "origin_gold": true,
+        "text": "Copper-based visible-light photocatalysts exhibit higher photocatalytic activity toward cationic dyes than anionic dyes in aqueous solution.",
+        "spans": [
+          "In the degradation process, surface charge attraction between HKUST-1 and cationic dyes promotes removal efficiency, with the degradation efficiency of cationic dyes (MB and RhB) more than 50% higher than for anionic dyes [acid orange 7 (AO7) and methyl red (MR)]."
+        ]
+      },
+      {
+        "node": "X5",
+        "delta": -0.37634900000000004,
+        "p_gold": 0.5,
+        "p_neg": 0.8,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.6000000000000001,
+        "level": "mechanistic",
+        "origin_gold": false,
+        "text": "Copper doping in graphitic carbon nitride increases charge separation efficiency under visible light irradiation.",
+        "spans": [
+          "the surface dual-doped effect of Cu/Cl elements on g-C3N4, which results in the extended visible light harvest range, elevated CB potential and improved the separation efficiency of charge carriers.",
+          "Cu2+/Cu+ doping facilitates the photoinduced charge transfer by forming the S-S Z-scheme heterojunction of photosystem Cu2+ doped g-C3N4 (PSI) and Cu+ doped g-C3N4 (PSII)."
+        ]
+      },
+      {
+        "node": "X11",
+        "delta": -0.15473000000000003,
+        "p_gold": 0.825,
+        "p_neg": 0.9892,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.3284,
+        "level": "class",
+        "origin_gold": false,
+        "text": "Copper-modified graphitic carbon nitride (g-C3N4) materials catalyze the degradation of organic dyes under visible light irradiation.",
+        "spans": [
+          "The current work investigated a synergetic effect of graphitic carbon nitride (g-C3N4) with different concentrations (5, 10, 1nd 15\u202fw%) on the visible-light photocatalytic activity of the copper-selenide (CuxSey) nanostructures.",
+          "Finally, the examination of the photocatalytic activity showed that the hydroxyl radicals ( OH) were the most important factors during the redox process of the dye.",
+          "In this study, a tertiary composite of graphitic carbon nitride (GCN) with copper and manganese is utilized for photocatalytic degradation to add to efforts for tackling environmental pollution problems.",
+          "This composite has been used for the degradation of an organic dye (methylene blue (MB)) from water at neutral conditions (pH = 7) of the solution.",
+          "The percentage photocatalytic degradation of MB by Cu\u2013Mn-doped GCN is higher than that of Cu\u2013GCN and GCN.",
+          "The prepared composite enhances the degradation of methylene blue (MB) from 5 to 98% under sunlight.",
+          "The micron-size flower-like metal oxide of copper/zinc decorated graphitic carbon nitride (g\u2013C3N4\u2013CuO/ZnO) composite was successfully synthesized by solvent mixing assisted with the sonication method.",
+          "Further, the photocatalytic capacity of the synthesized composite was examined by the evolution of hydrogen production through the water-splitting using visible light and the study of methylene blue dye (MB) degradation under solar irradiation.",
+          "The maximum quantum efficiency and degradation of the MB dye by g\u2013C3N4\u2013CuO/ZnO composite were 5.5% and 99%, respectively.",
+          "Highly efficient recyclable photocatalysts of ternary g-C3N4-ZnO/Cu2O nanocomposite were designed for photo-degradation of RhB dye.",
+          "The photo-degradation efficiencies of RhB dye over the g-C3N4, g-C3N4/ZnO, g-C3N4/Cu2O and g-C3N4-ZnO/Cu2O photocatalysts (PCs) were 36.4%, 53% and 66%, and 91.4% in 100\u00a0min under visible-light."
+        ]
+      },
+      {
+        "node": "X12",
+        "delta": -0.15473000000000003,
+        "p_gold": 0.825,
+        "p_neg": 0.9892,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.3284,
+        "level": "mechanistic",
+        "origin_gold": false,
+        "text": "Copper incorporation into g-C3N4 enhances the photocatalytic activity of g-C3N4 under visible light.",
+        "spans": [
+          "Copper modification caused a sevenfold increase in the rate of 4-nitrophenol degradation in the presence of H2O2 at pH = 3. This dramatic enhancement can be attributed to the synergistic effect of copper and H2O2 in this photocatalytic system.",
+          "The graphitic carbon nitride/copper hydroxide photocatalyst, which achieved \u223c15.8-fold enhanced visible-light photocatalytic performance for pollutant degradation compared to origin g-C3N4, was synthesised by chemical deposition strategy.",
+          "The prepared CCNBs exhibited excellent photocatalytic activity for CO2 reduction. The unique hierarchical structure was beneficial to enhance light harvesting. Besides, the introduction of uniformly dispersed Cu further improved the absorption capacity of visible light, increased active sites, and promoted the separation and transfer of carriers. The CO yield of CCNBs was 5 times higher than that of bulk g-C3N4, and showed excellent stability in cycle experiments.",
+          "Ultraviolet (UV)-visible spectroscopy illustrated that the absorption of light strengthened after the loading of copper phosphide, and the time-resolved transient photoluminescence (PL) spectra showed that the separation and transfer of the photoexcited carriers greatly improved. Moreover, both copper phosphide/g-C3N4 photocatalysts exhibited a relatively high H2 evolution rate: Cu3P/g-C3N4 (maximum 343\u00a0\u03bcmol\u00a0h-1\u00a0g-1), Cu97P3/g-C3N4 (162.9\u00a0\u03bcmol\u00a0h-1\u00a0g-1) while copper phosphide themself exhibit no photocatalytic activity.",
+          "The Cu/g-C3N4 material with the proper size of Cu NP (CuCN-100) had the best photocatalytic property (675 \u03bcmol\u00b7g-1\u00b7h-1) in reducing the amount of CO2 to methanol at room temperature under normal pressure. The particle size of Cu NPs is the key factor to improve the catalytic activity and stability because of the improved transfer and separation of photogenerated charges with the small Cu NPs."
+        ]
+      },
+      {
+        "node": "X6",
+        "delta": -0.128299,
+        "p_gold": 0.65,
+        "p_neg": 0.95,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.14999999999999997,
+        "level": "class",
+        "origin_gold": false,
+        "text": "Copper-based photocatalysts are more effective than traditional UV-responsive photocatalysts at degrading hazardous organic dyes under visible light.",
+        "spans": [
+          "The photocatalytic degradation of methyl orange (MO) was found to be 85.0% using CuO/TiO2 nanocomposite photocatalyst, which is better than pure TiO2 and pure CuO after 3 hours reaction.",
+          "Every as-synthesized nanocomposite was effective photocatalyst for the photodecomposition of an MB solution. Moreover, CuOSC-3 exhibited the best photocatalytic activity, with 96% degradation of the visible-light irradiated MB solution in 2 h. Pure CuO nanocrystals generated through the same route and pure SWCNTs were used as controls, where the photocatalytic actions of the nanocomposite samples were found to be remarkably better than that of either the pure CuO or the pure SWCNTs."
+        ]
+      },
+      {
+        "node": "X20",
+        "delta": 0.12617999999999996,
+        "p_gold": 0.957,
+        "p_neg": 0.825,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.264,
+        "level": "mechanistic",
+        "origin_gold": true,
+        "text": "Copper-based visible-light photocatalysts preferentially degrade cationic dyes over anionic dyes in aqueous solution.",
+        "spans": [
+          "In the degradation process, surface charge attraction between HKUST-1 and cationic dyes promotes removal efficiency, with the degradation efficiency of cationic dyes (MB and RhB) more than 50% higher than for anionic dyes [acid orange 7 (AO7) and methyl red (MR)]."
+        ]
+      },
+      {
+        "node": "X17",
+        "delta": -0.11806399999999995,
+        "p_gold": 0.825,
+        "p_neg": 0.948,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.246,
+        "level": "mechanistic",
+        "origin_gold": false,
+        "text": "Copper incorporation into semiconductor photocatalysts enhances charge carrier separation under visible light irradiation.",
+        "spans": [
+          "copper oxide improves the visible light absorption of TiO 2 and bismuth oxide improves electron\u2013hole separation. The ternary composite exhibited extended absorption in the visible region, as determined by UV\u2013Vis diffuse reflectance spectroscopy. High-resolution transmission electron microscopy images showed close contact among the individual semiconductor oxides in the ternary Cu 2 O/TiO 2 /Bi 2 O 3 nanocomposite. Improved charge carrier separation and transport were observed in the Cu 2 O/TiO 2 /Bi 2 O 3 ternary composite using electrochemical impedance spectroscopy and photocurrent analysis.",
+          "The experiments of photocatalytic production of H2 confirm that the Cu3P co-catalysts effectively promote the separation of photogenerated charge carriers in ZnS, and consequently enhance the H2 evolution activity.",
+          "It was found that the CuNPs implanted at the interface of the TiO2 microspheres and THPP can dramatically strengthen the interaction between the TiO2 microspheres and THPP, and improve the separation and transfer of photo-produced charges.",
+          "Under illumination, the ZnO/CuO system follows Z-scheme charge separation and transfer mechanisms for the degradation of organic pollutants."
+        ]
+      },
+      {
+        "node": "X16",
+        "delta": -0.08126000000000011,
+        "p_gold": 0.8625,
+        "p_neg": 0.972,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.1313999999999999,
+        "level": "specific",
+        "origin_gold": false,
+        "text": "Copper-doped graphitic carbon nitride exhibits a higher photogenerated electron-hole separation efficiency under visible light than undoped graphitic carbon nitride.",
+        "spans": [
+          "Cu-doped BiVO4/g-C3N4 nanocomposite photocatalysts could improve electron/hole (e\u2212/h+) pair separation, stability, and light-harvesting efficiency compared to pristine BiVO4 or g-C3N4, resulting in the enhancement of photocatalytic activity.",
+          "The dopant materials significantly enhanced the electron\u2013hole separation and enhanced the removal rate of MCP as compared with bulk gCN."
+        ]
+      },
+      {
+        "node": "X13",
+        "delta": 0.06473700000000004,
+        "p_gold": 0.909,
+        "p_neg": 0.825,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.10080000000000008,
+        "level": "specific",
+        "origin_gold": true,
+        "text": "Copper(II) phenanthroline complexes produce singlet oxygen when exposed to visible light.",
+        "spans": [
+          "Both agents catalyze intracellular superoxide (O2\u2022\u2212) and singlet oxygen (1O2) formation with radical species mediating oxidative damage within nuclear DNA in the form of double strand breaks and to the mitochondria in terms of membrane depolarization.",
+          "Singlet oxygen generated on photo-sensitization of the complexes was the key cytotoxic species responsible for apoptotic damage of cancer cells.",
+          "Degree of photo-cytotoxicity of the photo-activated complexes was related to the extent of 1O2 generation which was probed by several photo-physical studies along with TD-DFT calculations.",
+          "Presence of low-lying, long-lived triplet excited state and hence increased ability to generate 1O2 from 3O2 through type-II photo-process was proposed to explain the degree of photo-cytotoxicity of the complexes."
+        ]
+      },
+      {
+        "node": "X15",
+        "delta": -0.008533000000000013,
+        "p_gold": 0.909,
+        "p_neg": 0.93,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.01050000000000001,
+        "level": "class",
+        "origin_gold": true,
+        "text": "Transition metal complexes with visible-light absorption properties can mediate the generation of reactive oxygen species.",
+        "spans": [
+          "The principle of BCT is electron transition, resulting in the interaction of a transition metal complex (catalyst) and substrate molecule.",
+          "MnIII- tetraphenylporphyrin chloride (MnClTPP) in combination with an ascorbic acid (AA) has been proposed as an appropriate candidate for cancer treatment regarding the active agents in BCT.",
+          "H2O2 produced during AA decomposition oxidized MnClTPP to high-reactive oxo-MnV species. MnClTPP in presence AA leads to the production of excessive ROS levels in vitro."
+        ]
+      },
+      {
+        "node": "X9",
+        "delta": 0.00394300000000003,
+        "p_gold": 0.987,
+        "p_neg": 0.9825,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.008999999999999897,
+        "level": "mechanistic",
+        "origin_gold": true,
+        "text": "Visible light irradiation of copper-based complexes can generate reactive species capable of breaking down organic dye molecules in solution.",
+        "spans": [
+          "The copper(II) complex was found to exhibit low optical band gap energy (2.9 eV) and good photocatalytic activity under visible light irradiation in the decomposition of Congo Red (CR). A dye removal efficiency higher than 97% at the catalyst and CR concentrations of 1 and, respectively, 200 mg/L was obtained.",
+          "By carrying spectrophotometrically on irradiation of visible light using Cu(II) metal complex of Schiff base ligand the photocatalytic degradation of Naphthol Blue Black dye (NBB), Rhodamine B (RB) and Methylene Blue (MB) dyes was carried out. The photocatalytic degradation of NBB, RB and MB dyes was carried out with reference to effect of time. The results revealed that Cu-complex of Schiff base ligand is consistent for photocatalysis of these dyes for treatment of authentic effluents. The results show that the optimal dose for maximal degradation of these dyes was found to be 5 mgL-1 of the Cu(II) metal complex. The % degradation of NBB, RB and MB were found to be 55%, 50% and 80% in the visible light irradiation.",
+          "An investigation of the effects of various physical parameters, like the amount of complex, catalyst dose, and varying polarity of solvent methanol-benzene, on the photocatalytic degradation of surfactant as copper (II) mustard 2-amino 6-methyl benzothiazole complex has been carried out under the UV-visible light source."
+        ]
+      }
+    ]
+  },
+  {
+    "row": "RBV2-0193-N06",
+    "p_both": 0.075,
+    "verdict": "WRONG",
+    "margin": -0.44624900000000006,
+    "nodes": [
+      {
+        "node": "X2",
+        "delta": -0.6105659999999999,
+        "p_gold": 0.8,
+        "p_neg": 0.5,
+        "lambda": -2.0,
+        "label": "strong_contradiction",
+        "leverage": 0.6000000000000001,
+        "level": "mechanistic",
+        "origin_gold": true,
+        "text": "Disclosure of non-human or artificial identity by a social media persona increases perceived authenticity among audiences.",
+        "spans": [
+          "Chatbot identity disclosure negatively affects customer purchases because customers perceive the disclosed bot as less knowledgeable and less empathetic.",
+          "a disclosure of chatbot identity before the machine-customer conversation reduces purchase rates by over 79.7%. Additional analyses find that these results are robust to non-response bias and hang-ups, and the chatbot disclosure substantially decreases call length. Exploration of the mechanisms reveals that when customers know the conversational partner is not a human, they are curt and purchase less because they perceive the disclosed bot as less knowledgeable and less empathetic."
+        ]
+      },
+      {
+        "node": "X3",
+        "delta": 0.13710699999999998,
+        "p_gold": 0.8,
+        "p_neg": 0.5,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.15000000000000002,
+        "level": "class",
+        "origin_gold": true,
+        "text": "Artificial personas that embody socially valued ideals are perceived as authentic within digital environments.",
+        "spans": [
+          "The results suggested that participants perceived more humanlike VIs as more authentic, leading to more favorable advertising attitudes and higher purchase intentions across the two studies.",
+          "Virtual spokespersons build a new communication channel between brands and consumers, so it is urgent for enterprises to explore the influence of perceived authenticity of virtual spokespersons on consumers' brand attitudes. Based on the perspective of psychological distance, through the empirical analysis of the results, it is found that the perceived authenticity of virtual spokesperson has a significant positive impact on psychological distance and brand attitude, and psychological distance has a significant positive impact on brand attitude.",
+          "Text disclosed as AI-generated is not perceived as less authentic than that disclosed as human-written. No negative effect on brand voice authenticity and brand attitude results if an AI-source is disclosed."
+        ]
+      },
+      {
+        "node": "X15",
+        "delta": 0.09342499999999987,
+        "p_gold": 0.948,
+        "p_neg": 0.825,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.14759999999999998,
+        "level": "class",
+        "origin_gold": true,
+        "text": "Artificial or computer-generated personas that are transparent about their non-human nature are generally perceived as more authentic than those that conceal it.",
+        "spans": [
+          "Text disclosed as AI-generated is not perceived as less authentic than that disclosed as human-written. No negative effect on brand voice authenticity and brand attitude results if an AI-source is disclosed.",
+          "Results show that brands can afford to be transparent in disclosing the use of AI to support brand voice as communicated in product description or specification or in chatbot text."
+        ]
+      },
+      {
+        "node": "X12",
+        "delta": -0.06621499999999997,
+        "p_gold": 0.825,
+        "p_neg": 0.987,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.08100000000000002,
+        "level": "class",
+        "origin_gold": false,
+        "text": "Artificial personas in immersive digital environments are perceived as more authentic when they exhibit human-like imperfections.",
+        "spans": [
+          "Mad Monster\u2019s authenticity was achieved through\u2014not despite\u2014their blatantly \u201cinauthentic\u201d technological augmentations like extreme facial and voice filters. They were co-managed to perform as per \u201chuman\u201d authenticity expectations while drawing on the presumption of inauthenticity: by the comedy duo, their fans, existing institutions, and commercial interests\u2014the locus of their authenticity was in collaborative performances.",
+          "Their success as \u201cfake but/thus real\u201d AR-filtered, autotuned celebrities also warns of how diverse humans\u2019 crucial contributions can be easily hidden in cyborg phenomena that stress their technological components, and how accountability can be diverted."
+        ]
+      }
+    ]
+  },
+  {
+    "row": "RBV2-0222-N05",
+    "p_both": 1.0,
+    "verdict": "CORRECT",
+    "margin": 0.5499240000000001,
+    "nodes": [
+      {
+        "node": "X5",
+        "delta": 0.5220230000000001,
+        "p_gold": 0.95,
+        "p_neg": 0.5,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.8999999999999999,
+        "level": "mechanistic",
+        "origin_gold": true,
+        "text": "The adsorption of synthetic aromatic dyes onto amine-functionalized fruit peel biosorbents proceeds via monolayer coverage as described by the Langmuir isotherm model.",
+        "spans": [
+          "Adsorption isotherms of RR120 on QAMOPP were correlated with two- and three-parameter non-linearized isotherm equations viz. Langmuir, Freundlich, Dubinin-Radushkevich (D-R), Temkin, Sips, Toth, Khan and Redlich-Peterson (R-P). It was observed that the Langmuir (R2\u202f=\u202f0.9996) and Khan (R2\u202f=\u202f0.9991) were the best fit isotherm models to predict RR120 adsorption onto QAMOPP.",
+          "Langmuir maximum monolayer adsorption capacities, q o ( max ) , at temperatures of 303, 318, and 333 K are 250.00, 239.05, and 235.58 mg/g respectively, thus suggesting a favourable adsorption at low temperature."
+        ]
+      },
+      {
+        "node": "X18",
+        "delta": 0.12289899999999987,
+        "p_gold": 0.9892,
+        "p_neg": 0.825,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.19704000000000002,
+        "level": "class",
+        "origin_gold": true,
+        "text": "Biosorbents derived from agronomic waste materials exhibit Langmuir-type adsorption behavior toward synthetic aromatic dyes.",
+        "spans": [
+          "Optimization of experimental parameters by batch mode studies revealed that dye adsorption is influenced by medium pH time, initial concentration of dyes, and adsorbent dosage. ... Further, the adsorption process obeyed the bi-model (Langmuir-Freundlich model) isotherm and adhered to pseudo-second-order kinetics.",
+          "The results of this research analysis showed that the adsorption of methylene blue according to the Langmuir isotherm indicated by the value of the equation of the straight line R2 being one and the direction of the curve depicting occurring the effective adsorption.",
+          "The equilibrium data adequately follow the Langmuir isotherm (R2 =\u202f0.98\u20130.99), suggesting the monolayer sorption of adsorbate molecules."
+        ]
+      },
+      {
+        "node": "X20",
+        "delta": -0.054816999999999894,
+        "p_gold": 0.9,
+        "p_neg": 0.975,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.08999999999999994,
+        "level": "mechanistic",
+        "origin_gold": false,
+        "text": "Chemical or physical modification of agricultural waste biosorbents increases their adsorption capacity for synthetic aromatic dyes.",
+        "spans": [
+          "The influence of the chemical modification of the sorbent on its adsorption capacity was also tested, which showed a positive effect of acid modification towards acidic dyes and vice versa towards the basic dyes."
+        ]
+      },
+      {
+        "node": "X15",
+        "delta": -0.03396500000000002,
+        "p_gold": 0.8932,
+        "p_neg": 0.939,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.05495999999999994,
+        "level": "class",
+        "origin_gold": false,
+        "text": "Surface modification of lignocellulosic biosorbents from agronomic waste increases the abundance of functional groups capable of binding anionic dyes.",
+        "spans": [
+          "Upon treatment, dissolution of lignin and hemicellulose with the enhancement of effective carboxyl groups occurs, improving the adsorption efficiency to 96%; the treated water is visibly clear. The relative band abundance and band shifts further confirm the involvement of the surface functional groups in the adsorption process."
+        ]
+      },
+      {
+        "node": "X9",
+        "delta": -0.008180999999999994,
+        "p_gold": 0.939,
+        "p_neg": 0.948,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.018000000000000016,
+        "level": "class",
+        "origin_gold": false,
+        "text": "Biosorbents derived from agronomic waste materials can achieve high adsorption capacities for synthetic aromatic dyes in aqueous solution.",
+        "spans": [
+          "Experimental results showed that the rate of adsorption increased with increase in adsorbent weight, dye concentration, pH and decrease in particle size. However, the CR dye removal declined with increased in temperature indicating an endothermic process. Adsorption equilibrium was achieved within 3\u00a0h with efficiency of up to 91% at equilibrium. Langmuir adsorption isotherm model, Elovich equation and pseudo-second-order kinetics gave a good fit to the experimental data. Results furnish evidence that CWP is an efficacious, eco-friendly, bio renewable and affordable biomaterial for dye removal from industrial effluents.",
+          "The Maximum adsorption capacity was found to be 117.26 mg/g at 25\u00b0C for a natural pH (ph =6.22).",
+          "The maximum adsorption capacity was 117 mg g -1 to the residue in natura and 184 mg g -1 for the modified one, and was described by the Freundlich isotherm model.",
+          "For all the dyes, in comparison to the Freundlich model, nonlinear Langmuir model of isotherm has given better conformity, with maximum adsorption capacity of 11.14 (MG), 15.17 (CR), 12.34 (DDR), and 15.98 (DO) mg/g at their respective optimal temperature following a pseudo\u2010second\u2010order kinetic model for adsorption, proving it to be dependent on adsorption capacity of WB.",
+          "Under optimized conditions of incubation (pH 8, temperature 30\u00b0 C, adsorbent concentration 10gm/L, time 180 mins & adsorbate concentration 100mg/L), the adsorbent removed around 88% of CV from its aqueous solution, fitting appropriately adsorption model (Langmuir isotherm) with maximum adsorption capability (qm) value of 25.66 mg/gm, and following pseudo first-order kinetic model.",
+          "It was shown that under optimal conditions, the environmentally friendly and inexpensive eggshell could be a reliable adsorbent for Remazol dye removal from wastewater."
+        ]
+      },
+      {
+        "node": "X12",
+        "delta": 0.0019649999999999945,
+        "p_gold": 0.9892,
+        "p_neg": 0.987,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.0043999999999999595,
+        "level": "class",
+        "origin_gold": true,
+        "text": "Biosorbents derived from citrus fruit peels can remove synthetic aromatic dyes from aqueous solutions.",
+        "spans": [
+          "The objective of this study was to perform the drying of the sweet orange (Citrus sinensis L. Osbeck) peel cultivar P\u00eara and evaluate the viability of its use as biosorbent in the removal of a direct dye.",
+          "The biosorbent used is a promising waste for the adsorption of the burgundy-16 dye.",
+          "Study on the Biosorption Mechanism of Methylene Blue in Aqueous Solution Using Pummelo Peel",
+          "Removal of methylene blue dye from artificially contaminated water using citrus limetta peel waste as a very low cost adsorbent"
+        ]
+      },
+      {
+        "node": "X2",
+        "delta": 0.0,
+        "p_gold": 0.65,
+        "p_neg": 0.65,
+        "lambda": 0.5,
+        "label": "weak_support",
+        "leverage": 0.0,
+        "level": "mechanistic",
+        "origin_gold": false,
+        "text": "Amination and alkaline activation of lignocellulosic biosorbents increases the number of accessible amine functional groups on the biosorbent surface.",
+        "spans": [
+          "Physicochemical characteristics revealed that BR-N has a cross-staggered structure with abundant quaternary-amine groups to enhance the diffusion and electrostatic attraction of nitrate/phosphate."
+        ]
+      },
+      {
+        "node": "X6",
+        "delta": 0.0,
+        "p_gold": 0.95,
+        "p_neg": 0.95,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.0,
+        "level": "class",
+        "origin_gold": true,
+        "text": "Biosorbents derived from agronomic waste materials can effectively reduce the concentration of synthetic aromatic dyes in industrial wastewater.",
+        "spans": [
+          "Different lignocellulosic waste materials have been successfully used as low-cost adsorbents (biosorbents) for the removal of synthetic dyes, as well as other contaminants, from wastewater.",
+          "All the tested biosorbents were found to be very effective for the removal of MB from model dye solution, achieving high removal percentages ranging from 93.25 to 98.50%.",
+          "The aim of the study was to screen the waste wood biomass of 10 wood species as biosorbents for synthetic dye Congo Red (CR) removal from water and to single out the most efficient species for further batch biosorption experiments.",
+          "The results showed that CR removal efficiency increased with the increase of biosorbent concentration and contact time.",
+          "The percentage of CR removal from synthetic wastewater was 18.6% higher than from model CR solution.",
+          "It was shown that under optimal conditions, the environmentally friendly and inexpensive eggshell could be a reliable adsorbent for Remazol dye removal from wastewater.",
+          "This study presents the use of the seeds of lasura/lasoda (Cordia myxa) as biosorbent for azo dye Methylene Blue (MB) from wastewater.",
+          "This study shows the applicability of Cordia myxa seed waste as low-cost treatment of dye wastewater."
+        ]
+      }
+    ]
+  },
+  {
+    "row": "RBV2-0226-N06",
+    "p_both": 0.1,
+    "verdict": "WRONG",
+    "margin": -0.20918099999999962,
+    "nodes": [
+      {
+        "node": "X3",
+        "delta": -0.27932,
+        "p_gold": 0.5,
+        "p_neg": 0.8,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.36000000000000004,
+        "level": "class",
+        "origin_gold": false,
+        "text": "Hybrid nanoparticle additives in structured PCM systems generally enhance convective and conductive heat transfer compared to unmodified PCM systems.",
+        "spans": [
+          "PCM\u2019s thermal conductivity has significantly increased with the addition of Al2O3, compared with CuO, SiO2 nanoparticle which enhances the process of heat transfer, melting rate, and accordingly reduces the solar cell temperature.",
+          "The improved thermal transport features with hybrid nanoparticle inclusion in the heat transfer fluid is obtained.",
+          "When the hybrid nanoparticles are introduced in the base fluid, transition time and dynamic features of onset temperatures are affected.",
+          "The results shows that the global heat transfer performance can be enhanced more than 9% by adding 1% nano-capsules volume fraction.",
+          "A blend of equal-volume CuO and Al2O3 hybrid nano-additives was used as conductive material to enhance heat transfer in PCM, which can be considered the originality of this study. ... The outcomes indicate that adding an Al2O3/CuO hybrid nanoparticle of volume fraction of 0.4-3.2% causes a reduction in total charging time between 10% and 19%."
+        ]
+      },
+      {
+        "node": "X5",
+        "delta": 0.14567400000000008,
+        "p_gold": 0.95,
+        "p_neg": 0.8,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.2999999999999998,
+        "level": "mechanistic",
+        "origin_gold": true,
+        "text": "The addition of alumina nanoparticles to a PCM increases the effective thermal conductivity of the composite material.",
+        "spans": [
+          "The thermal conductivity of the paraffin wax was expanded by increasing the additional nanoparticles extent with 37.1, 42.3 and 60.32% for 1, 2 and 3% added nano-Al2O3 compared to pure wax conditions.",
+          "Nano-enhanced phase change materials (NePCMs) have the ability to improve the thermal conductivity of PCM, decrease system temperature and escalate the operating time of devices.",
+          "Its resolute enhancement on warm conductivity is incredibly more suitable than that to the support fluid. The thermal conductivity suggests that growth with the adding up of nanoparticles additionally confirms 22.00 % viable improvement in support fluids.",
+          "Thermo-physical properties such as thermal conductivity and latent heat could be changed for different concentration of dispersed nanoparticle.",
+          "Stable composites containing 5 and 10 vol% nanoparticles in paraffin were prepared by intense sonification. The thermophysical properties of the alumina nanoparticle enhanced paraffin (ANEP) specifically the melting and freezing temperature, latent heat, thermal conductivity, and dynamic viscosity were measured and compared with paraffin wax.",
+          "Furthermore, the effective thermal conductivity of composite PCM (nanoPCM/aluminum foam) drastically increased."
+        ]
+      },
+      {
+        "node": "X9",
+        "delta": -0.1061789999999998,
+        "p_gold": 0.7875,
+        "p_neg": 0.924,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.16380000000000008,
+        "level": "class",
+        "origin_gold": false,
+        "text": "Phase change materials with engineered internal geometries, such as multi-layered honeycomb structures, solidify more rapidly than those with unstructured or bulk geometries under equivalent conditions.",
+        "spans": [
+          "This study aims to contribute to this growing area of research by using honeycomb structure and exploring the effect of heat transfer fluid (HTF) configuration and honeycomb cell angle on the thermal performance of the LHTES during melting and solidification processes.",
+          "Computational fluid dynamics (CFD) model results show symmetrical melting and solidification behavior when using a honeycomb structure.",
+          "For case (c) with a multiple water block, significant melting and solidification enhancements are obtained with 56% and 50%, respectively.",
+          "Thus, the HTF configuration can improve the thermal performance of the storage."
+        ]
+      },
+      {
+        "node": "X15",
+        "delta": -0.09342499999999987,
+        "p_gold": 0.825,
+        "p_neg": 0.948,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.14759999999999998,
+        "level": "class",
+        "origin_gold": false,
+        "text": "Phase change material composites with spatially non-uniform, actively controlled nanoparticle distributions can achieve higher thermal conductivities than those with uniform or passive distributions.",
+        "spans": [
+          "A comparison in thermal performance is made between the heat sink with homogeneous nanocomposite and with nonhomogeneous nanocomposite."
+        ]
+      },
+      {
+        "node": "X16",
+        "delta": 0.08135199999999987,
+        "p_gold": 0.957,
+        "p_neg": 0.87,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.17399999999999993,
+        "level": "specific",
+        "origin_gold": true,
+        "text": "A PCM composite containing 1 wt% alumina nanoparticles exhibits higher measured thermal conductivity than the pure PCM under identical conditions.",
+        "spans": [
+          "In the recent study, (Al2O3) nanoparticles with weights of 1, 2, and 3% of the paraffin wax were added to the paraffin wax. ... The thermal conductivity of the paraffin wax was expanded by increasing the additional nanoparticles extent with 37.1, 42.3 and 60.32% for 1, 2 and 3% added nano-Al2O3 compared to pure wax conditions."
+        ]
+      },
+      {
+        "node": "X19",
+        "delta": -0.051131999999999955,
+        "p_gold": 0.93,
+        "p_neg": 0.987,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.11399999999999988,
+        "level": "specific",
+        "origin_gold": false,
+        "text": "Hybrid nanoparticle additives in a structured paraffin-based PCM system increase the effective thermal conductivity compared to the same system without additives.",
+        "spans": [
+          "Results show the thermal conductivity of RT50 improved by 53.85% when Gr:Ag nanopowder is dispersed at a weight percent of 0.8 (RT50-0.8Gr:Ag).",
+          "Nanoparticles of magnetite were prepared via a simple, cost-efficient route, co-precipitation, augmented with aluminum and silicon derived from waste streams from a hydrothermal facility and mixed with paraffin-AP25 wax to form a hybrid composite PCM.",
+          "Compared with the 5\u202fwt% loading of single CN additive EG, the thermal conductivities of hybrid CNs fillers (EG-MWCNT and EG-CNF) Paraffin-HDPE SSPCM had increased by 60% and 21.2% respectively.",
+          "Maximum enhancement ratio of 97.38% was obtained for the 20 wt.% composite PCM."
+        ]
+      },
+      {
+        "node": "X11",
+        "delta": 0.04484700000000008,
+        "p_gold": 0.9892,
+        "p_neg": 0.939,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.10040000000000004,
+        "level": "mechanistic",
+        "origin_gold": true,
+        "text": "The addition of alumina nanoparticles to a PCM increases the thermal conductivity of the composite material.",
+        "spans": [
+          "The thermal conductivity of the paraffin wax was expanded by increasing the additional nanoparticles extent with 37.1, 42.3 and 60.32% for 1, 2 and 3% added nano-Al2O3 compared to pure wax conditions.",
+          "Nano-enhanced phase change materials (NePCMs) have the ability to improve the thermal conductivity of PCM, decrease system temperature and escalate the operating time of devices.",
+          "Its resolute enhancement on warm conductivity is incredibly more suitable than that to the support fluid. The thermal conductivity suggests that growth with the adding up of nanoparticles additionally confirms 22.00 % viable improvement in support fluids.",
+          "To increase the thermal conductivity of PCM, different nanoparticles (NPs) with a higher value of thermal conductivity are added which are called nano PCM.",
+          "Thermo-physical properties such as thermal conductivity and latent heat could be changed for different concentration of dispersed nanoparticle.",
+          "Stable composites containing 5 and 10 vol% nanoparticles in paraffin were prepared by intense sonification. The thermophysical properties of the alumina nanoparticle enhanced paraffin (ANEP) specifically the melting and freezing temperature, latent heat, thermal conductivity, and dynamic viscosity were measured and compared with paraffin wax.",
+          "The results showed that both aluminum foam and alumina nanoparticles (Al2O3) significantly accelerate the melting process. Furthermore, the effective thermal conductivity of composite PCM (nanoPCM/aluminum foam) drastically increased."
+        ]
+      },
+      {
+        "node": "X18",
+        "delta": 0.04406399999999988,
+        "p_gold": 0.957,
+        "p_neg": 0.909,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.09599999999999986,
+        "level": "class",
+        "origin_gold": true,
+        "text": "Nanoparticle-enhanced PCMs from the oxide nanoparticle family show higher thermal conductivity than their unmodified counterparts.",
+        "spans": [
+          "The \u03bb value of PS-PEG/BN/PbO PCM nanocomposite containing BN 13 wt%, PbO 60.90 wt%, and PS-PEG 26.10 wt% was determined to be 18.874 W/(mK).",
+          "Since the PS-PEG/PbO and the PS-PEG/PbO/BN nanocomposites show remarkable thermal conductivity performance, they can be used as conductive polymer nanocomposites for effective heat dissipation in heat exchangers, power electronics, electric motors, generators, communication, and lighting equipment.",
+          "The highest TC was obtained with PW/TiO2-1.0 by an increment of 86.36% as related with base PW.",
+          "The results revealed a ratio of thermal conductivity of 1.50, 1.49, 1.45, and 1.37, respectively, for 2 wt% of ZnO, Al2O3, CuO, and TiO2.",
+          "For these composite PCM, the thermal conductivity is found as excellent and more than that of pure n-octadecane (0.153 W/mK) because of the presence of highly conductive magnetized GO.",
+          "The thermal conductivity of graphene oxide nanoparticle in PCM acts as the key role in improving the thermal performance as the thermal conductivity of NPCM improved by 52% compared to that of PCM without nanoparticle.",
+          "With the melting and solidification curve analysis we were able to infer that the latent thermal storage enhancement was increased drastically with the nanoparticle dispersed sample, than with the ordinary base material.",
+          "For \u2205= 3.0, thermal conductivity and viscosity of NePCM are found to increase by 150% and 100%, respectively."
+        ]
+      },
+      {
+        "node": "X17",
+        "delta": 0.008116000000000012,
+        "p_gold": 0.957,
+        "p_neg": 0.948,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.018000000000000016,
+        "level": "mechanistic",
+        "origin_gold": true,
+        "text": "Dispersing high-thermal-conductivity nanoparticles within a phase change material increases the effective thermal conductivity of the bulk material.",
+        "spans": [
+          "The weak thermal conductance of a phase change material (PCM) can be intensified by dispersing nanostructured materials called nano\u2010PCM.",
+          "Results show that average absolute deviation (AAD) of 0.002458, mean absolute percentage error (MAPE) of 0.8260%, and correlation coefficient (R) of 0.999964948 are achieved for training data.",
+          "Compared to PEG/Dt, the thermal conductivity of the PEG/diatomite/SWCNs (1.52 W/mK) increases by nearly 5.2-fold (\u223c424% increase) upon ~3.2 wt% SWCNs addition along with an unexpected rise in the energy storage density of ~12.1%.",
+          "Thermal conductivity increased by 300 %, thanks to PbO inclusion of recycled SiNPs.",
+          "The highest thermal conductivity increment is found to be 16% at 0.3 wt.% concentration of MXene in PCM.",
+          "As per results, thermal conductivity of LA was enhanced by 13.5% and 18.4% by inclusion of 0.3 and 0.7 weight percentages of GR NPs."
+        ]
+      },
+      {
+        "node": "X8",
+        "delta": -0.003177999999999903,
+        "p_gold": 0.9825,
+        "p_neg": 0.987,
+        "lambda": 1.2,
+        "label": "support",
+        "leverage": 0.005399999999999938,
+        "level": "mechanistic",
+        "origin_gold": false,
+        "text": "The addition of high-thermal-conductivity nanoparticles to paraffin-based phase change materials increases the rate of heat transfer during solidification.",
+        "spans": [
+          "Increasing the volumetric ratio of nanoparticle and shape coefficient decrease the time of solidification, while increasing the length of the cross\u2010shaped fins raises the solidification rate and improves heat transfer.",
+          "Thermal conductivity of PCM can be improved by addition of high thermal conductive nano particles. In this work, Latent heat storage experimental set up has been developed and series of experiments have been carried out. ... Graphene Nanoparticles (GNP) are added to improve the thermal conductivity of PCM and its effect has been investigated. Charging and discharging performances have been evaluated in terms of contours of temperature and liquid fraction variation for both plain PCM and PCM with 3% GNP for process parameters such as Stephen number (St) and Reynolds number (Re). The obtained contours help in predicting and drawing concluding remarks for the effect of addition of GNP on charging and discharging performances of PCM..",
+          "The duration for complete melting of PCM in the shot\u2010peened capsule was 11.53% and 20.6% lesser compared to the other two cases. Similarly, the period of complete solidification was 20.23% and 10.38% lesser in shot\u2010peened capsule compared to nano\u2010dispersed and plain capsules."
+        ]
+      },
+      {
+        "node": "X6",
+        "delta": 0.0,
+        "p_gold": 0.95,
+        "p_neg": 0.95,
+        "lambda": 2.0,
+        "label": "strong_support",
+        "leverage": 0.0,
+        "level": "class",
+        "origin_gold": true,
+        "text": "PCMs with embedded high-conductivity nanoparticles and optimized heat exchanger geometries solidify faster than pure PCMs under otherwise identical conditions.",
+        "spans": [
+          "With fraction augmentation, freezing finishes in lower time. The needed time diminishes by about 10.29% and 13.78%, respectively. Changing the shape of particles to the biggest level makes the period decline by less than 4.8% and 8.4%.",
+          "To attain a new system with a higher rate of freezing, two approaches were utilized in this paper namely: (1) loading alumina nanoparticles; (2) involving curved walls.",
+          "Besides, the dispersion of powders results in 70.06% reduction in freezing time.",
+          "The results confirmed that the optimal distribution for cases of discontinuous aluminum fins with and without NPs is different. Besides, the maximum of saving discharge time is 77.8% and 59.5% for combination of NPs with copper and aluminum discontinuous fins, respectively.",
+          "Pure water with L\u00a0=\u00a027\u00a0mm takes 1.12 time longer than \u03c6\u00a0=\u00a00.04 to achieve full solidification.",
+          "Increasing fraction of nano-powders has its maximum effect when the second level of dp has been selected in which required time reduces around 41.33%.",
+          "The present examination accomplished a better PCM solidification rate with a combination of hybrid nanoparticle (MoS2 - Fe3O4) and novel fin configuration in triplex-tube storage.",
+          "The outputs demonstrate that PCM solidification is becoming better by utilizing the aforementioned methods."
+        ]
+      }
+    ]
+  }
+]

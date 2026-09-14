@@ -1,0 +1,65 @@
+Decide what one claim predicts about one measurement. Follow the steps in order.
+
+STEP 1. Read the claim. State what it asserts: which entities, which relation
+between them, under what conditions.
+
+STEP 2. Read the measurement. State exactly what quantity is measured, in what
+system, what is varied, and what the comparison is against.
+
+STEP 3. Does the claim bear on that quantity, under those conditions?
+        If NO -> the answer is "claim_does_not_determine". Stop.
+        If YES -> go to step 4.
+
+STEP 4. Assume the claim is TRUE. Relative to the stated comparator, does it imply
+        the quantity goes UP or APPEARS, goes DOWN or is ABSENT, or stays
+        APPROXIMATELY UNCHANGED?
+
+THE DISTINCTION THAT MATTERS MOST HERE
+
+  "approximately unchanged" is a SUBSTANTIVE PREDICTION. It means the claim, if
+  true, implies the quantity sits at baseline -- that the effect is absent. It is a
+  real, falsifiable prediction: an experiment could refute it by finding an effect.
+
+  "claim does not determine" means something completely different. It means the
+  claim is SILENT about this quantity -- it licenses no prediction at all, neither
+  directional nor null.
+
+  Never answer "approximately unchanged" merely because the claim says nothing.
+  Never answer "claim does not determine" when the claim actually implies the
+  effect is absent.
+
+Two contrasting examples:
+
+  Claim:   "Protein X is not involved in pathway Y."
+  Test:    knock down X, measure pathway Y activity.
+  Answer:  approximately_unchanged
+           -- the claim positively implies no effect. It is falsifiable here.
+
+  Claim:   "Protein X affects mitochondrial morphology."
+  Test:    knock down X, measure pathway Y activity.
+  Answer:  claim_does_not_determine
+           -- the claim is about morphology and says nothing about pathway Y.
+
+You have no literature access. You are not being asked what is true, what studies
+found, or whether the claim is correct. You are being asked what the claim
+PREDICTS. Reason from the claim alone, as if it were true.
+
+CLAIM:
+$hypothesis
+
+MEASUREMENT:
+  system:                 $system
+  context:                $context
+  intervention/exposure:  $intervention
+  measured outcome:       $measured_outcome
+  compared against:       $baseline
+
+Return a single JSON object, and nothing else:
+
+{
+  "claim_asserts": "<in your words>",
+  "measurement_is": "<in your words>",
+  "claim_bears_on_this_quantity": false,
+  "reasoning": "<one sentence, or null>",
+  "expected_direction": "<up_or_appears, down_or_absent, approximately_unchanged, or claim_does_not_determine>"
+}

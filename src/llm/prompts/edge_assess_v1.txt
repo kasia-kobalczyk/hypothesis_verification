@@ -1,0 +1,38 @@
+You are judging how strongly each of several competing hypotheses implies one
+scientific proposition.
+
+For every candidate below, answer: if that candidate were true, how likely would
+the proposition be?
+
+Use exactly one of these ordinal labels per candidate:
+$labels
+
+Guidance:
+- "strongly_implied" means the candidate would make the proposition nearly
+  certain; "implied" means clearly expected; "weakly_implied" means somewhat
+  more likely than otherwise.
+- "neutral" means the candidate says nothing either way about the proposition.
+  Use it freely — most propositions are irrelevant to most candidates, and a
+  false implication is worse than an honest "neutral".
+- "unlikely" and "strongly_contradicted" mean the candidate makes the
+  proposition less likely, or nearly rules it out.
+- Judge the scientific relationship only. You have no literature access, and you
+  are NOT being asked whether the proposition is actually true — only what each
+  candidate would predict.
+- Do not reward a candidate for being longer, more detailed or more confident.
+
+PROPOSITION:
+$proposition
+
+CANDIDATES:
+$candidates
+
+Return a single JSON object, and nothing else:
+
+{
+  "judgments": [
+    {"id": "<candidate label>", "strength": "<one ordinal label>", "rationale": "<one sentence>"}
+  ]
+}
+
+Include every candidate label exactly once: $ids

@@ -1,0 +1,114 @@
+{
+  "name": "ResearchBench verification pair subset",
+  "version": "pairs_v1",
+  "frozen_at": "2026-09-11T16:21:04Z",
+  "criterion": "R2 applied per pair: the raw negative addresses the same scientific target as the gold and disagrees with a substantive part of it.",
+  "policy": [
+    "Every raw gold-negative pair is screened; all passing pairs are retained.",
+    "Hypothesis text is never rewritten.",
+    "The judgment sees only (question, gold, negative): no literature, no method output."
+  ],
+  "prompt": {
+    "name": "pair_comparability_v1",
+    "sha256_16": "714297d657f239b3",
+    "path": "/mnt/data/knk25.data/hypothesis_verification/src/llm/prompts/pair_comparability_v1.txt"
+  },
+  "llm": {
+    "provider": "azure",
+    "deployment": "gpt-4.1-kasia"
+  },
+  "n_pairs_screened": 200,
+  "n_pairs_retained": 121,
+  "n_pairs_rejected": 79,
+  "n_pairs_error": 0,
+  "instances_without_any_pair": [
+    "RBV-14"
+  ],
+  "per_instance": {
+    "RBV-01": {
+      "screened": 10,
+      "retained": 9
+    },
+    "RBV-02": {
+      "screened": 10,
+      "retained": 8
+    },
+    "RBV-03": {
+      "screened": 10,
+      "retained": 2
+    },
+    "RBV-04": {
+      "screened": 10,
+      "retained": 4
+    },
+    "RBV-05": {
+      "screened": 10,
+      "retained": 8
+    },
+    "RBV-06": {
+      "screened": 10,
+      "retained": 4
+    },
+    "RBV-07": {
+      "screened": 10,
+      "retained": 4
+    },
+    "RBV-08": {
+      "screened": 10,
+      "retained": 8
+    },
+    "RBV-09": {
+      "screened": 10,
+      "retained": 9
+    },
+    "RBV-10": {
+      "screened": 10,
+      "retained": 6
+    },
+    "RBV-11": {
+      "screened": 10,
+      "retained": 7
+    },
+    "RBV-12": {
+      "screened": 10,
+      "retained": 4
+    },
+    "RBV-13": {
+      "screened": 10,
+      "retained": 4
+    },
+    "RBV-14": {
+      "screened": 10,
+      "retained": 0
+    },
+    "RBV-15": {
+      "screened": 10,
+      "retained": 6
+    },
+    "RBV-16": {
+      "screened": 10,
+      "retained": 8
+    },
+    "RBV-17": {
+      "screened": 10,
+      "retained": 8
+    },
+    "RBV-18": {
+      "screened": 10,
+      "retained": 7
+    },
+    "RBV-19": {
+      "screened": 10,
+      "retained": 8
+    },
+    "RBV-20": {
+      "screened": 10,
+      "retained": 7
+    }
+  },
+  "llm_usage": {
+    "prompt_tokens": 159972,
+    "completion_tokens": 18328,
+    "total_tokens": 178300
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "generated_at": "2026-09-13T09:20:20Z",
+  "n_real": 90,
+  "n_mismatched": 90,
+  "real": {
+    "direction_reproducibility": 0.8666666666666667,
+    "direction_kappa": 0.606986899563319,
+    "exact_ordinal_agreement": 0.4888888888888889,
+    "within_one_step": 0.9333333333333333,
+    "judge_a_vs_production": 0.7666666666666667,
+    "judge_b_vs_production": 0.37777777777777777
+  },
+  "by_abstraction_level": {
+    "class": {
+      "n": 27,
+      "direction_reproducibility": 0.8888888888888888,
+      "exact_ordinal": 0.37037037037037035,
+      "neutral_rate": 0.25925925925925924
+    },
+    "mechanistic": {
+      "n": 31,
+      "direction_reproducibility": 0.8387096774193549,
+      "exact_ordinal": 0.4838709677419355,
+      "neutral_rate": 0.3225806451612903
+    },
+    "specific": {
+      "n": 32,
+      "direction_reproducibility": 0.875,
+      "exact_ordinal": 0.59375,
+      "neutral_rate": 0.21875
+    }
+  },
+  "mismatched": {
+    "n": 90,
+    "judge_a_neutral_rate": 1.0,
+    "judge_b_neutral_rate": 1.0
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "status": "PROVISIONAL \u2014 set by the research owner 2026-09-12, before any validation run",
+  "rubric_freeze_sha256_16": "5d8465ae0088c1ee",
+  "what_this_validates": "NOT that INDIRECT matches expert judgment -- no domain experts are available. It validates something narrower and still useful: that the category is operationally coherent, reproducible across independent assessors, grounded in the supplied text, and not manufacturing signal. Passing makes the assessor PROVISIONALLY validated, never 'settled'.",
+  "known_weakness": "Only one model deployment is available (gpt-4.1-kasia), so the two judges differ in prompt and reasoning scaffold but share a model. Same-model agreement has correlated errors and is materially weaker evidence than cross-model agreement. This is why the grounding and adversarial criteria carry the weight rather than agreement alone.",
+  "criterion_1_boundary_reproducibility": {
+    "statistic": "agreement between two independent blinded assessors on the three-way judgment, restricted to cases where at least one said indirect or no_evidence (direct cases excluded)",
+    "threshold": 0.8,
+    "renamed_from": "boundary_agreement (human)",
+    "note": "Reproducibility, NOT human validity. Passing does not validate the construct."
+  },
+  "criterion_2_direction_reproducibility": {
+    "statistic": "agreement between the two assessors on direction (supports/contradicts/none)",
+    "threshold": 0.8
+  },
+  "criterion_3_grounded_and_independently_reproduced": {
+    "statistic": "among cases v2 newly promotes out of no_evidence: the fraction that carry a complete chain whose supporting span is verbatim in the supplied abstract, with no unsupported intermediate fact, AND that a second independent assessor also calls evidential",
+    "threshold": 0.9,
+    "replaces": "precision against resolved human truth",
+    "note": "Stricter than the 0.75 that would have been used against human adjudication, because consensus between automated judges is weaker evidence."
+  },
+  "criterion_4_negative_control_mismatched_abstract": {
+    "statistic": "P(informative | proposition paired with a randomly mismatched abstract)",
+    "threshold_max": 0.1,
+    "target": 0.05,
+    "note": "The strongest single check available without experts. If the assessor calls 20-30% of mismatched abstracts indirect evidence, the rubric is too permissive regardless of how well the judges agree with each other."
+  },
+  "adversarial_controls": {
+    "mismatched_abstract": "proposition x unrelated abstract -> should collapse to no_evidence",
+    "swapped_record": "supporting record exchanged between two propositions",
+    "negated_proposition": "proposition negated -> DIRECTION should flip; informativeness staying put while direction does not move means the assessor is not reading the claim",
+    "span_removed": "the sentence supporting the intermediate fact deleted from the abstract -> an indirect judgment should disappear"
+  },
+  "what_passing_permits": [
+    "evidence_assess_v2 may replace v1, marked PROVISIONALLY validated",
+    "directness_factor.indirect may then be calibrated",
+    "the 18-row nested development sweep becomes worth running"
+  ],
+  "paper_wording": {
+    "do_not_claim": "The assessor accurately distinguishes indirect evidence from merely related literature.",
+    "claim_instead": "We operationalize indirect evidence using an explicit intermediate-fact chain and validate the assessor through independent-model agreement, source-grounding checks, and adversarial controls.",
+    "note": "Weaker but precise. With same-model judges, 'independent-model agreement' must be downgraded to 'independent-prompt agreement' unless a second model is obtained."
+  }
+}

@@ -1,0 +1,48 @@
+# Token prices for cost accounting (USD per 1,000,000 tokens).
+#
+# IMPORTANT: these are list prices to the best of our knowledge and have NOT been
+# checked against the Azure agreement this project bills under. Until someone
+# verifies them and sets `verified: true`, the dashboard shows every figure as an
+# ESTIMATE. Enterprise agreements, regional pricing and promotional rates all
+# differ from list.
+#
+# A model with no entry here is reported as `unpriced`: its tokens are counted and
+# flagged, and it never contributes $0.00 to a total. Silent zeros are how cost
+# tracking lies.
+
+version: 2026-09-11
+currency: USD
+verified: false
+source: "public list prices, unverified against the Azure agreement"
+
+models:
+  gpt-4.1:
+    input: 2.00
+    output: 8.00
+    # Deployment and dated-snapshot names that bill at this rate.
+    aliases:
+      - gpt-4.1-kasia
+      - gpt-4.1-2025-04-14
+      - gpt-4.1-2025-04-14-kasia
+  gpt-4.1-mini:
+    input: 0.40
+    output: 1.60
+    aliases:
+      - gpt-4.1-mini-2025-04-14
+  gpt-4.1-nano:
+    input: 0.10
+    output: 0.40
+    aliases:
+      - gpt-4.1-nano-2025-04-14
+  gpt-4o:
+    input: 2.50
+    output: 10.00
+    aliases:
+      - gpt-4o-2024-11-20
+      - gpt-4o-2024-08-06
+
+# TODO(cost): Azure reports cached prompt tokens separately and bills them at a
+# discount. `LLMResponse.usage` does not capture `prompt_tokens_details`, so a
+# run that benefits from prompt caching is currently OVER-estimated. Capture the
+# field in src/llm/client.py before treating these numbers as invoice-accurate.
+cached_input_discount: null

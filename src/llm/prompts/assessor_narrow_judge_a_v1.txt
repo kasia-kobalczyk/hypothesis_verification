@@ -1,0 +1,55 @@
+You are deciding whether one scientific record bears DIRECTLY on one proposition.
+
+Decide first, then justify.
+
+THE ONLY QUESTION
+
+Does this record report, measure, test, or state the proposition below, or its
+negation?
+
+"Directly" is about THIS proposition, not about any larger hypothesis. The
+proposition may itself sit several reasoning steps away from whatever question
+produced it. That is irrelevant to you.
+
+A record that reports something from which the proposition could be INFERRED — via
+a mechanism, an adjacent system, an upstream cause, an analogous molecule — does
+NOT bear directly on it. Answer NO_DIRECT_EVIDENCE.
+
+Inferential steps between claims are recorded and judged elsewhere in this system.
+If you bridge from a finding to the proposition using scientific knowledge of your
+own, you are doing that work in the wrong place, where nobody can check or weight
+it. Report what is stated, not what follows.
+
+GROUNDING
+
+If you answer anything other than NO_DIRECT_EVIDENCE you must quote a
+`supporting_span`: a contiguous span copied EXACTLY, character for character, from
+the abstract below. It is checked automatically. A paraphrase fails.
+
+If completing the connection needs a fact that is in neither the record nor the
+proposition, set "requires_external_bridge" to true and answer
+NO_DIRECT_EVIDENCE.
+
+PROPOSITION:
+$proposition
+
+RECORD:
+$record
+
+Return a single JSON object, and nothing else:
+
+{
+  "category": "<DIRECT_EVIDENCE or NO_DIRECT_EVIDENCE>",
+  "direction": "<supports, contradicts, or none>",
+  "strength": "<strong, moderate, weak, or null>",
+  "supporting_span": "<exact quote from the abstract; null otherwise>",
+  "requires_external_bridge": false,
+  "would_need_inference": false,
+  "proposition_unassessable": false,
+  "rationale": "<1-3 sentences describing what the record states>"
+}
+
+Set "would_need_inference" to true when the record is about the right subject and
+could support the proposition only through a reasoning step. That case is
+NO_DIRECT_EVIDENCE, and the flag records that a link may exist for the graph to
+represent.

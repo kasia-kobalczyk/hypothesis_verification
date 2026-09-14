@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Secrets
+.env
+
+# Experiment outputs and caches. `data/metadata/` is intentionally NOT ignored:
+# the resolved cutoffs are part of the frozen benchmark definition.
+runs/*
+!runs/.gitkeep
+data/cache/
