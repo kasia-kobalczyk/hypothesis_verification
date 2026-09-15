@@ -247,3 +247,37 @@ Historical 'live dispute' status at a 2024 cutoff is uncertain. Soszyński et al
 
 STATUS:
 BORDERLINE.
+
+<!-- relay-decision:ed4e9794f8530b5c607703d7 task_id:BENCH-AUDIT-001 -->
+## D037 — Heinrich Event 2 trigger mechanisms: BORDERLINE
+
+DECISION:
+Retain the Heinrich Event 2 case as BORDERLINE rather than ACCEPT.
+
+SHARED PHENOMENON:
+What external climatic trigger caused the ice-sheet instability and iceberg discharge associated with Heinrich Event/Stadial 2.
+
+PRE-CUTOFF HYPOTHESES:
+- Oceanic/subsurface-warming account: AMOC weakening warms North Atlantic subsurface waters and increases basal melt, destabilizing ice sheets. Direct pre-cutoff support includes a 2022 Nature Communications study showing subsurface ocean warming preceding Heinrich Events.
+- Atmospheric/Heinrich-Summers account: warmer summers and atmospheric circulation changes drive surface melt/ice-sheet destabilization, with ensuing freshwater flux then contributing to winter cooling and AMOC changes. Denton et al. explicitly articulated this in Quaternary Science Reviews in 2022, with related seasonal-warming evidence before 2024.
+The older internal binge-purge hypothesis also predates cutoff, but by the resolver's own framing external climate forcing had already gained substantial support; the cleanest benchmark contrast is therefore oceanic versus atmospheric external trigger.
+
+TEMPORAL AUDIT:
+- Safe cutoff: 2024-01-01.
+- Resolving article: van der Bilt et al., Communications Earth & Environment, published 2025-06-14, DOI 10.1038/s43247-025-02440-9.
+- Article received 2025-03-07.
+- Replication dataset was made public 2025-05-15 (files posted by early June), currently the earliest located public release of the effective resolving evidence.
+- No pre-2024 public version of this Lake Hajeren HE2 result was located.
+
+CONSEQUENCE CONTRAST:
+- Atmospheric/Heinrich-Summers mechanism positively predicts terrestrial/high-latitude summer warming and melt preceding peak iceberg discharge.
+- Oceanic/subsurface-warming mechanism positively predicts subsurface ocean warming and basal melt preceding discharge; it does not by itself generate the same terrestrial summer-warming signature.
+
+RESOLVING OBSERVATIONS:
+Lake Hajeren biomarkers and geochemistry indicate High Arctic summer warming from ~27.5 to 23.5 ka, preceding the characteristic HE2 ice-rafting pulse by up to roughly a millennium. The paper argues that this terrestrial surface-warming signal supports atmospheric/Heinrich-Summers forcing and does not favor AMOC weakening as the likeliest main cause, while allowing later freshwater feedbacks on AMOC.
+
+WHY BORDERLINE:
+The contrast is scientifically real and temporally clean, but the evidence is asymmetric: observing terrestrial warming positively supports the atmospheric mechanism more directly than it falsifies an oceanic trigger, unless a stronger coupled prediction is supplied. This risks drifting toward 'H_ocean does not predict X' rather than a clean mutually constraining consequence difference. The benchmark should not silently convert that silence into contradiction.
+
+STATUS:
+BORDERLINE.
