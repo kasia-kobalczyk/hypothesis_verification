@@ -339,3 +339,36 @@ REJECT.
 
 RATIONALE:
 Excellent explicit consequence matrix, but the effective discriminating pattern—especially cross-frequency generalisation against strict frequency/cue localization—was already publicly available well before 2024.
+
+<!-- relay-decision:fb02c5608e91958e2910252d task_id:BENCH-AUDIT-001 -->
+## D040 — Ohno gene-duplication innovation mechanism: BORDERLINE
+
+DECISION:
+Retain the Mihajlovic et al. gene-duplication case as BORDERLINE rather than ACCEPT.
+
+SHARED PHENOMENON:
+Why gene duplication can facilitate evolutionary innovation and what typically happens to redundant copies during adaptation.
+
+PRE-CUTOFF HYPOTHESES:
+- Ohno-style redundancy/neofunctionalization: duplication increases mutational robustness, relaxes purifying selection on redundant copies, permits accumulation of formerly deleterious variation, and thereby facilitates novel functions. This dates to Ohno (1970) and was restated mechanistically by Wagner (2008) and others.
+- Ohno-dilemma / rapid-nonfunctionalization critique: because deleterious mutations are much more frequent than beneficial novelty-producing mutations, one duplicate will often lose function before neofunctionalization can occur; this was explicit by Bergthorsson et al. (2007) and later reviews.
+- Dosage/amplification alternatives such as innovation-amplification-divergence (IAD) posit that copy-number increase and dosage selection help expose latent functions before divergence; explicit before cutoff, including Näsvall et al. (2012) and reviews.
+
+TEMPORAL AUDIT:
+- Safe cutoff: 2024-01-01.
+- eLife version history records a preprint posted 2024-03-09; reviewed preprint v1 followed 2024-05-01; version of record 2025-04-02.
+- Targeted searches did not identify an earlier public result from this experiment before the cutoff.
+
+CONSEQUENCE PROFILE:
+- Ohno redundancy predicts duplicated populations should be more mutationally robust, experience relaxed purifying selection, accumulate more genetic diversity, and ultimately gain phenotypic novelty/adapt faster than single-copy populations when adaptive conflict exists.
+- Rapid-nonfunctionalization critique predicts frequent early loss of one copy and therefore little or no sustained acceleration of phenotypic innovation despite initial redundancy.
+- Dosage/IAD predicts a major role for increased copy number/dosage in facilitating adaptation, but this mechanism requires copy-number dynamics that the resolver deliberately suppressed.
+
+RESOLVING OBSERVATIONS:
+Two-copy populations were more mutationally robust, showed relaxed purifying selection, accumulated more genetic diversity and beneficial combinations earlier, supporting a core Ohno prediction. However, one copy was rapidly inactivated in many lineages and phenotypic evolution was not accelerated, supporting the classic Ohno-dilemma critique. Because the experiment fixed copy number, it did not directly adjudicate dosage/amplification alternatives such as IAD.
+
+STATUS:
+BORDERLINE — mixed/partial resolution.
+
+RATIONALE:
+The historical alternatives are real and the post-cutoff experiment yields a rich consequence profile, but it does not cleanly compare Ohno against the major dosage-based alternatives; rather it validates some Ohno predictions while confirming the rapid-inactivation problem. This is useful scientifically but weaker as a benchmark item requiring clean model discrimination.
