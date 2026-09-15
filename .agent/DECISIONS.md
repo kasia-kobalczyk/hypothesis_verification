@@ -29,3 +29,35 @@ ACCEPT (provisional until final benchmark record is written).
 
 RATIONALE:
 Both explanations predate a valid 2024 cutoff, concern the same phenomenon, make meaningfully different intervention-level predictions, the key discriminator became public after cutoff, and no equivalent pre-cutoff resolving result was located.
+
+<!-- relay-decision:67c7cf4bcfeaaf38db8fa884 task_id:BENCH-AUDIT-001 -->
+## D029 — Gcn4/Med15 soluble-complex vs transcriptional-condensate mechanisms: ACCEPT
+
+DECISION:
+Accept the Gcn4/Med15 case as a benchmark item with a mixed/reconciliatory resolution.
+
+SHARED PHENOMENON:
+How the Gcn4 activation domain engages Mediator subunit Med15 to drive transcriptional activation: primarily through soluble dynamic/fuzzy complexes or through transcriptional condensate/co-phase-separation mechanisms.
+
+PRE-CUTOFF HYPOTHESES:
+- Soluble-complex/fuzzy-binding account: Gcn4 activation domains make dynamic multivalent contacts with Med15 activation-binding domains; this mechanism was directly characterized in pre-2024 work including Tuttle et al. (Cell Reports, 2018) and later mechanistic studies.
+- Condensate account: transcription-factor activation domains, including Gcn4, can activate through phase-separation capacity and co-condensation with Mediator/Med15; explicitly articulated by Boija et al. (Cell, 2018) and subsequent literature.
+
+TEMPORAL AUDIT:
+- Safe cutoff: 2024-01-01.
+- Earliest located resolving study: Bremer et al., bioRxiv v1 posted 2024-11-22, DOI 10.1101/2024.11.21.624739.
+- Final article: Molecular Cell 2025, DOI 10.1016/j.molcel.2025.06.008.
+- Targeted searches did not locate an effectively equivalent pre-2024 head-to-head Gcn4/Med15 result.
+
+CONSEQUENCE CONTRAST:
+- Soluble-complex model predicts transcriptional activity should track Gcn4-Med15 soluble-complex affinity/formation under non-condensed conditions.
+- Condensate model predicts activity should track co-phase-separation/Med15 recruitment into condensates; the prevailing DNA-scaffolded condensate framing also expected multivalent DNA binding to facilitate condensation.
+
+RESOLVING OBSERVATIONS:
+The head-to-head study found that homotypic Gcn4 condensation propensity alone was a poor predictor of activity; DNA binding suppressed Gcn4 phase separation; soluble Med15 binding and co-condensation propensity largely covaried; and at the strongest affinities, excess condensation was associated with lower-than-expected activity. The authors conclude that soluble complexes and condensates are coupled routes rather than exclusive mechanisms and that condensates can attenuate activity in some regimes.
+
+STATUS:
+ACCEPT — mixed/reconciliatory resolution.
+
+RATIONALE:
+Both mechanisms were explicit before a valid cutoff, concern the same activation phenomenon, imply distinct observables without silence-as-null, and the post-cutoff resolving work directly compares them and supports a regime-dependent mixture.
