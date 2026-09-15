@@ -452,3 +452,36 @@ ACCEPT — regime-dependent resolution.
 
 RATIONALE:
 Both causal mechanisms are independently documented before a valid cutoff, concern the same fragmentation-resilience phenomenon, make differing positive mechanistic predictions, and the post-cutoff global analysis resolves the apparent contradiction by showing that each mechanism dominates in different biomes.
+
+<!-- relay-decision:8b31f53831f9408066ddf641 task_id:BENCH-AUDIT-001 -->
+## D044 — Fly-wing developmental constraint vs correlational-selection explanation: ACCEPT
+
+DECISION:
+Accept the deep fly-wing macroevolution case.
+
+SHARED PHENOMENON:
+Why developmental/mutational/standing genetic variation in fly wing shape aligns so strongly with macroevolutionary divergence over tens to hundreds of millions of years.
+
+PRE-CUTOFF HYPOTHESES:
+- Developmental/genetic constraint account: macroevolution preferentially proceeds along developmental/genetic lines of least resistance because available variation constrains the directions in which evolution can move. This is a classic quantitative-genetic interpretation and was explicitly discussed for fly wings by Houle et al. (Nature, 2017).
+- Correlational-selection account: persistent correlational/stabilizing selection shapes developmental and mutational covariance so that developmental bias and long-term divergence align because both have been molded by the same fitness surface, not because variation mechanically constrains evolution. Rohner & Berger (PNAS, 2023) explicitly presented this as an alternative explanation for the observed alignment.
+
+TEMPORAL AUDIT:
+- Safe cutoff: 2025-01-01.
+- Resolving preprint: bioRxiv DOI 10.1101/2025.01.09.632237, first public 2025-01-14.
+- Dryad dataset was published 2025-01-15, DOI 10.5061/dryad.08kprr599.
+- Journal article published 2025-02-07 in Nature Ecology & Evolution, DOI 10.1038/s41559-025-02639-1.
+- Targeted searches did not locate a pre-2025 public version containing the 185-million-year analysis or fitness test.
+
+CONSEQUENCE CONTRAST:
+- Simple constraint account predicts that directions with little usable genetic/developmental variation should evolve more slowly, and that the observed alignment can be sustained if much of the apparent standing variation in other directions is effectively unusable because of deleterious pleiotropic side effects.
+- Correlational-selection account predicts developmental/mutational covariance can align with macroevolution because selection itself shapes covariance; therefore substantial usable variation can exist without forcing rapid divergence, and alignment may track allometric/fitness structure rather than rate limitation by available variance.
+
+RESOLVING OBSERVATIONS:
+The study extended the alignment between developmental/standing variation and divergence across >900 dipteran taxa and ~185 My, but found no genetic covariation between wing shape and measured fitness components that would support the hidden-deleterious-pleiotropy rescue of the constraint hypothesis, and little evidence that genetic constraint determines macroevolutionary rates. Instead, allometric correlational selection emerged as a plausible common cause of both developmental bias and deep divergence.
+
+STATUS:
+ACCEPT.
+
+RATIONALE:
+The competing explanatory accounts were explicit before cutoff, address the same observed alignment, generate distinct expectations about fitness covariation and evolutionary-rate limitation, and the decisive analysis first became public after a clean 2025 cutoff.
