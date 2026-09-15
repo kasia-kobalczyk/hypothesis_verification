@@ -405,3 +405,15 @@ ACCEPT — mixed/component-wise resolution.
 
 RATIONALE:
 The alternatives are independently and explicitly source-grounded before cutoff, concern the same evolutionary phenomenon, imply distinct genomic consequence profiles, and the later comparative-genomic analysis detects evidence corresponding to both mechanisms. This is an especially valuable benchmark item because the scientifically appropriate resolution is component-wise mixture rather than a forced single winner.
+
+<!-- relay-decision:9560d98aea06b692c1557895 task_id:BENCH-AUDIT-001 -->
+## D042 — mPFC central-computation vs local-computation inherited lead: REJECT for temporal leakage
+
+DECISION:
+Reject the inherited mPFC central-computation versus local-computation case under the >=2024 cutoff requirement.
+
+RATIONALE:
+The eLife version history can misleadingly suggest a late-2024 public appearance, but targeted source tracing found that the same study was already public on bioRxiv under DOI 10.1101/2019.12.20.884262 in December 2019. The 2019 preprint already reports the key finding that mPFC lesions spare initial active-place-avoidance cognitive control and hippocampal task-relevant/task-irrelevant representation switching, and explicitly interprets this as supporting a local-computation account over a central-computation account.
+
+STATUS:
+REJECT — resolving evidence predates every allowable cutoff.
