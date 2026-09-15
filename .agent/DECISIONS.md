@@ -315,3 +315,27 @@ ACCEPT.
 
 RATIONALE:
 The two mechanisms were historically explicit, addressed the same molecular event, made positive kinetic/conformational commitments, remained unresolved at 2024-01-01, and the decisive integrated evidence became public only afterward.
+
+<!-- relay-decision:0bdc11b4b12aacbde23f9d91 task_id:BENCH-AUDIT-001 -->
+## D039 — Ventriloquism-aftereffect frequency/cue/spatial-map case: REJECT
+
+DECISION:
+Reject the 2026 broad-frequency-generalisation study as a benchmark resolver under the current historical-leakage criterion.
+
+SHARED PHENOMENON:
+At what processing stage audiovisual recalibration underlying the ventriloquism aftereffect occurs: tonotopic/frequency-specific, binaural-cue-level, or higher-order multisensory spatial-map stage.
+
+PRE-CUTOFF HYPOTHESES:
+The three mechanisms are genuine and source-grounded. Earlier studies reported frequency-specific and frequency-general recalibration, and a 2013 neural-network model explicitly addressed cross-frequency generalisation. By 2026 the literature could formulate positive profiles: frequency hypothesis -> aftereffect confined near exposure frequency; cue hypothesis -> generalisation within ITD/ILD cue class but not across cue classes; spatial-map hypothesis -> generalisation across frequencies.
+
+RESOLVER:
+Ege et al., Scientific Reports 2026, DOI 10.1038/s41598-026-40873-0, found broad aftereffect generalisation across 0.5–8 kHz and interpreted it as consistent with adaptation at a frequency-independent multisensory spatial stage.
+
+LEAKAGE / PRIOR EFFECTIVE RESOLUTION:
+The resolver itself states that prior literature already supported both frequency-specific and frequency-general recalibration, that prior studies supported the spatial-map hypothesis, and that the only previous direct test of the cue-hypothesis prediction found no evidence for it. A 2013 model and subsequent experiments had already demonstrated substantial cross-frequency generalisation; a 2018 paper showed context-dependent frequency specificity/generalisation. Thus the 2026 result is useful replication/extension under low-intensity fixed-offset conditions, but it does not provide a genuinely new post-2024 resolution hidden at an allowed cutoff.
+
+STATUS:
+REJECT.
+
+RATIONALE:
+Excellent explicit consequence matrix, but the effective discriminating pattern—especially cross-frequency generalisation against strict frequency/cue localization—was already publicly available well before 2024.
