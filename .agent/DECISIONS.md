@@ -73,3 +73,37 @@ Although the 2024 study provides a clean causal neural intervention, the core ex
 
 STATUS:
 REJECT.
+
+<!-- relay-decision:bb0335cda4765eabf6242c5d task_id:BENCH-AUDIT-001 -->
+## D031 — Eukaryogenesis mitochondrial timing: ACCEPT
+
+DECISION:
+Accept the mitochondria-early versus mitochondria-intermediate/late eukaryogenesis case.
+
+SHARED PHENOMENON:
+The evolutionary assembly of the eukaryotic cell, specifically whether mitochondrial endosymbiosis preceded most eukaryotic cellular complexity or occurred only after a substantially complex archaeal host had already evolved.
+
+PRE-CUTOFF HYPOTHESES:
+- Mitochondria-early scenarios: mitochondrial acquisition is an initiating/foundational event, preceding or enabling much of later eukaryotic complexity. This family is explicit in long-standing eukaryogenesis literature and reviews, including Martin-type syntrophic/hydrogen hypotheses and later classifications of mitochondria-early models.
+- Mitochondria-late/intermediate scenarios: substantial eukaryotic cellular machinery (for example cytoskeletal, membrane-remodelling/trafficking, phagocytic, or nuclear-associated complexity) predates mitochondrial acquisition. Pre-2024 reviews explicitly distinguish mitochondria-early and mitochondria-late scenarios; a 2015 review states that mitochondria-late hypotheses place acquisition late in eukaryogenesis but before LECA.
+
+TEMPORAL AUDIT:
+- Safe benchmark cutoff: 2025-01-01.
+- A Bristol MScR thesis awarded 2024-10-01 used related pre-LECA duplication timing and concluded in favour of a mitochondria-early scenario. This is not leakage of the later Nature result; it is contrary evidence demonstrating that the dispute remained unsettled at the proposed cutoff.
+- Resolving Nature study received 2025-03-21 and was first published online 2025-12-03 (DOI 10.1038/s41586-025-09808-z).
+- Associated code/data were publicly released 2025-10-21/22, which is therefore the earliest located public availability of the effective resolving dataset and precedes the article.
+- Targeted searches did not locate a pre-2025 public preprint or conference abstract containing the later CALM/complex-archaeon-late-mitochondrion result.
+
+CONSEQUENCE CONTRAST:
+- Mitochondria-early: gene duplications underpinning major eukaryote-specific cellular systems should predominantly postdate mitochondrial acquisition if mitochondrial energetics/endosymbiosis enabled those innovations.
+- Mitochondria-late/complex-host: duplications associated with cytoskeletal, membrane-trafficking, endomembrane, phagocytic and nuclear functions should substantially predate mitochondrial acquisition.
+These are positive temporal-order predictions, not silence-as-null.
+
+RESOLVING OBSERVATION:
+Relaxed-clock dating of pre-LECA duplications placed elaboration of the cytoskeleton, membrane trafficking, endomembrane, phagocytotic machinery and nucleus before mitochondrial endosymbiosis. The authors explicitly state that this rejects mitochondrion-early scenarios and supports a complexified archaeal host with a late mitochondrion, while also noting that the full pattern does not map neatly onto every previously proposed scenario.
+
+STATUS:
+ACCEPT.
+
+RATIONALE:
+The competing scenario families were explicit before cutoff, make clear and multidimensional ordering predictions, the later evidence became public after cutoff, and contrary 2024 evidence actually strengthens the historical validity of the unresolved dispute rather than leaking the answer.
