@@ -142,3 +142,38 @@ BORDERLINE.
 
 RATIONALE:
 Excellent source-grounded model discrimination and clean post-cutoff evidence, but weak confidence that both explanations remained live/plausible in the scientific community at the required recent cutoff.
+
+<!-- relay-decision:3b42f5579cfd601627e6c2af task_id:BENCH-AUDIT-001 -->
+## D033 — Interhemispheric PFC working-memory architecture: ACCEPT
+
+DECISION:
+Accept the specialized-versus-redundant interhemispheric PFC working-memory case.
+
+SHARED PHENOMENON:
+How the two prefrontal hemispheres organize storage of spatial working-memory representations across the visual field.
+
+PRE-CUTOFF HYPOTHESES:
+- Specialized/lateralized architecture: largely independent working-memory resources in each hemisphere, with a contralateral bias and selective interhemispheric transfer. Pre-cutoff support includes bilateral-field-advantage work and macaque electrophysiology showing within-hemifield competition.
+- Shared/redundant architecture: memories can be represented by both hemispheres, providing robustness to unilateral perturbation. Pre-cutoff support includes unilateral-versus-bilateral perturbation results and shared-storage interpretations.
+A November 2024 Cerebral Cortex paper explicitly describes the live uncertainty as hemisphere-specific versus shared internal memory storage, so the contrast clearly predates the resolver.
+
+TEMPORAL AUDIT:
+- Safe cutoff: 2024-12-01.
+- The key pre-cutoff debate source was published 2024-11-14.
+- Resolving Tschiersch et al. preprint was originally posted 2025-01-16, DOI 10.1101/2025.01.15.633176.
+- Journal version: Nature Communications, published 2026-07-20, DOI 10.1038/s41467-026-75705-2.
+- No equivalent pre-cutoff simultaneous bilateral-PFC analysis with the later reconciliation was located.
+
+CONSEQUENCE CONTRAST:
+- Specialized architecture predicts predominantly contralateral behavioral relevance and more independent hemisphere-specific storage, with the bilateral field advantage arising from separate capacity pools.
+- Redundant architecture predicts that either hemisphere can carry behaviorally useful information about both visual fields, greater robustness under unilateral disruption, and duplicated representations that trade capacity for precision/robustness.
+These are positive architecture-level commitments rather than silence-as-null.
+
+RESOLVING OBSERVATIONS:
+Both hemispheres predicted behavioral imprecision across the visual field; decoding errors were weakly correlated; serial-dependence effects remained local within hemispheres. Network simulations showed that a redundant weakly coupled architecture can produce low-load robustness/precision while lateralized inputs yield specialization and increased capacity under higher load. Thus the later work reconciles the prior accounts in a demand-dependent architecture rather than selecting a globally exclusive winner.
+
+STATUS:
+ACCEPT — regime-dependent/reconciliatory resolution.
+
+RATIONALE:
+The scientific alternatives are demonstrably present before a valid cutoff, the later result is post-cutoff, the hypotheses make several distinct observable commitments, and the eventual result has exactly the mixed/regime-dependent structure the benchmark is intended to permit.
