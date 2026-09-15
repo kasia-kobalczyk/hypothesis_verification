@@ -417,3 +417,38 @@ The eLife version history can misleadingly suggest a late-2024 public appearance
 
 STATUS:
 REJECT — resolving evidence predates every allowable cutoff.
+
+<!-- relay-decision:f4d549ea1430d524e9c8ee3d task_id:BENCH-AUDIT-001 -->
+## D043 — Forest fragmentation and resilience: ACCEPT
+
+DECISION:
+Accept the forest-fragmentation/resilience case as a benchmark item with biome-dependent resolution.
+
+SHARED PHENOMENON:
+How forest fragmentation affects vegetation resilience to disturbance, and why fragmentation is sometimes associated with degradation but in other settings with enhanced growth/recovery capacity.
+
+PRE-CUTOFF HYPOTHESES / MECHANISMS:
+- Edge-stress/degradation account: fragmentation increases exposure to heat, atmospheric dryness, wind and drought stress, raising mortality and reducing ecosystem resilience. This mechanism is well established before cutoff in tropical and other fragmented forests; e.g. Koelemeijer et al. (Ecological Applications, 2023) showed drought-amplified edge effects, and Nunes et al. (Nature Communications, 2023) documented hotter, drier edge environments and biomass loss in Amazon fragments.
+- Resource-release/productivity account: edge formation can increase light and alleviate limiting-resource constraints, increasing growth and biomass in some forest types. Morreale et al. (Nature Communications, 2021) explicitly reported 36% higher growth and 24% higher biomass at temperate forest edges and attributed the effect largely to greater light availability and release from limiting constraints. European temperate-edge work likewise found increased carbon stocks near edges.
+These mechanisms make positive, opposing expectations about fragmentation effects under environmental contexts where stress versus resource release dominates.
+
+TEMPORAL AUDIT:
+- Safe cutoff: 2024-01-01.
+- Resolving article received 2024-08-27, published 2025-07-08 in Nature Ecology & Evolution, DOI 10.1038/s41559-025-02776-7.
+- No preprint was located in targeted searches.
+- Earliest located public release of study-specific resolving material: Zenodo code deposit created 2025-05-22, DOI 10.5281/zenodo.15488956.
+- No equivalent global biome-resolved fragmentation-resilience result was located before cutoff.
+
+CONSEQUENCE PROFILE:
+- Edge-stress account predicts fragmentation should be associated with higher local temperature/atmospheric dryness and reduced resilience, especially where water/heat stress dominate.
+- Resource-release account predicts fragmentation can increase light availability, relax resource limitation and thereby increase growth/recovery/resilience where climatic stress penalties are small enough.
+- If both mechanisms are real and context dependent, the sign of the fragmentation-resilience relationship should vary systematically by biome and covary with microclimate/resource changes rather than be globally uniform.
+
+RESOLVING OBSERVATIONS:
+The global analysis found a significant fragmentation-resilience relationship in ~77% of fragmented forests, but with opposite signs by biome. Tropical and temperate forests showed increased local temperature and atmospheric dryness with fragmentation and lower resilience. Boreal forests showed decreased atmospheric dryness and enhanced light resources with fragmentation and higher resilience. The authors explicitly characterize the result as reconciling competing hypotheses.
+
+STATUS:
+ACCEPT — regime-dependent resolution.
+
+RATIONALE:
+Both causal mechanisms are independently documented before a valid cutoff, concern the same fragmentation-resilience phenomenon, make differing positive mechanistic predictions, and the post-cutoff global analysis resolves the apparent contradiction by showing that each mechanism dominates in different biomes.
