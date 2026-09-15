@@ -1,33 +1,37 @@
 # DIRECTIVE
 
-Construct full temporal-audit dossiers for the Stage-1 promoted explanatory-hypothesis cases.
+Freeze the first benchmark-construction schema and convert the eight currently ACCEPTED explanatory-hypothesis cases into structured benchmark dossiers.
 
-Promoted cases, in audit priority order:
+Accepted tranche:
 1. PFC working-memory storage vs top-down control.
 2. Gcn4/Med15 soluble-complex vs transcriptional-condensate mechanisms.
-3. Eukaryogenesis mitochondria-early vs mitochondria-intermediate/late models.
-4. Silverpit impact vs non-impact origin.
-5. PFC specialized contralateral vs redundant bilateral working-memory architecture.
-6. Oddball temporal illusion: attentional-capture vs sensory-adaptation/repetition-suppression accounts.
-7. Dentate-gyrus engram recruitment mechanisms.
-8. Red-giant long-secondary-period: oscillatory convective modes vs dusty binary companion.
+3. Eukaryogenesis mitochondria-early vs mitochondria-intermediate/late.
+4. Interhemispheric PFC specialized/lateralized vs redundant/shared storage.
+5. GlnBP conformational selection vs induced fit.
+6. Spider orb-web ancestral single origin/loss vs convergent independent origins.
+7. Forest fragmentation edge-stress/degradation vs resource-release/productivity mechanisms.
+8. Fly-wing developmental/genetic constraint vs correlational-selection explanation.
 
-Hold:
-- Spider orb-web single ancestral origin/loss vs convergent origins; substantial public 2025 analysis footprint and mixed discrimination require deeper leakage/resolution review before promotion.
+Create a benchmark record schema that preserves:
+- case_id
+- title
+- domain
+- phenomenon
+- cutoff
+- hypotheses[] with source-faithful text, source identifiers, source dates, and whether explicitly named or reconstructed
+- pre_cutoff_context
+- consequence_matrix[] with observable/test, hypothesis-specific positive predictions, and rationale/source support
+- resolving_study with all known identifiers and earliest_public_date
+- resolving_observations[]
+- resolution type (favored/disfavored/mixed/regime-dependent/component-wise/unresolved)
+- leakage_audit with searched channels and findings
+- construction_status
+- construction_rationale
+- ambiguities/limitations
+- benchmark_visibility fields distinguishing verifier-visible inputs from hidden annotations
 
-Drop current formulations/resolvers:
-- Predictive-processing speech sensory sharpening vs prediction error: equivalent resolving preprint/conference result public in 2023.
-- Cross-modal olfactory-cortex processing vs learned associations: same resolving study public on bioRxiv in 2023.
-- Root-nodule single vs multiple origins using the 2024 Nature Communications resolver: effectively same study/result public on bioRxiv in 2022.
+Do not expose resolving observations or hidden consequence annotations to a future verifier by default.
 
-For each full dossier:
-1. State shared phenomenon.
-2. Recover source-faithful hypothesis formulations from pre-cutoff primary sources and dates.
-3. Establish defensible cutoff t >= 2024-01-01.
-4. Establish earliest known public availability of resolving evidence, including preprints/data/repos/conferences where practical.
-5. Build a small consequence matrix using only positive/source-licensed predictions; never silence-as-null.
-6. Identify actual later discriminating observations and resolution (favored/disfavored/mixed/regime-dependent/unresolved).
-7. Perform targeted leakage audit for effectively equivalent pre-cutoff findings.
-8. Assign final ACCEPT / BORDERLINE / REJECT with concise rationale.
+Also produce a summary report covering all eight cases, counts by resolution type/domain, common failure modes learned from rejected/borderline cases, and an assessment of scale-up to ~20 items.
 
-Reject freely. Do not modify the old verifier or use the ResearchBench reserve.
+Preserve the existing benchmark principles: no silence-as-null, no retrospective sharpening, no forced binary winners, cutoff >= 2024-01-01, hypotheses and phenomenon predate cutoff, and resolving evidence must be post-cutoff with no effective earlier leakage.
