@@ -1,7 +1,16 @@
 # PROJECT_STATE
 
 ## Active phase
-Freeze the benchmark schema and convert the first eight ACCEPT cases into structured dossiers.
+Freeze the benchmark schema and convert the first eight ACCEPT cases into structured dossiers compatible with the existing `kasia-kobalczyk/hypothesis_verification` repository and its consequence-graph experiment runner.
+
+## Important execution architecture clarified from repository inspection
+- Claude Code is the executor / technical research agent, not the scientific verifier model.
+- The actual consequence-graph system is run through API-backed LLM agents/models inside the repository experiment harness.
+- Temporal safety is enforced by `LiteratureSearchService` and `CutoffRegistry`, not by trusting the agent to obey a date instruction.
+- Agents cannot choose or override cutoff dates through the literature-search API.
+- Search, citation/reference expansion, metadata lookup, and prompt rendering all reapply temporal filtering; post-cutoff records are withheld from model context.
+- The consequence-graph implementation already supports arbitrary k>=2 hypotheses conceptually, builds one shared proposition graph, cross-evaluates propositions against all hypotheses, retrieves proposition-level evidence, and performs Bayesian aggregation.
+- Run artifacts already preserve prompts, graph, edge judgments, queries, retrieval, evidence, scores and reports.
 
 ## Frozen first tranche — ACCEPT
 1. PFC working-memory storage vs top-down control.
@@ -57,6 +66,9 @@ Each case should contain:
   - visible_to_verifier: phenomenon, cutoff, hypothesis texts, pre-cutoff context / literature as task design permits
   - hidden_annotations: consequence reference profile, resolving observations, resolution label, leakage notes
 
+## Integration implication
+The first experiment should adapt the eight accepted cases into the repository's existing benchmark input conventions rather than create a parallel execution stack. Claude should implement the adapter/dataset integration and run the existing API-agent consequence-graph method under the current temporal harness. Hidden benchmark annotations should remain evaluation-only and must not enter model prompts.
+
 ## Benchmark principles frozen with schema
 - cutoff >= 2024-01-01
 - phenomenon and hypotheses must predate cutoff
@@ -78,4 +90,4 @@ Each case should contain:
 Recent explanatory-hypothesis benchmark construction is practically feasible, but the dominant cost is historical source auditing. The principal failure modes are pre-cutoff leakage, resolver-authored retrospective alternatives, hypotheses addressing different stages/aspects, asymmetric prediction structure, and disputes that were no longer genuinely live at the cutoff.
 
 ## Next execution target
-Write full dossiers for all eight accepted cases using the frozen schema, then create one summary report and machine-readable benchmark file. After the first tranche is internally consistent, continue auditing toward ~20 accepted cases without changing the construction rubric unless a documented failure forces revision.
+Write full dossiers and a machine-readable repository-compatible dataset for the eight accepted cases, then issue a bounded Claude directive to integrate those records into the existing experiment runner and run the pre-existing consequence-graph system without tuning it on these eight cases.
