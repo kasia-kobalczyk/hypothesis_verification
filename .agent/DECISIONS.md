@@ -177,3 +177,21 @@ ACCEPT — regime-dependent/reconciliatory resolution.
 
 RATIONALE:
 The scientific alternatives are demonstrably present before a valid cutoff, the later result is post-cutoff, the hypotheses make several distinct observable commitments, and the eventual result has exactly the mixed/regime-dependent structure the benchmark is intended to permit.
+
+<!-- relay-decision:a637f601f6216d208463e920 task_id:BENCH-AUDIT-001 -->
+## D034 — Dentate-gyrus engram recruitment formulation: REJECT
+
+DECISION:
+Reject the current dentate-gyrus engram case as a benchmark item in its present multi-mechanism formulation.
+
+RATIONALE:
+The resolving study does empirically test several mechanisms, but the older source trail shows they do not cleanly constitute alternative explanations of the same phenomenon. Pre-cutoff excitability work (e.g. Yiu et al., Neuron 2014; Park et al., Neuropsychopharmacology 2016) addresses which neurons are preferentially allocated to a memory engram. The SGC/lateral-inhibition literature addresses how an already active dentate ensemble may be refined or sparsened through local circuitry. Correlated afferent input is also compatible with intrinsic-excitability-biased allocation rather than a mutually competing alternative. The resolver itself ultimately supports intrinsic excitability plus correlated inputs while separately rejecting strong SGC-driven feedforward/lateral-inhibition refinement.
+
+TEMPORAL NOTE:
+The resolving preprint was originally public 2024-08-21, so timing itself is viable. The rejection is semantic/structural, not temporal.
+
+STATUS:
+REJECT.
+
+LESSON:
+Do not collapse mechanisms acting at different stages (allocation versus refinement) into a single explanatory competition merely because one paper tests them together.
