@@ -372,3 +372,36 @@ BORDERLINE — mixed/partial resolution.
 
 RATIONALE:
 The historical alternatives are real and the post-cutoff experiment yields a rich consequence profile, but it does not cleanly compare Ohno against the major dosage-based alternatives; rather it validates some Ohno predictions while confirming the rapid-inactivation problem. This is useful scientifically but weaker as a benchmark item requiring clean model discrimination.
+
+<!-- relay-decision:d7edac9403d1f4db4f061dd4 task_id:BENCH-AUDIT-001 -->
+## D041 — Spider orb-web origin: ACCEPT
+
+DECISION:
+Accept the orb-web ancestral-single-origin/loss versus convergent-independent-origin case as a benchmark item with a mixed genomic resolution.
+
+SHARED PHENOMENON:
+Why distantly related cribellate and ecribellate spider lineages share orb-weaving behavior: inheritance from an ancient orb-weaving ancestor followed by repeated losses, or repeated independent/convergent origins.
+
+PRE-CUTOFF HYPOTHESES:
+- Ancient-origin/loss model: an orb-weaving ancestor predates the separated modern orb-weaver clades, and non-orb-weaving descendants repeatedly lost orb-associated traits. Coddington et al. (PeerJ 2019) explicitly argued that spiders repeatedly lost rather than repeatedly gained foraging webs and recovered an ancient orb-origin reconstruction under their preferred coding/model.
+- Convergent-origin model: cribellate and ecribellate orbs originated independently/repeatedly. Fernández et al. (Current Biology 2018) and Kallal et al. (Cladistics, first online 2020; issue 2021) explicitly rejected a single origin and recovered multiple convergent orb origins.
+Thus the dispute is demonstrably live in the pre-cutoff literature, with high-profile analyses reaching opposing conclusions.
+
+TEMPORAL AUDIT:
+- Safe cutoff: 2026-01-01.
+- Resolving genomic-selection preprint: Runnels, Miller & Gordus, bioRxiv, posted 2026-04-01, DOI 10.64898/2026.03.30.715290.
+- Targeted searches did not locate a pre-2026 conference abstract, preprint, or indexed public result from this study. A public GitHub analysis repository exists now, but no indexed evidence located in the audit establishes that its discriminating results were public before the proposed cutoff; this should be rechecked during final dossier freeze.
+
+CONSEQUENCE CONTRAST:
+- Ancient-origin/loss predicts orb-associated genes inherited from a common ancestor should show relaxation of selection in descendant lineages that lost orb-weaving, and potentially gene-loss patterns concentrated in non-orb-weavers.
+- Convergent-origin predicts orb-associated genes should show convergent positive selection in independently orb-weaving lineages, reflecting repeated acquisition/refinement of the phenotype.
+These are positive genomic signatures derived from the alternative histories, not silence-as-null.
+
+RESOLVING OBSERVATIONS:
+Across thousands of orthologous groups, the study found both classes of signatures: 491 genes with relaxed selection in non-orb-weavers, consistent with ancestral orb-associated functions followed by loss, and 96 genes with positive selection associated with orb-weaving, consistent with convergent evolution. It also found orb-correlated gene loss/duplication patterns. The authors conclude that different components of modern orb-weaving may have different evolutionary histories: some ancestral, some convergent, and others subsequently elaborated.
+
+STATUS:
+ACCEPT — mixed/component-wise resolution.
+
+RATIONALE:
+The alternatives are independently and explicitly source-grounded before cutoff, concern the same evolutionary phenomenon, imply distinct genomic consequence profiles, and the later comparative-genomic analysis detects evidence corresponding to both mechanisms. This is an especially valuable benchmark item because the scientifically appropriate resolution is component-wise mixture rather than a forced single winner.
