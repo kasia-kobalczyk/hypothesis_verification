@@ -61,3 +61,15 @@ ACCEPT — mixed/reconciliatory resolution.
 
 RATIONALE:
 Both mechanisms were explicit before a valid cutoff, concern the same activation phenomenon, imply distinct observables without silence-as-null, and the post-cutoff resolving work directly compares them and supports a regime-dependent mixture.
+
+<!-- relay-decision:2c201c7dc3e9004c983e02f2 task_id:BENCH-AUDIT-001 -->
+## D030 — Oddball temporal illusion rTMS case: REJECT due to pre-cutoff effective resolution
+
+DECISION:
+Reject the 2024 rTMS oddball-duration case as a benchmark item under the current historical-cutoff standard.
+
+RATIONALE:
+Although the 2024 study provides a clean causal neural intervention, the core explanatory contrast was substantially resolved before any allowable 2024 cutoff. A 2017 behavioral study directly dissociated competing accounts and concluded that top-down attention is necessary and sometimes sufficient for the duration oddball effect. A 2023 study further reported that the visual oddball effect was not caused by repetition suppression. Therefore the later rTMS evidence does not constitute the first effective resolution of the scientific dispute.
+
+STATUS:
+REJECT.
