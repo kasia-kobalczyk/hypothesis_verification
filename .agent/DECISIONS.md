@@ -216,3 +216,34 @@ REJECT.
 
 RATIONALE:
 The later experiment is an excellent discriminator, but the benchmark requires both hypotheses to be independently grounded in pre-cutoff scientific discourse. I cannot establish that for the cytoplasmic model without relying on the resolver's retrospective framing.
+
+<!-- relay-decision:5cbcf8afb8d73a7f44118175 task_id:BENCH-AUDIT-001 -->
+## D036 — RT Pav long-secondary-period mechanisms: BORDERLINE
+
+DECISION:
+Retain the RT Pav case as BORDERLINE rather than ACCEPT.
+
+SHARED PHENOMENON:
+The origin of long secondary periods (LSPs) in luminous red giant variables.
+
+PRE-CUTOFF HYPOTHESES:
+- Oscillatory-convective-mode account: Saio et al. (2015) proposed highly non-adiabatic dipole convective modes as the cause of sequence-D/LSP variability, with period–luminosity and phase/amplitude consequences.
+- Dusty-binary account: a low-mass companion plus dusty obscuring material produces the LSP; binarity has been debated since the late 1990s and Soszyński et al. (2021) argued strongly that secondary infrared eclipses support this mechanism.
+
+TEMPORAL AUDIT:
+- A nominal safe cutoff such as 2024-01-01 precedes the RT Pav resolver.
+- Resolving study: Courtney-Barrer et al., arXiv 2511.21987, posted 2025-11-27; later journal publication followed.
+- No earlier public RT Pav interferometric dataset with equivalent conclusions was located.
+
+CONSEQUENCE CONTRAST:
+- Dusty-binary model predicts a companion at a geometrically consistent position across wavelength, wavelength-dependent closure-phase/asymmetry behavior from dust, and a companion/orbit capable of hosting obscuring material sufficient for the photometric LSP.
+- Oscillatory-convective model predicts a dipole-like surface brightness/temperature asymmetry tied to stellar convection rather than a persistent off-star companion geometry.
+
+RESOLVING OBSERVATIONS:
+Gaia constraints make the allowed companion Roche-lobe volume too small for the required obscuring/scattering material; binary-fit positions vary inconsistently across wavelength and expected dusty-companion closure-phase behavior is absent, whereas an oscillatory convective dipole with ~200 K temperature contrast reproduces the H-band morphology and visible-light amplitude. The study therefore favors oscillatory convective modes for RT Pav.
+
+WHY BORDERLINE:
+Historical 'live dispute' status at a 2024 cutoff is uncertain. Soszyński et al. (2021) explicitly claimed binarity as the origin of LSPs, and a 2022 review described LSPs as recently ascribed to dust-enshrouded companions. By 2025 some literature still described the origin as not fully established, and the RT Pav paper itself calls binary and convective-mode accounts the two leading hypotheses. The alternatives were therefore not extinct, but the field may already have leaned strongly enough toward binarity that this is weaker as a balanced recent dispute.
+
+STATUS:
+BORDERLINE.
