@@ -195,3 +195,24 @@ REJECT.
 
 LESSON:
 Do not collapse mechanisms acting at different stages (allocation versus refinement) into a single explanatory competition merely because one paper tests them together.
+
+<!-- relay-decision:39451f013e50576252415a2d task_id:BENCH-AUDIT-001 -->
+## D035 — Apicomplexan MyoA localization: REJECT
+
+DECISION:
+Reject the 2026 MyoA localization case as currently formulated.
+
+SHARED PHENOMENON:
+The axial localization of the Apicomplexan MyoA motor relative to the plasma membrane and inner membrane complex (IMC).
+
+SOURCE AUDIT:
+The pre-2024 literature strongly and repeatedly articulates the canonical linear glideosome architecture, with MyoA/glideosome components positioned in the narrow space between the plasma membrane and IMC (e.g. Frénal et al., Cell Host & Microbe 2010; Williams et al., mBio 2015; Periz et al., eLife 2019; later reviews). However, targeted searches did not identify a pre-resolver primary source that clearly advances a mature competing model in which functional MyoA is localized in the cytoplasm. Pre-cutoff papers do report diffuse/cytosolic newly synthesized MyoA during assembly and acknowledge uncertainty in exact nanoscale organization, but that is not equivalent to a stable alternative localization model for the motility motor.
+
+RESOLVER:
+Ferrari et al., Nano Letters, published online 2026-08-11, explicitly frames two models and uses graphene energy transfer plus STED to localize a major fraction of MyoA within the PM–IMC space, supporting the linear model.
+
+STATUS:
+REJECT.
+
+RATIONALE:
+The later experiment is an excellent discriminator, but the benchmark requires both hypotheses to be independently grounded in pre-cutoff scientific discourse. I cannot establish that for the cytoplasmic model without relying on the resolver's retrospective framing.
