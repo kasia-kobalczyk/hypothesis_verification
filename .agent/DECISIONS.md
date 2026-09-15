@@ -107,3 +107,38 @@ ACCEPT.
 
 RATIONALE:
 The competing scenario families were explicit before cutoff, make clear and multidimensional ordering predictions, the later evidence became public after cutoff, and contrary 2024 evidence actually strengthens the historical validity of the unresolved dispute rather than leaking the answer.
+
+<!-- relay-decision:cda4915bcfd4bc432ca05d02 task_id:BENCH-AUDIT-001 -->
+## D032 — Silverpit crater impact vs non-impact origin: BORDERLINE
+
+DECISION:
+Retain the Silverpit crater case as BORDERLINE rather than ACCEPT.
+
+SHARED PHENOMENON:
+The origin of the concentric Silverpit subsurface structure in the southern North Sea.
+
+PRE-CUTOFF HYPOTHESES:
+- Hypervelocity-impact account: introduced by Stewart & Allen (Nature 2002) and defended in their 2004 reply; predicts an impact-style central uplift/damage architecture, ejecta and diagnostic shock metamorphism.
+- Non-impact geological accounts: Underhill (Nature 2004) explicitly proposed salt withdrawal; later work also invoked hydrothermal venting related to Paleogene dykes. These alternatives predict endogenous structural/thermal features rather than diagnostic high-pressure shock signatures.
+
+TEMPORAL AUDIT:
+- A safe date cutoff of 2024-01-01 would precede the new resolving work.
+- Earliest located public resolving study: Research Square preprint v1 dated 2025-01-28, DOI 10.21203/rs.3.rs-5841349/v1.
+- Journal paper: Nature Communications 2025, DOI 10.1038/s41467-025-63985-z.
+- No equivalent pre-2024 shock-mineral result was located.
+
+CONSEQUENCE CONTRAST:
+- Impact model positively predicts diagnostic shock metamorphism in crater/ejecta material and impact-consistent structural features such as a central uplift, annular moat/damage architecture and ejecta-related morphology.
+- Salt-withdrawal / hydrothermal accounts positively predict endogenous deformation linked to evaporite mobility or igneous-hydrothermal structures and do not generate hypervelocity-shock pressures as part of their proposed mechanism.
+
+RESOLVING OBSERVATIONS:
+New high-resolution 3D seismic data image the central uplift, annular moat, damage zone and secondary-crater-like features. Petrographic analysis found two grains with shock lamellae corresponding to roughly 10–13 GPa, consistent with numerical impact models. The later paper calls this combination compelling evidence for hypervelocity impact.
+
+WHY NOT ACCEPT:
+Historical 'live alternative' status is questionable. The 2025 paper itself notes that a 2009 Geological Society public debate voted overwhelmingly for a non-impact origin and that many researchers subsequently treated the question as effectively closed, with limited work for roughly fifteen years. Thus the hypotheses are genuine and consequence-rich, but the impact account may not have remained a sufficiently live scientific alternative at a 2024 cutoff.
+
+STATUS:
+BORDERLINE.
+
+RATIONALE:
+Excellent source-grounded model discrimination and clean post-cutoff evidence, but weak confidence that both explanations remained live/plausible in the scientific community at the required recent cutoff.
