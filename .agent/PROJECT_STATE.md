@@ -1,94 +1,73 @@
 # PROJECT_STATE
 
-## Active phase
-Stage-1 temporal/source audit of the 12-case shortlist is substantially complete. Goal: PROMOTE only cases with pre-existing genuine explanatory alternatives, a feasible cutoff t>=2024-01-01, and later discriminating evidence.
+## Active task
+BENCH-SCOUT-001 — broaden the candidate pool for the recent explanatory-hypothesis benchmark before committing to full temporal audits.
 
-## Stage-1 classifications
+## Benchmark constraints
+- Real scientific explanations/models of the same phenomenon.
+- At least two hypotheses with meaningfully different observable consequence profiles.
+- No silence-as-null.
+- Historical cutoff t >= 2024-01-01.
+- Hypotheses and phenomenon public before t; effective resolving evidence public only after t.
+- Mixed/regime-dependent resolution is allowed and often desirable.
+- Search hits are leads only; each candidate still requires primary-source reconstruction and leakage audit.
 
-### PROMOTE
-1. PFC working-memory storage vs top-down control
-- Resolving preprint: Hallenbeck et al., bioRxiv, first posted 2024-05-12, DOI 10.1101/2024.05.11.593696.
-- Resolving paper explicitly frames storage (Goldman-Rakic 1990; Riley & Constantinidis 2016) vs top-down control (Curtis & D'Esposito 2003; D'Esposito & Postle 2015; Serences 2016; Tardiff & Curtis 2024).
-- TMS consequence contrast is nontrivial: perturbing storage should degrade stored information; perturbing allocation/control can redistribute resource and selectively improve low-priority items.
-- Proposed cutoff candidate: 2024-05-11 or earlier, subject to checking exact public date of Tardiff & Curtis 2024 cited as control antecedent.
+## High-priority scout leads
+1. PFC working-memory storage vs top-down control — Hallenbeck et al.; bioRxiv first posted 2024-05-12; strong perturbational discriminator.
+2. Oddball temporal illusion — attentional-capture vs sensory-adaptation/distractor-dilation; resolving preprint 2024-09-30; strong rTMS discriminator.
+3. Gcn4/Med15 transcription — soluble-complex vs condensate models; resolving preprint 2024-11-22; mixed/coexisting resolution.
+4. Predictive processing in speech — sensory sharpening vs prediction-error accounts; resolving preprint 2025-07-24; hierarchical/regime-dependent resolution.
+5. Declarative-learning interference with motor learning — consolidation disruption vs inhibition-breakdown vs resource competition; 2025 preprint/journal; three distinct consequence profiles.
+6. Microgravity movement slowing — conservative-control strategy vs body-mass underestimation; 2025 bioRxiv; clean mechanistic predictions, prior-articulation audit pending.
+7. LIP remapping — wave-of-activity vs single-jump model; 2026 paper/preprint; saccade-length-dependent timing discriminator; date/source audit pending.
+8. Strategic motor learning — reinforcement-learning/random exploration vs hypothesis-testing; 2026; strong behavioral consequence profile; prior-articulation audit pending.
+9. Working-memory compositional coding — mixed selectivity vs segregated conjunctive neuronal population; 2026 preprint; strong neural-population discriminator; audit pending.
+10. Human energy expenditure — additive vs constrained-energy model; 2026; clear compensation predictions but perhaps somewhat endpoint-centric.
+11. Cross-modal sensory-cortex activation — genuine nonpreferred-modality processing vs learned cross-modal associations; Cortex 2025; olfactory-cortex design is structurally promising; leakage/source audit pending.
+12. Bacterial replication initiation — DnaA titration vs ATP/ADP-switch models; 2025/26 eLife work; older hypotheses clearly exist, but resolving role may involve a third/extrusion model.
+13. Silverpit crater origin — hypervelocity impact vs geological/non-impact alternatives; Nature Communications 2025; rich morphology/shock/ejecta consequence profile; alternative-model normalization needed.
+14. FePd spin-wave resonance — negative surface pinning vs stress-induced magnetoelastic-gradient explanation; Phys Rev Applied 2025; explicit competing explanations; prior-articulation audit pending.
+15. Production effect in memory — Revised Feature Model/interference vs production-anticipation account; 2025 experiments; source/date audit pending.
+16. Human visual-system organization at birth — innate lateral pathway vs postnatal emergence from two-pathway organization; Neuron 2026; neonatal imaging predictions; audit pending.
+17. Dentate-gyrus engram recruitment — intrinsic-excitability/correlated-input account vs SGC-driven feedforward/lateral-inhibition account; eLife 2025; mechanistically strong; audit pending.
+18. Smoothened cholesterol access — competing cholesterol-translocation routes/models; eLife 2026; potentially strong mixed mechanistic resolution; audit pending.
+19. RNA Pol II elongation regulation — competing recruitment/recycling mechanisms; Molecular Cell 2024; live-cell dynamics constrain models, but case boundaries need reconstruction.
+20. Oral bacteria in feces — absolute oral-bacterial expansion vs apparent relative enrichment from resident depletion; Nature Microbiology 2024; clean quantitative discriminator but likely risk that marker/depletion hypothesis was introduced by resolving paper.
+21. Eukaryogenesis sequence — mitochondria-early vs mitochondria-late/intermediate models; Nature 2025/26 dated gene-duplication study; direct consequence profile over timing of nucleus/cytoskeleton/membrane-trafficking innovations; evidence argues against mitochondria-early while not fully matching any single scenario.
+22. Spider orb-web origins — independent convergent origins of cribellate/ecribellate orb webs vs single ancestral origin with repeated losses; bioRxiv 2026-04-01; predicts convergent positive selection vs relaxed-selection/gene-loss signatures; unusually clean evolutionary discriminator.
+23. PFC interhemispheric working-memory architecture — specialized contralateral storage vs redundant bilateral storage; bioRxiv first posted 2025-01-16, Nature Communications 2026; distinct predictions for bilateral behavioral prediction, decoding-error correlations, and serial dependence.
+24. Root-nodule symbiosis origins — single origin with repeated cessation/loss vs multiple independent assemblies from a shared predisposition; long-standing hypotheses, refreshed by recent phylogenomics; rich predictions in gene homology, NIN retention/pseudogenization, and phylogenetic gain/loss patterns. Need identify the actual resolving primary study and its first-public date rather than use the 2025 Perspective as resolution.
+25. Microbial species cohesion — ecological differentiation vs recombination-based cohesion (and hybrids) as explanations for ANI gaps/sequence-discrete species; Nature Communications 2024; genuinely mechanistic but needs careful preprint/date check.
+26. Exoplanet spin-orbit misalignment — high-eccentricity migration vs a more universal/primordial misalignment process; 2024 observations of compact multi-planet sub-Saturn systems exploit architectures that preclude violent migration; clean population-level discriminator, earliest-public-date audit needed.
+27. Hadean tectonic regime — mobile/subduction-like vs stagnant-lid interpretations, plus single-setting vs diverse-setting origins for Hadean zircons; Nature 2026; trace-element/isotopic distributions provide multiple observable consequences; normalization of exact competing hypothesis set needed.
+28. Plant nutrient limitation under elevated CO2 — Liebig Law of the Minimum vs Multiple Element Limitation; Ecological Applications 2024; long-preexisting theories with differing fertilization and carbon-cycle responses; scientifically valid but may be more model-evaluation than explanation of one sharply defined phenomenon.
+29. Human information gathering — option-wise uncertainty reduction/UCB-style accounts vs relative-evidence/information-symmetry strategy; Nature Neuroscience 2026; interpretable behavioral and neural predictions; historical-articulation audit needed because the successful symbolic strategy may have been discovered in the resolving work.
+30. Red-giant long secondary periods — oscillatory convective modes vs dusty binary-companion explanation; 2026 interferometric study of RT Pav directly tests both; excellent observational discriminator if prior hypotheses and no-leakage dates check out.
+31. Stellar-obliquity origin in compact sub-Saturn systems — violent post-disk/high-eccentricity migration vs more universal primordial misalignment; Astronomical Journal 2024; architecture gives a strong conditional prediction; may overlap #26 and should be treated as one candidate family.
+32. Lunar crustal dichotomy — competing magma-ocean/crust-formation models tested using Chang’e-6 farside anorthosites; Nature Communications 2026; potentially strong but hypothesis formulations need reconstruction.
+33. Basal-mantle LLSVP origin/dynamics — primordial/deep-mantle persistence vs regeneration linked to supercontinent cycles/subduction; Nature Communications 2025; rich geochemical/spatiotemporal consequences but exact hypotheses may be broad.
+34. HCC cell of origin — mature hepatocytes vs hepatic progenitor/hepatoblast-like cells; Nature Communications 2025 single-cell chromatin analysis adds evidence for progenitor-like origin; likely weaker because the resolving method is inferential and prior evidence may already be substantial.
+35. Locomotor adaptation generalization — no vs full vs partial generalization of forward-model recalibration; 2024 study provides explicit predictions; structurally clean but somewhat endpoint-like and may be less aligned with rich explanatory reasoning.
 
-2. Gcn4/Med15 soluble-complex vs transcriptional-condensate models
-- Resolving preprint: 2024-11-22, DOI 10.1101/2024.11.21.624739.
-- Explicit head-to-head comparison of two pre-existing models of transcription activation.
-- Consequences include correlations of activity with soluble binding affinity, homotypic phase separation, Med15 co-condensation, DNA effects, and separation-of-function variants.
-- Mixed resolution: mechanisms are intertwined; both can operate, and condensates can attenuate activity in high-affinity variants.
-- Proposed cutoff: shortly before 2024-11-22, after confirming all hypothesis-source versions predate it.
+## Early temporal rejects / downgrades
+- Multisensory objective reliability vs subjective confidence: resolving bioRxiv version was public 2023-06-07, so no valid t >= 2024 can precede the result.
+- Stochastic gene-expression multistate models: discriminating preprint was public 2023-12-30, so it fails the hard cutoff despite excellent scientific structure.
+- Recent social-learning model-comparison papers often construct several candidate computational models within the resolving study itself; downgrade unless pre-existing hypotheses can be demonstrated.
+- Pure model-selection/latent-structure comparisons are lower priority unless they correspond to substantive explanatory mechanisms rather than statistical fit alternatives.
 
-3. Eukaryogenesis mitochondria-early vs mitochondria-intermediate/late
-- Resolving Nature article first online 2025-12-03; associated Bristol dataset public 2025-10-21/22, currently earliest located public release.
-- Paper says relative timing of mitochondrial endosymbiosis is the model-defining distinction of contemporary hypotheses.
-- Consequence profile spans timing of cytoskeleton, endomembrane, membrane trafficking, phagocytosis, nucleus, etc. relative to mitochondrial acquisition.
-- Resolution rejects mitochondria-early; compatible with most intermediate/late models rather than one unique winner.
-- Proposed cutoff: before 2025-10-21, potentially early 2025, pending conference/thesis leakage search.
+## Current best audit tranche
+Highest expected benchmark value after scouting:
+1. PFC working-memory storage vs control.
+2. Gcn4/Med15 soluble-complex vs condensate.
+3. Silverpit impact vs non-impact origin.
+4. Eukaryogenesis mitochondria-early vs late/intermediate.
+5. Spider orb-web single-origin/loss vs convergent-origin.
+6. PFC specialized vs redundant interhemispheric storage.
+7. Oddball temporal illusion mechanisms.
+8. Speech predictive-processing sharpening vs prediction error.
+9. Cross-modal sensory-cortex processing vs learned associations.
+10. Dentate-gyrus engram recruitment mechanisms.
+11. Red-giant LSP oscillation vs dusty-binary model.
+12. Root-nodule single vs multiple origins, if a clean post-2024 primary resolving study can be identified.
 
-4. Spider orb-web origins: single ancestral origin + repeated losses vs independent/convergent origins
-- Resolving preprint: 2026-04-01, DOI 10.64898/2026.03.30.715290.
-- Alternatives clearly predate cutoff: 2014 and 2018 phylogenomic literature explicitly discusses ancient/single origin with losses vs multiple independent origins.
-- Resolving study was designed around expected genomic signatures: convergent positive selection vs relaxed selection/gene loss plus copy-number patterns.
-- Proposed cutoff: 2026-03-31 or earlier; substantial window available.
-
-5. Oddball temporal illusion: attentional-capture vs repetition-suppression/distractor-dilation
-- Resolving preprint: 2024-09-30, DOI 10.1101/2024.09.27.615494.
-- Paper explicitly contrasts Tse-style attentional capture with Eagleman/Pariyadath neuronal repetition account.
-- rTMS/ERP predictions differ over parietal perturbation and P3b vs earlier sensory components; result favors attentional-capture account while not strictly proving absence of early mechanisms.
-- Historical debate demonstrably predates 2024; 2017 work discussed multiple hypotheses.
-- Proposed cutoff: before 2024-09-30.
-
-6. Dentate-gyrus engram recruitment: intrinsic excitability/correlated afferent input vs SGC-driven feedforward excitation/lateral inhibition
-- Resolving bioRxiv first posted 2024-08-21; reviewed preprint 2024-10-28; final 2025-08-27. DOI 10.1101/2024.08.21.608983 / 10.7554/eLife.101428.
-- Resolving study explicitly says it empirically tested competing hypotheses.
-- Consequences include cell excitability, glutamatergic SGC→GC connections, lateral inhibition, spontaneous excitatory input rates, and temporal correlation of afferent inputs.
-- Result challenges SGC-driven local circuit refinement; supports intrinsic excitability plus correlated input.
-- Proposed cutoff: before 2024-08-21, pending exact prior-paper provenance for SGC circuit proposal.
-
-7. Red-giant long secondary periods: oscillatory convective modes vs dusty binary companion
-- Resolving arXiv preprint: 2025-11-27, arXiv:2511.21987.
-- Oscillatory-convective explanation explicit by 2015; binary/dust account is an established leading alternative and requires source reconstruction.
-- Consequences include wavelength-dependent closure phases, inferred companion position consistency, companion mass/Roche-lobe dust capacity, and dipole temperature contrast.
-- Result favors oscillatory convective mode for RT Pav; binary fits can fit some data but fail cross-wavelength/physical constraints.
-- Proposed cutoff: before 2025-11-27.
-
-8. Root-nodule symbiosis origins: single origin + many losses vs precursor/predisposition + repeated gains/losses
-- Resolving Nature Communications article 2024-05-27; associated supplementary data were public on Zenodo by 2024-03-15/18, currently earliest known leakage of study materials.
-- Alternatives explicitly predate 2024; 2022 review cleanly names multiple-origin, single-origin, and two-step hypotheses; 2018 work tests the two-step account.
-- Consequence profile includes ancestral-state reconstruction, number/location of gains/losses, conserved gene ensemble, and heterogeneous evolutionary lability.
-- Result infers non-nodulating MRCA, 16 gains, 10 losses, but notes compatibility with one-time assembly of some critical genetic machinery.
-- Proposed cutoff must be before 2024-03-15, e.g. 2024-01-01, subject to checking whether analysis/results were presented publicly earlier.
-
-### HOLD
-9. Specialized contralateral vs redundant bilateral PFC working-memory architecture
-- Resolving bioRxiv first posted 2025-01-16, DOI 10.1101/2025.01.15.633176; journal version 2026.
-- Paper explicitly names two opposing theories and gives strong multidimensional predictions (behavioral error prediction, cross-hemisphere decoding correlation, serial dependence, capacity/robustness).
-- Hold only because the exact source/date for both named pre-existing theories still needs reconstruction; one may be very recent and close to resolving work.
-
-10. Predictive speech: sensory sharpening vs prediction-error accounts
-- Resolving bioRxiv first posted 2025-07-24, DOI 10.1101/2025.07.23.666354; PLOS Biology 2026-01-09.
-- Strong structural case with hierarchical mixed resolution: sharpening at early sensory stages, prediction error at higher semantic levels.
-- Hold pending exact pre-cutoff primary sources establishing these as live alternatives rather than a contrast assembled by the resolving authors from broader predictive-coding theory.
-
-11. Cross-modal primary sensory cortex: genuine nonpreferred-modality processing vs learned cross-modal association
-- Cortex 2025 (DOI 10.1016/j.cortex.2025.04.002) explicitly says it dissociates competing hypotheses using olfactory cortex and varying odor association.
-- Strong consequence contrast: activation should track odor association under associative account, but persist independently of it under genuine unisensory/nonpreferred processing.
-- Hold pending exact earliest-public-date search and pre-cutoff primary sources for both accounts.
-
-### HOLD / likely promote after provenance
-12. Silverpit crater: hypervelocity impact vs salt-withdrawal/non-impact geology
-- Impact interpretation public 2002; salt-withdrawal alternative explicitly published in Nature 2004 and debated for decades.
-- Resolving Nature Communications 2025 study presents 3D seismic morphology, central uplift, fault patterns, secondary craters, numerical impact modeling, and shock lamellae/PDFs at ~10–13 GPa.
-- Shock metamorphism is a genuinely discriminating consequence, not silence-as-null.
-- Hold only because earliest public availability of the 2025 resolving manuscript/result remains uncertain; a repository manuscript exists and needs date provenance, plus conference leakage search.
-
-## Drops from the broader pool already established
-- Multisensory objective reliability vs subjective confidence: resolving preprint public 2023-06-07, invalid under t>=2024.
-- Stochastic gene-expression model case: resolving preprint public 2023-12-30, invalid under t>=2024.
-
-## Current conclusion
-At least 8/12 shortlisted cases survive Stage 1 strongly enough for full dossier work; 4 are held for provenance/date verification rather than structural weakness. This is encouraging evidence that constructing a 20-case pilot is plausible.
-
-## Next action
-Perform full dossier audits first on: PFC storage/control; Gcn4/Med15; eukaryogenesis; orb-web origins; oddball temporal illusion; dentate-gyrus recruitment; RT Pav LSP; root-nodule origins. For each, recover exact primary hypothesis sources/dates, choose a safe cutoff, construct consequence matrix, identify discriminating observations, and run targeted leakage searches across preprints/repositories/conferences.
+Retain inherited GlnBP, mPFC, Ohno/gene-duplication, and ventriloquism cases in the broader pool, but do not force them to survive.
