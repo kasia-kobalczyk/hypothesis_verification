@@ -1,27 +1,33 @@
 # DIRECTIVE
 
-Audit the current 12-case shortlist for benchmark viability before full dossier construction.
+Construct full temporal-audit dossiers for the Stage-1 promoted explanatory-hypothesis cases.
 
-Stage 1 for each case:
-1. Verify that competing hypotheses/models were publicly articulated before a defensible cutoff t >= 2024-01-01.
-2. Establish the earliest known public availability of the resolving study/result (preprint, repository, conference, journal, etc.).
-3. Determine whether the phenomenon was known before cutoff and whether the hypotheses address the same phenomenon.
-4. Identify at least one substantive observable consequence difference, without silence-as-null.
-5. Search for obvious pre-cutoff leakage/equivalent resolving results.
-6. Classify as PROMOTE / HOLD / DROP for full audit.
+Promoted cases, in audit priority order:
+1. PFC working-memory storage vs top-down control.
+2. Gcn4/Med15 soluble-complex vs transcriptional-condensate mechanisms.
+3. Eukaryogenesis mitochondria-early vs mitochondria-intermediate/late models.
+4. Silverpit impact vs non-impact origin.
+5. PFC specialized contralateral vs redundant bilateral working-memory architecture.
+6. Oddball temporal illusion: attentional-capture vs sensory-adaptation/repetition-suppression accounts.
+7. Dentate-gyrus engram recruitment mechanisms.
+8. Red-giant long-secondary-period: oscillatory convective modes vs dusty binary companion.
 
-Current 12-case shortlist:
-- PFC working-memory storage vs top-down control
-- Gcn4/Med15 soluble-complex vs condensate
-- Eukaryogenesis mitochondria-early vs late/intermediate
-- Silverpit impact vs non-impact origin
-- Spider orb-web single-origin/loss vs convergent origins
-- PFC specialized vs redundant hemispheric WM storage
-- Oddball temporal-illusion mechanisms
-- Predictive-processing sensory sharpening vs prediction error
-- Cross-modal cortical processing vs learned associations
-- Dentate-gyrus engram-recruitment mechanisms
-- Red-giant long-secondary-period mechanisms
-- Root-nodule single vs multiple origins
+Hold:
+- Spider orb-web single ancestral origin/loss vs convergent origins; substantial public 2025 analysis footprint and mixed discrimination require deeper leakage/resolution review before promotion.
 
-Do not tune or modify the old verifier. Do not reuse the ResearchBench reserve. Reject freely.
+Drop current formulations/resolvers:
+- Predictive-processing speech sensory sharpening vs prediction error: equivalent resolving preprint/conference result public in 2023.
+- Cross-modal olfactory-cortex processing vs learned associations: same resolving study public on bioRxiv in 2023.
+- Root-nodule single vs multiple origins using the 2024 Nature Communications resolver: effectively same study/result public on bioRxiv in 2022.
+
+For each full dossier:
+1. State shared phenomenon.
+2. Recover source-faithful hypothesis formulations from pre-cutoff primary sources and dates.
+3. Establish defensible cutoff t >= 2024-01-01.
+4. Establish earliest known public availability of resolving evidence, including preprints/data/repos/conferences where practical.
+5. Build a small consequence matrix using only positive/source-licensed predictions; never silence-as-null.
+6. Identify actual later discriminating observations and resolution (favored/disfavored/mixed/regime-dependent/unresolved).
+7. Perform targeted leakage audit for effectively equivalent pre-cutoff findings.
+8. Assign final ACCEPT / BORDERLINE / REJECT with concise rationale.
+
+Reject freely. Do not modify the old verifier or use the ResearchBench reserve.
