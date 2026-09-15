@@ -281,3 +281,37 @@ The contrast is scientifically real and temporally clean, but the evidence is as
 
 STATUS:
 BORDERLINE.
+
+<!-- relay-decision:7b212d08aeed81438e14919e task_id:BENCH-AUDIT-001 -->
+## D038 — GlnBP conformational selection vs induced fit: ACCEPT
+
+DECISION:
+Accept the glutamine-binding protein (GlnBP) ligand-binding mechanism case.
+
+SHARED PHENOMENON:
+How glutamine binding is coupled to the open-to-closed conformational transition of E. coli GlnBP.
+
+PRE-CUTOFF HYPOTHESES:
+- Conformational selection: ligand binds a pre-existing binding-competent closed/semi-closed conformation sampled by apo-GlnBP. Wang et al. (Angew Chem Int Ed, 2016; PMID 27730716) combined NMR, MD and smFRET and explicitly stated that the apo ensemble suggests a conformational-selection mechanism.
+- Induced fit: glutamine binds before the major protein conformational rearrangement, after which GlnBP closes around ligand. This mechanism is the classic interpretation of open apo versus closed holo structures and is explicitly represented in the pre-cutoff mechanistic literature. Chen et al. (Commun Biol, 2020; PMID 32747735) went further and proposed a hybrid pathway in which initial conformational selection is followed by induced fit, demonstrating that the mechanism remained unsettled rather than resolved.
+
+TEMPORAL AUDIT:
+- Safe cutoff: 2024-01-01.
+- Resolving study: eLife reviewed preprint v1, DOI 10.7554/eLife.95304.1, first public 2024-03-25.
+- Later reviewed-preprint revisions appeared 2025-11-21 and version of record 2026-06-02.
+- Targeted searches did not locate an effectively equivalent pre-2024 integrated kinetic/thermodynamic result ruling out conformational selection over the experimentally accessible 100 ns–10 ms range.
+
+CONSEQUENCE CONTRAST:
+- Conformational selection requires apo-GlnBP to populate and exchange into a ligand-binding competent closed/semi-closed state on a timescale compatible with binding; ligand captures that pre-existing conformation.
+- Induced fit permits ligand binding to the open/binding-competent protein before the major conformational rearrangement; a detectable pre-existing apo closed-state exchange is not required for the observed binding kinetics.
+- Global kinetic relationships between conformational exchange, ligand-association rates and equilibrium populations therefore differ between mechanisms.
+These are mechanistic commitments, not silence-as-null.
+
+RESOLVING OBSERVATIONS:
+The integrated ITC, smFRET, SPR and MD analysis found no detectable apo or holo exchange between open and (semi-)closed conformations from roughly 100 ns to 10 ms and found ligand binding tightly correlated with conformational change. Global analysis showed conformational selection compatible only with an extreme unobserved exchange faster than ~100 ns, whereas all observations remain compatible with induced fit. The authors conclude that induced fit is the dominant mechanism for GlnBP.
+
+STATUS:
+ACCEPT.
+
+RATIONALE:
+The two mechanisms were historically explicit, addressed the same molecular event, made positive kinetic/conformational commitments, remained unresolved at 2024-01-01, and the decisive integrated evidence became public only afterward.
