@@ -3595,7 +3595,12 @@
      "H2": 0.41859052664614416
     },
     "n_used_direct_only": 0,
-    "n_used_direct_or_partial": 4
+    "n_used_direct_or_partial": 4,
+    "scored_direct_or_partial_by_reviewed_category": {
+     "silence_as_null_error": 1,
+     "unreviewed": 2,
+     "generic_component_fact": 1
+    }
    },
    "fly_wing_constraint_vs_selection": {
     "direct_only_scores": {
@@ -3607,7 +3612,8 @@
      "H1": 0.5
     },
     "n_used_direct_only": 0,
-    "n_used_direct_or_partial": 0
+    "n_used_direct_or_partial": 0,
+    "scored_direct_or_partial_by_reviewed_category": {}
    },
    "forest_fragmentation_resilience": {
     "direct_only_scores": {
@@ -3619,7 +3625,8 @@
      "H1": 0.5
     },
     "n_used_direct_only": 0,
-    "n_used_direct_or_partial": 0
+    "n_used_direct_or_partial": 0,
+    "scored_direct_or_partial_by_reviewed_category": {}
    },
    "gcn4_med15_complex_vs_condensate": {
     "direct_only_scores": {
@@ -3631,7 +3638,10 @@
      "H2": 0.8118041069966185
     },
     "n_used_direct_only": 0,
-    "n_used_direct_or_partial": 1
+    "n_used_direct_or_partial": 1,
+    "scored_direct_or_partial_by_reviewed_category": {
+     "generic_component_fact": 1
+    }
    },
    "glnbp_induced_fit_vs_conformational_selection": {
     "direct_only_scores": {
@@ -3643,7 +3653,13 @@
      "H1": 0.036802405022662396
     },
     "n_used_direct_only": 3,
-    "n_used_direct_or_partial": 6
+    "n_used_direct_or_partial": 6,
+    "scored_direct_or_partial_by_reviewed_category": {
+     "generic_component_fact": 2,
+     "silence_as_null_error": 2,
+     "genuine_discriminator": 1,
+     "unreviewed": 1
+    }
    },
    "pfc_interhemispheric_architecture": {
     "direct_only_scores": {
@@ -3655,7 +3671,8 @@
      "H2": 0.5
     },
     "n_used_direct_only": 0,
-    "n_used_direct_or_partial": 0
+    "n_used_direct_or_partial": 0,
+    "scored_direct_or_partial_by_reviewed_category": {}
    },
    "pfc_storage_vs_control": {
     "direct_only_scores": {
@@ -3667,7 +3684,12 @@
      "H2": 0.052868409779759
     },
     "n_used_direct_only": 2,
-    "n_used_direct_or_partial": 6
+    "n_used_direct_or_partial": 6,
+    "scored_direct_or_partial_by_reviewed_category": {
+     "silence_as_null_error": 1,
+     "genuine_discriminator": 2,
+     "evidence_construct_mismatch": 3
+    }
    },
    "spider_orb_web_origin": {
     "direct_only_scores": {
@@ -3679,7 +3701,11 @@
      "H2": 0.8711957274518644
     },
     "n_used_direct_only": 0,
-    "n_used_direct_or_partial": 2
+    "n_used_direct_or_partial": 2,
+    "scored_direct_or_partial_by_reviewed_category": {
+     "invalid_or_weak_implication": 1,
+     "generic_component_fact": 1
+    }
    }
   },
   "v4_replay_pilot_iter01_rep2": {
@@ -3693,7 +3719,12 @@
      "H2": 0.8296304669003588
     },
     "n_used_direct_only": 0,
-    "n_used_direct_or_partial": 4
+    "n_used_direct_or_partial": 4,
+    "scored_direct_or_partial_by_reviewed_category": {
+     "silence_as_null_error": 1,
+     "unreviewed": 1,
+     "generic_component_fact": 2
+    }
    },
    "fly_wing_constraint_vs_selection": {
     "direct_only_scores": {
@@ -3705,7 +3736,8 @@
      "H1": 0.5
     },
     "n_used_direct_only": 0,
-    "n_used_direct_or_partial": 0
+    "n_used_direct_or_partial": 0,
+    "scored_direct_or_partial_by_reviewed_category": {}
    },
    "forest_fragmentation_resilience": {
     "direct_only_scores": {
@@ -3717,7 +3749,8 @@
      "H1": 0.5
     },
     "n_used_direct_only": 0,
-    "n_used_direct_or_partial": 0
+    "n_used_direct_or_partial": 0,
+    "scored_direct_or_partial_by_reviewed_category": {}
    },
    "gcn4_med15_complex_vs_condensate": {
     "direct_only_scores": {
@@ -3729,7 +3762,10 @@
      "H2": 0.8118041069966185
     },
     "n_used_direct_only": 0,
-    "n_used_direct_or_partial": 1
+    "n_used_direct_or_partial": 1,
+    "scored_direct_or_partial_by_reviewed_category": {
+     "generic_component_fact": 1
+    }
    },
    "glnbp_induced_fit_vs_conformational_selection": {
     "direct_only_scores": {
@@ -3741,7 +3777,13 @@
      "H1": 0.036802405022662396
     },
     "n_used_direct_only": 3,
-    "n_used_direct_or_partial": 6
+    "n_used_direct_or_partial": 6,
+    "scored_direct_or_partial_by_reviewed_category": {
+     "generic_component_fact": 2,
+     "silence_as_null_error": 2,
+     "genuine_discriminator": 1,
+     "unreviewed": 1
+    }
    },
    "pfc_interhemispheric_architecture": {
     "direct_only_scores": {
@@ -3753,7 +3795,8 @@
      "H2": 0.5
     },
     "n_used_direct_only": 0,
-    "n_used_direct_or_partial": 0
+    "n_used_direct_or_partial": 0,
+    "scored_direct_or_partial_by_reviewed_category": {}
    },
    "pfc_storage_vs_control": {
     "direct_only_scores": {
@@ -3765,7 +3808,12 @@
      "H2": 0.0754194059512987
     },
     "n_used_direct_only": 1,
-    "n_used_direct_or_partial": 3
+    "n_used_direct_or_partial": 3,
+    "scored_direct_or_partial_by_reviewed_category": {
+     "silence_as_null_error": 1,
+     "genuine_discriminator": 1,
+     "evidence_construct_mismatch": 1
+    }
    },
    "spider_orb_web_origin": {
     "direct_only_scores": {
@@ -3777,7 +3825,11 @@
      "H2": 0.8711957274518644
     },
     "n_used_direct_only": 1,
-    "n_used_direct_or_partial": 2
+    "n_used_direct_or_partial": 2,
+    "scored_direct_or_partial_by_reviewed_category": {
+     "invalid_or_weak_implication": 1,
+     "generic_component_fact": 1
+    }
    }
   }
  }

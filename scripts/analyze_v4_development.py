@@ -257,6 +257,7 @@ def partial_sensitivity(replay: Path) -> Dict[str, Any]:
     from src.inference.parameters import load_ordinal_mappings
 
     mappings = load_ordinal_mappings(str(ROOT / "configs" / "ordinal_mappings.yaml"))
+    human = load(replay)[0]
     out = OrderedDict()
     for path in sorted((replay / "instances").glob("*/discrimination.json")):
         layer = json.loads(path.read_text(encoding="utf-8"))
@@ -266,7 +267,8 @@ def partial_sensitivity(replay: Path) -> Dict[str, Any]:
             cm = (rec.get("construct") or {}).get("construct_match")
             gates[nid] = d.gate_node(node_id=nid, hypothesis_ids=hyps, states=rec["states"],
                                      evidence_label=rec["evidence_label"],
-                                     construct_match="direct" if cm == "partial" else cm)
+                                     construct_match="direct" if cm == "partial" else cm,
+                                     scope=rec.get("proposition_scope"))
             if rec["states"]:
                 states[nid] = rec["states"]
             labels[nid], texts[nid] = rec["evidence_label"], rec["text"]
@@ -276,7 +278,10 @@ def partial_sensitivity(replay: Path) -> Dict[str, Any]:
         out[path.parent.name] = OrderedDict([
             ("direct_only_scores", layer["scores"]), ("direct_or_partial_scores", res.scores),
             ("n_used_direct_only", layer["summary"]["n_used_in_score"]),
-            ("n_used_direct_or_partial", sum(1 for g in gates.values() if g["used_in_score"]))])
+            ("n_used_direct_or_partial", sum(1 for g in gates.values() if g["used_in_score"])),
+            ("scored_direct_or_partial_by_reviewed_category", dict(Counter(
+                (human.get("GP1-{}-{}".format(path.parent.name, nid)) or {}).get("human_primary_category") or "unreviewed"
+                for nid, g in gates.items() if g["used_in_score"])))])
     return out
 
 
