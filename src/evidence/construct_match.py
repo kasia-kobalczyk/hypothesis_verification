@@ -18,19 +18,47 @@ from src.inference.discrimination import CONSTRUCT_MATCHES
 from src.llm.client import BaseLLMClient
 from src.llm.prompts import PromptLibrary
 
-CONSTRUCT_PROMPT = "construct_match_v1"
+CONSTRUCT_PROMPT = "construct_match_v2"
+ELEMENT_STATUSES = ("established", "partly", "not_established")
 NO_SPANS = "(the assessor quoted no spans)"
 
 
+def derive_construct_match(statuses) -> str:
+    """The label used for gating, derived from per-element statuses, never from the
+    judge's holistic impression (development iteration 2, see docs/V4_DESIGN.md):
+
+    * `direct`   -- every asserted element is established by the records;
+    * `mismatch` -- no element is established even partly;
+    * `partial`  -- anything in between.
+
+    A compound proposition with one unestablished part therefore cannot be `direct`.
+    """
+    statuses = list(statuses)
+    if statuses and all(s == "established" for s in statuses):
+        return "direct"
+    if not statuses or all(s == "not_established" for s in statuses):
+        return "mismatch"
+    return "partial"
+
+
 def parse_construct_match(parsed: Dict[str, Any]) -> "OrderedDict[str, Any]":
-    value = str(parsed.get("construct_match") or "").strip().lower()
-    if value not in CONSTRUCT_MATCHES:
-        raise ValueError("construct_match must be one of {}, got {!r}".format(CONSTRUCT_MATCHES, value))
+    elements = parsed.get("elements")
+    if not isinstance(elements, list) or not elements:
+        raise ValueError("construct match needs a non-empty 'elements' list")
+    clean = []
+    for element in elements:
+        status = str((element or {}).get("status") or "").strip().lower()
+        if status not in ELEMENT_STATUSES:
+            raise ValueError("element status must be one of {}, got {!r}".format(ELEMENT_STATUSES, status))
+        clean.append(OrderedDict([("element", element.get("element")), ("status", status),
+                                  ("note", element.get("note"))]))
+    impression = str(parsed.get("overall_impression") or "").strip().lower() or None
+    if impression is not None and impression not in CONSTRUCT_MATCHES:
+        raise ValueError("overall_impression must be one of {}, got {!r}".format(CONSTRUCT_MATCHES, impression))
     return OrderedDict([
-        ("construct_match", value),
-        ("proposition_construct", parsed.get("proposition_construct")),
-        ("evidence_construct", parsed.get("evidence_construct")),
-        ("gap", parsed.get("gap")),
+        ("construct_match", derive_construct_match(e["status"] for e in clean)),
+        ("elements", clean),
+        ("model_overall_impression", impression),
         ("rationale", parsed.get("rationale")),
     ])
 

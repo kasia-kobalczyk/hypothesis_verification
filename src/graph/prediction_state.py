@@ -18,7 +18,7 @@ from src.inference.discrimination import StateError, normalise_state, normalise_
 from src.llm.client import BaseLLMClient
 from src.llm.prompts import PromptLibrary
 
-STATE_PROMPT = "prediction_state_v1"
+STATE_PROMPT = "prediction_state_v2"
 
 
 def parse_states(parsed: Dict[str, Any], presentation: Presentation) -> "OrderedDict[str, Dict[str, Any]]":

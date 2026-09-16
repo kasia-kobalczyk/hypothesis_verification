@@ -3,7 +3,8 @@
 # Identical to configs/pilot_explanatory.yaml except dataset.status, which is
 # `development`: these eight cases are an explicit development set for v4 and are
 # NOT held-out evidence. v4 itself is selected with `--method consequence_graph_v4`;
-# its prompts (prediction_state_v1, construct_match_v1) and its construct policy
+# its prompts (see STATE_PROMPT / CONSTRUCT_PROMPT in src/graph/prediction_state.py and
+# src/evidence/construct_match.py) and its construct policy
 # (direct only) are fixed in code, so no method parameter lives here.
 #
 # BENCH-GRAPH-PILOT-001 -- explanatory-hypothesis diagnostic pilot.

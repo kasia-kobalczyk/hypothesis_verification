@@ -27,7 +27,8 @@ from src.graph.schema import ConsequenceGraph, GraphEdge, PropositionNode
 from src.inference import discrimination as d
 from src.inference.bayes import score_hypotheses
 from src.inference.parameters import load_ordinal_mappings
-from src.evidence.construct_match import parse_construct_match
+from src.evidence.construct_match import CONSTRUCT_PROMPT, derive_construct_match, parse_construct_match
+from src.graph.prediction_state import STATE_PROMPT
 
 ROOT = Path(__file__).resolve().parents[1]
 H = ["H1", "H2"]
@@ -217,10 +218,34 @@ def test_parse_states_rejects_malformed_output(payload):
         parse_states(payload, _pres())
 
 
-def test_parse_construct_match_rejects_unknown_labels():
-    assert parse_construct_match({"construct_match": "Direct"})["construct_match"] == "direct"
+def _cm(*statuses, impression="partial"):
+    return {"elements": [{"element": "e{}".format(i), "status": s, "note": ""} for i, s in enumerate(statuses)],
+            "overall_impression": impression}
+
+
+@pytest.mark.parametrize("statuses,expected", [
+    (("established",), "direct"),
+    (("established", "established"), "direct"),
+    (("established", "not_established"), "partial"),      # compound claim, one part missing
+    (("established", "partly"), "partial"),
+    (("partly",), "partial"),
+    (("not_established",), "mismatch"),
+    (("not_established", "not_established"), "mismatch"),
+    ((), "mismatch"),
+])
+def test_construct_label_is_derived_from_elements(statuses, expected):
+    assert derive_construct_match(statuses) == expected
+
+
+def test_holistic_impression_never_overrides_the_elements():
+    out = parse_construct_match(_cm("established", "not_established", impression="direct"))
+    assert out["construct_match"] == "partial" and out["model_overall_impression"] == "direct"
+
+
+@pytest.mark.parametrize("payload", [{}, {"elements": []}, _cm("maybe"), _cm("established", impression="mostly")])
+def test_parse_construct_match_rejects_malformed_output(payload):
     with pytest.raises(ValueError):
-        parse_construct_match({"construct_match": "mostly"})
+        parse_construct_match(payload)
 
 
 # --------------------------------------------------------------------------- #
@@ -269,8 +294,8 @@ def test_layer_scores_only_direct_contrasts_and_keeps_the_rest_descriptively(map
         states={"p1": {"states": [_entry("A", "positive_or_present"), _entry("B", "negative_or_absent")]},
                 "p2": {"states": [_entry("A", "positive_or_present"), _entry("B", "indeterminate")]},
                 "p3": {"states": [_entry("A", "negative_or_absent"), _entry("B", "positive_or_present")]}},
-        constructs={"p1": {"construct_match": "direct"}, "p2": {"construct_match": "direct"},
-                    "p3": {"construct_match": "mismatch"}})
+        constructs={"p1": _cm("established", impression="direct"), "p2": _cm("established", impression="direct"),
+                    "p3": _cm("not_established", impression="mismatch")})
     out = _layer(llm, mappings, {"X1": _ev("support"), "X2": _ev("strong_support"), "X3": _ev("strong_support")})
     assert [n for n, r in out["nodes"].items() if r["used_in_score"]] == ["X1"]
     assert out["scores"]["H1"] > out["scores"]["H2"]
@@ -286,8 +311,8 @@ def test_layer_fails_closed_on_llm_errors(mappings):
         states={"p1": {"states": [_entry("A", "positive_or_present"), _entry("B", "negative_or_absent")]},
                 "p2": {"states": [_entry("A", "positive_or_present"), _entry("B", "negative_or_absent")]},
                 "p3": {"states": [_entry("A", "positive_or_present"), _entry("B", "negative_or_absent")]}},
-        constructs={"p1": {"construct_match": "direct"}, "p2": {"construct_match": "direct"},
-                    "p3": {"construct_match": "direct"}},
+        constructs={"p1": _cm("established", impression="direct"), "p2": _cm("established", impression="direct"),
+                    "p3": _cm("established", impression="direct")},
         fail={("graph_v4.prediction_state", "p1"), ("graph_v4.construct_match", "p2")})
     out = _layer(llm, mappings, {"X1": _ev("support"), "X2": _ev("support"), "X3": _ev("no_evidence")})
     assert out["nodes"]["X1"]["gate_reason"] == "prediction_states_unavailable"
@@ -310,8 +335,8 @@ def test_v3_and_v4_are_both_registered_and_distinct():
     assert METHODS["consequence_graph_v4"] is ConsequenceGraphV4Verifier
     v3 = ConsequenceGraphVerifier(AppConfig()).prompt_versions()
     v4 = ConsequenceGraphV4Verifier(AppConfig()).prompt_versions()
-    assert "prediction_state_v1" not in v3 and "construct_match_v1" not in v3
-    assert v4[:len(v3)] == v3 and v4[len(v3):] == ["prediction_state_v1", "construct_match_v1"]
+    assert STATE_PROMPT not in v3 and CONSTRUCT_PROMPT not in v3
+    assert v4[:len(v3)] == v3 and v4[len(v3):] == [STATE_PROMPT, CONSTRUCT_PROMPT]
 
 
 def test_v4_prompts_obey_hidden_annotation_and_cutoff_invariants():
@@ -320,7 +345,7 @@ def test_v4_prompts_obey_hidden_annotation_and_cutoff_invariants():
     library = PromptLibrary(ROOT / "src" / "llm" / "prompts")
     forbidden = {"resolution", "resolver", "resolving_observations", "resolution_type", "reference_discriminators",
                  "leakage_audit", "gold", "gold_hypothesis", "answer", "correct_hypothesis", "favored", "cutoff"}
-    for name in ("prediction_state_v1", "construct_match_v1"):
+    for name in ("prediction_state_v1", "construct_match_v1", "prediction_state_v2", "construct_match_v2"):
         template = library.get(name)
         assert not ({p.lower() for p in template.placeholders} & forbidden), name
         assert "cutoff" not in template.text.lower() and "json" in template.text.lower()

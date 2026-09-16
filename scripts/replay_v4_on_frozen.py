@@ -43,6 +43,8 @@ from src.experiments.runner import _git_state  # noqa: E402
 from src.inference.parameters import load_ordinal_mappings  # noqa: E402
 from src.llm.client import build_llm_client  # noqa: E402
 from src.llm.prompts import PromptLibrary  # noqa: E402
+from src.evidence.construct_match import CONSTRUCT_PROMPT  # noqa: E402
+from src.graph.prediction_state import STATE_PROMPT  # noqa: E402
 from src.methods.consequence_graph_v4 import METHOD_VERSION, run_v4_layer  # noqa: E402
 
 LOGGER = get_logger("v4.replay")
@@ -99,7 +101,7 @@ def main() -> int:
         ("method_version", METHOD_VERSION),
         ("source_archive_sha256", (bp.PRESERVED / "pilot_explanatory_001.tar.gz.sha256").read_text().split()[0]),
         ("git", _git_state()),
-        ("prompts", prompts.manifest(["prediction_state_v1", "construct_match_v1"])),
+        ("prompts", prompts.manifest([STATE_PROMPT, CONSTRUCT_PROMPT])),
         ("llm", {"provider": config.llm.provider, "deployment": getattr(llm, "deployment", None),
                  "temperature": config.llm.temperature, "seed": config.llm.seed}),
         ("notes", args.notes),

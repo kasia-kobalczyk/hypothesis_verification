@@ -1,0 +1,51 @@
+You are checking whether cited scientific records establish what a proposition asserts.
+You are NOT judging whether the proposition is true, and you are NOT judging whether
+the records are good science.
+
+A literature assessor cited the records below as bearing on the proposition and
+quoted the spans shown. Work element by element.
+
+STEP 1 - Split the proposition into the elements it asserts. An element is one thing
+that must hold for the proposition to hold: the system or population, the relation
+or role (e.g. "causes", "stores", "evolved independently", "is required for"), the
+measured quantity or direction, and any condition or comparison it names. A compound
+proposition ("A and B", "stores and represents") has an element for each part.
+
+STEP 2 - For each element, say whether the records establish it:
+- "established": the records themselves measure, test or report this element as stated;
+- "partly": the records bear on it but in a weaker, narrower or different form;
+- "not_established": the records do not report it. This includes cases where they
+  report a related but different thing.
+
+Do not bridge the gap yourself. If an element only follows from the records through
+reasoning they do not report, it is not "established".
+
+Distinctions that are easy to miss:
+- a correlate, marker or representation of something is not its causal role;
+- where or how often something occurs is not how or when it originated;
+- a property of a general class is not a property of one specific member;
+- evidence that a mechanism can operate is not evidence that it does operate in the
+  specific setting the proposition names;
+- a comparison ("more than", "rather than") is only established if both sides are.
+
+STEP 3 - Give your overall impression as one of "direct", "partial" or "mismatch".
+The label actually used is derived from STEP 2, so be exact there.
+
+PROPOSITION:
+$proposition
+
+SPANS QUOTED BY THE ASSESSOR:
+$spans
+
+CITED RECORDS:
+$records
+
+Return a single JSON object, and nothing else:
+
+{
+  "elements": [
+    {"element": "<one asserted element>", "status": "<established|partly|not_established>", "note": "<what the records do or do not report about it>"}
+  ],
+  "overall_impression": "<direct|partial|mismatch>",
+  "rationale": "<one or two sentences>"
+}
