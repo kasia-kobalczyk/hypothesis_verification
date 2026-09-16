@@ -1,276 +1,419 @@
-# DIRECTIVE — BENCH-GRAPH-ATTRIBUTION-001
+# DIRECTIVE — BENCH-GRAPH-V4-DEV-001
 
 ## Objective
-Take the completed human adjudication of the 40-node high-influence review packet and mechanically recompute score attribution for the frozen eight-case explanatory-benchmark pilot.
+Implement and validate a **v4 discrimination-gated consequence-graph verifier** using the existing eight explanatory-hypothesis pilot cases as an explicit DEVELOPMENT SET.
 
-This is an **analysis-only** task. Do not modify the verifier, do not rerun any LLM or literature retrieval, and do not tune the method.
+The purpose is to repair the structural failure identified in the frozen v3 pilot:
 
-The purpose is to answer:
+1. hypotheses that are merely silent/indeterminate about a proposition are sometimes labeled `unlikely`/contradicted;
+2. even when silence is correctly labeled `neutral`, the current ordinal probability mapping lets one-sided propositions move relative hypothesis scores;
+3. generic/component-level truths and compatible facts can accumulate literature support and influence rankings despite not genuinely distinguishing the candidate explanations;
+4. evidence about a related construct can be scored as if it directly bears on the proposition.
 
-> How much of each case’s frozen verifier score/ranking was driven by genuinely discriminative reasoning versus silence errors, generic component facts, construct mismatch, weak implications, or merely compatible non-discriminative propositions?
+The v4 experiment should test whether an explicit **cross-hypothesis prediction-state gate** can preserve useful consequence discovery while preventing non-discriminative propositions from driving comparative scores.
 
-Use the preserved frozen pilot artifacts and the Research Director adjudication recorded in decision D045 as the source of truth for the 40 priority-node labels.
-
----
-
-# PART I — LOAD AND ENCODE HUMAN ADJUDICATION
-
-## 1. Locate the preserved review artifacts
-Use the existing preserved packet under the repository review/frozen-run locations created by `BENCH-GRAPH-REVIEW-001`.
-
-Expected review family:
-- `benchmark/review/graph_pilot_001/`
-
-Verify exact paths rather than assuming them.
-
-## 2. Encode the 40 priority-node labels from D045
-Populate the human-review fields for the 40 priority nodes exactly according to the Research Director adjudication below.
-
-Primary category mapping:
-
-1. `pfc_storage_vs_control-X2` — `silence_as_null_error`
-2. `glnbp-X4` — `silence_as_null_error`
-3. `eukaryogenesis-X7` — `invalid_or_weak_implication`
-4. `glnbp-X11` — `silence_as_null_error`
-5. `gcn4-X3` — `generic_component_fact`
-6. `glnbp-X3` — `generic_component_fact`
-7. `glnbp-X5` — `genuine_discriminator`
-8. `forest-X1` — `compatible_non_discriminative`
-9. `eukaryogenesis-X4` — `generic_component_fact`
-10. `eukaryogenesis-X6` — `generic_component_fact`
-11. `forest-X7` — `compatible_non_discriminative`
-12. `pfc_interhemispheric-X2` — `compatible_non_discriminative`
-13. `fly_wing-X2` — `silence_as_null_error`
-14. `pfc_storage_vs_control-X6` — `genuine_discriminator`
-15. `forest-X4` — `compatible_non_discriminative`
-16. `forest-X5` — `compatible_non_discriminative`
-17. `gcn4-X5` — `compatible_non_discriminative`
-18. `glnbp-X15` — `generic_component_fact`
-19. `pfc_storage_vs_control-X15` — `evidence_construct_mismatch`
-20. `pfc_storage_vs_control-X24` — `genuine_discriminator`
-21. `eukaryogenesis-X24` — `generic_component_fact`
-22. `glnbp-X8` — `generic_component_fact`
-23. `glnbp-X9` — `genuine_discriminator`
-24. `pfc_storage_vs_control-X14` — `evidence_construct_mismatch`
-25. `glnbp-X6` — `generic_component_fact`
-26. `pfc_storage_vs_control-X3` — `compatible_non_discriminative`
-27. `eukaryogenesis-X2` — `silence_as_null_error`
-28. `eukaryogenesis-X10` — `generic_component_fact`
-29. `eukaryogenesis-X12` — `generic_component_fact`
-30. `eukaryogenesis-X22` — `generic_component_fact`
-31. `forest-X23` — `silence_as_null_error`
-32. `spider-X12` — `generic_component_fact`
-33. `forest-X24` — `silence_as_null_error`
-34. `glnbp-X17` — `compatible_non_discriminative`
-35. `pfc_storage_vs_control-X13` — `evidence_construct_mismatch`
-36. `forest-X15` — `invalid_or_weak_implication`
-37. `gcn4-X18` — `generic_component_fact`
-38. `gcn4-X23` — `generic_component_fact`
-39. `gcn4-X9` — `silence_as_null_error`
-40. `spider-X11` — `invalid_or_weak_implication`
-
-Do not alter these primary categories.
-
-## 3. Human label metadata
-For each of the 40 nodes, set:
-- `human_primary_category` to the frozen value above;
-- `human_is_genuinely_discriminative = true` only for `genuine_discriminator`;
-- `human_silence_as_null_error = true` only for `silence_as_null_error`;
-- leave any more detailed per-hypothesis prediction fields blank unless they were explicitly recorded in D045 or can be transcribed from existing Research Director notes without inference.
-
-Do not invent missing human judgments.
-
-Mark provenance clearly, e.g.:
-- `human_reviewer = "Research Director"`
-- `human_review_source = "D045"`
-- `human_review_status = "first_pass_model_based_review"`
-
-Important: this review is model-based Research Director adjudication, not external expert ground truth.
+The eight existing pilot cases are now spent and may be used freely for method development/debugging. They must NOT later be treated as held-out evidence of generalization.
 
 ---
 
-# PART II — RECOMPUTE SCORE ATTRIBUTION MECHANICALLY
+# PART I — DEVELOPMENT-SET STATUS
 
-## 4. Preserve the original frozen scores
-Before any counterfactual analysis, reproduce the original per-case score/log-odds contributions from the frozen run exactly within numerical tolerance.
+## 1. Development cases
+Use exactly the existing eight frozen ACCEPT cases already materialized in the repository:
 
-Do not call any model.
+1. `pfc_storage_vs_control`
+2. `gcn4_med15_complex_vs_condensate`
+3. `eukaryogenesis_mito_timing`
+4. `pfc_interhemispheric_architecture`
+5. `glnbp_induced_fit_vs_conformational_selection`
+6. `spider_orb_web_origin`
+7. `forest_fragmentation_resilience`
+8. `fly_wing_constraint_vs_selection`
 
-For each case record:
-- original hypothesis scores/log-odds;
-- original ordering/support summary;
-- total absolute node contribution;
-- contribution from the 40 reviewed priority nodes;
-- contribution from unreviewed score-moving nodes.
+Continue using the same frozen cutoffs and hidden annotations.
 
-## 5. Attribute reviewed-node influence by human category
-For each case and each hypothesis, sum the signed and absolute contribution of reviewed nodes in these categories:
-- `genuine_discriminator`
-- `silence_as_null_error`
+These eight cases may be inspected during development. They are not a holdout.
+
+## 2. Preserve v3 baseline
+Do not overwrite the frozen v3 pilot.
+
+All v4 runs must live under new run IDs/directories and preserve direct comparability with:
+- the original frozen v3 eight-case pilot;
+- the D045/D046 human adjudications;
+- the deterministic attribution analysis.
+
+---
+
+# PART II — V4 DESIGN PRINCIPLE
+
+## 3. Separate prediction state from prediction strength
+Replace the current single ordinal edge interpretation for comparative scoring with an explicit two-stage representation.
+
+For every `(hypothesis, proposition)` pair, first classify **prediction state** as one of:
+
+- `positive_or_present`
+  - the hypothesis substantively predicts/increases/expects the proposition;
+- `negative_or_absent`
+  - the hypothesis substantively predicts the opposite/incompatibility;
+- `substantive_null`
+  - the hypothesis positively predicts no effect / baseline / no change;
+- `indeterminate`
+  - the hypothesis does not determine the proposition.
+
+Important:
+- `indeterminate` is NOT a null prediction.
+- `neutral` from the old ordinal scheme must not automatically be treated as `substantive_null`.
+- A hypothesis may be compatible with a proposition while still being `indeterminate` about it.
+
+After state classification, assess **prediction strength/confidence** only for determinate states (`positive_or_present`, `negative_or_absent`, `substantive_null`) if the existing architecture needs graded strength.
+
+Do not map `indeterminate` to a pseudo-likelihood such as 0.5 for comparative scoring.
+
+## 4. Cross-hypothesis prediction profile
+For every proposition, construct an explicit prediction profile across ALL candidate hypotheses before literature evidence can affect relative hypothesis scores.
+
+Example:
+
+`X -> {H1: positive_or_present, H2: indeterminate}`
+
+must be represented differently from:
+
+`X -> {H1: positive_or_present, H2: negative_or_absent}`
+
+## 5. Discrimination gate
+A proposition is eligible to contribute to **relative hypothesis comparison** only when at least two candidate hypotheses make determinate, meaningfully different predictions.
+
+Eligible examples:
+- positive vs negative
+- positive vs substantive_null
+- negative vs substantive_null
+- two positive predictions with explicitly different quantitative/range/directional commitments, if the architecture supports such comparisons and the distinction is scientifically meaningful
+
+Ineligible for direct comparative scoring:
+- positive vs indeterminate
+- negative vs indeterminate
+- substantive_null vs indeterminate
+- indeterminate vs indeterminate
+- positive vs positive where both predict the same relevant outcome
+
+Do not delete ineligible propositions from the graph. Preserve them for:
+- consequence-generation analysis;
+- descriptive support for a single hypothesis;
+- future probabilistic/background-rate work.
+
+But they must not generate a likelihood ratio or otherwise move **relative** hypothesis scores in v4.
+
+## 6. One-sided evidence bucket
+Create an explicit non-comparative bucket for propositions where one hypothesis makes a determinate prediction and another is indeterminate.
+
+Record:
+- which hypothesis predicts the proposition;
+- evidence support/contradiction for that proposition;
+- why it was gated out of relative scoring.
+
+Do not silently discard this information.
+
+The report should make clear that one-sided support may become informative in a future explicit background-probability model, but v4 intentionally does not treat it as comparative evidence.
+
+---
+
+# PART III — GENERIC / COMPONENT FACT CONTROL
+
+## 7. Distinguish discrimination from mere assessability
+Add an explicit proposition-level comparative classification after cross-hypothesis prediction states are known.
+
+Suggested labels:
+- `comparative_discriminator`
+- `one_sided_prediction`
+- `shared_prediction`
 - `generic_component_fact`
-- `compatible_non_discriminative`
-- `evidence_construct_mismatch`
-- `invalid_or_weak_implication`
+- `invalid_or_unsupported`
 
-Also report totals across all eight cases.
+Do not determine `generic_component_fact` simply from abstraction level. Use the actual cross-hypothesis relation.
 
-Where the original scoring contribution is pairwise or path-mediated rather than trivially node-local, use the exact deterministic decomposition already available from the frozen-run analysis. If attribution cannot be uniquely decomposed, document the limitation rather than approximating silently.
+A proposition should be treated as a generic/component fact when:
+- it is a true/assessable mechanism/class statement;
+- its literature support does not preserve what is distinctive about the candidate explanation;
+- it is similarly compatible with multiple candidates or only appears discriminative because one competitor was incorrectly given a negative edge.
 
-## 6. Construct counterfactual score views
-Without changing any underlying model judgment, generate deterministic counterfactual score summaries by zeroing/removing contributions from reviewed nodes according to category.
+Generic/component facts must not influence relative hypothesis scores unless their prediction profile contains a real determinate contrast.
 
-At minimum create these views:
+## 8. Preserve consequence-generation outputs
+Do NOT simplify the generator so aggressively that it only proposes obvious binary discriminators.
 
-### View A — `genuine_only_reviewed`
-Keep contribution from reviewed `genuine_discriminator` nodes only; zero all other reviewed-node contributions.
+The project still cares about rich “what else should be true?” reasoning.
 
-Unreviewed score-moving nodes should be reported separately and should not be silently treated as valid or invalid.
+The repair should happen primarily in:
+- cross-hypothesis prediction-state adjudication;
+- proposition comparative gating;
+- aggregation eligibility.
 
-Produce two variants if useful:
-- A1: reviewed genuine only + all unreviewed contributions untouched;
-- A2: reviewed genuine only, with all unreviewed score-moving contributions set aside/zeroed.
-
-### View B — `remove_confirmed_errors`
-Zero reviewed nodes in:
-- `silence_as_null_error`
-- `evidence_construct_mismatch`
-- `invalid_or_weak_implication`
-
-Keep reviewed:
-- genuine discriminators;
-- generic component facts;
-- compatible non-discriminative nodes;
-
-This isolates the effect of clearly erroneous reasoning from merely weak/non-discriminative evidence.
-
-### View C — `discriminative_only`
-Keep only reviewed `genuine_discriminator` contributions and set aside reviewed:
-- silence errors;
-- generic component facts;
-- compatible non-discriminative;
-- construct mismatch;
-- weak implications.
-
-Again, handle unreviewed nodes explicitly rather than assuming validity.
-
-### View D — `remove_non_discriminative_reviewed`
-Keep reviewed genuine discriminators only; remove reviewed generic/compatible/error categories, while leaving unreviewed contributions untouched.
-
-If A/D overlap, simplify but preserve at least one view with unreviewed nodes untouched and one strict reviewed-only view.
-
-## 7. Do not reinterpret mixed-resolution cases as binary accuracy
-For each case, compare counterfactual support to the benchmark resolution type only descriptively.
-
-Allowed benchmark resolutions include:
-- favored;
-- mixed;
-- regime-dependent;
-- component-wise.
-
-Do not convert mixed/regime-dependent cases to a forced winner metric.
+Do not remove mechanistic/class-level generation merely because some such propositions were non-discriminative in v3.
 
 ---
 
-# PART III — CASE-LEVEL DIAGNOSTIC REPORT
+# PART IV — EVIDENCE CONSTRUCT MATCH
 
-## 8. For every case, report
-- original score/order;
-- total reviewed-node influence;
-- genuine-discriminator contribution;
-- silence-error contribution;
-- generic-component contribution;
-- compatible-non-discriminative contribution;
-- construct-mismatch contribution;
-- weak-implication contribution;
-- unreviewed score-moving contribution;
-- counterfactual ordering/support under each view;
-- whether the original apparent agreement/disagreement with later resolution survives after confirmed-error removal;
-- whether any conclusion becomes underdetermined once non-discriminative reviewed nodes are removed.
+## 9. Add proposition-level construct check before score use
+Before evidence can influence a scored proposition, explicitly determine whether the cited study/span addresses the proposition as stated rather than a related construct.
 
-## 9. Pay special attention to four cases
-### GlnBP
-Determine whether its apparent successful support for induced fit survives using only genuine reviewed discriminators.
+Add or adapt an evidence-level field such as:
+- `construct_match = direct | partial | mismatch`
 
-### Eukaryogenesis
-The earlier analysis suggested correct final direction but substantial manufactured contrast. Quantify exactly how much support remains after removing reviewed invalid/generic/silence contributions.
+Guidance:
+- `direct`: study measures/tests the proposition or a scientifically equivalent construct;
+- `partial`: study bears on part of the proposition but does not fully instantiate it;
+- `mismatch`: evidence is grounded but addresses a different construct.
 
-### Fly-wing
-Earlier analysis suggested a correct final direction with no genuine recovered discriminator in the priority set. Determine whether the apparent success disappears under reviewed attribution.
+Examples from development review:
+- PFC decodability / representational information is not automatically evidence that PFC is the causal storage substrate.
+- Orb-weaving across multiple families is not by itself evidence that those occurrences evolved convergently.
+
+Comparative score use should require `direct` or a clearly justified `partial` policy. A `mismatch` must contribute zero comparative evidence.
+
+If adding this as a new LLM judgment, keep it narrow and proposition-focused. Do not ask the evidence assessor to perform hidden scientific bridging.
+
+---
+
+# PART V — MINIMAL IMPLEMENTATION PRINCIPLE
+
+## 10. Reuse existing architecture
+Inspect current modules and implement the smallest clean general change.
+
+Prefer:
+1. new explicit prediction-state output from the cross-hypothesis/edge assessor;
+2. a deterministic discrimination gate;
+3. aggregation that excludes `indeterminate` comparisons from relative scoring;
+4. construct-match gating at evidence use.
+
+Avoid rewriting the whole graph architecture.
+
+## 11. Keep v3 intact
+Do not alter historical v3 run behavior or overwrite its code path if avoidable.
+
+Implement v4 as a versioned method/configuration so we can run v3 and v4 side-by-side on the same development cases.
+
+Document exact differences between versions.
+
+---
+
+# PART VI — DEVELOPMENT VALIDATION ON THE 8 SPENT CASES
+
+## 12. Run v4 on all eight development cases
+Use the same:
+- benchmark inputs;
+- cutoffs;
+- literature provider/harness;
+- model roles/providers where practical;
+- consequence-generation settings unless a minimal schema change is required.
+
+Do not alter hidden benchmark annotations.
+
+## 13. Primary development metrics
+Compare v3 vs v4 on:
+
+### A. Prediction-state behavior
+- number/fraction of `(hypothesis, proposition)` pairs classified `indeterminate`;
+- number of determinate-vs-determinate contrasting profiles;
+- number of one-sided profiles;
+- number of shared/non-discriminative profiles.
+
+### B. Comparative-score eligibility
+- fraction of generated nodes eligible for relative scoring;
+- fraction gated as one-sided;
+- fraction gated as shared;
+- fraction gated as generic/component;
+- fraction gated due to construct mismatch.
+
+### C. Human-review alignment
+Using D045 and D046 as DEVELOPMENT annotations only, measure:
+- whether known silence-as-null errors are now `indeterminate` and gated;
+- whether known generic/compatible facts stop contributing relative score;
+- whether known construct mismatches are blocked;
+- whether the reviewed genuine discriminators remain eligible and retain influence.
+
+Do NOT optimize solely for reproducing the human labels node-by-node. Use them to diagnose the intended behavior.
+
+### D. Score-influence composition
+For v3 and v4, estimate/share:
+- genuine reviewed discriminator influence;
+- silence-error influence;
+- generic/component influence;
+- compatible non-discriminative influence;
+- construct-mismatch influence;
+- unreviewed influence.
+
+Success means invalid/non-discriminative categories materially lose relative score influence while genuine discriminator influence is preserved or increased in share.
+
+### E. Consequence-discovery preservation
+Re-run the hidden post-hoc consequence-recovery analysis after v4 runs are frozen.
+
+Compare v3 vs v4:
+- reference discriminator recovery;
+- number of plausible novel discriminators;
+- total proposition diversity/count;
+
+The repair should not achieve cleaner scoring merely by collapsing consequence generation.
+
+---
+
+# PART VII — DEVELOPMENT SUCCESS CRITERIA
+
+## 14. Core success criterion
+The main development criterion is NOT raw case-level accuracy.
+
+The desired pattern is:
+
+`share_of_score_influence_from_genuine_discriminators` increases
+
+while:
+
+`silence + generic/component + construct-mismatch influence` decreases substantially.
+
+At minimum, verify on the D045/D046 reviewed nodes that:
+- `indeterminate` competitors contribute zero direct relative score;
+- propositions judged generic/compatible no longer gain relative influence solely from cross-hypothesis `unlikely` judgments;
+- construct mismatches contribute zero relative score;
+- the four D045 genuine discriminators remain score-eligible unless v4 provides a documented scientific reason otherwise.
+
+## 15. Case-level expectations are diagnostic only
+Pay special attention to:
 
 ### PFC storage vs control
-The frozen verifier favored the later-disfavored storage account. Determine how much of that failure is attributable to construct mismatch, silence errors, versus genuinely discriminative nodes.
+Expected development behavior:
+- construct-mismatch and silence-driven support for storage should be suppressed;
+- reviewed genuine control-favoring discriminators should remain usable.
+
+### GlnBP
+Expected development behavior:
+- silence-driven induced-fit advantage should disappear;
+- genuine mechanistic discriminators should remain;
+- if the resulting direction changes or becomes uncertain, report that honestly rather than forcing agreement with the later resolver.
+
+### Eukaryogenesis
+Expected development behavior:
+- generic component facts should no longer dominate relative score;
+- if no genuine pre-cutoff discriminator remains, the system should be allowed to become uncertain.
+
+### Fly-wing
+Expected development behavior:
+- silence-driven apparent success should disappear;
+- uncertainty/tie is preferable to a correct answer for invalid reasons.
+
+Mixed/regime-dependent cases must not be forced into binary winners.
 
 ---
 
-# PART IV — OPTIONAL SENSITIVITY USING FULL 78-NODE SET
+# PART VIII — ITERATION POLICY ON DEVELOPMENT SET
 
-## 10. Do not invent labels for the remaining 38 score-moving nodes
-The remaining score-moving nodes are not yet human-adjudicated.
+## 16. Limited development iteration is allowed
+Because these eight cases are explicitly spent development cases, you may:
+- inspect v4 failures;
+- fix implementation bugs;
+- make principled prompt/schema refinements directly tied to the known failure class;
+- rerun the eight development cases.
 
-However, produce a transparent influence summary showing:
-- how much absolute score influence is already covered by the 40 adjudicated nodes;
-- how much remains in the 38 unreviewed nodes;
-- which cases are under-covered by the priority review.
+However:
+- document every methodological change;
+- do not make case-specific rules;
+- do not encode benchmark answers/resolving outcomes into prompts;
+- do not add domain-specific exceptions for individual cases;
+- do not tune numeric mappings to maximize eight-case final agreement.
 
-If the existing packet identifies case-coverage additions previously suggested for fly-wing, interhemispheric PFC, and spider, list them as the recommended next human-review batch.
+Stop iterating once the structural success criteria are met and behavior is stable enough to freeze.
 
-Do not auto-label these nodes in this directive.
+## 17. Freeze before held-out evaluation
+Once v4 development is complete:
+- freeze prompts;
+- freeze prediction-state definitions;
+- freeze gating rules;
+- freeze aggregation semantics;
+- freeze construct-match policy;
+- freeze model/provider configuration as far as practical.
 
----
+Create a clear method/version identifier, e.g.:
+- `consequence_graph_v4_discrimination_gated`
 
-# PART V — OUTPUTS
-
-## 11. Machine-readable outputs
-Create repository-native artifacts containing:
-- updated review JSONL with D045 labels encoded;
-- per-node contribution table;
-- per-case category attribution table;
-- counterfactual scores/orderings under each deterministic view;
-- coverage statistics for reviewed vs unreviewed score-moving nodes.
-
-## 12. Human-readable report
-Create a concise report summarizing:
-- how much frozen score influence is explained by each adjudicated category;
-- which apparent pilot successes remain credible after review;
-- which disappear or become underdetermined;
-- which cases require review of additional nodes before firm attribution;
-- whether the dominant problem is best characterized as silence handling alone or a broader discrimination/relevance problem.
-
-The report should clearly distinguish:
-- observed frozen verifier behavior;
-- human-adjudicated node categories;
-- deterministic counterfactual arithmetic;
-- interpretive conclusions.
-
-## 13. Update executor report/state
-Report exact paths to all created artifacts and the git commit containing this analysis.
+Do not evaluate on future held-out cases until this freeze is recorded.
 
 ---
 
-# PART VI — DO NOT
+# PART IX — HELD-OUT PLAN (DO NOT EXECUTE YET)
+
+## 18. Future held-out evaluation
+Do not consume new benchmark cases in this directive.
+
+After v4 freeze, the Research Director will supply additional accepted cases not used during method development.
+
+Target eventual structure:
+- 8 development cases = current spent tranche;
+- ~8–12 new held-out accepted cases;
+- larger ~20-case benchmark if construction permits.
+
+The held-out set will be the first valid evidence of generalization for v4.
+
+---
+
+# PART X — REQUIRED OUTPUTS
+
+Create repository-native artifacts for:
+
+1. v4 design/specification document.
+2. implementation changes with tests.
+3. explicit prediction-state schema.
+4. deterministic discrimination-gating logic.
+5. construct-match evidence gating.
+6. one or more v4 development runs on the eight spent cases.
+7. v3-vs-v4 structural comparison report.
+8. v3-vs-v4 score-influence composition report using D045/D046 development labels.
+9. consequence-discovery comparison.
+10. freeze report once development criteria are met.
+
+The report must include:
+- exact git commit(s);
+- configuration/model/provider settings;
+- all run paths;
+- number of development iterations;
+- every methodological change made between iterations;
+- prediction-state confusion against D045/D046 reviewed nodes where available;
+- number of one-sided propositions gated;
+- number of generic/shared propositions gated;
+- construct-match failures blocked;
+- score-influence composition before/after;
+- per-case qualitative changes;
+- whether consequence discovery was preserved;
+- whether v4 is ready to freeze for held-out evaluation.
+
+---
+
+# DO NOT
 
 Do not:
-- modify the verifier;
-- change prompts, mappings, priors, aggregation, retrieval, or graph generation;
-- rerun any of the eight pilot cases;
-- call an LLM to relabel the remaining nodes;
-- treat D045 as external expert ground truth;
-- tune a silence fix using the eight spent cases;
-- reuse the ResearchBench reserve;
-- force mixed/regime-dependent benchmark cases into binary accuracy.
-
-If deterministic score reconstruction reveals a bug in the previous influence analysis, document it and stop before changing scientific code.
+- claim held-out performance from these eight development cases;
+- use future held-out cases during this task;
+- optimize final ranking accuracy on the eight as the primary objective;
+- create case-specific exceptions;
+- reintroduce `indeterminate` as a numeric pseudo-likelihood for comparative scoring;
+- equate `indeterminate` with `substantive_null`;
+- discard all one-sided predictions from the graph;
+- remove mechanistic consequence generation simply to make scoring cleaner;
+- expose hidden resolver material to verifier prompts;
+- reuse the spent ResearchBench reserve;
+- force mixed/regime-dependent benchmark items into binary winners.
 
 ---
 
 # Acceptance criteria
-Complete when:
-1. all 40 D045 labels are encoded exactly into the preserved review set;
-2. original frozen scores are deterministically reproduced;
-3. score influence is decomposed by human category per node/case/hypothesis;
-4. counterfactual score views are produced without any model rerun;
-5. the report states which apparent successes/failures survive after reviewed-error removal;
-6. residual influence from the 38 unreviewed score-moving nodes is quantified explicitly;
-7. no verifier behavior has been changed.
+This task is complete when:
+1. v4 explicitly separates prediction state from prediction strength;
+2. `indeterminate` hypotheses contribute zero direct relative score;
+3. proposition-level discrimination gating occurs before comparative evidence aggregation;
+4. one-sided predictions are retained descriptively but excluded from direct relative scoring;
+5. evidence construct mismatch cannot influence relative scores;
+6. v3 remains reproducible and untouched;
+7. v4 is run/debugged on the eight spent development cases;
+8. D045/D046 failure categories lose substantial relative-score influence while genuine discriminators remain usable;
+9. consequence discovery does not collapse;
+10. the resulting v4 method is frozen and documented before any held-out cases are used.
 
-The purpose is to obtain a trustworthy causal accounting of the pilot’s scores before deciding what method component, if any, should be redesigned.
+A development run becoming less decisive or more uncertain is acceptable and may be preferable if v3 confidence was driven by invalid discrimination.
