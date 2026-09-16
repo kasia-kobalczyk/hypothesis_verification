@@ -77,6 +77,10 @@ def _sha256(path: Path) -> str:
 
 def extract_verified(dest: Path) -> Path:
     """Extract the preserved archive and verify every file against SHA256SUMS."""
+    if not ARCHIVE.exists():
+        raise SystemExit(
+            "private archive not found at {}. It is kept out of the public repository; "
+            "see {} for its checksum and where it is stored.".format(ARCHIVE, PRESERVED / "PROVENANCE.md"))
     with tarfile.open(ARCHIVE, "r:gz") as tar:
         tar.extractall(dest)
     expected = {}

@@ -4,12 +4,19 @@ Human-review packet for the frozen eight-case explanatory-benchmark pilot
 (`pilot_explanatory_001`, BENCH-GRAPH-PILOT-001), built under BENCH-GRAPH-REVIEW-001.
 
 Everything here is derived deterministically, **with no LLM calls**, from the
-preserved archive `benchmark/frozen_runs/pilot_explanatory_001/`. The build
-verifies every archived file's checksum first. Regenerate with:
+preserved archive of the run. The build verifies every archived file's checksum
+first. Regenerate with:
 
 ```bash
 python scripts/build_review_packet.py
 ```
+
+The archive is **private** and not in this repository (it holds full model traffic and
+about 3,800 third-party abstracts); see
+`benchmark/frozen_runs/pilot_explanatory_001/PROVENANCE.md` for its checksum and where
+it is stored. Without it, the builder refuses to run and the frozen-run tests in
+`tests/test_review_packet.py` skip. The packet files here are what a reviewer needs,
+and they are complete as committed.
 
 ## Files
 

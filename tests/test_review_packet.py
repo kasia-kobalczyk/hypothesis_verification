@@ -30,6 +30,12 @@ VERIFIER_FIELDS = ("proposition", "case_context", "verifier_graph", "verifier_ev
 
 @pytest.fixture(scope="module")
 def extracted():
+    # The archive is deliberately not in the public repository (full model traffic and
+    # ~3,800 third-party abstracts). Where it is absent, the tests that need the frozen
+    # run skip; the ones that check only the committed packet still run.
+    if not bp.ARCHIVE.exists():
+        pytest.skip("private pilot archive not present: {} (see {})".format(
+            bp.ARCHIVE.relative_to(ROOT), (bp.PRESERVED / "PROVENANCE.md").relative_to(ROOT)))
     with tempfile.TemporaryDirectory() as tmp:
         yield bp.extract_verified(Path(tmp))
 
