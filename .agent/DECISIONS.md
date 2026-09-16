@@ -560,3 +560,134 @@ Several one-sided propositions are scientifically useful evidence for one hypoth
 
 NEXT STEP:
 Before method modification, encode these labels into the review JSONL with per-hypothesis prediction states and evidence-relevance notes, then mechanically recompute score attribution under reviewed categories (without rerunning any LLM). Use a separate development set for any actual verifier fix.
+
+<!-- relay-decision:245e6f31cd1447bf00e42a21 task_id:BENCH-GRAPH-REVIEW-001 -->
+## D046 — Extended human adjudication with explicit per-hypothesis prediction states
+
+DECISION:
+Extended the Research Director review to 12 additional score-moving nodes chosen to close the main case-coverage gaps from D045/D045-attribution: all remaining score-moving nodes for spider orb-web origin, both remaining nodes for interhemispheric PFC architecture, the final fly-wing node, and the next two high-influence unreviewed nodes in forest fragmentation and Gcn4/Med15.
+
+Prediction-state vocabulary used here:
+- `positive_or_present`: the hypothesis substantively predicts/supports the proposition.
+- `negative_or_absent`: the hypothesis substantively predicts the opposite/incompatibility.
+- `substantive_null`: the hypothesis positively predicts no effect/baseline. None of the reviewed nodes below warranted this label.
+- `indeterminate`: the hypothesis does not determine the proposition.
+
+ADJUDICATION:
+
+1. `spider_orb_web_origin-X7`
+Proposition: homologous orb-weaving-associated genes occur in both cribellate and ecribellate orb-weavers.
+- H1 ancient-origin/loss: `positive_or_present`.
+- H2 convergent origins: `indeterminate`; independent origins do not require non-homologous genes and could reuse deep homologous machinery.
+Primary category: `silence_as_null_error`.
+Evidence relevance: reasonably direct for homologous silk/orb-associated genes, though narrower than the full behavioral architecture.
+Confidence: high.
+
+2. `spider_orb_web_origin-X24`
+Proposition: convergent orb-weaving traits occur across different spider families.
+- H1 ancient-origin/loss: `negative_or_absent` if `convergent` is interpreted as independent origin.
+- H2 convergent origins: `positive_or_present`.
+Primary category: `evidence_construct_mismatch`.
+Reason: the proposition itself is genuinely discriminative, but the cited evidence merely establishes orb-weaving in multiple families; it does not establish that those occurrences are convergent/independently evolved.
+Confidence: high.
+
+3. `spider_orb_web_origin-X8`
+Proposition: orb-weaving is associated with conserved homologous genes across distant lineages.
+- H1: `positive_or_present`.
+- H2: `indeterminate`; convergence can recruit homologous/deeply conserved genes.
+Primary category: `evidence_construct_mismatch` with secondary `silence_as_null_error`.
+Reason: the cited evidence concerns a broadly conserved silk-gland factor across silk-producing arthropods and does not establish an orb-weaving-specific conserved genetic mechanism; additionally the verifier's `unlikely` judgment for H2 overstates the contrast.
+Confidence: high.
+
+4. `spider_orb_web_origin-X22`
+Proposition: orb-weaving occurs in multiple phylogenetically distant genera.
+- H1: `positive_or_present`.
+- H2: `positive_or_present`.
+Primary category: `compatible_non_discriminative`.
+Evidence relevance: direct to the distributional proposition.
+Confidence: high.
+
+5. `spider_orb_web_origin-X17`
+Proposition: orb construction is regulated by lineage-specific developmental gene-expression patterns.
+- H1: `indeterminate` / compatible.
+- H2: `indeterminate`; independent origins do not require distinct developmental expression programs and can reuse homologous pathways.
+Primary category: `invalid_or_weak_implication`.
+Evidence relevance: weak; the cited paper links web loss to gene-expression changes but does not establish lineage-specific developmental regulation of orb construction.
+Confidence: high.
+
+6. `pfc_interhemispheric_architecture-X1`
+Proposition: each PFC hemisphere shows greater activity for contralateral than ipsilateral remembered locations.
+- H1 specialized/lateralized: `positive_or_present`.
+- H2 redundant/shared: `indeterminate`; bilateral representation is compatible with a contralateral bias.
+Primary category: `compatible_non_discriminative` (valid one-sided prediction, not a clean contrast).
+Important: the frozen edge assessor correctly returned `neutral` for H2, yet the numeric P(X|H) mapping still made support for this node favor H1. Thus one-sided pseudo-discrimination can occur even without a categorical silence-as-null error.
+Evidence relevance: generic/partial rather than direct for the exact bilateral-hemifield comparison.
+Confidence: high.
+
+7. `pfc_interhemispheric_architecture-X23`
+Proposition: bilateral PFC activation causes decreased fidelity relative to unilateral activation.
+- H1 specialized/lateralized: `indeterminate`.
+- H2 redundant/shared: at most weakly `positive_or_present`; the stated capacity/precision trade-off does not directly imply that bilateral activation itself causes lower fidelity than unilateral activation.
+Primary category: `evidence_construct_mismatch`.
+Reason: cited elderly fNIRS evidence links bilateral recruitment to performance decline in low performers but does not measure representational fidelity or test bilateral-vs-unilateral storage architecture.
+Confidence: high.
+
+8. `fly_wing_constraint_vs_selection-X19`
+Proposition: the principal axis of developmental wing-shape variation aligns with interspecies divergence.
+- H1 developmental/genetic constraint: `positive_or_present`.
+- H2 correlational-selection/common-cause: `positive_or_present`.
+Primary category: `compatible_non_discriminative`.
+Evidence relevance: broadly relevant to alignment, though not a precise principal-axis test.
+Confidence: high.
+
+9. `forest_fragmentation_resilience-X21`
+Proposition: fragmented forest edges can have greater resilience than interiors under moderate climatic stress.
+- H1 edge-stress/degradation: `negative_or_absent` in the matched moderate-stress comparison if its proposed edge stress is operative.
+- H2 resource-release/productivity: `positive_or_present`.
+The proposition is therefore potentially a `genuine_discriminator`.
+Primary category for the scored node: `evidence_construct_mismatch`.
+Reason: the cited fire study reports high recovery of species richness at edges but substantially slower biomass recovery, and does not establish the stipulated moderate climatic-stress condition. It therefore does not cleanly support the proposition used in scoring.
+Confidence: medium-high.
+
+10. `forest_fragmentation_resilience-X2`
+Proposition: increased edge light enhances plant growth by reducing resource limitation.
+- H1 edge-stress/degradation: `indeterminate`; H1 does not deny the light-growth mechanism.
+- H2 resource-release/productivity: `positive_or_present`.
+Primary category: `compatible_non_discriminative` (valid one-sided mechanistic prediction).
+Evidence relevance: partial/weak; the cited lilyturf study supports higher-light photosynthesis but does not directly establish forest-edge growth enhancement via reduced resource limitation.
+Important: the edge assessor correctly returned `neutral` for H1, yet the mapping still made support favor H2.
+Confidence: high.
+
+11. `gcn4_med15_complex_vs_condensate-X15`
+Proposition: TF activation domains forming dynamic soluble Mediator complexes are more likely to drive activation than those that do not.
+- H1 soluble-complex mechanism: `positive_or_present`.
+- H2 condensate mechanism: `indeterminate`; H2 does not require soluble contacts to be ineffective and the mechanisms may coexist.
+Primary category: `silence_as_null_error`.
+Evidence relevance: supports AD-Mediator binding/activation generally, but is broader than the Gcn4/Med15 exclusive mechanism comparison.
+Confidence: high.
+
+12. `gcn4_med15_complex_vs_condensate-X12`
+Proposition: Med15 is recruited to transcriptional condensates by interaction with activation domains.
+- H1 soluble-complex mechanism: `indeterminate`; it does not rule out condensate recruitment.
+- H2 condensate mechanism: `positive_or_present`.
+Primary category: `evidence_construct_mismatch`.
+Reason: cited evidence strongly supports activation-domain/Med15 interactions and recruitment to transcriptional complexes, but does not directly establish recruitment specifically into phase-separated condensates.
+Important: H1 was correctly `neutral`, but support still numerically favors H2 under the current mapping.
+Confidence: high.
+
+KEY NEW METHOD DIAGNOSIS:
+There are two separable one-sided-prediction problems:
+A. `categorical silence error`: the cross-hypothesis assessor labels an indeterminate competitor `unlikely`/contradicted.
+B. `neutral-mapping pseudo-discrimination`: even when the assessor correctly labels the competitor `neutral`, the fixed probability mapping (e.g. implied 0.8 versus neutral 0.5) lets literature support for a one-sided proposition shift relative hypothesis scores.
+
+Therefore a fix limited to prompting the edge assessor to output `neutral` more often will not fully solve the problem. The aggregation semantics for one-sided predictions must also be reconsidered. This does not imply all one-sided predictions are useless; it means their evidential value requires an explicit background-probability model rather than treating `neutral=0.5` as a substantive competing prediction.
+
+REVIEW COVERAGE EFFECT:
+- Spider: all 7 score-moving nodes are now human-reviewed.
+- PFC interhemispheric: all 3 score-moving nodes are now human-reviewed.
+- Fly-wing: all 2 score-moving nodes are now human-reviewed.
+- Forest: review now extends through rank 9 (~88% cumulative influence by packet ranking).
+- Gcn4/Med15: review now extends through rank 7 (~90% cumulative influence by packet ranking).
+
+NEXT STEP:
+Have Claude encode D046 into the review JSONL and recompute category attribution/counterfactual score views deterministically. In that analysis, distinguish categorical silence errors from neutral-mapping one-sided pseudo-discrimination. Do not modify or rerun the verifier yet.
