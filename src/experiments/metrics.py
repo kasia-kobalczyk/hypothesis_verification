@@ -277,6 +277,7 @@ def aggregate_metrics(rows: Sequence[Dict[str, Any]]) -> Dict[str, Any]:
         "n_v4_profile_one_sided_prediction",
         "n_v4_profile_shared_prediction",
         "n_v4_profile_all_indeterminate",
+        "n_v4_profile_generic_or_possibility_claim",
         "n_v4_states_unavailable",
         "n_v4_construct_direct",
         "n_v4_construct_partial",

@@ -14,11 +14,11 @@ from typing import Any, Dict, Tuple
 
 from src.benchmark.presentation import Presentation
 from src.graph.generate import _render_candidates
-from src.inference.discrimination import StateError, normalise_state, normalise_strength
+from src.inference.discrimination import StateError, normalise_scope, normalise_state, normalise_strength
 from src.llm.client import BaseLLMClient
 from src.llm.prompts import PromptLibrary
 
-STATE_PROMPT = "prediction_state_v2"
+STATE_PROMPT = "prediction_state_v3"
 
 
 def parse_states(parsed: Dict[str, Any], presentation: Presentation) -> "OrderedDict[str, Dict[str, Any]]":
@@ -47,9 +47,15 @@ def parse_states(parsed: Dict[str, Any], presentation: Presentation) -> "Ordered
     return OrderedDict((item.hypothesis_id, out[item.hypothesis_id]) for item in presentation.items)
 
 
+def parse_scope(parsed: Dict[str, Any]) -> "OrderedDict[str, Any]":
+    """Required from prediction_state_v3 on; a missing or unknown scope fails closed."""
+    return OrderedDict([("proposition_scope", normalise_scope(parsed.get("proposition_scope"))),
+                        ("scope_basis", parsed.get("scope_basis"))])
+
+
 def assess_prediction_states(
     llm: BaseLLMClient, prompts: PromptLibrary, *, proposition: str, presentation: Presentation,
-) -> Tuple["OrderedDict[str, Dict[str, Any]]", Dict[str, Any]]:
+) -> Tuple["OrderedDict[str, Dict[str, Any]]", "OrderedDict[str, Any]", Dict[str, Any]]:
     template = prompts.get(STATE_PROMPT)
     messages = [{"role": "user", "content": template.render(
         proposition=proposition,
@@ -59,7 +65,9 @@ def assess_prediction_states(
 
     def validate(parsed: Dict[str, Any]) -> None:
         parse_states(parsed, presentation)   # raises StateError (a ValueError) -> repair retry
+        parse_scope(parsed)
 
     response = llm.complete_json(messages, purpose="graph_v4.prediction_state", prompt_version=STATE_PROMPT,
                                  validator=validate)
-    return parse_states(response.parsed or {}, presentation), response.record()
+    parsed = response.parsed or {}
+    return parse_states(parsed, presentation), parse_scope(parsed), response.record()

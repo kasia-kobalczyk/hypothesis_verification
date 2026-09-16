@@ -244,15 +244,79 @@ def analyse(replay: Path) -> Dict[str, Any]:
                         ("D_influence_composition", section_d), ("per_case", per_case)])
 
 
+def partial_sensitivity(replay: Path) -> Dict[str, Any]:
+    """Case scores if `partial` evidence were also allowed to score.
+
+    REPORTING ONLY. The frozen policy is direct-only (human decision); this recomputes
+    from the replay's own recorded judgments, with no model call, what the other policy
+    would have done, so the cost of the policy is visible.
+    """
+    import sys
+    sys.path.insert(0, str(ROOT))
+    from src.inference import discrimination as d
+    from src.inference.parameters import load_ordinal_mappings
+
+    mappings = load_ordinal_mappings(str(ROOT / "configs" / "ordinal_mappings.yaml"))
+    out = OrderedDict()
+    for path in sorted((replay / "instances").glob("*/discrimination.json")):
+        layer = json.loads(path.read_text(encoding="utf-8"))
+        hyps = layer["hypothesis_ids"]
+        gates, states, labels, texts = OrderedDict(), {}, {}, {}
+        for nid, rec in layer["nodes"].items():
+            cm = (rec.get("construct") or {}).get("construct_match")
+            gates[nid] = d.gate_node(node_id=nid, hypothesis_ids=hyps, states=rec["states"],
+                                     evidence_label=rec["evidence_label"],
+                                     construct_match="direct" if cm == "partial" else cm)
+            if rec["states"]:
+                states[nid] = rec["states"]
+            labels[nid], texts[nid] = rec["evidence_label"], rec["text"]
+        res = d.score_gated(hypothesis_ids=hyps, nodes=texts, states=states, gates=gates, evidence_labels=labels,
+                            mappings=mappings, multi_parent_rule="noisy_or", parent_false_baseline=0.5,
+                            instance_id=path.parent.name)
+        out[path.parent.name] = OrderedDict([
+            ("direct_only_scores", layer["scores"]), ("direct_or_partial_scores", res.scores),
+            ("n_used_direct_only", layer["summary"]["n_used_in_score"]),
+            ("n_used_direct_or_partial", sum(1 for g in gates.values() if g["used_in_score"]))])
+    return out
+
+
+def stability(replays: List[Path]) -> Dict[str, Any]:
+    if len(replays) < 2:
+        return {}
+    a, b = [load(r)[3] for r in replays[:2]]
+    pairs = [(ra["states"][h]["state"], b[k]["states"][h]["state"]) for k, ra in a.items()
+             if ra["states"] and b[k]["states"] for h in ra["states"]]
+    cm = [((ra.get("construct") or {}).get("construct_match"), (b[k].get("construct") or {}).get("construct_match"))
+          for k, ra in a.items() if ra.get("construct") or b[k].get("construct")]
+    cases = OrderedDict()
+    for r in replays:
+        for c, v in json.loads((r / "summary.json").read_text(encoding="utf-8"))["cases"].items():
+            cases.setdefault(c, []).append(v["v4_scores"])
+    return OrderedDict([
+        ("replays", [r.name for r in replays[:2]]),
+        ("state_pair_agreement", "{}/{}".format(sum(x == y for x, y in pairs), len(pairs))),
+        ("profile_agreement", "{}/{}".format(sum(ra["profile_class"] == b[k]["profile_class"] for k, ra in a.items()), len(a))),
+        ("used_in_score_agreement", "{}/{}".format(sum(ra["used_in_score"] == b[k]["used_in_score"] for k, ra in a.items()), len(a))),
+        ("construct_agreement", "{}/{}".format(sum(x == y for x, y in cm), len(cm))),
+        ("case_scores_by_replicate", cases),
+    ])
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--replay", required=True)
+    parser.add_argument("--replay", nargs="+", required=True,
+                        help="one or more replicate replay dirs of the SAME iteration")
+    parser.add_argument("--name", default=None, help="output folder name (default: first replay's name)")
     args = parser.parse_args()
-    replay = (ROOT / args.replay).resolve()
-    result = analyse(replay)
-    out = OUT_ROOT / replay.name
+    replays = [(ROOT / r).resolve() for r in args.replay]
+    out = OUT_ROOT / (args.name or replays[0].name)
     out.mkdir(parents=True, exist_ok=True)
-    (out / "development_metrics.json").write_text(json.dumps(result, indent=1) + "\n", encoding="utf-8")
+    pooled = OrderedDict([("replicates", OrderedDict()), ("stability", stability(replays)),
+                          ("partial_sensitivity", OrderedDict())])
+    for replay in replays:
+        pooled["replicates"][replay.name] = analyse(replay)
+        pooled["partial_sensitivity"][replay.name] = partial_sensitivity(replay)
+    (out / "development_metrics.json").write_text(json.dumps(pooled, indent=1) + "\n", encoding="utf-8")
     print("wrote", (out / "development_metrics.json").relative_to(ROOT))
     return 0
 

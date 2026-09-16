@@ -40,7 +40,23 @@ ONE_SIDED = "one_sided_prediction"
 SHARED = "shared_prediction"
 ALL_INDETERMINATE = "all_indeterminate"
 PARTIAL_CONTRAST = "partially_indeterminate_contrast"   # k > 2 only
-PROFILE_CLASSES = (COMPARATIVE, ONE_SIDED, SHARED, ALL_INDETERMINATE, PARTIAL_CONTRAST)
+OUT_OF_SCOPE = "generic_or_possibility_claim"
+PROFILE_CLASSES = (COMPARATIVE, ONE_SIDED, SHARED, ALL_INDETERMINATE, PARTIAL_CONTRAST, OUT_OF_SCOPE)
+
+# Proposition scope relative to the candidates (development iteration 3). A claim about a
+# broader class than any candidate addresses, or a claim only that something is
+# possible, cannot distinguish candidates about specific systems. Iteration 2 showed the
+# state classifier ignoring this as advice, so the gate enforces it from the explicit
+# scope field instead of trusting the per-hypothesis states.
+SCOPES = ("within_candidates_scope", "broader_than_candidates", "possibility_only")
+OUT_OF_SCOPE_SCOPES = frozenset({"broader_than_candidates", "possibility_only"})
+
+
+def normalise_scope(scope: Any) -> str:
+    value = str(scope or "").strip().lower().replace(" ", "_").replace("-", "_")
+    if value not in SCOPES:
+        raise StateError("unknown proposition scope {!r}".format(scope))
+    return value
 
 CONSTRUCT_MATCHES = ("direct", "partial", "mismatch")
 # Human decision for BENCH-GRAPH-V4-DEV-001: only `direct` evidence may move comparative
@@ -95,8 +111,13 @@ def edge_label_for(state: str, strength: Optional[str]) -> str:
     return _STATE_TO_EDGE_LABEL[(state, strength)]
 
 
-def classify_profile(states: Mapping[str, str], hypothesis_ids: Sequence[str]) -> str:
+def classify_profile(states: Mapping[str, str], hypothesis_ids: Sequence[str],
+                     scope: Optional[str] = None) -> str:
     """Comparative class of one proposition from its per-hypothesis states.
+
+    `scope` (iteration 3) is checked first: an out-of-scope proposition is never
+    comparative, whatever states it was given. `None` means scope was not assessed
+    (records from iterations 1-2) and applies no scope gating.
 
     Requires a state for every hypothesis: a missing hypothesis is not treated as
     indeterminate, because that would silently repeat v3's default-to-0.5.
@@ -105,6 +126,8 @@ def classify_profile(states: Mapping[str, str], hypothesis_ids: Sequence[str]) -
     if missing:
         raise StateError("no prediction state for {}".format(missing))
     values = [normalise_state(states[h]) for h in hypothesis_ids]
+    if scope is not None and normalise_scope(scope) in OUT_OF_SCOPE_SCOPES:
+        return OUT_OF_SCOPE
     determinate = [v for v in values if v in DETERMINATE]
     if not determinate:
         return ALL_INDETERMINATE
@@ -129,6 +152,7 @@ def gate_node(
     states: Optional[Mapping[str, Mapping[str, Any]]],
     evidence_label: Optional[str],
     construct_match: Optional[str],
+    scope: Optional[str] = None,
 ) -> Dict[str, Any]:
     """Decide whether one proposition may move relative scores, and record why."""
     record: "OrderedDict[str, Any]" = OrderedDict([("node_id", node_id)])
@@ -137,7 +161,8 @@ def gate_node(
                       gate_reason="prediction_states_unavailable")
         return record
     flat = {h: normalise_state(s["state"]) for h, s in states.items()}
-    profile = classify_profile(flat, hypothesis_ids)
+    profile = classify_profile(flat, hypothesis_ids, scope)
+    record["proposition_scope"] = scope
     eligible = is_comparatively_eligible(profile)
     record["profile_class"] = profile
     record["comparatively_eligible"] = eligible

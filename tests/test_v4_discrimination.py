@@ -200,17 +200,17 @@ def _entry(i, state, strength="strong"):
 
 
 def test_parse_states_maps_labels_to_hypotheses_in_presentation_order():
-    out = parse_states({"states": [_entry("B", "indeterminate"), _entry("A", "positive_or_present")]}, _pres())
+    out = parse_states({"proposition_scope": "within_candidates_scope", "states": [_entry("B", "indeterminate"), _entry("A", "positive_or_present")]}, _pres())
     assert list(out) == ["H1", "H2"]
     assert out["H1"]["state"] == "positive_or_present" and out["H2"]["strength"] is None
 
 
 @pytest.mark.parametrize("payload", [
-    {"states": [_entry("A", "positive_or_present")]},                                   # missing B
-    {"states": [_entry("A", "positive_or_present"), _entry("A", "indeterminate")]},     # duplicate
-    {"states": [_entry("A", "positive_or_present"), _entry("C", "indeterminate")]},     # unknown id
-    {"states": [_entry("A", "probably"), _entry("B", "indeterminate")]},                # unknown state
-    {"states": [_entry("A", "positive_or_present", None), _entry("B", "indeterminate")]},  # no strength
+    {"proposition_scope": "within_candidates_scope", "states": [_entry("A", "positive_or_present")]},                                   # missing B
+    {"proposition_scope": "within_candidates_scope", "states": [_entry("A", "positive_or_present"), _entry("A", "indeterminate")]},     # duplicate
+    {"proposition_scope": "within_candidates_scope", "states": [_entry("A", "positive_or_present"), _entry("C", "indeterminate")]},     # unknown id
+    {"proposition_scope": "within_candidates_scope", "states": [_entry("A", "probably"), _entry("B", "indeterminate")]},                # unknown state
+    {"proposition_scope": "within_candidates_scope", "states": [_entry("A", "positive_or_present", None), _entry("B", "indeterminate")]},  # no strength
     {},
 ])
 def test_parse_states_rejects_malformed_output(payload):
@@ -291,9 +291,9 @@ def _ev(label, cited=("s2:1",)):
 
 def test_layer_scores_only_direct_contrasts_and_keeps_the_rest_descriptively(mappings):
     llm = ScriptedLLM(
-        states={"p1": {"states": [_entry("A", "positive_or_present"), _entry("B", "negative_or_absent")]},
-                "p2": {"states": [_entry("A", "positive_or_present"), _entry("B", "indeterminate")]},
-                "p3": {"states": [_entry("A", "negative_or_absent"), _entry("B", "positive_or_present")]}},
+        states={"p1": {"proposition_scope": "within_candidates_scope", "states": [_entry("A", "positive_or_present"), _entry("B", "negative_or_absent")]},
+                "p2": {"proposition_scope": "within_candidates_scope", "states": [_entry("A", "positive_or_present"), _entry("B", "indeterminate")]},
+                "p3": {"proposition_scope": "within_candidates_scope", "states": [_entry("A", "negative_or_absent"), _entry("B", "positive_or_present")]}},
         constructs={"p1": _cm("established", impression="direct"), "p2": _cm("established", impression="direct"),
                     "p3": _cm("not_established", impression="mismatch")})
     out = _layer(llm, mappings, {"X1": _ev("support"), "X2": _ev("strong_support"), "X3": _ev("strong_support")})
@@ -308,9 +308,9 @@ def test_layer_scores_only_direct_contrasts_and_keeps_the_rest_descriptively(map
 
 def test_layer_fails_closed_on_llm_errors(mappings):
     llm = ScriptedLLM(
-        states={"p1": {"states": [_entry("A", "positive_or_present"), _entry("B", "negative_or_absent")]},
-                "p2": {"states": [_entry("A", "positive_or_present"), _entry("B", "negative_or_absent")]},
-                "p3": {"states": [_entry("A", "positive_or_present"), _entry("B", "negative_or_absent")]}},
+        states={"p1": {"proposition_scope": "within_candidates_scope", "states": [_entry("A", "positive_or_present"), _entry("B", "negative_or_absent")]},
+                "p2": {"proposition_scope": "within_candidates_scope", "states": [_entry("A", "positive_or_present"), _entry("B", "negative_or_absent")]},
+                "p3": {"proposition_scope": "within_candidates_scope", "states": [_entry("A", "positive_or_present"), _entry("B", "negative_or_absent")]}},
         constructs={"p1": _cm("established", impression="direct"), "p2": _cm("established", impression="direct"),
                     "p3": _cm("established", impression="direct")},
         fail={("graph_v4.prediction_state", "p1"), ("graph_v4.construct_match", "p2")})
@@ -345,7 +345,8 @@ def test_v4_prompts_obey_hidden_annotation_and_cutoff_invariants():
     library = PromptLibrary(ROOT / "src" / "llm" / "prompts")
     forbidden = {"resolution", "resolver", "resolving_observations", "resolution_type", "reference_discriminators",
                  "leakage_audit", "gold", "gold_hypothesis", "answer", "correct_hypothesis", "favored", "cutoff"}
-    for name in ("prediction_state_v1", "construct_match_v1", "prediction_state_v2", "construct_match_v2"):
+    for name in ("prediction_state_v1", "construct_match_v1", "prediction_state_v2", "construct_match_v2",
+                 "prediction_state_v3"):
         template = library.get(name)
         assert not ({p.lower() for p in template.placeholders} & forbidden), name
         assert "cutoff" not in template.text.lower() and "json" in template.text.lower()
@@ -369,3 +370,50 @@ def test_v4_dev_config_differs_from_pilot_only_in_dataset_status():
     dev = dict(flat(load_config(str(ROOT / "configs" / "v4_dev_explanatory.yaml")).model_dump()))
     assert {k for k in pilot if pilot[k] != dev[k]} == {"source_path", "dataset.status"}
     assert dev["dataset.status"] == "development"
+
+
+# --------------------------------------------------------------------------- #
+# Iteration 3: proposition scope is gated deterministically
+# --------------------------------------------------------------------------- #
+@pytest.mark.parametrize("scope", ["broader_than_candidates", "possibility_only"])
+def test_out_of_scope_proposition_is_never_comparative_even_with_a_contrast(scope):
+    states = {"H1": "positive_or_present", "H2": "negative_or_absent"}
+    assert d.classify_profile(states, H, scope) == d.OUT_OF_SCOPE
+    g = d.gate_node(node_id="X1", hypothesis_ids=H, states=CONTRAST, evidence_label="strong_support",
+                    construct_match="direct", scope=scope)
+    assert not g["comparatively_eligible"] and not g["used_in_score"]
+    assert g["gate_reason"] == "profile_generic_or_possibility_claim"
+
+
+def test_within_scope_contrast_is_still_eligible():
+    g = d.gate_node(node_id="X1", hypothesis_ids=H, states=CONTRAST, evidence_label="support",
+                    construct_match="direct", scope="within_candidates_scope")
+    assert g["used_in_score"]
+
+
+def test_scope_none_applies_no_scope_gating_for_older_records():
+    assert d.classify_profile({"H1": "positive_or_present", "H2": "negative_or_absent"}, H, None) == d.COMPARATIVE
+
+
+def test_unknown_or_missing_scope_fails_closed():
+    from src.graph.prediction_state import parse_scope
+
+    with pytest.raises(d.StateError):
+        parse_scope({"states": []})
+    with pytest.raises(d.StateError):
+        parse_scope({"proposition_scope": "somewhat_general"})
+
+
+def test_layer_buckets_out_of_scope_propositions(mappings):
+    llm = ScriptedLLM(
+        states={"p1": {"proposition_scope": "broader_than_candidates",
+                       "states": [_entry("A", "positive_or_present"), _entry("B", "negative_or_absent")]},
+                "p2": {"proposition_scope": "within_candidates_scope",
+                       "states": [_entry("A", "positive_or_present"), _entry("B", "negative_or_absent")]},
+                "p3": {"states": [_entry("A", "positive_or_present"), _entry("B", "negative_or_absent")]}},
+        constructs={"p1": _cm("established"), "p2": _cm("established"), "p3": _cm("established")})
+    out = _layer(llm, mappings, {"X1": _ev("support"), "X2": _ev("support"), "X3": _ev("support")})
+    assert out["nodes"]["X1"]["profile_class"] == d.OUT_OF_SCOPE
+    assert [b["node_id"] for b in out["buckets"]["generic_or_possibility_claim"]] == ["X1"]
+    assert out["nodes"]["X2"]["used_in_score"]
+    assert out["nodes"]["X3"]["gate_reason"] == "prediction_states_unavailable"   # no scope -> fail closed

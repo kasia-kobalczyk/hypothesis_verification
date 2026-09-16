@@ -1,0 +1,83 @@
+You are stating what each of several candidate scientific explanations commits to
+about one proposition. You are NOT judging whether the proposition is true, and you
+have no literature access.
+
+STEP 1 - Scope of the proposition, relative to the candidates.
+
+Decide first what KIND of claim the proposition makes, compared with what the candidate
+texts themselves claim:
+
+- "within_candidates_scope": it is about the same specific systems, processes or events
+  that the candidates make claims about.
+- "broader_than_candidates": it is about a general class, a family of systems, a
+  mechanism type, organisms in general, or other members of a class, and no candidate's
+  own text makes a claim at that broader level.
+- "possibility_only": it asserts only that something CAN happen, MAY happen or IS
+  POSSIBLE, not that it does or did happen in the systems the candidates concern.
+
+A candidate about what happened in one system does not determine what is true of a
+whole class, and does not determine what is possible in general. Be exact here: this
+scope decides whether the proposition can distinguish the candidates at all.
+
+STEP 2 - For EVERY candidate below, answer one question: if this candidate were true,
+what would it require about the proposition?
+
+Use exactly one state per candidate:
+
+- "positive_or_present": the candidate's own content requires the proposition, or
+  makes it clearly expected. You can point to the part of the candidate that does so.
+- "negative_or_absent": the candidate's own content is incompatible with the
+  proposition, or makes it clearly unexpected. You can point to the part of the
+  candidate that rules it out.
+- "substantive_null": the candidate positively commits to NO effect, no difference
+  or baseline for the specific quantity the proposition concerns. This is a
+  prediction, and it needs the same kind of textual basis as the two above.
+- "indeterminate": the candidate does not determine the proposition. It is
+  compatible with the proposition being true AND with it being false.
+
+Rules that matter more than anything else here:
+
+1. Silence is not a prediction. If the candidate does not speak to the proposition,
+   the state is "indeterminate". Do not infer "negative_or_absent" or
+   "substantive_null" from the absence of a mention.
+2. Fitting another candidate better is not incompatibility. A proposition that a
+   different candidate explains more naturally is "indeterminate" for this candidate
+   unless something in this candidate actually rules it out.
+3. General facts are not distinguishing predictions. If the proposition is a
+   general property of the system, the mechanism class or the method, and it would
+   be expected whichever candidate is correct, give each candidate for which that
+   holds the same state.
+4. Two candidates can both be "positive_or_present". Do not create a contrast that
+   the candidate texts do not contain.
+5. Before choosing "negative_or_absent" or "substantive_null", identify the specific
+   words in the candidate that commit to it. If you cannot, choose "indeterminate".
+6. If you chose "broader_than_candidates" or "possibility_only" in STEP 1, a candidate
+   is "indeterminate" unless its own text makes a claim at that same broader level or
+   about that same possibility.
+
+For a determinate state (anything except "indeterminate"), also give its strength:
+"strong" (the candidate essentially entails it), "moderate" (clearly expected) or
+"weak" (somewhat expected). For "indeterminate" the strength is null.
+
+PROPOSITION:
+$proposition
+
+CANDIDATES:
+$candidates
+
+Return a single JSON object, and nothing else, with exactly one entry for each of
+these candidate ids: $ids
+
+{
+  "proposition_scope": "<within_candidates_scope|broader_than_candidates|possibility_only>",
+  "scope_basis": "<one sentence: what the proposition is about, and what the candidates are about>",
+  "states": [
+    {
+      "id": "<candidate id>",
+      "state": "<positive_or_present|negative_or_absent|substantive_null|indeterminate>",
+      "strength": "<strong|moderate|weak, or null when indeterminate>",
+      "basis": "<the words of the candidate that commit to this state; for indeterminate, why neither outcome is required>",
+      "rationale": "<one sentence>"
+    }
+  ]
+}

@@ -83,11 +83,15 @@ def run_v4_layer(
             ("text", node["text"]), ("origin_hypothesis_id", node.get("generation_origin_hypothesis")),
         ])
         try:
-            states, call = assess_prediction_states(llm, prompts, proposition=node["text"], presentation=presentation)
+            states, scope, call = assess_prediction_states(llm, prompts, proposition=node["text"],
+                                                           presentation=presentation)
             entry["states"] = states
+            entry["proposition_scope"] = scope["proposition_scope"]
+            entry["scope_basis"] = scope["scope_basis"]
             entry["state_call_id"] = call.get("call_id")
         except (LLMError, LLMParseError, StateError) as exc:
             entry["states"] = None
+            entry["proposition_scope"] = None
             errors.append({"where": "prediction_state", "node": node_id, "type": type(exc).__name__, "error": str(exc)})
 
         assessment = ((evidence_by_node.get(node_id) or {}).get("assessment") or {})
@@ -122,7 +126,8 @@ def run_v4_layer(
         gates[node_id] = gate_node(
             node_id=node_id, hypothesis_ids=hypothesis_ids, states=entry["states"],
             evidence_label=entry["evidence_label"],
-            construct_match=(entry["construct"] or {}).get("construct_match"))
+            construct_match=(entry["construct"] or {}).get("construct_match"),
+            scope=entry.get("proposition_scope"))
 
     propagation = score_gated(
         hypothesis_ids=hypothesis_ids, nodes={n: nodes[n]["text"] for n in nodes},
@@ -137,7 +142,8 @@ def run_v4_layer(
     node_records: "OrderedDict[str, Any]" = OrderedDict()
     buckets: "OrderedDict[str, List[Dict[str, Any]]]" = OrderedDict(
         (k, []) for k in ("one_sided_prediction", "shared_prediction", "all_indeterminate",
-                          "partially_indeterminate_contrast", "states_unavailable"))
+                          "generic_or_possibility_claim", "partially_indeterminate_contrast",
+                          "states_unavailable"))
     for node_id, entry in judged.items():
         gate = gates[node_id]
         record = OrderedDict(entry)
