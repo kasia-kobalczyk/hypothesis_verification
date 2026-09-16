@@ -1,0 +1,149 @@
+{
+ "orientation": "log-odds H2 over H1",
+ "total_absolute_influence": 18.06872020078879,
+ "reviewed_nodes": 52,
+ "reviewed_absolute_influence": 15.747027896542564,
+ "unreviewed_nodes": 26,
+ "unreviewed_absolute_influence": 2.321692304246225,
+ "reviewed_share": 0.8715076508769629,
+ "per_case": {
+  "eukaryogenesis_mito_timing": {
+   "score_moving_nodes": 15,
+   "reviewed_nodes": 8,
+   "unreviewed_nodes": 7,
+   "reviewed_absolute_influence": 3.1052390554788514,
+   "unreviewed_absolute_influence": 0.7989824616391519,
+   "reviewed_share_of_case_influence": 0.795354218981678,
+   "below_packet_design_coverage": true
+  },
+  "fly_wing_constraint_vs_selection": {
+   "score_moving_nodes": 2,
+   "reviewed_nodes": 2,
+   "unreviewed_nodes": 0,
+   "reviewed_absolute_influence": 0.30956197081798054,
+   "unreviewed_absolute_influence": 0.0,
+   "reviewed_share_of_case_influence": 1.0,
+   "below_packet_design_coverage": false
+  },
+  "forest_fragmentation_resilience": {
+   "score_moving_nodes": 18,
+   "reviewed_nodes": 9,
+   "unreviewed_nodes": 9,
+   "reviewed_absolute_influence": 2.524661534898666,
+   "unreviewed_absolute_influence": 0.7894129785509145,
+   "reviewed_share_of_case_influence": 0.7617998704171488,
+   "below_packet_design_coverage": true
+  },
+  "gcn4_med15_complex_vs_condensate": {
+   "score_moving_nodes": 11,
+   "reviewed_nodes": 7,
+   "unreviewed_nodes": 4,
+   "reviewed_absolute_influence": 1.791231593597783,
+   "unreviewed_absolute_influence": 0.3182614851332115,
+   "reviewed_share_of_case_influence": 0.8491289265927965,
+   "below_packet_design_coverage": true
+  },
+  "glnbp_induced_fit_vs_conformational_selection": {
+   "score_moving_nodes": 11,
+   "reviewed_nodes": 9,
+   "unreviewed_nodes": 2,
+   "reviewed_absolute_influence": 4.1250365613951985,
+   "unreviewed_absolute_influence": 0.173115492542405,
+   "reviewed_share_of_case_influence": 0.9597232740093941,
+   "below_packet_design_coverage": false
+  },
+  "pfc_interhemispheric_architecture": {
+   "score_moving_nodes": 3,
+   "reviewed_nodes": 3,
+   "unreviewed_nodes": 0,
+   "reviewed_absolute_influence": 0.5820766394502253,
+   "unreviewed_absolute_influence": 0.0,
+   "reviewed_share_of_case_influence": 1.0,
+   "below_packet_design_coverage": false
+  },
+  "pfc_storage_vs_control": {
+   "score_moving_nodes": 11,
+   "reviewed_nodes": 7,
+   "unreviewed_nodes": 4,
+   "reviewed_absolute_influence": 2.4250245583228054,
+   "unreviewed_absolute_influence": 0.24191988638054546,
+   "reviewed_share_of_case_influence": 0.9092894916273913,
+   "below_packet_design_coverage": false
+  },
+  "spider_orb_web_origin": {
+   "score_moving_nodes": 7,
+   "reviewed_nodes": 7,
+   "unreviewed_nodes": 0,
+   "reviewed_absolute_influence": 0.8841959825810498,
+   "unreviewed_absolute_influence": 0.0,
+   "reviewed_share_of_case_influence": 1.0,
+   "below_packet_design_coverage": false
+  }
+ },
+ "under_covered_cases_definition": "case whose reviewed share of its own influence is below the packet-wide reviewed share",
+ "under_covered_cases": [
+  "eukaryogenesis_mito_timing",
+  "forest_fragmentation_resilience",
+  "gcn4_med15_complex_vs_condensate"
+ ],
+ "recommended_next_review_batch": {
+  "first_low_coverage_cases": [
+   "GP1-eukaryogenesis_mito_timing-X11",
+   "GP1-eukaryogenesis_mito_timing-X14",
+   "GP1-eukaryogenesis_mito_timing-X16",
+   "GP1-eukaryogenesis_mito_timing-X3",
+   "GP1-forest_fragmentation_resilience-X11",
+   "GP1-gcn4_med15_complex_vs_condensate-X16",
+   "GP1-gcn4_med15_complex_vs_condensate-X11",
+   "GP1-forest_fragmentation_resilience-X12",
+   "GP1-eukaryogenesis_mito_timing-X19",
+   "GP1-forest_fragmentation_resilience-X13",
+   "GP1-forest_fragmentation_resilience-X14",
+   "GP1-forest_fragmentation_resilience-X16",
+   "GP1-forest_fragmentation_resilience-X8",
+   "GP1-forest_fragmentation_resilience-X19",
+   "GP1-eukaryogenesis_mito_timing-X15",
+   "GP1-forest_fragmentation_resilience-X22",
+   "GP1-eukaryogenesis_mito_timing-X20",
+   "GP1-forest_fragmentation_resilience-X17",
+   "GP1-gcn4_med15_complex_vs_condensate-X14",
+   "GP1-gcn4_med15_complex_vs_condensate-X24"
+  ],
+  "then_remaining_by_influence": [
+   "GP1-glnbp_induced_fit_vs_conformational_selection-X24",
+   "GP1-pfc_storage_vs_control-X18",
+   "GP1-pfc_storage_vs_control-X23",
+   "GP1-pfc_storage_vs_control-X11",
+   "GP1-pfc_storage_vs_control-X21",
+   "GP1-glnbp_induced_fit_vs_conformational_selection-X18"
+  ],
+  "influence": {
+   "GP1-glnbp_induced_fit_vs_conformational_selection-X24": 0.15403184025468875,
+   "GP1-eukaryogenesis_mito_timing-X11": 0.14910576764688543,
+   "GP1-eukaryogenesis_mito_timing-X14": 0.14910576764688543,
+   "GP1-eukaryogenesis_mito_timing-X16": 0.14910576764688543,
+   "GP1-eukaryogenesis_mito_timing-X3": 0.1371072892404947,
+   "GP1-forest_fragmentation_resilience-X11": 0.12050334541948793,
+   "GP1-gcn4_med15_complex_vs_condensate-X16": 0.11699077672916058,
+   "GP1-gcn4_med15_complex_vs_condensate-X11": 0.09993082784336305,
+   "GP1-forest_fragmentation_resilience-X12": 0.09624025318017637,
+   "GP1-eukaryogenesis_mito_timing-X19": 0.09342562457099168,
+   "GP1-forest_fragmentation_resilience-X13": 0.09342562457099168,
+   "GP1-forest_fragmentation_resilience-X14": 0.09342562457099168,
+   "GP1-forest_fragmentation_resilience-X16": 0.09342562457099168,
+   "GP1-forest_fragmentation_resilience-X8": 0.09342562457099168,
+   "GP1-forest_fragmentation_resilience-X19": 0.08126030853055011,
+   "GP1-pfc_storage_vs_control-X18": 0.08126030853055011,
+   "GP1-eukaryogenesis_mito_timing-X15": 0.06865558762831259,
+   "GP1-forest_fragmentation_resilience-X22": 0.06703663285638939,
+   "GP1-pfc_storage_vs_control-X23": 0.06703663285638939,
+   "GP1-eukaryogenesis_mito_timing-X20": 0.052476657258696546,
+   "GP1-forest_fragmentation_resilience-X17": 0.05066994028034394,
+   "GP1-gcn4_med15_complex_vs_condensate-X14": 0.05066994028034394,
+   "GP1-gcn4_med15_complex_vs_condensate-X24": 0.05066994028034394,
+   "GP1-pfc_storage_vs_control-X11": 0.048775086946469204,
+   "GP1-pfc_storage_vs_control-X21": 0.04484785804713676,
+   "GP1-glnbp_induced_fit_vs_conformational_selection-X18": 0.019083652287716246
+  }
+ }
+}

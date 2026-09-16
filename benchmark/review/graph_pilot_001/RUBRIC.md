@@ -52,7 +52,8 @@ historically.
 | --- | --- |
 | `human_primary_category` | one category above |
 | `human_secondary_flags` | list of categories above |
-| `human_prediction_for_each_hypothesis` | per hypothesis: `positive_or_present` \| `negative_or_absent` \| `neutral_or_no_change` (a substantive null prediction) \| `indeterminate` (silent) |
+| `human_prediction_for_each_hypothesis` | per hypothesis: `positive_or_present` \| `negative_or_absent` \| `substantive_null` (a positive prediction of no effect/baseline; D046 vocabulary, formerly written `neutral_or_no_change` here) \| `indeterminate` (silent) |
+| `human_prediction_qualifiers` | per hypothesis, the reviewer's verbatim line and whether the state was qualified/conditional |
 | `human_is_genuinely_discriminative` | `true` \| `false` |
 | `human_silence_as_null_error` | `true` \| `false`: a hypothesis you judged `indeterminate` received a non-`neutral` verifier edge |
 | `human_implication_validity` | `valid` \| `weak` \| `invalid`: is the edge from the *origin* hypothesis licensed? |

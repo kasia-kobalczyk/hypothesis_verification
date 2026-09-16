@@ -129,14 +129,25 @@ def _relation(top: str, favoured: str) -> str:
 
 
 # --------------------------------------------------------------------------- #
-def load_labels() -> Dict[Tuple[str, str], str]:
-    data = json.loads(LABELS.read_text(encoding="utf-8"))
-    return {(l["case_id"], l["node_id"]): l["human_primary_category"] for l in data["labels"]}
+def load_labels(files=None) -> Dict[Tuple[str, str], str]:
+    return {k: v["human_primary_category"] for k, v in load_label_entries(files).items()}
 
 
-def analyse(run: Path) -> Dict[str, Any]:
+def load_label_entries(files=None) -> Dict[Tuple[str, str], Dict[str, Any]]:
+    entries: Dict[Tuple[str, str], Dict[str, Any]] = {}
+    for path in (files or [LABELS]):
+        data = json.loads(Path(path).read_text(encoding="utf-8"))
+        for l in data["labels"]:
+            key = (l["case_id"], l["node_id"])
+            if key in entries:
+                raise SystemExit("{} labelled in more than one file".format(key))
+            entries[key] = dict(l, _source=data["human_review_source"])
+    return entries
+
+
+def analyse(run: Path, label_files=None) -> Dict[str, Any]:
     mappings = load_ordinal_mappings(str(ROOT / "configs" / "ordinal_mappings.yaml"))
-    labels = load_labels()
+    labels = load_labels(label_files)
     packet_ids = {json.loads(line)["review_id"]
                   for line in (PACKET / "review_set_full.jsonl").read_text(encoding="utf-8").splitlines()}
 
@@ -285,7 +296,10 @@ def analyse(run: Path) -> Dict[str, Any]:
 
 
 # --------------------------------------------------------------------------- #
-def coverage(nodes: List[Dict[str, Any]], cases: Dict[str, Any]) -> Dict[str, Any]:
+DEFAULT_LOW_CASES = {"fly_wing_constraint_vs_selection", "pfc_interhemispheric_architecture", "spider_orb_web_origin"}
+
+
+def coverage(nodes: List[Dict[str, Any]], cases: Dict[str, Any], low_cases=None) -> Dict[str, Any]:
     moving = [n for n in nodes if n["node_class"] != "non_moving"]
     total = sum(n["absolute_influence"] for n in moving)
     reviewed = sum(n["absolute_influence"] for n in moving if n["node_class"] == "reviewed")
@@ -304,7 +318,10 @@ def coverage(nodes: List[Dict[str, Any]], cases: Dict[str, Any]) -> Dict[str, An
         ])
     batch = sorted((n for n in moving if n["node_class"] == "unreviewed_score_moving"),
                    key=lambda n: (-n["absolute_influence"], n["review_id"]))
-    low_cases = {"fly_wing_constraint_vs_selection", "pfc_interhemispheric_architecture", "spider_orb_web_origin"}
+    if low_cases is None:
+        low_cases = DEFAULT_LOW_CASES
+    elif low_cases == "computed":
+        low_cases = {c for c, v in per_case.items() if v["below_packet_design_coverage"]}
     return OrderedDict([
         ("orientation", "log-odds H2 over H1"),
         ("total_absolute_influence", total),
@@ -344,14 +361,15 @@ def totals_across_cases(cases: Dict[str, Any]) -> Dict[str, Any]:
 
 
 # --------------------------------------------------------------------------- #
-def write(result: Dict[str, Any], cov: Dict[str, Any], totals: Dict[str, Any], out: Path) -> None:
+def write(result: Dict[str, Any], cov: Dict[str, Any], totals: Dict[str, Any], out: Path,
+          labels_note: str = None) -> None:
     out.mkdir(parents=True, exist_ok=True)
     (out / "node_contributions.jsonl").write_text(
         "".join(json.dumps(n, ensure_ascii=False) + "\n" for n in result["nodes"]), encoding="utf-8")
     header = OrderedDict([
         ("orientation", "all log-odds are log-score(H2) minus log-score(H1); positive supports H2"),
-        ("labels", "benchmark/review/graph_pilot_001/human_labels_D045.json (D045; model-based Research "
-                   "Director review, not external expert ground truth)"),
+        ("labels", labels_note or "benchmark/review/graph_pilot_001/human_labels_D045.json (D045; model-based "
+                   "Research Director review, not external expert ground truth)"),
         ("favoured_hypothesis_source", ".agent/PROJECT_STATE.md: H2 in all four `favored` cases"),
     ])
     (out / "case_category_attribution.json").write_text(json.dumps(OrderedDict([
@@ -711,10 +729,216 @@ def render_interpretation(result, cov, totals, mech) -> List[str]:
     return L
 
 
+# --------------------------------------------------------------------------- #
+# D045 + D046 combined analysis
+# --------------------------------------------------------------------------- #
+COMBINED_LABEL_FILES = [PACKET / "human_labels_D045.json", PACKET / "human_labels_D046.json"]
+OUT_COMBINED = PACKET / "attribution_d045_d046"
+
+
+def one_sided_split(result, packet, entries) -> Dict[str, Any]:
+    """D046's two one-sided failure types, separated mechanically.
+
+    Uses ONLY nodes whose reviewer recorded per-hypothesis states (D046). A node is
+    one-sided when exactly one hypothesis is determinate and the other indeterminate.
+    The verifier's direct edge label for the reviewer-indeterminate hypothesis then
+    decides which failure it is:
+
+    * non-`neutral` -> categorical_silence_error: the silent competitor was given a
+      directional label;
+    * `neutral`     -> neutral_mapping_pseudo_discrimination: the label was right, but
+      the numeric mapping (e.g. implied 0.80 vs neutral 0.50) still lets support for
+      the proposition move the relative score.
+    """
+    determinate = {"positive_or_present", "negative_or_absent", "substantive_null"}
+    rows, totals = [], OrderedDict()
+    by_id = {n["review_id"]: n for n in result["nodes"]}
+    for key, entry in sorted(entries.items()):
+        states = entry.get("human_prediction_for_each_hypothesis")
+        if not states:
+            continue
+        rid = entry["review_id"]
+        node = by_id[rid]
+        routes = packet[rid]["verifier_graph"]["cross_hypothesis_judgments"]
+        silent = [h for h, s in states.items() if s == "indeterminate"]
+        det = [h for h, s in states.items() if s in determinate]
+        if len(det) == 1 and len(silent) == 1:
+            label = routes[silent[0]]["direct_edge_label"]
+            kind = "neutral_mapping_pseudo_discrimination" if label == "neutral" else "categorical_silence_error"
+        elif not det:
+            kind, label = "all_indeterminate", None
+        elif len(set(states[h] for h in det)) == 1 and not silent:
+            kind, label = "shared_determinate", None
+        else:
+            kind, label = "determinate_contrast", None
+        qualified = any(q["qualified"] for q in (entry.get("human_prediction_qualifiers") or {}).values())
+        rows.append(OrderedDict([
+            ("review_id", rid), ("human_states", states), ("any_state_qualified", qualified),
+            ("human_primary_category", entry["human_primary_category"]),
+            ("verifier_direct_edges", OrderedDict((h, routes[h]["direct_edge_label"]) for h in sorted(routes))),
+            ("verifier_edge_for_silent_hypothesis", label),
+            ("one_sided_kind", kind),
+            ("absolute_influence", node["absolute_influence"]),
+            ("log_odds_H2_over_H1", node["log_odds_H2_over_H1"]),
+        ]))
+        t = totals.setdefault(kind, OrderedDict([("n_nodes", 0), ("absolute_influence", 0.0)]))
+        t["n_nodes"] += 1
+        t["absolute_influence"] += node["absolute_influence"]
+
+    # Verifier-only proxy over ALL score-moving nodes (no human judgment): the
+    # non-generating hypothesis got a `neutral` direct edge, yet the node moves the score.
+    proxy = OrderedDict([("n_nodes", 0), ("absolute_influence", 0.0), ("by_reviewed_category", OrderedDict())])
+    for n in result["nodes"]:
+        if n["node_class"] == "non_moving":
+            continue
+        routes = packet[n["review_id"]]["verifier_graph"]["cross_hypothesis_judgments"]
+        non_origin = [h for h, v in routes.items() if not v["is_origin_of_proposition"]]
+        if non_origin and all(routes[h]["direct_edge_label"] == "neutral" for h in non_origin):
+            proxy["n_nodes"] += 1
+            proxy["absolute_influence"] += n["absolute_influence"]
+            cat = n["human_primary_category"] or "unreviewed"
+            proxy["by_reviewed_category"][cat] = proxy["by_reviewed_category"].get(cat, 0) + 1
+    return OrderedDict([("nodes_with_recorded_states", rows), ("totals", totals),
+                        ("verifier_proxy_non_origin_neutral_score_moving", proxy)])
+
+
+def write_combined(result, out: Path) -> None:
+    entries = load_label_entries(COMBINED_LABEL_FILES)
+    packet = {json.loads(line)["review_id"]: json.loads(line)
+              for line in (PACKET / "review_set_full.jsonl").read_text(encoding="utf-8").splitlines()}
+    cov = coverage(result["nodes"], result["cases"], low_cases="computed")
+    totals = totals_across_cases(result["cases"])
+    split = one_sided_split(result, packet, entries)
+    note = ("benchmark/review/graph_pilot_001/human_labels_D045.json + human_labels_D046.json (D045: 40 priority "
+            "nodes; D046: 12 further nodes with per-hypothesis states; model-based Research Director review, not "
+            "external expert ground truth)")
+    write(result, cov, totals, out, labels_note=note)
+    (out / "one_sided_split.json").write_text(json.dumps(split, indent=1) + "\n", encoding="utf-8")
+    d045_cov = json.loads((OUT / "coverage.json").read_text(encoding="utf-8"))
+    d045_totals = json.loads((OUT / "case_category_attribution.json").read_text(encoding="utf-8"))["totals"]
+    (out / "ATTRIBUTION_REPORT.md").write_text(
+        render_combined(result, cov, totals, split, d045_cov, d045_totals) + "\n", encoding="utf-8")
+
+
+def render_combined(result, cov, totals, split, d045_cov, d045_totals) -> str:
+    cases = result["cases"]
+    total = cov["total_absolute_influence"]
+    tb, tb45 = totals["by_category"], d045_totals["by_category"]
+    L: List[str] = []
+    add = L.append
+    add("# Score attribution under D045 + D046 labels")
+    add("")
+    add("Same deterministic method as `../attribution/ATTRIBUTION_REPORT.md` (D045 only), now with the {} "
+        "D046 nodes added: {} reviewed score-moving nodes in total. Labels are *model-based Research Director "
+        "review, not external expert ground truth*. Orientation: log-odds = log-score(H2) − log-score(H1). "
+        "Frozen scores reproduce exactly; no model was called.".format(
+            cov["reviewed_nodes"] - d045_cov["reviewed_nodes"], cov["reviewed_nodes"]))
+    add("")
+    add("## 1. Coverage")
+    add("")
+    add("Reviewed {} of 78 score-moving nodes, **{:.1%}** of absolute influence (D045 alone: {:.1%}).".format(
+        cov["reviewed_nodes"], cov["reviewed_share"], d045_cov["reviewed_share"]))
+    add("")
+    add("| case | score-moving | reviewed | reviewed share (D045 → D045+D046) |")
+    add("| --- | --- | --- | --- |")
+    for cid, v in cov["per_case"].items():
+        add("| {} | {} | {} | {:.1%} → **{:.1%}** |".format(
+            cid, v["score_moving_nodes"], v["reviewed_nodes"],
+            d045_cov["per_case"][cid]["reviewed_share_of_case_influence"], v["reviewed_share_of_case_influence"]))
+    add("")
+    add("Cases still below the packet-wide reviewed share ({:.1%}): {}.".format(
+        cov["reviewed_share"], ", ".join("`{}`".format(c) for c in cov["under_covered_cases"]) or "none"))
+    add("")
+    add("## 2. Influence by reviewed category")
+    add("")
+    add("| category | nodes (D045 → +D046) | share of all influence (D045 → +D046) |")
+    add("| --- | --- | --- |")
+    for key, name in SHORT.items():
+        add("| {} | {} → {} | {:.1%} → **{:.1%}** |".format(
+            name, tb45[key]["n_nodes"], tb[key]["n_nodes"],
+            tb45[key]["absolute_influence"] / total, tb[key]["absolute_influence"] / total))
+    add("")
+    add("| case | frozen | " + " | ".join(SHORT.values()) + " |")
+    add("| --- | --- | " + " | ".join("---" for _ in SHORT) + " |")
+    for cid, c in cases.items():
+        cells = ["{} ({})".format(_f(c["categories"][k]["log_odds_H2_over_H1"]), c["categories"][k]["n_nodes"])
+                 if c["categories"][k]["n_nodes"] else "·" for k in SHORT]
+        add("| {} | {} | {} |".format(cid, _f(c["original"]["log_odds_H2_over_H1"]), " | ".join(cells)))
+    add("")
+    add("## 3. Counterfactual views")
+    add("")
+    add("Views as defined in the D045 report. Evidence-zeroed log-odds, top, and relation to the later resolution "
+        "(`lean` for non-directional cases); graph-deletion value in brackets where it differs by > 0.05.")
+    add("")
+    add("| case | " + " | ".join(VIEW_SHORT.values()) + " |")
+    add("| --- | " + " | ".join("---" for _ in VIEW_SHORT) + " |")
+    for cid, c in cases.items():
+        cells = []
+        for key in VIEW_SHORT:
+            v = c["views"][key]
+            z, d = v["evidence_zeroed"], v["graph_deleted_sensitivity"]
+            rel = {"agrees": "agrees", "opposes": "**opposes**", "no_ordering": "no ordering",
+                   "not_applicable_non_directional_resolution": "lean"}[z["relation_to_later_resolution"]]
+            cell = "{} {} {}".format(_f(z["log_odds_H2_over_H1"]), z["top"], rel)
+            if abs(d["path_mediated_difference"]) > 0.05:
+                cell += " [del {} {}]".format(_f(d["log_odds_H2_over_H1"]), d["top"])
+            cells.append(cell)
+        add("| {} | {} |".format(cid, " | ".join(cells)))
+    add("")
+    add("## 4. D046: categorical silence errors vs neutral-mapping pseudo-discrimination")
+    add("")
+    add("Only the {} D046 nodes carry per-hypothesis states, so this split uses them alone. One-sided = exactly one "
+        "reviewer-determinate hypothesis and one reviewer-indeterminate hypothesis; the verifier's direct edge for the "
+        "indeterminate hypothesis decides the kind.".format(len(split["nodes_with_recorded_states"])))
+    add("")
+    add("| review id | reviewer states | verifier direct edges | kind | influence | category | qualified state |")
+    add("| --- | --- | --- | --- | --- | --- | --- |")
+    for r in split["nodes_with_recorded_states"]:
+        add("| `{}` | {} | {} | `{}` | {:.3f} | {} | {} |".format(
+            r["review_id"][4:], ", ".join("{} {}".format(h, s) for h, s in r["human_states"].items()),
+            ", ".join("{} {}".format(h, s) for h, s in r["verifier_direct_edges"].items()),
+            r["one_sided_kind"], r["absolute_influence"], r["human_primary_category"],
+            "yes" if r["any_state_qualified"] else ""))
+    add("")
+    for kind, v in split["totals"].items():
+        add("- `{}`: {} node(s), influence {:.3f}".format(kind, v["n_nodes"], v["absolute_influence"]))
+    add("")
+    px = split["verifier_proxy_non_origin_neutral_score_moving"]
+    add("Verifier-only proxy over all 78 score-moving nodes (no human judgment): **{}** nodes move the score although "
+        "the non-generating hypothesis's direct edge is `neutral`, carrying {:.2f} ({:.1%}) of all influence. By "
+        "reviewed category: {}. Every one of them moves the score only because a determinate label is set against "
+        "`neutral` = 0.50 (or via a parent route); none involves a directional label on the non-generating "
+        "hypothesis.".format(px["n_nodes"], px["absolute_influence"], px["absolute_influence"] / total,
+                             ", ".join("{} {}".format(k, v) for k, v in px["by_reviewed_category"].items())))
+    add("")
+    genuine = tb["genuine_discriminator"]["absolute_influence"] / total
+    errors = sum(tb[k]["absolute_influence"] for k in CONFIRMED_ERRORS) / total
+    nondisc = (tb["generic_component_fact"]["absolute_influence"] + tb["compatible_non_discriminative"]["absolute_influence"]) / total
+    add("## 5. What changed with D046 (arithmetic)")
+    add("")
+    add("- genuine discriminators: {:.1%} of all influence; confirmed errors (silence, mismatch, weak): {:.1%}; "
+        "generic + compatible: {:.1%}; unreviewed: {:.1%}.".format(genuine, errors, nondisc,
+                                                                   tb["unreviewed_score_moving"]["absolute_influence"] / total))
+    new_genuine = tb["genuine_discriminator"]["n_nodes"] - tb45["genuine_discriminator"]["n_nodes"]
+    add("- D046 added {} genuine discriminator(s); {} of 8 cases have none.".format(
+        new_genuine, sum(1 for c in cases.values() if c["categories"]["genuine_discriminator"]["n_nodes"] == 0)))
+    kinds = split["totals"]
+    n_cat = kinds.get("categorical_silence_error", {}).get("n_nodes", 0)
+    n_neu = kinds.get("neutral_mapping_pseudo_discrimination", {}).get("n_nodes", 0)
+    add("- Among D046 nodes: {} categorical silence error(s) and {} neutral-mapping pseudo-discrimination case(s){}".format(
+        n_cat, n_neu,
+        "; because the second kind occurs with a correct `neutral` label, a fix that only makes the edge assessor "
+        "output `neutral` more often would leave it scoring (D046 KEY NEW METHOD DIAGNOSIS)." if n_neu else "."))
+    add("")
+    return "\n".join(L)
+
+
 def main() -> int:
     with tempfile.TemporaryDirectory() as tmp:
         root = bp.extract_verified(Path(tmp))
         result = analyse(root / "run")
+        combined = analyse(root / "run", COMBINED_LABEL_FILES)
+    write_combined(combined, OUT_COMBINED)
     cov = coverage(result["nodes"], result["cases"])
     totals = totals_across_cases(result["cases"])
     write(result, cov, totals, OUT)

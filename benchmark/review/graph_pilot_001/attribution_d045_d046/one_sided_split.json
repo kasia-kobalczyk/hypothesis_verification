@@ -1,0 +1,239 @@
+{
+ "nodes_with_recorded_states": [
+  {
+   "review_id": "GP1-fly_wing_constraint_vs_selection-X19",
+   "human_states": {
+    "H1": "positive_or_present",
+    "H2": "positive_or_present"
+   },
+   "any_state_qualified": false,
+   "human_primary_category": "compatible_non_discriminative",
+   "verifier_direct_edges": {
+    "H1": "implied",
+    "H2": "implied"
+   },
+   "verifier_edge_for_silent_hypothesis": null,
+   "one_sided_kind": "shared_determinate",
+   "absolute_influence": 0.0072566506467894865,
+   "log_odds_H2_over_H1": 0.0072566506467894865
+  },
+  {
+   "review_id": "GP1-forest_fragmentation_resilience-X2",
+   "human_states": {
+    "H1": "indeterminate",
+    "H2": "positive_or_present"
+   },
+   "any_state_qualified": false,
+   "human_primary_category": "compatible_non_discriminative",
+   "verifier_direct_edges": {
+    "H1": "neutral",
+    "H2": "implied"
+   },
+   "verifier_edge_for_silent_hypothesis": "neutral",
+   "one_sided_kind": "neutral_mapping_pseudo_discrimination",
+   "absolute_influence": 0.1371072892404947,
+   "log_odds_H2_over_H1": 0.1371072892404947
+  },
+  {
+   "review_id": "GP1-forest_fragmentation_resilience-X21",
+   "human_states": {
+    "H1": "negative_or_absent",
+    "H2": "positive_or_present"
+   },
+   "any_state_qualified": true,
+   "human_primary_category": "evidence_construct_mismatch",
+   "verifier_direct_edges": {
+    "H1": "unlikely",
+    "H2": "implied"
+   },
+   "verifier_edge_for_silent_hypothesis": null,
+   "one_sided_kind": "determinate_contrast",
+   "absolute_influence": 0.1507707923975361,
+   "log_odds_H2_over_H1": 0.1507707923975361
+  },
+  {
+   "review_id": "GP1-gcn4_med15_complex_vs_condensate-X12",
+   "human_states": {
+    "H1": "indeterminate",
+    "H2": "positive_or_present"
+   },
+   "any_state_qualified": false,
+   "human_primary_category": "evidence_construct_mismatch",
+   "verifier_direct_edges": {
+    "H1": "neutral",
+    "H2": "implied"
+   },
+   "verifier_edge_for_silent_hypothesis": "neutral",
+   "one_sided_kind": "neutral_mapping_pseudo_discrimination",
+   "absolute_influence": 0.12617934213357995,
+   "log_odds_H2_over_H1": 0.12617934213357995
+  },
+  {
+   "review_id": "GP1-gcn4_med15_complex_vs_condensate-X15",
+   "human_states": {
+    "H1": "positive_or_present",
+    "H2": "indeterminate"
+   },
+   "any_state_qualified": false,
+   "human_primary_category": "silence_as_null_error",
+   "verifier_direct_edges": {
+    "H1": "strongly_implied",
+    "H2": "unlikely"
+   },
+   "verifier_edge_for_silent_hypothesis": "unlikely",
+   "one_sided_kind": "categorical_silence_error",
+   "absolute_influence": 0.17865936719242081,
+   "log_odds_H2_over_H1": -0.17865936719242081
+  },
+  {
+   "review_id": "GP1-pfc_interhemispheric_architecture-X1",
+   "human_states": {
+    "H1": "positive_or_present",
+    "H2": "indeterminate"
+   },
+   "any_state_qualified": false,
+   "human_primary_category": "compatible_non_discriminative",
+   "verifier_direct_edges": {
+    "H1": "implied",
+    "H2": "neutral"
+   },
+   "verifier_edge_for_silent_hypothesis": "neutral",
+   "one_sided_kind": "neutral_mapping_pseudo_discrimination",
+   "absolute_influence": 0.1371072892404947,
+   "log_odds_H2_over_H1": -0.1371072892404947
+  },
+  {
+   "review_id": "GP1-pfc_interhemispheric_architecture-X23",
+   "human_states": {
+    "H1": "indeterminate",
+    "H2": "positive_or_present"
+   },
+   "any_state_qualified": true,
+   "human_primary_category": "evidence_construct_mismatch",
+   "verifier_direct_edges": {
+    "H1": "neutral",
+    "H2": "implied"
+   },
+   "verifier_edge_for_silent_hypothesis": "neutral",
+   "one_sided_kind": "neutral_mapping_pseudo_discrimination",
+   "absolute_influence": 0.05066994028034394,
+   "log_odds_H2_over_H1": 0.05066994028034394
+  },
+  {
+   "review_id": "GP1-spider_orb_web_origin-X17",
+   "human_states": {
+    "H1": "indeterminate",
+    "H2": "indeterminate"
+   },
+   "any_state_qualified": true,
+   "human_primary_category": "invalid_or_weak_implication",
+   "verifier_direct_edges": {
+    "H1": "implied",
+    "H2": "implied"
+   },
+   "verifier_edge_for_silent_hypothesis": null,
+   "one_sided_kind": "all_indeterminate",
+   "absolute_influence": 0.012123838840226497,
+   "log_odds_H2_over_H1": 0.012123838840226497
+  },
+  {
+   "review_id": "GP1-spider_orb_web_origin-X22",
+   "human_states": {
+    "H1": "positive_or_present",
+    "H2": "positive_or_present"
+   },
+   "any_state_qualified": false,
+   "human_primary_category": "compatible_non_discriminative",
+   "verifier_direct_edges": {
+    "H1": "implied",
+    "H2": "implied"
+   },
+   "verifier_edge_for_silent_hypothesis": null,
+   "one_sided_kind": "shared_determinate",
+   "absolute_influence": 0.04688282537954702,
+   "log_odds_H2_over_H1": 0.04688282537954702
+  },
+  {
+   "review_id": "GP1-spider_orb_web_origin-X24",
+   "human_states": {
+    "H1": "negative_or_absent",
+    "H2": "positive_or_present"
+   },
+   "any_state_qualified": true,
+   "human_primary_category": "evidence_construct_mismatch",
+   "verifier_direct_edges": {
+    "H1": "unlikely",
+    "H2": "strongly_implied"
+   },
+   "verifier_edge_for_silent_hypothesis": null,
+   "one_sided_kind": "determinate_contrast",
+   "absolute_influence": 0.13439293993214674,
+   "log_odds_H2_over_H1": 0.13439293993214674
+  },
+  {
+   "review_id": "GP1-spider_orb_web_origin-X7",
+   "human_states": {
+    "H1": "positive_or_present",
+    "H2": "indeterminate"
+   },
+   "any_state_qualified": false,
+   "human_primary_category": "silence_as_null_error",
+   "verifier_direct_edges": {
+    "H1": "implied",
+    "H2": "unlikely"
+   },
+   "verifier_edge_for_silent_hypothesis": "unlikely",
+   "one_sided_kind": "categorical_silence_error",
+   "absolute_influence": 0.18649360437170426,
+   "log_odds_H2_over_H1": -0.18649360437170426
+  },
+  {
+   "review_id": "GP1-spider_orb_web_origin-X8",
+   "human_states": {
+    "H1": "positive_or_present",
+    "H2": "indeterminate"
+   },
+   "any_state_qualified": false,
+   "human_primary_category": "evidence_construct_mismatch",
+   "verifier_direct_edges": {
+    "H1": "implied",
+    "H2": "unlikely"
+   },
+   "verifier_edge_for_silent_hypothesis": "unlikely",
+   "one_sided_kind": "categorical_silence_error",
+   "absolute_influence": 0.10276258925161308,
+   "log_odds_H2_over_H1": -0.10276258925161308
+  }
+ ],
+ "totals": {
+  "shared_determinate": {
+   "n_nodes": 2,
+   "absolute_influence": 0.05413947602633651
+  },
+  "neutral_mapping_pseudo_discrimination": {
+   "n_nodes": 4,
+   "absolute_influence": 0.4510638608949133
+  },
+  "determinate_contrast": {
+   "n_nodes": 2,
+   "absolute_influence": 0.28516373232968284
+  },
+  "categorical_silence_error": {
+   "n_nodes": 3,
+   "absolute_influence": 0.46791556081573815
+  },
+  "all_indeterminate": {
+   "n_nodes": 1,
+   "absolute_influence": 0.012123838840226497
+  }
+ },
+ "verifier_proxy_non_origin_neutral_score_moving": {
+  "n_nodes": 28,
+  "absolute_influence": 4.480372919875298,
+  "by_reviewed_category": {
+   "unreviewed": 18,
+   "compatible_non_discriminative": 8,
+   "evidence_construct_mismatch": 2
+  }
+ }
+}

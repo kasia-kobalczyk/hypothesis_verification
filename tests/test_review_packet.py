@@ -275,8 +275,18 @@ def test_d045_keys_resolve_to_the_priority_set_in_rank_order():
         assert full[l["review_id"]]["score_influence"]["rank_global"] == l["d045_number"]
 
 
+LABEL_FILE_D046 = PACKET / "human_labels_D046.json"
+
+
+def _all_labelled_ids():
+    ids = set()
+    for path in sorted(PACKET.glob("human_labels_*.json")):
+        ids |= {l["review_id"] for l in _load(path)["labels"]}
+    return ids
+
+
 def test_unlabelled_nodes_have_blank_human_fields(records):
-    labelled = {l["review_id"] for l in _load(LABEL_FILE)["labels"]}
+    labelled = _all_labelled_ids()
     for r in records:
         if r["review_id"] in labelled:
             continue
@@ -343,3 +353,76 @@ def test_priority_jsonl_is_the_flagged_subset_of_full():
     full = [json.loads(l) for l in (PACKET / "review_set_full.jsonl").read_text(encoding="utf-8").splitlines()]
     pri = [json.loads(l) for l in (PACKET / "review_set_priority.jsonl").read_text(encoding="utf-8").splitlines()]
     assert pri == [r for r in full if r["score_influence"]["in_priority_set"]]
+
+
+# --------------------------------------------------------------------------- #
+# D046: extended review with per-hypothesis prediction states
+# --------------------------------------------------------------------------- #
+def _d046_blocks():
+    text = (ROOT / ".agent" / "DECISIONS.md").read_text(encoding="utf-8")
+    section = text[text.index("## D046"):]
+    section = section[section.index("ADJUDICATION:"):section.index("KEY NEW METHOD DIAGNOSIS")]
+    return re.split(r"\n(?=\d+\. `)", section)[1:]
+
+
+def test_d046_label_file_matches_decisions_independently_parsed():
+    """Re-derived here with its own minimal parsing, not the transcription script's,
+    so a parser bug cannot pass by agreeing with itself."""
+    labels = {l["d046_number"]: l for l in _load(LABEL_FILE_D046)["labels"]}
+    blocks = _d046_blocks()
+    assert len(blocks) == len(labels) == 12
+    for block in blocks:
+        number = int(block.split(".", 1)[0])
+        label = labels[number]
+        assert "`{}`".format(label["d046_key"]) in block.splitlines()[0]
+        primary_line = next(l for l in block.splitlines() if l.startswith("Primary category"))
+        assert primary_line.split("`")[1] == label["human_primary_category"]
+        for line in block.splitlines():
+            if line.startswith("- H1") or line.startswith("- H2"):
+                hyp = line[2:4]
+                first_state = next(tok for tok in line.split("`")[1::2]
+                                   if tok in ("positive_or_present", "negative_or_absent",
+                                              "substantive_null", "indeterminate"))
+                assert label["human_prediction_for_each_hypothesis"][hyp] == first_state, (number, hyp)
+                assert label["human_prediction_qualifiers"][hyp]["line_verbatim"] in line
+
+
+def test_d046_qualified_states_are_exactly_the_hedged_ones():
+    qualified = sorted((l["d046_key"], h) for l in _load(LABEL_FILE_D046)["labels"]
+                       for h, q in l["human_prediction_qualifiers"].items() if q["qualified"])
+    assert qualified == [("forest_fragmentation_resilience-X21", "H1"),
+                         ("pfc_interhemispheric_architecture-X23", "H2"),
+                         ("spider_orb_web_origin-X17", "H1"),
+                         ("spider_orb_web_origin-X24", "H1")]
+
+
+def test_d046_nodes_were_unlabelled_score_moving_nodes(records):
+    d045 = {l["review_id"] for l in _load(LABEL_FILE)["labels"]}
+    d046 = {l["review_id"] for l in _load(LABEL_FILE_D046)["labels"]}
+    ids = {r["review_id"]: r for r in records}
+    assert not (d045 & d046)
+    assert d046 <= set(ids)
+    assert not any(ids[rid]["score_influence"]["in_priority_set"] for rid in d046)
+
+
+def test_d046_nodes_carry_recorded_fields_and_nothing_else(records):
+    labels = {l["review_id"]: l for l in _load(LABEL_FILE_D046)["labels"]}
+    seen = 0
+    for r in records:
+        if r["review_id"] not in labels:
+            continue
+        seen += 1
+        h, l = r["human_review"], labels[r["review_id"]]
+        assert h["human_primary_category"] == l["human_primary_category"]
+        assert h["human_secondary_flags"] == l["human_secondary_flags"]
+        assert h["human_prediction_for_each_hypothesis"] == l["human_prediction_for_each_hypothesis"]
+        assert h["human_prediction_qualifiers"] == l["human_prediction_qualifiers"]
+        assert h["human_is_genuinely_discriminative"] is (l["human_primary_category"] == "genuine_discriminator")
+        assert h["human_silence_as_null_error"] is ("silence_as_null_error" in
+                                                    [l["human_primary_category"]] + l["human_secondary_flags"])
+        assert h["human_evidence_relevance"] == l["human_evidence_relevance"]
+        assert h["human_confidence"] == l["human_confidence"]
+        assert h["human_notes"] == l["human_notes"]
+        assert h["human_review_source"] == "D046"
+        assert h["human_implication_validity"] is None
+    assert seen == 12

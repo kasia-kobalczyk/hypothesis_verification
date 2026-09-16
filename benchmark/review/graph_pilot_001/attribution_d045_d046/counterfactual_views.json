@@ -1,0 +1,1273 @@
+{
+ "_about": {
+  "orientation": "all log-odds are log-score(H2) minus log-score(H1); positive supports H2",
+  "labels": "benchmark/review/graph_pilot_001/human_labels_D045.json + human_labels_D046.json (D045: 40 priority nodes; D046: 12 further nodes with per-hypothesis states; model-based Research Director review, not external expert ground truth)",
+  "favoured_hypothesis_source": ".agent/PROJECT_STATE.md: H2 in all four `favored` cases"
+ },
+ "views": {
+  "original": "frozen verifier: every node kept",
+  "A1_genuine_reviewed_plus_unreviewed": "directive views A1 and D (identical here): reviewed genuine discriminators kept, all other reviewed nodes removed, unreviewed score-moving nodes untouched",
+  "A2_genuine_reviewed_only": "directive views A2 and C (identical here): strict. Reviewed genuine discriminators only; unreviewed score-moving nodes set aside",
+  "B1_remove_confirmed_errors": "directive view B: reviewed silence errors, construct mismatches and weak implications removed; reviewed genuine, generic and compatible kept; unreviewed untouched",
+  "B2_remove_confirmed_errors_reviewed_only": "view B, strict: as B1 but unreviewed score-moving nodes set aside",
+  "R_unreviewed_only": "reference: all reviewed nodes removed; unreviewed score-moving nodes only"
+ },
+ "cases": {
+  "eukaryogenesis_mito_timing": {
+   "original": {
+    "scores": {
+     "H1": 0.08149125538252629,
+     "H2": 0.9185087446174738
+    },
+    "log_odds_H2_over_H1": 2.4222557065812005,
+    "top": "H2"
+   },
+   "later_resolution_favours": "H2",
+   "views": {
+    "original": {
+     "description": "frozen verifier: every node kept",
+     "n_score_moving_nodes_kept": 15,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 2.4222557065812005,
+      "scores": {
+       "H1": 0.08149125538252622,
+       "H2": 0.9185087446174738
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 2.4222557065812005,
+      "scores": {
+       "H1": 0.08149125538252622,
+       "H2": 0.9185087446174738
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees",
+      "path_mediated_difference": 0.0
+     }
+    },
+    "A1_genuine_reviewed_plus_unreviewed": {
+     "description": "directive views A1 and D (identical here): reviewed genuine discriminators kept, all other reviewed nodes removed, unreviewed score-moving nodes untouched",
+     "n_score_moving_nodes_kept": 7,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": -0.20255939105161008,
+      "scores": {
+       "H1": 0.5504674078798873,
+       "H2": 0.44953259212011265
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "opposes"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": -0.2638426735775017,
+      "scores": {
+       "H1": 0.5655806703595628,
+       "H2": 0.43441932964043717
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "opposes",
+      "path_mediated_difference": -0.0612832825258916
+     }
+    },
+    "A2_genuine_reviewed_only": {
+     "description": "directive views A2 and C (identical here): strict. Reviewed genuine discriminators only; unreviewed score-moving nodes set aside",
+     "n_score_moving_nodes_kept": 0,
+     "no_score_moving_nodes_kept": true,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "no_ordering"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "no_ordering",
+      "path_mediated_difference": 0.0
+     }
+    },
+    "B1_remove_confirmed_errors": {
+     "description": "directive view B: reviewed silence errors, construct mismatches and weak implications removed; reviewed genuine, generic and compatible kept; unreviewed untouched",
+     "n_score_moving_nodes_kept": 13,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 1.8172757142562908,
+      "scores": {
+       "H1": 0.13976108685692823,
+       "H2": 0.8602389131430718
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 1.5287485328890682,
+      "scores": {
+       "H1": 0.1781768641524596,
+       "H2": 0.8218231358475404
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees",
+      "path_mediated_difference": -0.28852718136722255
+     }
+    },
+    "B2_remove_confirmed_errors_reviewed_only": {
+     "description": "view B, strict: as B1 but unreviewed score-moving nodes set aside",
+     "n_score_moving_nodes_kept": 6,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 2.0198351053079007,
+      "scores": {
+       "H1": 0.11713604241515074,
+       "H2": 0.8828639575848493
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 2.0198351053079007,
+      "scores": {
+       "H1": 0.11713604241515074,
+       "H2": 0.8828639575848493
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees",
+      "path_mediated_difference": 0.0
+     }
+    },
+    "R_unreviewed_only": {
+     "description": "reference: all reviewed nodes removed; unreviewed score-moving nodes only",
+     "n_score_moving_nodes_kept": 7,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": -0.20255939105161008,
+      "scores": {
+       "H1": 0.5504674078798873,
+       "H2": 0.44953259212011265
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "opposes"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": -0.2638426735775017,
+      "scores": {
+       "H1": 0.5655806703595628,
+       "H2": 0.43441932964043717
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "opposes",
+      "path_mediated_difference": -0.0612832825258916
+     }
+    }
+   }
+  },
+  "fly_wing_constraint_vs_selection": {
+   "original": {
+    "scores": {
+     "H1": 0.4232216604217467,
+     "H2": 0.5767783395782533
+    },
+    "log_odds_H2_over_H1": 0.3095619708179806,
+    "top": "H2"
+   },
+   "later_resolution_favours": "H2",
+   "views": {
+    "original": {
+     "description": "frozen verifier: every node kept",
+     "n_score_moving_nodes_kept": 2,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.30956197081798054,
+      "scores": {
+       "H1": 0.4232216604217467,
+       "H2": 0.5767783395782533
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.3095619708179806,
+      "scores": {
+       "H1": 0.4232216604217467,
+       "H2": 0.5767783395782533
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees",
+      "path_mediated_difference": 5.551115123125783e-17
+     }
+    },
+    "A1_genuine_reviewed_plus_unreviewed": {
+     "description": "directive views A1 and D (identical here): reviewed genuine discriminators kept, all other reviewed nodes removed, unreviewed score-moving nodes untouched",
+     "n_score_moving_nodes_kept": 0,
+     "no_score_moving_nodes_kept": true,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "no_ordering"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "no_ordering",
+      "path_mediated_difference": 0.0
+     }
+    },
+    "A2_genuine_reviewed_only": {
+     "description": "directive views A2 and C (identical here): strict. Reviewed genuine discriminators only; unreviewed score-moving nodes set aside",
+     "n_score_moving_nodes_kept": 0,
+     "no_score_moving_nodes_kept": true,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "no_ordering"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "no_ordering",
+      "path_mediated_difference": 0.0
+     }
+    },
+    "B1_remove_confirmed_errors": {
+     "description": "directive view B: reviewed silence errors, construct mismatches and weak implications removed; reviewed genuine, generic and compatible kept; unreviewed untouched",
+     "n_score_moving_nodes_kept": 1,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.0072566506467894865,
+      "scores": {
+       "H1": 0.4981858452992567,
+       "H2": 0.5018141547007433
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.0072566506467894865,
+      "scores": {
+       "H1": 0.4981858452992567,
+       "H2": 0.5018141547007433
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees",
+      "path_mediated_difference": 0.0
+     }
+    },
+    "B2_remove_confirmed_errors_reviewed_only": {
+     "description": "view B, strict: as B1 but unreviewed score-moving nodes set aside",
+     "n_score_moving_nodes_kept": 1,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.0072566506467894865,
+      "scores": {
+       "H1": 0.4981858452992567,
+       "H2": 0.5018141547007433
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.0072566506467894865,
+      "scores": {
+       "H1": 0.4981858452992567,
+       "H2": 0.5018141547007433
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees",
+      "path_mediated_difference": 0.0
+     }
+    },
+    "R_unreviewed_only": {
+     "description": "reference: all reviewed nodes removed; unreviewed score-moving nodes only",
+     "n_score_moving_nodes_kept": 0,
+     "no_score_moving_nodes_kept": true,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "no_ordering"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "no_ordering",
+      "path_mediated_difference": 0.0
+     }
+    }
+   }
+  },
+  "forest_fragmentation_resilience": {
+   "original": {
+    "scores": {
+     "H1": 0.8363254590205298,
+     "H2": 0.16367454097947015
+    },
+    "log_odds_H2_over_H1": -1.6311378925137063,
+    "top": "H1"
+   },
+   "later_resolution_favours": null,
+   "views": {
+    "original": {
+     "description": "frozen verifier: every node kept",
+     "n_score_moving_nodes_kept": 18,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": -1.631137892513705,
+      "scores": {
+       "H1": 0.8363254590205297,
+       "H2": 0.16367454097947032
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": -1.6311378925137063,
+      "scores": {
+       "H1": 0.8363254590205298,
+       "H2": 0.16367454097947015
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": -1.3322676295501878e-15
+     }
+    },
+    "A1_genuine_reviewed_plus_unreviewed": {
+     "description": "directive views A1 and D (identical here): reviewed genuine discriminators kept, all other reviewed nodes removed, unreviewed score-moving nodes untouched",
+     "n_score_moving_nodes_kept": 9,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": -0.06633861406386415,
+      "scores": {
+       "H1": 0.5165785740299613,
+       "H2": 0.48342142597003873
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": -0.388573453152957,
+      "scores": {
+       "H1": 0.5959392400687744,
+       "H2": 0.40406075993122553
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": -0.32223483908909284
+     }
+    },
+    "A2_genuine_reviewed_only": {
+     "description": "directive views A2 and C (identical here): strict. Reviewed genuine discriminators only; unreviewed score-moving nodes set aside",
+     "n_score_moving_nodes_kept": 0,
+     "no_score_moving_nodes_kept": true,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": 0.0
+     }
+    },
+    "B1_remove_confirmed_errors": {
+     "description": "directive view B: reviewed silence errors, construct mismatches and weak implications removed; reviewed genuine, generic and compatible kept; unreviewed untouched",
+     "n_score_moving_nodes_kept": 14,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": -1.5643308733307413,
+      "scores": {
+       "H1": 0.8269739270193874,
+       "H2": 0.1730260729806126
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": -1.564330873330742,
+      "scores": {
+       "H1": 0.8269739270193875,
+       "H2": 0.17302607298061248
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": -6.661338147750939e-16
+     }
+    },
+    "B2_remove_confirmed_errors_reviewed_only": {
+     "description": "view B, strict: as B1 but unreviewed score-moving nodes set aside",
+     "n_score_moving_nodes_kept": 5,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": -1.4979922592668773,
+      "scores": {
+       "H1": 0.8172748378356975,
+       "H2": 0.1827251621643025
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": -1.497992259266877,
+      "scores": {
+       "H1": 0.8172748378356974,
+       "H2": 0.18272516216430254
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": 2.220446049250313e-16
+     }
+    },
+    "R_unreviewed_only": {
+     "description": "reference: all reviewed nodes removed; unreviewed score-moving nodes only",
+     "n_score_moving_nodes_kept": 9,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": -0.06633861406386415,
+      "scores": {
+       "H1": 0.5165785740299613,
+       "H2": 0.48342142597003873
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": -0.388573453152957,
+      "scores": {
+       "H1": 0.5959392400687744,
+       "H2": 0.40406075993122553
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": -0.32223483908909284
+     }
+    }
+   }
+  },
+  "gcn4_med15_complex_vs_condensate": {
+   "original": {
+    "scores": {
+     "H1": 0.4987750277391291,
+     "H2": 0.5012249722608709
+    },
+    "log_odds_H2_over_H1": 0.0048998988469364235,
+    "top": "H2"
+   },
+   "later_resolution_favours": null,
+   "views": {
+    "original": {
+     "description": "frozen verifier: every node kept",
+     "n_score_moving_nodes_kept": 11,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.004899898846937867,
+      "scores": {
+       "H1": 0.49877502773912863,
+       "H2": 0.5012249722608714
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.0048998988469364235,
+      "scores": {
+       "H1": 0.4987750277391291,
+       "H2": 0.5012249722608709
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": -1.4432899320127035e-15
+     }
+    },
+    "A1_genuine_reviewed_plus_unreviewed": {
+     "description": "directive views A1 and D (identical here): reviewed genuine discriminators kept, all other reviewed nodes removed, unreviewed score-moving nodes untouched",
+     "n_score_moving_nodes_kept": 4,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.21692160457252363,
+      "scores": {
+       "H1": 0.4459812538519544,
+       "H2": 0.5540187461480456
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.402236148014554,
+      "scores": {
+       "H1": 0.4007752000579403,
+       "H2": 0.5992247999420597
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": 0.18531454344203036
+     }
+    },
+    "A2_genuine_reviewed_only": {
+     "description": "directive views A2 and C (identical here): strict. Reviewed genuine discriminators only; unreviewed score-moving nodes set aside",
+     "n_score_moving_nodes_kept": 0,
+     "no_score_moving_nodes_kept": true,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": 0.0
+     }
+    },
+    "B1_remove_confirmed_errors": {
+     "description": "directive view B: reviewed silence errors, construct mismatches and weak implications removed; reviewed genuine, generic and compatible kept; unreviewed untouched",
+     "n_score_moving_nodes_kept": 8,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.24420572891124237,
+      "scores": {
+       "H1": 0.43925017670778466,
+       "H2": 0.5607498232922153
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.24420572891124337,
+      "scores": {
+       "H1": 0.43925017670778443,
+       "H2": 0.5607498232922156
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": 9.992007221626409e-16
+     }
+    },
+    "B2_remove_confirmed_errors_reviewed_only": {
+     "description": "view B, strict: as B1 but unreviewed score-moving nodes set aside",
+     "n_score_moving_nodes_kept": 4,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.02728412433871885,
+      "scores": {
+       "H1": 0.49317939202844197,
+       "H2": 0.506820607971558
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.02728412433871874,
+      "scores": {
+       "H1": 0.4931793920284421,
+       "H2": 0.5068206079715579
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": -1.1102230246251565e-16
+     }
+    },
+    "R_unreviewed_only": {
+     "description": "reference: all reviewed nodes removed; unreviewed score-moving nodes only",
+     "n_score_moving_nodes_kept": 4,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.21692160457252363,
+      "scores": {
+       "H1": 0.4459812538519544,
+       "H2": 0.5540187461480456
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.402236148014554,
+      "scores": {
+       "H1": 0.4007752000579403,
+       "H2": 0.5992247999420597
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": 0.18531454344203036
+     }
+    }
+   }
+  },
+  "glnbp_induced_fit_vs_conformational_selection": {
+   "original": {
+    "scores": {
+     "H1": 0.13689692411733193,
+     "H2": 0.863103075882668
+    },
+    "log_odds_H2_over_H1": 1.841305859037285,
+    "top": "H2"
+   },
+   "later_resolution_favours": "H2",
+   "views": {
+    "original": {
+     "description": "frozen verifier: every node kept",
+     "n_score_moving_nodes_kept": 11,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 1.841305859037285,
+      "scores": {
+       "H1": 0.136896924117332,
+       "H2": 0.863103075882668
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 1.841305859037285,
+      "scores": {
+       "H1": 0.136896924117332,
+       "H2": 0.863103075882668
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees",
+      "path_mediated_difference": 0.0
+     }
+    },
+    "A1_genuine_reviewed_plus_unreviewed": {
+     "description": "directive views A1 and D (identical here): reviewed genuine discriminators kept, all other reviewed nodes removed, unreviewed score-moving nodes untouched",
+     "n_score_moving_nodes_kept": 4,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": -0.5173860584343232,
+      "scores": {
+       "H1": 0.6265363364857639,
+       "H2": 0.37346366351423615
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "opposes"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": -0.999495695643434,
+      "scores": {
+       "H1": 0.7309594148226716,
+       "H2": 0.26904058517732843
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "opposes",
+      "path_mediated_difference": -0.4821096372091108
+     }
+    },
+    "A2_genuine_reviewed_only": {
+     "description": "directive views A2 and C (identical here): strict. Reviewed genuine discriminators only; unreviewed score-moving nodes set aside",
+     "n_score_moving_nodes_kept": 2,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": -0.38243787046735067,
+      "scores": {
+       "H1": 0.5944609528268282,
+       "H2": 0.4055390471731718
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "opposes"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": -0.3824378704673508,
+      "scores": {
+       "H1": 0.5944609528268282,
+       "H2": 0.4055390471731718
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "opposes",
+      "path_mediated_difference": -1.1102230246251565e-16
+     }
+    },
+    "B1_remove_confirmed_errors": {
+     "description": "directive view B: reviewed silence errors, construct mismatches and weak implications removed; reviewed genuine, generic and compatible kept; unreviewed untouched",
+     "n_score_moving_nodes_kept": 9,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.2101007437212178,
+      "scores": {
+       "H1": 0.4476671802733092,
+       "H2": 0.5523328197266908
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.210100743721215,
+      "scores": {
+       "H1": 0.4476671802733099,
+       "H2": 0.5523328197266901
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees",
+      "path_mediated_difference": -2.7755575615628914e-15
+     }
+    },
+    "B2_remove_confirmed_errors_reviewed_only": {
+     "description": "view B, strict: as B1 but unreviewed score-moving nodes set aside",
+     "n_score_moving_nodes_kept": 7,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.3450489316881903,
+      "scores": {
+       "H1": 0.41458355490293797,
+       "H2": 0.585416445097062
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.34504893168819084,
+      "scores": {
+       "H1": 0.41458355490293786,
+       "H2": 0.5854164450970621
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees",
+      "path_mediated_difference": 5.551115123125783e-16
+     }
+    },
+    "R_unreviewed_only": {
+     "description": "reference: all reviewed nodes removed; unreviewed score-moving nodes only",
+     "n_score_moving_nodes_kept": 2,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": -0.1349481879669725,
+      "scores": {
+       "H1": 0.5336859412404745,
+       "H2": 0.4663140587595255
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "opposes"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": -0.3568219688340454,
+      "scores": {
+       "H1": 0.5882709052219465,
+       "H2": 0.41172909477805353
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "opposes",
+      "path_mediated_difference": -0.22187378086707288
+     }
+    }
+   }
+  },
+  "pfc_interhemispheric_architecture": {
+   "original": {
+    "scores": {
+     "H1": 0.6179218345531287,
+     "H2": 0.38207816544687123
+    },
+    "log_odds_H2_over_H1": -0.4807367588895375,
+    "top": "H1"
+   },
+   "later_resolution_favours": null,
+   "views": {
+    "original": {
+     "description": "frozen verifier: every node kept",
+     "n_score_moving_nodes_kept": 3,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": -0.48073675888953743,
+      "scores": {
+       "H1": 0.6179218345531288,
+       "H2": 0.38207816544687123
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": -0.4807367588895375,
+      "scores": {
+       "H1": 0.6179218345531288,
+       "H2": 0.38207816544687123
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": -5.551115123125783e-17
+     }
+    },
+    "A1_genuine_reviewed_plus_unreviewed": {
+     "description": "directive views A1 and D (identical here): reviewed genuine discriminators kept, all other reviewed nodes removed, unreviewed score-moving nodes untouched",
+     "n_score_moving_nodes_kept": 0,
+     "no_score_moving_nodes_kept": true,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": 0.0
+     }
+    },
+    "A2_genuine_reviewed_only": {
+     "description": "directive views A2 and C (identical here): strict. Reviewed genuine discriminators only; unreviewed score-moving nodes set aside",
+     "n_score_moving_nodes_kept": 0,
+     "no_score_moving_nodes_kept": true,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": 0.0
+     }
+    },
+    "B1_remove_confirmed_errors": {
+     "description": "directive view B: reviewed silence errors, construct mismatches and weak implications removed; reviewed genuine, generic and compatible kept; unreviewed untouched",
+     "n_score_moving_nodes_kept": 2,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": -0.5314066991698814,
+      "scores": {
+       "H1": 0.6298111424128136,
+       "H2": 0.37018885758718645
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": -0.5314066991698815,
+      "scores": {
+       "H1": 0.6298111424128136,
+       "H2": 0.37018885758718645
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": -1.1102230246251565e-16
+     }
+    },
+    "B2_remove_confirmed_errors_reviewed_only": {
+     "description": "view B, strict: as B1 but unreviewed score-moving nodes set aside",
+     "n_score_moving_nodes_kept": 2,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": -0.5314066991698814,
+      "scores": {
+       "H1": 0.6298111424128136,
+       "H2": 0.37018885758718645
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": -0.5314066991698815,
+      "scores": {
+       "H1": 0.6298111424128136,
+       "H2": 0.37018885758718645
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": -1.1102230246251565e-16
+     }
+    },
+    "R_unreviewed_only": {
+     "description": "reference: all reviewed nodes removed; unreviewed score-moving nodes only",
+     "n_score_moving_nodes_kept": 0,
+     "no_score_moving_nodes_kept": true,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": 0.0
+     }
+    }
+   }
+  },
+  "pfc_storage_vs_control": {
+   "original": {
+    "scores": {
+     "H1": 0.7709983327003794,
+     "H2": 0.22900166729962063
+    },
+    "log_odds_H2_over_H1": -1.2139569267331662,
+    "top": "H1"
+   },
+   "later_resolution_favours": "H2",
+   "views": {
+    "original": {
+     "description": "frozen verifier: every node kept",
+     "n_score_moving_nodes_kept": 11,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": -1.213956926733165,
+      "scores": {
+       "H1": 0.7709983327003791,
+       "H2": 0.22900166729962085
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "opposes"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": -1.2139569267331662,
+      "scores": {
+       "H1": 0.7709983327003793,
+       "H2": 0.22900166729962063
+      },
+      "top": "H1",
+      "relation_to_later_resolution": "opposes",
+      "path_mediated_difference": -1.3322676295501878e-15
+     }
+    },
+    "A1_genuine_reviewed_plus_unreviewed": {
+     "description": "directive views A1 and D (identical here): reviewed genuine discriminators kept, all other reviewed nodes removed, unreviewed score-moving nodes untouched",
+     "n_score_moving_nodes_kept": 6,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.6328708139914869,
+      "scores": {
+       "H1": 0.3468598747376245,
+       "H2": 0.6531401252623755
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.5320448018518968,
+      "scores": {
+       "H1": 0.37004009686934947,
+       "H2": 0.6299599031306505
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees",
+      "path_mediated_difference": -0.10082601213959008
+     }
+    },
+    "A2_genuine_reviewed_only": {
+     "description": "directive views A2 and C (identical here): strict. Reviewed genuine discriminators only; unreviewed score-moving nodes set aside",
+     "n_score_moving_nodes_kept": 2,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.5781968175981534,
+      "scores": {
+       "H1": 0.3593476113678835,
+       "H2": 0.6406523886321165
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.5781968175981536,
+      "scores": {
+       "H1": 0.3593476113678835,
+       "H2": 0.6406523886321165
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees",
+      "path_mediated_difference": 1.1102230246251565e-16
+     }
+    },
+    "B1_remove_confirmed_errors": {
+     "description": "directive view B: reviewed silence errors, construct mismatches and weak implications removed; reviewed genuine, generic and compatible kept; unreviewed untouched",
+     "n_score_moving_nodes_kept": 7,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.38795204253765153,
+      "scores": {
+       "H1": 0.4042104018283301,
+       "H2": 0.5957895981716699
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.38795204253765103,
+      "scores": {
+       "H1": 0.40421040182833023,
+       "H2": 0.5957895981716698
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees",
+      "path_mediated_difference": -4.996003610813204e-16
+     }
+    },
+    "B2_remove_confirmed_errors_reviewed_only": {
+     "description": "view B, strict: as B1 but unreviewed score-moving nodes set aside",
+     "n_score_moving_nodes_kept": 3,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.333278046144318,
+      "scores": {
+       "H1": 0.4174432384571596,
+       "H2": 0.5825567615428404
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.33327804614431766,
+      "scores": {
+       "H1": 0.4174432384571596,
+       "H2": 0.5825567615428404
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees",
+      "path_mediated_difference": -3.3306690738754696e-16
+     }
+    },
+    "R_unreviewed_only": {
+     "description": "reference: all reviewed nodes removed; unreviewed score-moving nodes only",
+     "n_score_moving_nodes_kept": 4,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.054673996393333535,
+      "scores": {
+       "H1": 0.48633490475955987,
+       "H2": 0.5136650952404401
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.02391864063784821,
+      "scores": {
+       "H1": 0.49402062490521015,
+       "H2": 0.5059793750947899
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "agrees",
+      "path_mediated_difference": -0.030755355755485325
+     }
+    }
+   }
+  },
+  "spider_orb_web_origin": {
+   "original": {
+    "scores": {
+     "H1": 0.4241686724145701,
+     "H2": 0.5758313275854298
+    },
+    "log_odds_H2_over_H1": 0.3056835953344157,
+    "top": "H2"
+   },
+   "later_resolution_favours": null,
+   "views": {
+    "original": {
+     "description": "frozen verifier: every node kept",
+     "n_score_moving_nodes_kept": 7,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.30568359533441514,
+      "scores": {
+       "H1": 0.42416867241457024,
+       "H2": 0.5758313275854298
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.3056835953344157,
+      "scores": {
+       "H1": 0.42416867241457024,
+       "H2": 0.5758313275854298
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": 5.551115123125783e-16
+     }
+    },
+    "A1_genuine_reviewed_plus_unreviewed": {
+     "description": "directive views A1 and D (identical here): reviewed genuine discriminators kept, all other reviewed nodes removed, unreviewed score-moving nodes untouched",
+     "n_score_moving_nodes_kept": 0,
+     "no_score_moving_nodes_kept": true,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": 0.0
+     }
+    },
+    "A2_genuine_reviewed_only": {
+     "description": "directive views A2 and C (identical here): strict. Reviewed genuine discriminators only; unreviewed score-moving nodes set aside",
+     "n_score_moving_nodes_kept": 0,
+     "no_score_moving_nodes_kept": true,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": 0.0
+     }
+    },
+    "B1_remove_confirmed_errors": {
+     "description": "directive view B: reviewed silence errors, construct mismatches and weak implications removed; reviewed genuine, generic and compatible kept; unreviewed untouched",
+     "n_score_moving_nodes_kept": 2,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.2615972051798955,
+      "scores": {
+       "H1": 0.43497112039921715,
+       "H2": 0.5650288796007829
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.2615972051798954,
+      "scores": {
+       "H1": 0.43497112039921715,
+       "H2": 0.5650288796007829
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": -1.1102230246251565e-16
+     }
+    },
+    "B2_remove_confirmed_errors_reviewed_only": {
+     "description": "view B, strict: as B1 but unreviewed score-moving nodes set aside",
+     "n_score_moving_nodes_kept": 2,
+     "no_score_moving_nodes_kept": false,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.2615972051798955,
+      "scores": {
+       "H1": 0.43497112039921715,
+       "H2": 0.5650288796007829
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.2615972051798954,
+      "scores": {
+       "H1": 0.43497112039921715,
+       "H2": 0.5650288796007829
+      },
+      "top": "H2",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": -1.1102230246251565e-16
+     }
+    },
+    "R_unreviewed_only": {
+     "description": "reference: all reviewed nodes removed; unreviewed score-moving nodes only",
+     "n_score_moving_nodes_kept": 0,
+     "no_score_moving_nodes_kept": true,
+     "evidence_zeroed": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution"
+     },
+     "graph_deleted_sensitivity": {
+      "log_odds_H2_over_H1": 0.0,
+      "scores": {
+       "H1": 0.5,
+       "H2": 0.5
+      },
+      "top": "tie",
+      "relation_to_later_resolution": "not_applicable_non_directional_resolution",
+      "path_mediated_difference": 0.0
+     }
+    }
+   }
+  }
+ }
+}

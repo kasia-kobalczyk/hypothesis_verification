@@ -607,6 +607,7 @@ def blank_human_fields(hypothesis_ids: List[str]) -> Dict[str, Any]:
         ("human_primary_category", None),
         ("human_secondary_flags", []),
         ("human_prediction_for_each_hypothesis", OrderedDict((h, None) for h in hypothesis_ids)),
+        ("human_prediction_qualifiers", None),
         ("human_is_genuinely_discriminative", None),
         ("human_silence_as_null_error", None),
         ("human_implication_validity", None),
@@ -643,9 +644,26 @@ def apply_human_label(record: Dict[str, Any], entry: Dict[str, Any]) -> None:
         raise SystemExit("{}: unknown category {!r}".format(record["review_id"], category))
     human = record["human_review"]
     human["human_primary_category"] = category
-    # D045 / BENCH-GRAPH-ATTRIBUTION-001 §3: true only for the named category.
+    secondary = list(entry.get("human_secondary_flags") or [])
+    unknown = [c for c in secondary if c not in HUMAN_CATEGORIES]
+    if unknown:
+        raise SystemExit("{}: unknown secondary flag(s) {}".format(record["review_id"], unknown))
+    human["human_secondary_flags"] = secondary
+    # BENCH-GRAPH-ATTRIBUTION-001 §3: discriminative only for the primary category.
+    # A silence error recorded as a secondary flag (D046 #3) is still a silence error.
     human["human_is_genuinely_discriminative"] = category == "genuine_discriminator"
-    human["human_silence_as_null_error"] = category == "silence_as_null_error"
+    human["human_silence_as_null_error"] = "silence_as_null_error" in [category] + secondary
+    states = entry.get("human_prediction_for_each_hypothesis")
+    if states:
+        expected = set(human["human_prediction_for_each_hypothesis"])
+        if set(states) != expected:
+            raise SystemExit("{}: states for {} but hypotheses are {}".format(
+                record["review_id"], sorted(states), sorted(expected)))
+        human["human_prediction_for_each_hypothesis"] = OrderedDict((h, states[h]) for h in sorted(states))
+        human["human_prediction_qualifiers"] = entry.get("human_prediction_qualifiers")
+    for field in ("human_evidence_relevance", "human_confidence", "human_notes"):
+        if entry.get(field) is not None:
+            human[field] = entry[field]
     human["human_reviewer"] = source["human_reviewer"]
     human["human_review_source"] = source["human_review_source"]
     human["human_review_status"] = source["human_review_status"]

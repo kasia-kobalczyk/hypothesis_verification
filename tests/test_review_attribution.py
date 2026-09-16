@@ -25,6 +25,8 @@ import scripts.analyze_review_attribution as ar
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "benchmark" / "review" / "graph_pilot_001" / "attribution"
+OUT_COMBINED = ROOT / "benchmark" / "review" / "graph_pilot_001" / "attribution_d045_d046"
+OUT_DIRS = [OUT, OUT_COMBINED]
 PACKET = ROOT / "benchmark" / "review" / "graph_pilot_001"
 CATS = ar.REVIEWED_CATEGORIES
 ALL_BUCKETS = CATS + ["unreviewed_score_moving", "non_moving"]
@@ -62,6 +64,84 @@ def test_analysis_makes_no_llm_calls():
 # --------------------------------------------------------------------------- #
 # Exact decomposition
 # --------------------------------------------------------------------------- #
+@pytest.mark.parametrize("out_dir", OUT_DIRS, ids=["D045", "D045+D046"])
+def test_categories_sum_to_frozen_log_odds_all_label_sets(out_dir):
+    attribution = json.loads((out_dir / "case_category_attribution.json").read_text(encoding="utf-8"))
+    assert len(attribution["cases"]) == 8
+    for cid, c in attribution["cases"].items():
+        total = sum(c["categories"][k]["log_odds_H2_over_H1"] for k in ALL_BUCKETS)
+        assert total == pytest.approx(c["original"]["log_odds_H2_over_H1"], abs=1e-9), cid
+
+
+@pytest.mark.parametrize("out_dir", OUT_DIRS, ids=["D045", "D045+D046"])
+def test_views_equal_kept_categories_all_label_sets(out_dir):
+    attribution = json.loads((out_dir / "case_category_attribution.json").read_text(encoding="utf-8"))
+    views = json.loads((out_dir / "counterfactual_views.json").read_text(encoding="utf-8"))
+    for cid, c in attribution["cases"].items():
+        for name, keep in EXPECTED_KEEP.items():
+            expected = sum(c["categories"][k]["log_odds_H2_over_H1"] for k in keep)
+            got = views["cases"][cid]["views"][name]["evidence_zeroed"]["log_odds_H2_over_H1"]
+            assert got == pytest.approx(expected, abs=1e-9), (cid, name)
+
+
+def test_label_sets_agree_on_frozen_scores_and_non_moving_nodes():
+    a = json.loads((OUT / "case_category_attribution.json").read_text(encoding="utf-8"))["cases"]
+    b = json.loads((OUT_COMBINED / "case_category_attribution.json").read_text(encoding="utf-8"))["cases"]
+    for cid in a:
+        assert a[cid]["original"] == b[cid]["original"]
+        assert a[cid]["categories"]["non_moving"] == b[cid]["categories"]["non_moving"]
+        for k in ("genuine_discriminator", "generic_component_fact"):   # D046 labelled none of these
+            assert a[cid]["categories"][k] == b[cid]["categories"][k], (cid, k)
+
+
+def test_combined_counts_and_labels():
+    nodes = [json.loads(l) for l in (OUT_COMBINED / "node_contributions.jsonl").read_text(encoding="utf-8").splitlines()]
+    assert Counter(n["node_class"] for n in nodes) == Counter(
+        {"reviewed": 52, "unreviewed_score_moving": 26, "non_moving": 114})
+    labels = {}
+    for name in ("human_labels_D045.json", "human_labels_D046.json"):
+        for l in json.loads((PACKET / name).read_text(encoding="utf-8"))["labels"]:
+            labels[l["review_id"]] = l["human_primary_category"]
+    assert {n["review_id"]: n["human_primary_category"] for n in nodes if n["human_primary_category"]} == labels
+
+
+def test_one_sided_split_is_rederived_exactly():
+    """Recompute the D046 split from the label file and the packet's verifier edges."""
+    split = json.loads((OUT_COMBINED / "one_sided_split.json").read_text(encoding="utf-8"))
+    packet = {json.loads(l)["review_id"]: json.loads(l)
+              for l in (PACKET / "review_set_full.jsonl").read_text(encoding="utf-8").splitlines()}
+    labels = json.loads((PACKET / "human_labels_D046.json").read_text(encoding="utf-8"))["labels"]
+    got = {r["review_id"]: r["one_sided_kind"] for r in split["nodes_with_recorded_states"]}
+    assert len(got) == 12
+    for l in labels:
+        states = l["human_prediction_for_each_hypothesis"]
+        silent = [h for h, s in states.items() if s == "indeterminate"]
+        det = [h for h, s in states.items() if s != "indeterminate"]
+        edges = packet[l["review_id"]]["verifier_graph"]["cross_hypothesis_judgments"]
+        if len(det) == 1 and len(silent) == 1:
+            want = ("neutral_mapping_pseudo_discrimination" if edges[silent[0]]["direct_edge_label"] == "neutral"
+                    else "categorical_silence_error")
+        elif not det:
+            want = "all_indeterminate"
+        elif not silent and len({states[h] for h in det}) == 1:
+            want = "shared_determinate"
+        else:
+            want = "determinate_contrast"
+        assert got[l["review_id"]] == want, l["review_id"]
+
+
+def test_neutral_edge_proxy_is_rederived():
+    split = json.loads((OUT_COMBINED / "one_sided_split.json").read_text(encoding="utf-8"))
+    packet = [json.loads(l) for l in (PACKET / "review_set_full.jsonl").read_text(encoding="utf-8").splitlines()]
+    hits = [r for r in packet if all(v["direct_edge_label"] == "neutral"
+                                     for v in r["verifier_graph"]["cross_hypothesis_judgments"].values()
+                                     if not v["is_origin_of_proposition"])]
+    proxy = split["verifier_proxy_non_origin_neutral_score_moving"]
+    assert proxy["n_nodes"] == len(hits)
+    assert proxy["absolute_influence"] == pytest.approx(sum(r["score_influence"]["absolute_influence"] for r in hits),
+                                                         abs=1e-5)
+
+
 def test_categories_sum_to_frozen_log_odds(attribution):
     assert len(attribution["cases"]) == 8
     for cid, c in attribution["cases"].items():
@@ -206,8 +286,16 @@ def test_committed_outputs_match_a_fresh_build(tmp_path, monkeypatch):
 
     if not bp.ARCHIVE.exists():
         pytest.skip("private pilot archive not present (see benchmark/frozen_runs/pilot_explanatory_001/PROVENANCE.md)")
-    monkeypatch.setattr(ar, "OUT", tmp_path)
+    monkeypatch.setattr(ar, "OUT", tmp_path / "d045")
+    monkeypatch.setattr(ar, "OUT_COMBINED", tmp_path / "combined")
+    (tmp_path / "d045").mkdir()
+    # the combined report reads the D045 outputs for its before/after columns
+    for name in ("coverage.json", "case_category_attribution.json"):
+        (tmp_path / "d045" / name).write_bytes((OUT / name).read_bytes())
     assert ar.main() == 0
     for name in ("node_contributions.jsonl", "case_category_attribution.json", "counterfactual_views.json",
                  "coverage.json", "ATTRIBUTION_REPORT.md"):
-        assert (tmp_path / name).read_bytes() == (OUT / name).read_bytes(), name
+        assert (tmp_path / "d045" / name).read_bytes() == (OUT / name).read_bytes(), name
+    for name in ("node_contributions.jsonl", "case_category_attribution.json", "counterfactual_views.json",
+                 "coverage.json", "one_sided_split.json", "ATTRIBUTION_REPORT.md"):
+        assert (tmp_path / "combined" / name).read_bytes() == (OUT_COMBINED / name).read_bytes(), name

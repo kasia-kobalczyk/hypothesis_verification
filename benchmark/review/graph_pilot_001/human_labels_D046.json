@@ -1,0 +1,349 @@
+{
+ "source": "D046 in .agent/DECISIONS.md (relay-decision 245e6f31cd1447bf00e42a21), transcribed mechanically by scripts/transcribe_decision_labels.py",
+ "human_reviewer": "Research Director",
+ "human_review_source": "D046",
+ "human_review_status": "first_pass_model_based_review",
+ "caveat": "Model-based Research Director adjudication, not external domain-expert ground truth (D046).",
+ "state_vocabulary": "positive_or_present | negative_or_absent | substantive_null | indeterminate (D046; `substantive_null` = a positive prediction of no effect/baseline)",
+ "qualified_states": "where the Director attached a condition or hedge to a state, the line is kept verbatim and `qualified` is true",
+ "labels": [
+  {
+   "d046_number": 1,
+   "d046_key": "spider_orb_web_origin-X7",
+   "case_id": "spider_orb_web_origin",
+   "node_id": "X7",
+   "review_id": "GP1-spider_orb_web_origin-X7",
+   "director_proposition_paraphrase": "homologous orb-weaving-associated genes occur in both cribellate and ecribellate orb-weavers.",
+   "human_prediction_for_each_hypothesis": {
+    "H1": "positive_or_present",
+    "H2": "indeterminate"
+   },
+   "human_prediction_qualifiers": {
+    "H1": {
+     "line_verbatim": "`positive_or_present`.",
+     "qualified": false
+    },
+    "H2": {
+     "line_verbatim": "`indeterminate`; independent origins do not require non-homologous genes and could reuse deep homologous machinery.",
+     "qualified": false
+    }
+   },
+   "human_primary_category": "silence_as_null_error",
+   "human_secondary_flags": [],
+   "primary_category_note_verbatim": null,
+   "human_evidence_relevance": "reasonably direct for homologous silk/orb-associated genes, though narrower than the full behavioral architecture.",
+   "human_confidence": "high",
+   "human_notes": null
+  },
+  {
+   "d046_number": 2,
+   "d046_key": "spider_orb_web_origin-X24",
+   "case_id": "spider_orb_web_origin",
+   "node_id": "X24",
+   "review_id": "GP1-spider_orb_web_origin-X24",
+   "director_proposition_paraphrase": "convergent orb-weaving traits occur across different spider families.",
+   "human_prediction_for_each_hypothesis": {
+    "H1": "negative_or_absent",
+    "H2": "positive_or_present"
+   },
+   "human_prediction_qualifiers": {
+    "H1": {
+     "line_verbatim": "`negative_or_absent` if `convergent` is interpreted as independent origin.",
+     "qualified": true
+    },
+    "H2": {
+     "line_verbatim": "`positive_or_present`.",
+     "qualified": false
+    }
+   },
+   "human_primary_category": "evidence_construct_mismatch",
+   "human_secondary_flags": [],
+   "primary_category_note_verbatim": null,
+   "human_evidence_relevance": null,
+   "human_confidence": "high",
+   "human_notes": "Reason: the proposition itself is genuinely discriminative, but the cited evidence merely establishes orb-weaving in multiple families; it does not establish that those occurrences are convergent/independently evolved."
+  },
+  {
+   "d046_number": 3,
+   "d046_key": "spider_orb_web_origin-X8",
+   "case_id": "spider_orb_web_origin",
+   "node_id": "X8",
+   "review_id": "GP1-spider_orb_web_origin-X8",
+   "director_proposition_paraphrase": "orb-weaving is associated with conserved homologous genes across distant lineages.",
+   "human_prediction_for_each_hypothesis": {
+    "H1": "positive_or_present",
+    "H2": "indeterminate"
+   },
+   "human_prediction_qualifiers": {
+    "H1": {
+     "line_verbatim": "`positive_or_present`.",
+     "qualified": false
+    },
+    "H2": {
+     "line_verbatim": "`indeterminate`; convergence can recruit homologous/deeply conserved genes.",
+     "qualified": false
+    }
+   },
+   "human_primary_category": "evidence_construct_mismatch",
+   "human_secondary_flags": [
+    "silence_as_null_error"
+   ],
+   "primary_category_note_verbatim": "with secondary `silence_as_null_error`",
+   "human_evidence_relevance": null,
+   "human_confidence": "high",
+   "human_notes": "Reason: the cited evidence concerns a broadly conserved silk-gland factor across silk-producing arthropods and does not establish an orb-weaving-specific conserved genetic mechanism; additionally the verifier's `unlikely` judgment for H2 overstates the contrast."
+  },
+  {
+   "d046_number": 4,
+   "d046_key": "spider_orb_web_origin-X22",
+   "case_id": "spider_orb_web_origin",
+   "node_id": "X22",
+   "review_id": "GP1-spider_orb_web_origin-X22",
+   "director_proposition_paraphrase": "orb-weaving occurs in multiple phylogenetically distant genera.",
+   "human_prediction_for_each_hypothesis": {
+    "H1": "positive_or_present",
+    "H2": "positive_or_present"
+   },
+   "human_prediction_qualifiers": {
+    "H1": {
+     "line_verbatim": "`positive_or_present`.",
+     "qualified": false
+    },
+    "H2": {
+     "line_verbatim": "`positive_or_present`.",
+     "qualified": false
+    }
+   },
+   "human_primary_category": "compatible_non_discriminative",
+   "human_secondary_flags": [],
+   "primary_category_note_verbatim": null,
+   "human_evidence_relevance": "direct to the distributional proposition.",
+   "human_confidence": "high",
+   "human_notes": null
+  },
+  {
+   "d046_number": 5,
+   "d046_key": "spider_orb_web_origin-X17",
+   "case_id": "spider_orb_web_origin",
+   "node_id": "X17",
+   "review_id": "GP1-spider_orb_web_origin-X17",
+   "director_proposition_paraphrase": "orb construction is regulated by lineage-specific developmental gene-expression patterns.",
+   "human_prediction_for_each_hypothesis": {
+    "H1": "indeterminate",
+    "H2": "indeterminate"
+   },
+   "human_prediction_qualifiers": {
+    "H1": {
+     "line_verbatim": "`indeterminate` / compatible.",
+     "qualified": true
+    },
+    "H2": {
+     "line_verbatim": "`indeterminate`; independent origins do not require distinct developmental expression programs and can reuse homologous pathways.",
+     "qualified": false
+    }
+   },
+   "human_primary_category": "invalid_or_weak_implication",
+   "human_secondary_flags": [],
+   "primary_category_note_verbatim": null,
+   "human_evidence_relevance": "weak; the cited paper links web loss to gene-expression changes but does not establish lineage-specific developmental regulation of orb construction.",
+   "human_confidence": "high",
+   "human_notes": null
+  },
+  {
+   "d046_number": 6,
+   "d046_key": "pfc_interhemispheric_architecture-X1",
+   "case_id": "pfc_interhemispheric_architecture",
+   "node_id": "X1",
+   "review_id": "GP1-pfc_interhemispheric_architecture-X1",
+   "director_proposition_paraphrase": "each PFC hemisphere shows greater activity for contralateral than ipsilateral remembered locations.",
+   "human_prediction_for_each_hypothesis": {
+    "H1": "positive_or_present",
+    "H2": "indeterminate"
+   },
+   "human_prediction_qualifiers": {
+    "H1": {
+     "line_verbatim": "`positive_or_present`.",
+     "qualified": false
+    },
+    "H2": {
+     "line_verbatim": "`indeterminate`; bilateral representation is compatible with a contralateral bias.",
+     "qualified": false
+    }
+   },
+   "human_primary_category": "compatible_non_discriminative",
+   "human_secondary_flags": [],
+   "primary_category_note_verbatim": "(valid one-sided prediction, not a clean contrast)",
+   "human_evidence_relevance": "generic/partial rather than direct for the exact bilateral-hemifield comparison.",
+   "human_confidence": "high",
+   "human_notes": "Important: the frozen edge assessor correctly returned `neutral` for H2, yet the numeric P(X|H) mapping still made support for this node favor H1. Thus one-sided pseudo-discrimination can occur even without a categorical silence-as-null error."
+  },
+  {
+   "d046_number": 7,
+   "d046_key": "pfc_interhemispheric_architecture-X23",
+   "case_id": "pfc_interhemispheric_architecture",
+   "node_id": "X23",
+   "review_id": "GP1-pfc_interhemispheric_architecture-X23",
+   "director_proposition_paraphrase": "bilateral PFC activation causes decreased fidelity relative to unilateral activation.",
+   "human_prediction_for_each_hypothesis": {
+    "H1": "indeterminate",
+    "H2": "positive_or_present"
+   },
+   "human_prediction_qualifiers": {
+    "H1": {
+     "line_verbatim": "`indeterminate`.",
+     "qualified": false
+    },
+    "H2": {
+     "line_verbatim": "at most weakly `positive_or_present`; the stated capacity/precision trade-off does not directly imply that bilateral activation itself causes lower fidelity than unilateral activation.",
+     "qualified": true
+    }
+   },
+   "human_primary_category": "evidence_construct_mismatch",
+   "human_secondary_flags": [],
+   "primary_category_note_verbatim": null,
+   "human_evidence_relevance": null,
+   "human_confidence": "high",
+   "human_notes": "Reason: cited elderly fNIRS evidence links bilateral recruitment to performance decline in low performers but does not measure representational fidelity or test bilateral-vs-unilateral storage architecture."
+  },
+  {
+   "d046_number": 8,
+   "d046_key": "fly_wing_constraint_vs_selection-X19",
+   "case_id": "fly_wing_constraint_vs_selection",
+   "node_id": "X19",
+   "review_id": "GP1-fly_wing_constraint_vs_selection-X19",
+   "director_proposition_paraphrase": "the principal axis of developmental wing-shape variation aligns with interspecies divergence.",
+   "human_prediction_for_each_hypothesis": {
+    "H1": "positive_or_present",
+    "H2": "positive_or_present"
+   },
+   "human_prediction_qualifiers": {
+    "H1": {
+     "line_verbatim": "`positive_or_present`.",
+     "qualified": false
+    },
+    "H2": {
+     "line_verbatim": "`positive_or_present`.",
+     "qualified": false
+    }
+   },
+   "human_primary_category": "compatible_non_discriminative",
+   "human_secondary_flags": [],
+   "primary_category_note_verbatim": null,
+   "human_evidence_relevance": "broadly relevant to alignment, though not a precise principal-axis test.",
+   "human_confidence": "high",
+   "human_notes": null
+  },
+  {
+   "d046_number": 9,
+   "d046_key": "forest_fragmentation_resilience-X21",
+   "case_id": "forest_fragmentation_resilience",
+   "node_id": "X21",
+   "review_id": "GP1-forest_fragmentation_resilience-X21",
+   "director_proposition_paraphrase": "fragmented forest edges can have greater resilience than interiors under moderate climatic stress.",
+   "human_prediction_for_each_hypothesis": {
+    "H1": "negative_or_absent",
+    "H2": "positive_or_present"
+   },
+   "human_prediction_qualifiers": {
+    "H1": {
+     "line_verbatim": "`negative_or_absent` in the matched moderate-stress comparison if its proposed edge stress is operative.",
+     "qualified": true
+    },
+    "H2": {
+     "line_verbatim": "`positive_or_present`.",
+     "qualified": false
+    }
+   },
+   "human_primary_category": "evidence_construct_mismatch",
+   "human_secondary_flags": [],
+   "primary_category_note_verbatim": null,
+   "human_evidence_relevance": null,
+   "human_confidence": "medium-high",
+   "human_notes": "The proposition is therefore potentially a `genuine_discriminator`. Reason: the cited fire study reports high recovery of species richness at edges but substantially slower biomass recovery, and does not establish the stipulated moderate climatic-stress condition. It therefore does not cleanly support the proposition used in scoring."
+  },
+  {
+   "d046_number": 10,
+   "d046_key": "forest_fragmentation_resilience-X2",
+   "case_id": "forest_fragmentation_resilience",
+   "node_id": "X2",
+   "review_id": "GP1-forest_fragmentation_resilience-X2",
+   "director_proposition_paraphrase": "increased edge light enhances plant growth by reducing resource limitation.",
+   "human_prediction_for_each_hypothesis": {
+    "H1": "indeterminate",
+    "H2": "positive_or_present"
+   },
+   "human_prediction_qualifiers": {
+    "H1": {
+     "line_verbatim": "`indeterminate`; H1 does not deny the light-growth mechanism.",
+     "qualified": false
+    },
+    "H2": {
+     "line_verbatim": "`positive_or_present`.",
+     "qualified": false
+    }
+   },
+   "human_primary_category": "compatible_non_discriminative",
+   "human_secondary_flags": [],
+   "primary_category_note_verbatim": "(valid one-sided mechanistic prediction)",
+   "human_evidence_relevance": "partial/weak; the cited lilyturf study supports higher-light photosynthesis but does not directly establish forest-edge growth enhancement via reduced resource limitation.",
+   "human_confidence": "high",
+   "human_notes": "Important: the edge assessor correctly returned `neutral` for H1, yet the mapping still made support favor H2."
+  },
+  {
+   "d046_number": 11,
+   "d046_key": "gcn4_med15_complex_vs_condensate-X15",
+   "case_id": "gcn4_med15_complex_vs_condensate",
+   "node_id": "X15",
+   "review_id": "GP1-gcn4_med15_complex_vs_condensate-X15",
+   "director_proposition_paraphrase": "TF activation domains forming dynamic soluble Mediator complexes are more likely to drive activation than those that do not.",
+   "human_prediction_for_each_hypothesis": {
+    "H1": "positive_or_present",
+    "H2": "indeterminate"
+   },
+   "human_prediction_qualifiers": {
+    "H1": {
+     "line_verbatim": "`positive_or_present`.",
+     "qualified": false
+    },
+    "H2": {
+     "line_verbatim": "`indeterminate`; H2 does not require soluble contacts to be ineffective and the mechanisms may coexist.",
+     "qualified": false
+    }
+   },
+   "human_primary_category": "silence_as_null_error",
+   "human_secondary_flags": [],
+   "primary_category_note_verbatim": null,
+   "human_evidence_relevance": "supports AD-Mediator binding/activation generally, but is broader than the Gcn4/Med15 exclusive mechanism comparison.",
+   "human_confidence": "high",
+   "human_notes": null
+  },
+  {
+   "d046_number": 12,
+   "d046_key": "gcn4_med15_complex_vs_condensate-X12",
+   "case_id": "gcn4_med15_complex_vs_condensate",
+   "node_id": "X12",
+   "review_id": "GP1-gcn4_med15_complex_vs_condensate-X12",
+   "director_proposition_paraphrase": "Med15 is recruited to transcriptional condensates by interaction with activation domains.",
+   "human_prediction_for_each_hypothesis": {
+    "H1": "indeterminate",
+    "H2": "positive_or_present"
+   },
+   "human_prediction_qualifiers": {
+    "H1": {
+     "line_verbatim": "`indeterminate`; it does not rule out condensate recruitment.",
+     "qualified": false
+    },
+    "H2": {
+     "line_verbatim": "`positive_or_present`.",
+     "qualified": false
+    }
+   },
+   "human_primary_category": "evidence_construct_mismatch",
+   "human_secondary_flags": [],
+   "primary_category_note_verbatim": null,
+   "human_evidence_relevance": null,
+   "human_confidence": "high",
+   "human_notes": "Reason: cited evidence strongly supports activation-domain/Med15 interactions and recruitment to transcriptional complexes, but does not directly establish recruitment specifically into phase-separated condensates. Important: H1 was correctly `neutral`, but support still numerically favors H2 under the current mapping."
+  }
+ ]
+}
