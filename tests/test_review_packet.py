@@ -236,16 +236,83 @@ def test_hidden_context_is_only_in_the_labelled_appendix_and_audit(built):
         assert case["resolution_summary"] not in md
 
 
-def test_human_fields_are_blank(records):
+LABEL_FILE = PACKET / "human_labels_D045.json"
+D045_LINE = re.compile(r"^(\d+)\.?\s+`?([A-Za-z0-9_]+-X\d+)`?\s+—\s+`?([a-z_]+)`?\s*$", re.M)
+RECORDED_BY_D045 = {"human_primary_category", "human_is_genuinely_discriminative",
+                    "human_silence_as_null_error", "human_reviewer", "human_review_source",
+                    "human_review_status"}
+
+
+def _d045_from_decisions():
+    text = (ROOT / ".agent" / "DECISIONS.md").read_text(encoding="utf-8")
+    section = text[text.index("## D045"):]
+    section = section[section.index("NODE-LEVEL PRIMARY LABELS"):section.index("KEY INTERPRETATION")]
+    return [(int(n), key, cat) for n, key, cat in D045_LINE.findall(section)]
+
+
+def test_label_file_is_an_exact_transcription_of_d045():
+    """The label file must equal D045 as recorded by the Research Director: same
+    numbering, same node keys, same categories, and the stated category counts."""
+    parsed = _d045_from_decisions()
+    labels = _load(LABEL_FILE)["labels"]
+    assert len(parsed) == 40
+    assert [(l["d045_number"], l["d045_key"], l["human_primary_category"]) for l in labels] == parsed
+    from collections import Counter
+    assert Counter(c for _, _, c in parsed) == Counter({
+        "generic_component_fact": 14, "silence_as_null_error": 8, "compatible_non_discriminative": 8,
+        "genuine_discriminator": 4, "evidence_construct_mismatch": 3, "invalid_or_weak_implication": 3})
+
+
+def test_d045_keys_resolve_to_the_priority_set_in_rank_order():
+    labels = _load(LABEL_FILE)["labels"]
+    full = {json.loads(l)["review_id"]: json.loads(l)
+            for l in (PACKET / "review_set_full.jsonl").read_text(encoding="utf-8").splitlines()}
+    priority = {rid for rid, r in full.items() if r["score_influence"]["in_priority_set"]}
+    assert {l["review_id"] for l in labels} == priority
+    for l in labels:
+        prefix, node = l["d045_key"].rsplit("-", 1)
+        assert l["node_id"] == node and (l["case_id"] == prefix or l["case_id"].startswith(prefix + "_"))
+        assert full[l["review_id"]]["score_influence"]["rank_global"] == l["d045_number"]
+
+
+def test_unlabelled_nodes_have_blank_human_fields(records):
+    labelled = {l["review_id"] for l in _load(LABEL_FILE)["labels"]}
     for r in records:
-        h = r["human_review"]
-        for key, value in h.items():
+        if r["review_id"] in labelled:
+            continue
+        for key, value in r["human_review"].items():
             if key == "human_prediction_for_each_hypothesis":
                 assert all(v is None for v in value.values())
             elif key == "human_secondary_flags":
                 assert value == []
             else:
                 assert value is None, (r["review_id"], key)
+
+
+def test_labelled_nodes_carry_exactly_d045_and_nothing_inferred(records):
+    labels = {l["review_id"]: l for l in _load(LABEL_FILE)["labels"]}
+    seen = 0
+    for r in records:
+        if r["review_id"] not in labels:
+            continue
+        seen += 1
+        h = r["human_review"]
+        category = labels[r["review_id"]]["human_primary_category"]
+        assert h["human_primary_category"] == category
+        assert h["human_is_genuinely_discriminative"] is (category == "genuine_discriminator")
+        assert h["human_silence_as_null_error"] is (category == "silence_as_null_error")
+        assert (h["human_reviewer"], h["human_review_source"], h["human_review_status"]) == \
+            ("Research Director", "D045", "first_pass_model_based_review")
+        for key, value in h.items():
+            if key in RECORDED_BY_D045:
+                continue
+            if key == "human_prediction_for_each_hypothesis":
+                assert all(v is None for v in value.values()), r["review_id"]
+            elif key == "human_secondary_flags":
+                assert value == [], r["review_id"]
+            else:
+                assert value is None, (r["review_id"], key)
+    assert seen == 40
 
 
 # --------------------------------------------------------------------------- #

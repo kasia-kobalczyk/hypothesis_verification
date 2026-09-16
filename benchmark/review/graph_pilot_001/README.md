@@ -29,6 +29,17 @@ and they are complete as committed.
 | `review_set_full.jsonl` | machine-readable full set; fill the `human_review` fields here |
 | `hidden_case_context.md` / `.json` | **post-hoc only**: later resolutions and reference discriminators |
 | `stats.json` | review-set statistics |
+| `human_labels_D045.json` | the Research Director's labels for the 40 priority nodes, transcribed mechanically from D045 (test-checked against `.agent/DECISIONS.md`) |
+| `attribution/` | BENCH-GRAPH-ATTRIBUTION-001: frozen scores decomposed by reviewed category, counterfactual views, coverage; start with `attribution/ATTRIBUTION_REPORT.md` |
+
+## Human labels
+
+The 40 priority nodes carry D045 labels in `human_review`:
+- `human_primary_category`;
+- the two booleans derived from it;
+- provenance (`human_reviewer`, `human_review_source`, `human_review_status = first_pass_model_based_review`).
+
+D045 is **model-based Research Director review, not external expert ground truth**. It recorded only primary categories, so per-hypothesis predictions and the other judgment fields remain blank. The 38 unreviewed score-moving nodes are entirely blank.
 
 ## How nodes were selected
 

@@ -179,7 +179,7 @@ Grouped by case; within a case, by descending influence. Verifier output comes f
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `invalid_or_weak_implication` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -372,7 +372,7 @@ and tubulin genes in diverse eukaryotic species.
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `generic_component_fact` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -549,7 +549,7 @@ and tubulin genes in diverse eukaryotic species.
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `generic_component_fact` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -722,7 +722,7 @@ and tubulin genes in diverse eukaryotic species.
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `generic_component_fact` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -893,7 +893,7 @@ and tubulin genes in diverse eukaryotic species.
 - disagreement flags: {'second_rater_vs_primary_discriminative': False, 'second_rater_vs_primary_status': False, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `silence_as_null_error` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: True · other fields not recorded
 
 ---
 
@@ -1068,7 +1068,7 @@ and tubulin genes in diverse eukaryotic species.
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `generic_component_fact` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -1244,7 +1244,7 @@ and tubulin genes in diverse eukaryotic species.
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `generic_component_fact` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -1420,7 +1420,7 @@ and tubulin genes in diverse eukaryotic species.
 - disagreement flags: {'second_rater_vs_primary_discriminative': True, 'second_rater_vs_primary_status': True, 'retest_vs_primary_category': None, 'any': True}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `generic_component_fact` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -2827,7 +2827,7 @@ and tubulin genes in diverse eukaryotic species.
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `silence_as_null_error` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: True · other fields not recorded
 
 ---
 
@@ -3177,7 +3177,7 @@ and tubulin genes in diverse eukaryotic species.
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `compatible_non_discriminative` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -3350,7 +3350,7 @@ and tubulin genes in diverse eukaryotic species.
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `compatible_non_discriminative` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -3521,7 +3521,7 @@ and tubulin genes in diverse eukaryotic species.
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `compatible_non_discriminative` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -3694,7 +3694,7 @@ and tubulin genes in diverse eukaryotic species.
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `compatible_non_discriminative` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -3883,7 +3883,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `silence_as_null_error` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: True · other fields not recorded
 
 ---
 
@@ -4056,7 +4056,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `silence_as_null_error` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: True · other fields not recorded
 
 ---
 
@@ -4228,7 +4228,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `invalid_or_weak_implication` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -6315,7 +6315,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `generic_component_fact` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -6485,7 +6485,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `compatible_non_discriminative` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -6668,7 +6668,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `generic_component_fact` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -6840,7 +6840,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `generic_component_fact` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -7013,7 +7013,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `silence_as_null_error` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: True · other fields not recorded
 
 ---
 
@@ -8238,7 +8238,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `silence_as_null_error` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: True · other fields not recorded
 
 ---
 
@@ -8411,7 +8411,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `silence_as_null_error` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: True · other fields not recorded
 
 ---
 
@@ -8580,7 +8580,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `generic_component_fact` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -8750,7 +8750,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `genuine_discriminator` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: True · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -8923,7 +8923,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `generic_component_fact` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -9095,7 +9095,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `generic_component_fact` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -9268,7 +9268,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `genuine_discriminator` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: True · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -9439,7 +9439,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `generic_component_fact` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -9612,7 +9612,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': False, 'second_rater_vs_primary_status': True, 'retest_vs_primary_category': None, 'any': True}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `compatible_non_discriminative` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -10135,7 +10135,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `compatible_non_discriminative` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -10666,7 +10666,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': False, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `silence_as_null_error` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: True · other fields not recorded
 
 ---
 
@@ -10841,7 +10841,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': False, 'second_rater_vs_primary_status': False, 'retest_vs_primary_category': True, 'any': True}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `genuine_discriminator` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: True · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -11026,7 +11026,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': False, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `evidence_construct_mismatch` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -11205,7 +11205,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': True, 'any': True}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `genuine_discriminator` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: True · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -11382,7 +11382,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': False, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `evidence_construct_mismatch` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -11555,7 +11555,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': False, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `compatible_non_discriminative` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -11727,7 +11727,7 @@ taxonomic averages or both. The model properly simulated observed historical cha
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': False, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `evidence_construct_mismatch` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -12608,7 +12608,7 @@ This paper explores the relationship between neural activity and behavioral perf
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `generic_component_fact` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 
@@ -12783,7 +12783,7 @@ This paper explores the relationship between neural activity and behavioral perf
 - disagreement flags: {'second_rater_vs_primary_discriminative': None, 'second_rater_vs_primary_status': None, 'retest_vs_primary_category': None, 'any': False}
 </details>
 
-**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative ☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication ☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: H1 ☐, H2 ☐ · genuinely discriminative: ☐ · silence-as-null error: ☐ · implication validity: ☐ · evidence relevance: ☐ · confidence: ☐ · notes: ☐
+**Human review** — `invalid_or_weak_implication` · reviewer: Research Director · source: D045 · status: `first_pass_model_based_review` · genuinely discriminative: False · silence-as-null error: False · other fields not recorded
 
 ---
 

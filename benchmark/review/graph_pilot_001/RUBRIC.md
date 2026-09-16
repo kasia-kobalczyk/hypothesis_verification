@@ -59,7 +59,9 @@ historically.
 | `human_evidence_relevance` | `relevant` \| `construct_mismatch` \| `generic_compatibility` \| `not_applicable` (no informative evidence) |
 | `human_confidence` | `high` \| `medium` \| `low` |
 | `human_notes` | free text |
-| `reviewer` | name/initials |
+| `human_reviewer` | name/initials |
+| `human_review_source` | where the labels are recorded (e.g. `D045`) |
+| `human_review_status` | e.g. `first_pass_model_based_review` |
 
 ## Suggested order of work
 

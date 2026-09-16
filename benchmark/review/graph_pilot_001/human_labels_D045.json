@@ -1,0 +1,330 @@
+{
+ "source": "D045 in .agent/DECISIONS.md (relay-decision a256aef537b9f060bf942325), transcribed mechanically; tests/test_review_packet.py re-parses D045 and requires exact equality",
+ "human_reviewer": "Research Director",
+ "human_review_source": "D045",
+ "human_review_status": "first_pass_model_based_review",
+ "caveat": "Model-based Research Director adjudication, not external domain-expert ground truth (D045).",
+ "fields_not_recorded_in_D045": "per-hypothesis predictions, implication validity, evidence relevance, notes and confidence are left blank; they were not recorded and are not inferred",
+ "labels": [
+  {
+   "d045_number": 1,
+   "d045_key": "pfc_storage_vs_control-X2",
+   "case_id": "pfc_storage_vs_control",
+   "node_id": "X2",
+   "review_id": "GP1-pfc_storage_vs_control-X2",
+   "human_primary_category": "silence_as_null_error"
+  },
+  {
+   "d045_number": 2,
+   "d045_key": "glnbp-X4",
+   "case_id": "glnbp_induced_fit_vs_conformational_selection",
+   "node_id": "X4",
+   "review_id": "GP1-glnbp_induced_fit_vs_conformational_selection-X4",
+   "human_primary_category": "silence_as_null_error"
+  },
+  {
+   "d045_number": 3,
+   "d045_key": "eukaryogenesis-X7",
+   "case_id": "eukaryogenesis_mito_timing",
+   "node_id": "X7",
+   "review_id": "GP1-eukaryogenesis_mito_timing-X7",
+   "human_primary_category": "invalid_or_weak_implication"
+  },
+  {
+   "d045_number": 4,
+   "d045_key": "glnbp-X11",
+   "case_id": "glnbp_induced_fit_vs_conformational_selection",
+   "node_id": "X11",
+   "review_id": "GP1-glnbp_induced_fit_vs_conformational_selection-X11",
+   "human_primary_category": "silence_as_null_error"
+  },
+  {
+   "d045_number": 5,
+   "d045_key": "gcn4-X3",
+   "case_id": "gcn4_med15_complex_vs_condensate",
+   "node_id": "X3",
+   "review_id": "GP1-gcn4_med15_complex_vs_condensate-X3",
+   "human_primary_category": "generic_component_fact"
+  },
+  {
+   "d045_number": 6,
+   "d045_key": "glnbp-X3",
+   "case_id": "glnbp_induced_fit_vs_conformational_selection",
+   "node_id": "X3",
+   "review_id": "GP1-glnbp_induced_fit_vs_conformational_selection-X3",
+   "human_primary_category": "generic_component_fact"
+  },
+  {
+   "d045_number": 7,
+   "d045_key": "glnbp-X5",
+   "case_id": "glnbp_induced_fit_vs_conformational_selection",
+   "node_id": "X5",
+   "review_id": "GP1-glnbp_induced_fit_vs_conformational_selection-X5",
+   "human_primary_category": "genuine_discriminator"
+  },
+  {
+   "d045_number": 8,
+   "d045_key": "forest-X1",
+   "case_id": "forest_fragmentation_resilience",
+   "node_id": "X1",
+   "review_id": "GP1-forest_fragmentation_resilience-X1",
+   "human_primary_category": "compatible_non_discriminative"
+  },
+  {
+   "d045_number": 9,
+   "d045_key": "eukaryogenesis-X4",
+   "case_id": "eukaryogenesis_mito_timing",
+   "node_id": "X4",
+   "review_id": "GP1-eukaryogenesis_mito_timing-X4",
+   "human_primary_category": "generic_component_fact"
+  },
+  {
+   "d045_number": 10,
+   "d045_key": "eukaryogenesis-X6",
+   "case_id": "eukaryogenesis_mito_timing",
+   "node_id": "X6",
+   "review_id": "GP1-eukaryogenesis_mito_timing-X6",
+   "human_primary_category": "generic_component_fact"
+  },
+  {
+   "d045_number": 11,
+   "d045_key": "forest-X7",
+   "case_id": "forest_fragmentation_resilience",
+   "node_id": "X7",
+   "review_id": "GP1-forest_fragmentation_resilience-X7",
+   "human_primary_category": "compatible_non_discriminative"
+  },
+  {
+   "d045_number": 12,
+   "d045_key": "pfc_interhemispheric-X2",
+   "case_id": "pfc_interhemispheric_architecture",
+   "node_id": "X2",
+   "review_id": "GP1-pfc_interhemispheric_architecture-X2",
+   "human_primary_category": "compatible_non_discriminative"
+  },
+  {
+   "d045_number": 13,
+   "d045_key": "fly_wing-X2",
+   "case_id": "fly_wing_constraint_vs_selection",
+   "node_id": "X2",
+   "review_id": "GP1-fly_wing_constraint_vs_selection-X2",
+   "human_primary_category": "silence_as_null_error"
+  },
+  {
+   "d045_number": 14,
+   "d045_key": "pfc_storage_vs_control-X6",
+   "case_id": "pfc_storage_vs_control",
+   "node_id": "X6",
+   "review_id": "GP1-pfc_storage_vs_control-X6",
+   "human_primary_category": "genuine_discriminator"
+  },
+  {
+   "d045_number": 15,
+   "d045_key": "forest-X4",
+   "case_id": "forest_fragmentation_resilience",
+   "node_id": "X4",
+   "review_id": "GP1-forest_fragmentation_resilience-X4",
+   "human_primary_category": "compatible_non_discriminative"
+  },
+  {
+   "d045_number": 16,
+   "d045_key": "forest-X5",
+   "case_id": "forest_fragmentation_resilience",
+   "node_id": "X5",
+   "review_id": "GP1-forest_fragmentation_resilience-X5",
+   "human_primary_category": "compatible_non_discriminative"
+  },
+  {
+   "d045_number": 17,
+   "d045_key": "gcn4-X5",
+   "case_id": "gcn4_med15_complex_vs_condensate",
+   "node_id": "X5",
+   "review_id": "GP1-gcn4_med15_complex_vs_condensate-X5",
+   "human_primary_category": "compatible_non_discriminative"
+  },
+  {
+   "d045_number": 18,
+   "d045_key": "glnbp-X15",
+   "case_id": "glnbp_induced_fit_vs_conformational_selection",
+   "node_id": "X15",
+   "review_id": "GP1-glnbp_induced_fit_vs_conformational_selection-X15",
+   "human_primary_category": "generic_component_fact"
+  },
+  {
+   "d045_number": 19,
+   "d045_key": "pfc_storage_vs_control-X15",
+   "case_id": "pfc_storage_vs_control",
+   "node_id": "X15",
+   "review_id": "GP1-pfc_storage_vs_control-X15",
+   "human_primary_category": "evidence_construct_mismatch"
+  },
+  {
+   "d045_number": 20,
+   "d045_key": "pfc_storage_vs_control-X24",
+   "case_id": "pfc_storage_vs_control",
+   "node_id": "X24",
+   "review_id": "GP1-pfc_storage_vs_control-X24",
+   "human_primary_category": "genuine_discriminator"
+  },
+  {
+   "d045_number": 21,
+   "d045_key": "eukaryogenesis-X24",
+   "case_id": "eukaryogenesis_mito_timing",
+   "node_id": "X24",
+   "review_id": "GP1-eukaryogenesis_mito_timing-X24",
+   "human_primary_category": "generic_component_fact"
+  },
+  {
+   "d045_number": 22,
+   "d045_key": "glnbp-X8",
+   "case_id": "glnbp_induced_fit_vs_conformational_selection",
+   "node_id": "X8",
+   "review_id": "GP1-glnbp_induced_fit_vs_conformational_selection-X8",
+   "human_primary_category": "generic_component_fact"
+  },
+  {
+   "d045_number": 23,
+   "d045_key": "glnbp-X9",
+   "case_id": "glnbp_induced_fit_vs_conformational_selection",
+   "node_id": "X9",
+   "review_id": "GP1-glnbp_induced_fit_vs_conformational_selection-X9",
+   "human_primary_category": "genuine_discriminator"
+  },
+  {
+   "d045_number": 24,
+   "d045_key": "pfc_storage_vs_control-X14",
+   "case_id": "pfc_storage_vs_control",
+   "node_id": "X14",
+   "review_id": "GP1-pfc_storage_vs_control-X14",
+   "human_primary_category": "evidence_construct_mismatch"
+  },
+  {
+   "d045_number": 25,
+   "d045_key": "glnbp-X6",
+   "case_id": "glnbp_induced_fit_vs_conformational_selection",
+   "node_id": "X6",
+   "review_id": "GP1-glnbp_induced_fit_vs_conformational_selection-X6",
+   "human_primary_category": "generic_component_fact"
+  },
+  {
+   "d045_number": 26,
+   "d045_key": "pfc_storage_vs_control-X3",
+   "case_id": "pfc_storage_vs_control",
+   "node_id": "X3",
+   "review_id": "GP1-pfc_storage_vs_control-X3",
+   "human_primary_category": "compatible_non_discriminative"
+  },
+  {
+   "d045_number": 27,
+   "d045_key": "eukaryogenesis-X2",
+   "case_id": "eukaryogenesis_mito_timing",
+   "node_id": "X2",
+   "review_id": "GP1-eukaryogenesis_mito_timing-X2",
+   "human_primary_category": "silence_as_null_error"
+  },
+  {
+   "d045_number": 28,
+   "d045_key": "eukaryogenesis-X10",
+   "case_id": "eukaryogenesis_mito_timing",
+   "node_id": "X10",
+   "review_id": "GP1-eukaryogenesis_mito_timing-X10",
+   "human_primary_category": "generic_component_fact"
+  },
+  {
+   "d045_number": 29,
+   "d045_key": "eukaryogenesis-X12",
+   "case_id": "eukaryogenesis_mito_timing",
+   "node_id": "X12",
+   "review_id": "GP1-eukaryogenesis_mito_timing-X12",
+   "human_primary_category": "generic_component_fact"
+  },
+  {
+   "d045_number": 30,
+   "d045_key": "eukaryogenesis-X22",
+   "case_id": "eukaryogenesis_mito_timing",
+   "node_id": "X22",
+   "review_id": "GP1-eukaryogenesis_mito_timing-X22",
+   "human_primary_category": "generic_component_fact"
+  },
+  {
+   "d045_number": 31,
+   "d045_key": "forest-X23",
+   "case_id": "forest_fragmentation_resilience",
+   "node_id": "X23",
+   "review_id": "GP1-forest_fragmentation_resilience-X23",
+   "human_primary_category": "silence_as_null_error"
+  },
+  {
+   "d045_number": 32,
+   "d045_key": "spider-X12",
+   "case_id": "spider_orb_web_origin",
+   "node_id": "X12",
+   "review_id": "GP1-spider_orb_web_origin-X12",
+   "human_primary_category": "generic_component_fact"
+  },
+  {
+   "d045_number": 33,
+   "d045_key": "forest-X24",
+   "case_id": "forest_fragmentation_resilience",
+   "node_id": "X24",
+   "review_id": "GP1-forest_fragmentation_resilience-X24",
+   "human_primary_category": "silence_as_null_error"
+  },
+  {
+   "d045_number": 34,
+   "d045_key": "glnbp-X17",
+   "case_id": "glnbp_induced_fit_vs_conformational_selection",
+   "node_id": "X17",
+   "review_id": "GP1-glnbp_induced_fit_vs_conformational_selection-X17",
+   "human_primary_category": "compatible_non_discriminative"
+  },
+  {
+   "d045_number": 35,
+   "d045_key": "pfc_storage_vs_control-X13",
+   "case_id": "pfc_storage_vs_control",
+   "node_id": "X13",
+   "review_id": "GP1-pfc_storage_vs_control-X13",
+   "human_primary_category": "evidence_construct_mismatch"
+  },
+  {
+   "d045_number": 36,
+   "d045_key": "forest-X15",
+   "case_id": "forest_fragmentation_resilience",
+   "node_id": "X15",
+   "review_id": "GP1-forest_fragmentation_resilience-X15",
+   "human_primary_category": "invalid_or_weak_implication"
+  },
+  {
+   "d045_number": 37,
+   "d045_key": "gcn4-X18",
+   "case_id": "gcn4_med15_complex_vs_condensate",
+   "node_id": "X18",
+   "review_id": "GP1-gcn4_med15_complex_vs_condensate-X18",
+   "human_primary_category": "generic_component_fact"
+  },
+  {
+   "d045_number": 38,
+   "d045_key": "gcn4-X23",
+   "case_id": "gcn4_med15_complex_vs_condensate",
+   "node_id": "X23",
+   "review_id": "GP1-gcn4_med15_complex_vs_condensate-X23",
+   "human_primary_category": "generic_component_fact"
+  },
+  {
+   "d045_number": 39,
+   "d045_key": "gcn4-X9",
+   "case_id": "gcn4_med15_complex_vs_condensate",
+   "node_id": "X9",
+   "review_id": "GP1-gcn4_med15_complex_vs_condensate-X9",
+   "human_primary_category": "silence_as_null_error"
+  },
+  {
+   "d045_number": 40,
+   "d045_key": "spider-X11",
+   "case_id": "spider_orb_web_origin",
+   "node_id": "X11",
+   "review_id": "GP1-spider_orb_web_origin-X11",
+   "human_primary_category": "invalid_or_weak_implication"
+  }
+ ]
+}

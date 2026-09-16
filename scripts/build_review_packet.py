@@ -58,6 +58,11 @@ HIDDEN = ROOT / "benchmark" / "explanatory" / "cases_hidden.json"
 OUT = ROOT / "benchmark" / "review" / "graph_pilot_001"
 
 PACKET_ID = "GP1"
+HUMAN_CATEGORIES = (
+    "genuine_discriminator", "compatible_non_discriminative", "generic_component_fact",
+    "silence_as_null_error", "invalid_or_weak_implication", "evidence_construct_mismatch",
+    "valid_but_historically_uninformative",
+)
 INFLUENCE_TOL = 1e-9          # below this a node did not move any log-odds
 PRIORITY_SHARE = 0.80         # directive: ~80% of total absolute influence
 REPRO_TOL = 1e-6              # normalised scores are stored at full float precision
@@ -443,8 +448,15 @@ def build(run: Path, supplementary: Path) -> Tuple[List[Dict[str, Any]], Dict[st
     attach_audit_metadata(records, run, supplementary)
     assert [r["review_id"] for r in records] == selected_ids, "audit metadata altered selection"
 
+    labels = load_human_labels()
+    by_id = {r["review_id"]: r for r in records}
+    unknown = sorted(set(labels) - set(by_id))
+    if unknown:
+        raise SystemExit("labels for nodes not in the review set: {}".format(unknown))
     for record in records:
         record["human_review"] = blank_human_fields(list(record["case_context"]["hypotheses_as_shown_to_verifier"]))
+        if record["review_id"] in labels:
+            apply_human_label(record, labels[record["review_id"]])
 
     stats = review_statistics(records, case_summary, priority_cut, total, zero_spread_nonzero)
     stats["automated_audit_instability_all_rerated_nodes"] = audit_instability(run, supplementary)
@@ -601,8 +613,42 @@ def blank_human_fields(hypothesis_ids: List[str]) -> Dict[str, Any]:
         ("human_evidence_relevance", None),
         ("human_notes", None),
         ("human_confidence", None),
-        ("reviewer", None),
+        ("human_reviewer", None),
+        ("human_review_source", None),
+        ("human_review_status", None),
     ])
+
+
+def load_human_labels() -> Dict[str, Dict[str, Any]]:
+    """review_id -> label entry, from the mechanically transcribed label files.
+
+    Only fields a label file actually records are filled. D045 recorded one primary
+    category per node, so per-hypothesis predictions and the other judgment fields
+    stay blank rather than being inferred.
+    """
+    labels: Dict[str, Dict[str, Any]] = {}
+    for path in sorted(OUT.glob("human_labels_*.json")):
+        data = _load(path)
+        for entry in data["labels"]:
+            if entry["review_id"] in labels:
+                raise SystemExit("{} labelled twice".format(entry["review_id"]))
+            labels[entry["review_id"]] = dict(entry, _file=data)
+    return labels
+
+
+def apply_human_label(record: Dict[str, Any], entry: Dict[str, Any]) -> None:
+    source = entry["_file"]
+    category = entry["human_primary_category"]
+    if category not in HUMAN_CATEGORIES:
+        raise SystemExit("{}: unknown category {!r}".format(record["review_id"], category))
+    human = record["human_review"]
+    human["human_primary_category"] = category
+    # D045 / BENCH-GRAPH-ATTRIBUTION-001 §3: true only for the named category.
+    human["human_is_genuinely_discriminative"] = category == "genuine_discriminator"
+    human["human_silence_as_null_error"] = category == "silence_as_null_error"
+    human["human_reviewer"] = source["human_reviewer"]
+    human["human_review_source"] = source["human_review_source"]
+    human["human_review_status"] = source["human_review_status"]
 
 
 # --------------------------------------------------------------------------- #
@@ -796,6 +842,17 @@ def render_node(r: Dict[str, Any], heading: str) -> List[str]:
     add("- disagreement flags: {}".format(dict(audit["disagreement"])))
     add("</details>")
     add("")
+    human = r["human_review"]
+    if human["human_primary_category"]:
+        add("**Human review** — `{}` · reviewer: {} · source: {} · status: `{}` · genuinely discriminative: {} · "
+            "silence-as-null error: {} · other fields not recorded".format(
+                human["human_primary_category"], human["human_reviewer"], human["human_review_source"],
+                human["human_review_status"], human["human_is_genuinely_discriminative"],
+                human["human_silence_as_null_error"]))
+        add("")
+        add("---")
+        add("")
+        return L
     add("**Human review** (blank) — `human_primary_category`: ☐ genuine_discriminator ☐ compatible_non_discriminative "
         "☐ generic_component_fact ☐ silence_as_null_error ☐ invalid_or_weak_implication "
         "☐ evidence_construct_mismatch ☐ valid_but_historically_uninformative · prediction per hypothesis: {} · "
