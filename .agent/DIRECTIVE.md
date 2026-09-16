@@ -1,556 +1,319 @@
-# DIRECTIVE — BENCH-GRAPH-PILOT-001
+# DIRECTIVE — BENCH-GRAPH-REVIEW-001
 
 ## Objective
-Integrate the frozen eight-case explanatory-hypothesis benchmark tranche below into the existing `kasia-kobalczyk/hypothesis_verification` experiment framework and run the existing agentic consequence-graph verifier as a diagnostic pilot.
+Prepare the completed eight-case explanatory-benchmark graph pilot for rigorous human scientific review **without modifying the verifier**.
 
-Scientific question:
+The immediate goal is to identify, preserve, and package the score-moving graph propositions so the Research Director can manually adjudicate whether each proposition represents:
 
-> Does the existing “what else should be true?” consequence-graph pipeline behave more appropriately on genuine competing explanations of the same phenomenon than it did on ResearchBench-style parallel research proposals?
+1. a genuine discriminating consequence;
+2. a generic/component fact;
+3. an invalid or weak implication;
+4. a silence-as-null / manufactured-opposition error;
+5. or another clearly documented category.
 
-This is a method-diagnosis experiment, not a tuning exercise and not a benchmark-scale performance claim.
-
----
-
-# PART I — SOURCE-OF-TRUTH BENCHMARK MANIFEST
-
-The eight items below are FROZEN. Do not rediscover, rename, sharpen, replace, or reformulate the scientific alternatives except for purely mechanical serialization. If a bibliographic field needs verification, verify the metadata but do not change the scientific meaning. If something appears inconsistent, report it as a blocker rather than silently repairing it.
-
-For each case, fields under **VERIFIER-VISIBLE** may be materialized into the verifier input. Fields under **HIDDEN EVALUATION ANNOTATIONS** must be stored separately and must never enter graph generation, retrieval queries, evidence-assessment prompts, aggregation inputs, or any other verifier context.
-
-## CASE 1 — `pfc_storage_vs_control`
-
-### VERIFIER-VISIBLE
-**Domain:** systems/cognitive neuroscience
-
-**Phenomenon:** What causal role does lateral prefrontal cortex, particularly superior precentral sulcus (sPCS), play in visual working memory: direct storage of mnemonic content or top-down control/prioritization of representations stored elsewhere?
-
-**Cutoff:** `2024-01-01`
-
-**H1 — PFC storage account:**
-Prefrontal persistent activity is itself a substrate for working-memory storage; disrupting the relevant PFC population therefore disrupts the stored mnemonic representation.
-
-Pre-cutoff source anchors:
-- Riley & Constantinidis (2016), review of PFC working-memory storage/persistent-activity accounts.
-- Classical PFC persistent-activity/storage literature cited therein.
-
-**H2 — PFC top-down control account:**
-PFC primarily controls, prioritizes, or allocates resources to working-memory representations maintained in sensory/posterior regions rather than directly storing the mnemonic content itself.
-
-Pre-cutoff source anchors:
-- Curtis & D'Esposito (2003).
-- D'Esposito & Postle (2015).
-- Serences (2016) and related pre-cutoff control/resource-allocation literature.
-
-### HIDDEN EVALUATION ANNOTATIONS
-Reference discriminators:
-- Perturbing a true storage substrate should ordinarily degrade the stored memory representation.
-- Under the resource-control account, disrupting prioritization can counterintuitively improve low-priority items by redistributing limited mnemonic resources more evenly.
-- Priority allocation itself should become more even after disrupting a control locus.
-
-Resolver:
-- Hallenbeck et al., bioRxiv v1 posted `2024-05-12`, DOI `10.1101/2024.05.11.593696`.
-- Journal: Journal of Neuroscience 2025, DOI `10.1523/JNEUROSCI.1552-24.2025`.
-
-Resolving observations:
-- Retinotopically guided sPCS TMS selectively improved low-priority-item memory and reduced prioritization rather than causing a general degradation of mnemonic quality.
-- IPS stimulation did not show the same pattern.
-
-Reference resolution: `favored` — top-down resource-control account favored over a simple storage account.
-
-Leakage note: no effectively equivalent pre-2024 public TMS result showing the counterintuitive low-priority improvement was located. A companion resource-allocation preprint was also first posted on 2024-05-12.
+This task is **forensic preparation only**. Do not tune or change the consequence generator, edge assessor, evidence assessor, priors, mappings, aggregation, retrieval, or prompts.
 
 ---
 
-## CASE 2 — `gcn4_med15_complex_vs_condensate`
+## Context
+The completed eight-case pilot showed:
+- substantially more contrastive graph structure than the historical ResearchBench reserve;
+- meaningful recovery of hidden scientific discriminators;
+- but a large apparent failure mode in which propositions generated from one hypothesis were scored directionally against hypotheses that may simply be silent about them.
 
-### VERIFIER-VISIBLE
-**Domain:** molecular/cell biology; transcriptional regulation
+The current post-hoc LLM auditor is useful diagnostically but is not authoritative enough to serve as scientific ground truth.
 
-**Phenomenon:** How does the Gcn4 activation domain engage Mediator subunit Med15 to drive transcriptional activation: through soluble dynamic/fuzzy complexes, transcriptional condensates/co-phase-separation, or some relationship between the two?
+We therefore need a compact, reproducible, human-reviewable packet derived from the **already frozen pilot run**.
 
-**Cutoff:** `2024-01-01`
-
-**H1 — soluble-complex/fuzzy-binding mechanism:**
-Gcn4 activation domains activate transcription through dynamic multivalent contacts with Med15 activation-binding domains in soluble complexes; transcriptional activity should therefore track productive Gcn4–Med15 molecular binding/affinity even outside a condensed phase.
-
-Pre-cutoff source anchors:
-- Tuttle et al., Cell Reports (2018), Gcn4/Med15 dynamic multivalent binding.
-- Earlier and subsequent pre-2024 fuzzy-complex work on Gcn4–Med15.
-
-**H2 — condensate/co-phase-separation mechanism:**
-Gcn4 activation domains can activate transcription through phase-separation capacity and co-condensation with Mediator/Med15; transcriptional output should therefore track co-phase-separation/Med15 recruitment into condensates under the proposed condensate mechanism.
-
-Pre-cutoff source anchors:
-- Boija et al., Cell (2018), transcription-factor activation domains and phase separation/condensation with Mediator.
-- Subsequent pre-2024 transcriptional-condensate literature involving Gcn4/Med15.
-
-### HIDDEN EVALUATION ANNOTATIONS
-Reference discriminators:
-- Soluble-complex model: activity should track soluble Gcn4–Med15 binding/affinity under non-condensed conditions.
-- Condensate model: activity should track co-condensation/Med15 recruitment; prevailing DNA-scaffolded condensate framing also expected multivalent DNA binding to facilitate condensation.
-- Strong condensation need not monotonically enhance transcription if condensates and soluble complexes are coupled but functionally non-equivalent.
-
-Resolver:
-- Bremer et al., bioRxiv v1 posted `2024-11-22`, DOI `10.1101/2024.11.21.624739`.
-- Molecular Cell 2025, DOI `10.1016/j.molcel.2025.06.008`.
-
-Resolving observations:
-- Homotypic Gcn4 condensation propensity alone poorly predicted activity.
-- DNA binding suppressed Gcn4 phase separation.
-- Soluble Med15 binding and co-condensation propensity largely covaried.
-- At strongest affinities, excess condensation was associated with lower-than-expected activity.
-
-Reference resolution: `mixed` / `reconciliatory` — soluble complexes and condensates are coupled routes; neither simple exclusive account is sufficient, and strong condensation can attenuate activity.
-
-Leakage note: no effectively equivalent pre-2024 head-to-head Gcn4/Med15 result was located.
+Treat the eight pilot cases as spent for method tuning. Do not rerun them with changed settings.
 
 ---
 
-## CASE 3 — `eukaryogenesis_mito_timing`
+# PART I — PRESERVE THE EXACT PILOT STATE
 
-### VERIFIER-VISIBLE
-**Domain:** evolutionary cell biology / eukaryogenesis
+## 1. Identify the exact completed run
+Locate the completed eight-case pilot run and all associated artifacts.
 
-**Phenomenon:** During the evolutionary assembly of the eukaryotic cell, did mitochondrial endosymbiosis occur early and enable most subsequent eukaryotic complexity, or did substantial cellular complexity evolve in the archaeal host before mitochondrial acquisition?
+Expected run family:
+- `runs/pilot_explanatory_001`
 
-**Cutoff:** `2025-01-01`
+Verify the exact path rather than assuming it.
 
-**H1 — mitochondria-early scenarios:**
-Mitochondrial acquisition was an initiating/foundational event that preceded or enabled much of later eukaryotic cellular complexity; major eukaryote-specific cellular systems should therefore largely elaborate after mitochondrial acquisition.
+Record:
+- run ID / directory;
+- timestamp(s);
+- model/provider configuration for each API-backed role;
+- repository HEAD at time of preservation;
+- whether the original run was produced from a dirty working tree;
+- any local uncommitted files that materially affected the run;
+- environment/config files relevant to reproducibility.
 
-Pre-cutoff source anchors:
-- Long-standing mitochondria-early eukaryogenesis models, including Martin-type syntrophic/hydrogen scenarios and reviews classifying mitochondria-early models.
+## 2. Preserve artifacts before doing anything else
+The executor report indicated that the full run may live under gitignored `runs/` and that the original run manifest did not capture a git commit.
 
-**H2 — mitochondria-intermediate/late, complex-host scenarios:**
-Substantial eukaryotic cellular machinery—including cytoskeletal, membrane-remodelling/trafficking, endomembrane, phagocytic, and nuclear-associated complexity—evolved before mitochondrial acquisition in an already complex archaeal host.
+Before analysis:
+- copy or archive the complete forensic run artifacts into a durable repository-tracked or otherwise explicitly preserved location;
+- do not overwrite or regenerate the original artifacts;
+- compute checksums for the preserved archive or key files;
+- document the mapping from original path to preserved path;
+- commit any code/config state needed to reproduce the analysis tooling.
 
-Pre-cutoff source anchors:
-- Pre-2024/2025 reviews explicitly distinguishing mitochondria-early from mitochondria-late/intermediate models.
-- 2015 review literature describing mitochondria-late hypotheses.
+If exact source reconstruction of the original dirty working tree is impossible, state that clearly and preserve everything that remains available.
 
-### HIDDEN EVALUATION ANNOTATIONS
-Reference discriminators:
-- Relative timing of pre-LECA duplications associated with cytoskeleton, membrane trafficking, endomembranes, phagocytosis, and nucleus versus mitochondrial acquisition.
-- Mitochondria-early predicts these major elaborations should predominantly postdate mitochondrial acquisition.
-- Complex-host/late-mitochondrion predicts substantial elaboration before mitochondrial acquisition.
-
-Resolver:
-- Nature article DOI `10.1038/s41586-025-09808-z`, first published online `2025-12-03`.
-- Associated code/data publicly released `2025-10-21/22`; treat this as earliest located effective public release.
-
-Resolving observations:
-- Relaxed-clock dating of pre-LECA duplications placed elaboration of cytoskeleton, membrane trafficking, endomembrane, phagocytic machinery, and nucleus before mitochondrial endosymbiosis.
-
-Reference resolution: `favored` — rejects mitochondria-early scenarios and favors a complexified archaeal host with later mitochondrial acquisition, while not mapping perfectly onto every previously proposed late/intermediate scenario.
-
-Leakage note:
-- A Bristol MScR thesis awarded `2024-10-01` used related pre-LECA duplication timing but concluded in favor of a mitochondria-early scenario. Treat this as contrary pre-cutoff evidence demonstrating the dispute remained live, not leakage of the later result.
-- No pre-2025 public preprint/abstract with the later CALM/complex-archaeon-late-mitochondrion result was located.
+Do **not** rerun the verifier merely to make the artifacts cleaner.
 
 ---
 
-## CASE 4 — `pfc_interhemispheric_architecture`
+# PART II — EXTRACT THE HUMAN REVIEW SET
 
-### VERIFIER-VISIBLE
-**Domain:** systems/cognitive neuroscience
+## 3. Define score-moving propositions from the frozen run
+Using the frozen pilot artifacts, identify all generated proposition nodes that have non-negligible influence on final hypothesis comparison.
 
-**Phenomenon:** How do the two prefrontal hemispheres organize spatial working-memory representations across the visual field: as largely specialized/contralateral resources or as redundant/shared bilateral representations?
+Prefer to reuse the influence/contribution calculations already produced by the pilot analysis if they are available.
 
-**Cutoff:** `2024-12-01`
+At minimum produce:
 
-**H1 — specialized/lateralized architecture:**
-The hemispheres provide largely independent working-memory resources with a contralateral bias and selective interhemispheric transfer; bilateral-field advantages arise from partly separate capacity pools.
+### A. Full score-moving set
+All nodes whose evidence/edge contributions changed any hypothesis log-odds / score relative to the no-node baseline or otherwise affected ranking/support under the existing aggregation.
 
-Pre-cutoff source anchors:
-- Bilateral-field-advantage literature.
-- Macaque electrophysiology showing stronger within-hemifield competition and contralateral organization.
-- Pre-cutoff literature supporting hemisphere-specific storage.
+### B. High-influence subset
+A compact subset explaining approximately 80% of total absolute score influence across the eight cases.
 
-**H2 — redundant/shared bilateral architecture:**
-Working-memory representations can be carried by both hemispheres, providing robustness to unilateral disruption at some cost in duplicated capacity/precision.
+The previous executor summary suggested roughly:
+- ~78 score-moving nodes total;
+- ~40 nodes accounting for ~80% of influence.
 
-Pre-cutoff source anchors:
-- Unilateral-vs-bilateral perturbation results and shared-storage interpretations.
-- A Cerebral Cortex paper published `2024-11-14` explicitly described the live uncertainty as hemisphere-specific versus shared internal memory storage.
+Do not force those counts if the actual frozen artifacts differ. Recompute transparently from source artifacts and report exact counts.
 
-### HIDDEN EVALUATION ANNOTATIONS
-Reference discriminators:
-- Specialized architecture: predominantly contralateral behavioral relevance; more independent hemisphere-specific storage; capacity advantage from separate pools.
-- Redundant architecture: either hemisphere can carry behaviorally useful information about both visual fields; greater robustness to unilateral disruption; duplicated representations trade capacity for robustness/precision.
-- Cross-hemisphere decoding-error correlations and hemisphere-local serial dependence distinguish aspects of redundancy versus independence.
+## 4. Do not pre-filter by the old LLM auditor
+The human packet must not contain only nodes already labeled “manufactured” or “genuine” by the automated auditor.
 
-Resolver:
-- Tschiersch et al., bioRxiv first posted `2025-01-16`, DOI `10.1101/2025.01.15.633176`.
-- Nature Communications, published `2026-07-20`, DOI `10.1038/s41467-026-75705-2`.
+Selection must be based on score influence / structural relevance from the frozen verifier output, not on the post-hoc auditor’s scientific judgment.
 
-Resolving observations:
-- Both hemispheres predicted behavioral imprecision across the visual field.
-- Decoding errors were weakly correlated.
-- Serial-dependence effects remained local within hemispheres.
-- Network simulations showed redundancy can improve low-load robustness/precision, while lateralized inputs increase capacity under higher load.
-
-Reference resolution: `regime_dependent` / `reconciliatory` — redundant weakly coupled architecture at low demand with specialization/capacity benefits emerging under greater demand.
-
-Leakage note: no equivalent pre-cutoff simultaneous bilateral-PFC analysis with the later reconciliation was located.
+The old auditor labels may be included as **non-authoritative metadata** for comparison, but they must not determine which nodes are reviewed.
 
 ---
 
-## CASE 5 — `glnbp_induced_fit_vs_conformational_selection`
+# PART III — BUILD THE REVIEW PACKET
 
-### VERIFIER-VISIBLE
-**Domain:** molecular biophysics / protein-ligand binding
+## 5. Create one machine-readable record per review node
+For every node in the full score-moving set, create a structured record containing enough context for an independent human scientific judgment.
 
-**Phenomenon:** How is glutamine binding coupled to the open-to-closed conformational transition of E. coli glutamine-binding protein (GlnBP)?
+Required fields:
 
-**Cutoff:** `2024-01-01`
-
-**H1 — conformational selection:**
-Apo-GlnBP samples a pre-existing binding-competent closed or semi-closed conformation; glutamine preferentially binds/captures that pre-existing conformation.
-
-Pre-cutoff source anchors:
-- Wang et al., Angewandte Chemie International Edition (2016), PMID `27730716`, combining NMR, MD, and smFRET and explicitly suggesting conformational selection from the apo ensemble.
-
-**H2 — induced fit:**
-Glutamine binds to open/binding-competent GlnBP before the major protein conformational rearrangement, after which GlnBP closes around the ligand.
-
-Pre-cutoff source anchors:
-- Classical interpretation of open apo versus closed holo structures.
-- Chen et al., Communications Biology (2020), PMID `32747735`, proposing a hybrid pathway with initial conformational selection followed by induced fit, demonstrating that mechanism remained unsettled.
-
-### HIDDEN EVALUATION ANNOTATIONS
-Reference discriminators:
-- Conformational selection requires apo-GlnBP to populate/exchange into a ligand-binding-competent closed/semi-closed state on a timescale compatible with binding.
-- Induced fit does not require detectable pre-existing apo closed-state exchange; ligand binding can precede the major closure.
-- Global relationships among conformational-exchange rates, ligand-association kinetics, and equilibrium populations differ between mechanisms.
-
-Resolver:
-- eLife reviewed preprint v1, DOI `10.7554/eLife.95304.1`, first public `2024-03-25`.
-- Later revisions 2025-11-21; version of record 2026-06-02.
-
-Resolving observations:
-- No detectable apo or holo exchange between open and (semi-)closed conformations over roughly 100 ns–10 ms.
-- Ligand binding tightly correlated with conformational change.
-- Global analysis made conformational selection compatible only with an extreme unobserved exchange faster than ~100 ns, while induced fit remained compatible with all observations.
-
-Reference resolution: `favored` — induced fit is the dominant mechanism over experimentally accessible timescales.
-
-Leakage note: no effectively equivalent pre-2024 integrated kinetic/thermodynamic result ruling out conformational selection over the accessible timescale was located.
-
----
-
-## CASE 6 — `spider_orb_web_origin`
-
-### VERIFIER-VISIBLE
-**Domain:** evolutionary biology / comparative genomics
-
-**Phenomenon:** Why do distantly related cribellate and ecribellate spider lineages share orb-weaving behavior: inheritance from an ancient orb-weaving ancestor followed by repeated losses, or repeated independent/convergent origins?
-
-**Cutoff:** `2026-01-01`
-
-**H1 — ancient single origin with repeated losses:**
-Orb-weaving evolved in an ancient common ancestor; descendant non-orb-weaving lineages repeatedly lost orb-associated traits and molecular functions.
-
-Pre-cutoff source anchors:
-- Coddington et al., PeerJ (2019), arguing that spiders repeatedly lost rather than repeatedly gained foraging webs and recovering an ancient orb-origin reconstruction under their preferred coding/model.
-
-**H2 — repeated convergent/independent origins:**
-Cribellate and ecribellate orb webs arose independently/repeatedly in separate lineages through convergent evolution.
-
-Pre-cutoff source anchors:
-- Fernández et al., Current Biology (2018), supporting repeated/convergent origins.
-- Kallal et al., Cladistics, first online 2020 / issue 2021, rejecting a single origin and recovering multiple convergent orb origins.
-
-### HIDDEN EVALUATION ANNOTATIONS
-Reference discriminators:
-- Ancient-origin/loss predicts orb-associated genes inherited from a common ancestor should show relaxed selection and/or gene loss in descendant lineages that lost orb-weaving.
-- Convergent-origin predicts orb-associated genes should show convergent positive selection in independently orb-weaving lineages.
-
-Resolver:
-- Runnels, Miller & Gordus, bioRxiv posted `2026-04-01`, DOI `10.64898/2026.03.30.715290`.
-
-Resolving observations:
-- 491 genes showed relaxed selection in non-orb-weavers, consistent with ancestral orb-associated functions followed by loss.
-- 96 genes showed positive selection associated with orb-weaving, consistent with convergent evolution.
-- Additional orb-correlated gene loss/duplication patterns were found.
-
-Reference resolution: `component_wise` / `mixed` — different components of modern orb-weaving likely have different evolutionary histories, some ancestral and lost, some convergent, others subsequently elaborated.
-
-Leakage note: targeted searches found no pre-2026 conference abstract/preprint/indexed result from this study. A public GitHub analysis repository exists now; repository history should be rechecked before final release to ensure no pre-2026 discriminating result was publicly available.
-
----
-
-## CASE 7 — `forest_fragmentation_resilience`
-
-### VERIFIER-VISIBLE
-**Domain:** forest ecology / global change biology
-
-**Phenomenon:** How does forest fragmentation affect vegetation resilience to disturbance, and why can fragmented forests exhibit either degradation or enhanced growth/recovery depending on context?
-
-**Cutoff:** `2024-01-01`
-
-**H1 — edge-stress/degradation mechanism:**
-Fragmentation increases exposure to heat, atmospheric dryness, wind, and drought stress, raising mortality and reducing ecosystem resilience, especially where water/heat stress dominates.
-
-Pre-cutoff source anchors:
-- Koelemeijer et al., Ecological Applications (2023), drought-amplified edge effects.
-- Nunes et al., Nature Communications (2023), hotter/drier edge environments and biomass loss in Amazon fragments.
-
-**H2 — resource-release/productivity mechanism:**
-Edge formation can increase light availability and relax limiting-resource constraints, increasing growth, biomass, recovery capacity, and potentially resilience where climatic stress penalties are small enough.
-
-Pre-cutoff source anchors:
-- Morreale et al., Nature Communications (2021), reporting 36% higher growth and 24% higher biomass at temperate forest edges and attributing the effect largely to greater light availability/release from limiting constraints.
-- Related pre-cutoff European temperate-edge work reporting increased carbon stocks near edges.
-
-### HIDDEN EVALUATION ANNOTATIONS
-Reference discriminators:
-- Edge-stress account predicts fragmentation should covary with hotter/drier local microclimate and lower resilience where heat/water stress dominates.
-- Resource-release account predicts fragmentation can increase light/resource availability and increase growth/recovery/resilience where stress penalties are weak.
-- If both are real, the sign of fragmentation-resilience association should vary systematically by biome and covary with microclimate/resource differences.
-
-Resolver:
-- Nature Ecology & Evolution article DOI `10.1038/s41559-025-02776-7`, published `2025-07-08`.
-- Earliest located study-specific public material: Zenodo code deposit `2025-05-22`, DOI `10.5281/zenodo.15488956`.
-- Article received 2024-08-27; no preprint was located.
-
-Resolving observations:
-- Significant fragmentation-resilience relationship in ~77% of fragmented forests with opposite signs by biome.
-- Tropical and temperate forests: fragmentation associated with increased local temperature/atmospheric dryness and lower resilience.
-- Boreal forests: fragmentation associated with decreased atmospheric dryness, enhanced light resources, and higher resilience.
-
-Reference resolution: `regime_dependent` — both mechanisms operate, with dominance depending on biome/environmental context.
-
-Leakage note: no equivalent global biome-resolved fragmentation-resilience result was located before cutoff.
-
----
-
-## CASE 8 — `fly_wing_constraint_vs_selection`
-
-### VERIFIER-VISIBLE
-**Domain:** evolutionary quantitative genetics / macroevolution
-
-**Phenomenon:** Why does developmental/mutational/standing genetic variation in fly wing shape align strongly with macroevolutionary divergence over tens to hundreds of millions of years?
-
-**Cutoff:** `2025-01-01`
-
-**H1 — developmental/genetic constraint / line-of-least-resistance account:**
-Macroevolution preferentially proceeds along directions of abundant developmental/genetic variation because the structure of available variation constrains which phenotypic directions can evolve readily.
-
-Pre-cutoff source anchors:
-- Houle et al., Nature (2017), explicitly discussing developmental/genetic constraint and lines of least resistance for fly-wing evolution.
-
-**H2 — correlational-selection/common-fitness-surface account:**
-Persistent correlational/stabilizing selection shapes developmental and mutational covariance; developmental bias and long-term divergence align because both are molded by the same fitness/allometric structure rather than because variation mechanically constrains evolutionary directions.
-
-Pre-cutoff source anchors:
-- Rohner & Berger, PNAS (2023), explicitly presenting correlational selection as an alternative explanation for the observed alignment.
-
-### HIDDEN EVALUATION ANNOTATIONS
-Reference discriminators:
-- Simple constraint account predicts directions with little usable genetic/developmental variation should evolve more slowly.
-- A constraint rescue based on hidden deleterious pleiotropy predicts apparent standing variation in disfavored directions should covary with fitness costs, making that variation effectively unusable.
-- Correlational-selection account predicts substantial usable variation may exist without dictating evolutionary rates; alignment can instead track allometric/fitness structure shaped by selection.
-
-Resolver:
-- bioRxiv DOI `10.1101/2025.01.09.632237`, first public `2025-01-14`.
-- Dryad dataset DOI `10.5061/dryad.08kprr599`, published `2025-01-15`.
-- Nature Ecology & Evolution article DOI `10.1038/s41559-025-02639-1`, published `2025-02-07`.
-
-Resolving observations:
-- Alignment of developmental/standing variation and divergence extends across >900 dipteran taxa and ~185 My.
-- No genetic covariation between wing shape and measured fitness components supporting the hidden-deleterious-pleiotropy rescue of simple constraint.
-- Little evidence that genetic constraint determines macroevolutionary rates.
-- Allometric correlational selection emerges as a plausible common cause of developmental bias and deep divergence.
-
-Reference resolution: `favored` — correlational-selection/common-cause explanation favored over a simple constraint interpretation.
-
-Leakage note: no pre-2025 public version containing the 185-million-year analysis or fitness test was located.
-
----
-
-# PART II — EXECUTION ARCHITECTURE
-
-## Critical assumptions
-- You are the implementation/execution agent, not the scientific verifier.
-- The verifier consists of the repository's existing API-backed agents/models.
-- Use the existing `LiteratureSearchService` / `CutoffRegistry` temporal controls. Do not replace them with prompt-only date instructions.
-- Agents must not be able to choose, relax, or override benchmark cutoffs.
-- Hidden annotations above must never enter verifier prompts, retrieval queries, graph generation, evidence assessment, or scoring inputs.
-
-## Step 1 — Inspect and reuse existing repository conventions
-Before changing code:
-1. Inspect current benchmark/data schemas, experiment runner, cutoff registry, consequence-graph implementation, literature-search service, scoring/inference code, and run-artifact/report formats.
-2. Reuse existing abstractions wherever possible.
-3. Do not create a parallel benchmark framework if a small adapter/schema extension is sufficient.
-4. Preserve compatibility with historical ResearchBench experiments and existing artifacts.
-5. Document exact existing paths/components reused.
-
-## Step 2 — Materialize the frozen manifest
-Create repository-native machine-readable records from PART I.
-
-Create two logically and physically separable datasets/artifacts:
-
-### A. verifier-visible benchmark input
-Only:
+### Identity
+- `review_id`
 - `case_id`
-- `domain` if useful to existing schema
-- phenomenon/scientific question
-- exact frozen hypothesis texts
-- frozen cutoff
-- only approved pre-cutoff context if the existing runner requires it
+- `node_id`
+- `origin_hypothesis_id` (if applicable)
+- proposition text exactly as generated
+- proposition abstraction level/type if recorded by the pipeline
 
-### B. hidden evaluation annotations
-- source anchors and bibliographic audit metadata
-- reference consequence/discriminator matrix
-- resolver identifiers/dates
-- resolving observations
-- resolution type/summary
-- leakage audit
-- construction notes
+### Case context
+- phenomenon / scientific question
+- all competing hypothesis texts exactly as shown to the verifier
+- historical cutoff
 
-If source anchors are needed for provenance in the visible file, they may be stored as metadata only, but must not be injected into verifier prompts unless that is already an explicit benchmark design choice. Post-cutoff resolver information must never be exposed.
+### Graph context
+- parent node(s), if any
+- edge path from originating hypothesis/root to the proposition
+- edge labels/strengths along that path
+- cross-hypothesis edge judgments for the proposition against **every** hypothesis
+- whether each hypothesis was the origin of the proposition or only cross-evaluated
 
-Add a hard projection/test proving hidden fields cannot flow into verifier input.
+### Evidence context
+For every evidence item that materially affected the node score:
+- paper title
+- authors/year
+- DOI / PMID / Semantic Scholar ID / URL if available
+- publication/public date used by the cutoff filter
+- retrieved abstract/snippet/span actually shown to the evidence assessor
+- evidence judgment and direction
+- assessor rationale if stored
+- contribution to node / hypothesis score
 
-## Step 3 — Register and test temporal cutoffs
-Use the cutoffs frozen in PART I.
+Do not provide only paper IDs. The reviewer must see the exact textual evidence used by the system.
 
-Before running the verifier, demonstrate that:
-1. search is cutoff-filtered;
-2. citation/reference expansion is cutoff-filtered;
-3. metadata/title/abstract retrieval cannot reintroduce post-cutoff records;
-4. prompt rendering contains no hidden annotations;
-5. resolver DOI/title/identifiers from hidden annotations are absent from verifier context.
+### Score influence
+- node-level contribution to each hypothesis score/log-odds
+- absolute influence measure used for ranking review priority
+- rank among nodes within the case
+- rank globally if useful
+- whether removing this node alone would change case ranking/support ordering, if straightforward to calculate without rerunning the LLM
 
-Do not weaken temporal controls to accommodate any item.
+### Existing automated audit metadata
+Include, clearly labeled as non-authoritative:
+- prior auditor category, if any
+- whether the auditor called the opposition genuine/manufactured/silent
+- second-auditor judgment if available
+- disagreement flag between auditors
 
-## Step 4 — Run existing consequence-graph verifier WITHOUT tuning
-Run all eight items with the pre-existing method.
+### Human-review fields — initially blank
+Include fields to be filled manually:
+- `human_primary_category`
+- `human_prediction_for_each_hypothesis`
+- `human_is_genuinely_discriminative`
+- `human_silence_as_null_error`
+- `human_implication_validity`
+- `human_evidence_relevance`
+- `human_notes`
+- `human_confidence`
 
-Do not change in response to pilot results:
-- prompts;
-- edge/evidence label mappings;
-- priors;
-- aggregation rules;
-- graph depth;
-- retrieval thresholds;
-- proposition abstraction policy;
-- stopping criteria.
+Do not auto-populate the human fields.
 
-Do not use hidden reference consequences before/during graph generation.
-Do not reuse the spent ResearchBench reserve for tuning.
-If only a minimal general code change is required for the new dataset/schema or k>=2 support, make the smallest possible change and document it.
+## 6. Human review categories
+Provide this frozen rubric in the packet documentation.
 
-## Step 5 — Preserve full forensic artifacts
-For each case retain, where supported:
-- exact rendered verifier input;
-- generated propositions/consequence nodes;
-- graph edges and implication judgments;
-- cross-hypothesis evaluations;
-- literature queries;
-- retrieved papers and cutoff metadata;
-- evidence spans/judgments;
-- aggregation inputs;
-- final scores/ranking/support summary;
-- model/provider/configuration identifiers;
-- errors/retries.
+### `genuine_discriminator`
+The proposition is scientifically implied/predicted by at least one hypothesis and the competing hypothesis/hypotheses make a meaningfully different positive prediction or are genuinely inconsistent with it.
 
-## Step 6 — Post-hoc consequence-recovery evaluation
-Only after each run is frozen, compare the generated graph with the hidden reference annotations.
+### `compatible_non_discriminative`
+The proposition may be true or supported, but it does not meaningfully distinguish the candidates.
 
-Classify generated propositions at minimum as:
-1. `reference_discriminator_recovered`
-2. `novel_plausible_discriminator`
-3. `compatible_non_discriminative`
-4. `generic_component_fact`
-5. `invalid_or_unsupported`
-6. `silence_as_null_error`
+### `generic_component_fact`
+The proposition is an abstract/component-level fact that can be supported independently of the distinctive composite explanatory hypothesis and therefore risks recreating the historical component-truth failure.
 
-Cross-evaluate every purported discriminator against all hypotheses. A proposition is not discriminative merely because it was generated from only one hypothesis.
+### `silence_as_null_error`
+A hypothesis does not determine the proposition, but the system assigned it a directional null/opposite/contradictory judgment, thereby manufacturing contrast.
 
-If an automated matcher/judge is used, preserve raw judgments and enough evidence for manual review. Do not tune it on these eight cases.
+### `invalid_or_weak_implication`
+The proposition is not adequately licensed by the originating hypothesis or requires an unstated scientific bridge too large to treat as an implication edge.
 
-## Step 7 — Analyze three capabilities separately
-### A. Consequence discovery
-Did the system independently recover scientifically discriminating consequences analogous to those later used by the resolving science?
+### `evidence_construct_mismatch`
+The evidence span is grounded in the cited source but addresses a different construct/proposition than the node.
 
-Report per-case reference-discriminator coverage and examples of successes/failures.
+### `valid_but_historically_uninformative`
+The discriminator is scientifically valid, but pre-cutoff evidence is absent/non-informative, so it should not materially resolve the hypotheses historically.
 
-### B. Historical evidence discovery
-For useful discriminators, did the system find genuinely relevant pre-cutoff evidence?
+Allow multiple flags where needed, but require one primary category.
 
-Distinguish:
-- no relevant historical evidence exists;
-- retrieval failure;
-- evidence-assessor failure;
-- generic compatibility only;
-- proposition/evidence construct mismatch.
+Important distinction:
+- `silence` is not equivalent to `no change`, `negative`, `unlikely`, or `contradicted`.
+- Do not infer a null prediction unless the hypothesis substantively predicts a baseline/no-effect outcome.
 
-### C. Hypothesis comparison
-Given only pre-cutoff evidence, what did the system conclude?
+---
 
-Compare with hidden later resolution only after the run. Permit:
-- one hypothesis favored;
-- one disfavored;
-- mixed support;
-- regime/component dependence;
-- insufficient evidence.
+# PART IV — CREATE REVIEW VIEWS
 
-Do not force mixed benchmark cases into binary winner labels.
+## 7. Produce two human-readable review artifacts
 
-## Step 8 — Primary interpretation
-Do NOT reduce the pilot to “accuracy out of 8.”
+### A. Full review table/report
+A readable document containing every score-moving node, grouped by case.
 
-Primary questions:
-1. Does the system generate genuinely discriminative consequence profiles more often than on ResearchBench?
-2. Does it still drift toward generic assessable component facts?
-3. Does it manufacture contrast through silence-as-null?
-4. When the right discriminator is generated, can pre-cutoff retrieval find useful evidence?
-5. When final assessment differs from later resolution, is failure attributable to consequence generation, retrieval, evidence relevance, aggregation, or genuinely insufficient historical evidence?
+Each node should show, compactly but completely:
+- proposition;
+- origin hypothesis;
+- cross-hypothesis edge judgments;
+- evidence span(s);
+- node score influence;
+- prior automated audit metadata;
+- blank human-review fields / a stable review ID.
 
-Simple case-level agreement counts may be reported descriptively only.
+### B. High-influence priority packet
+A shorter document containing the subset responsible for ~80% of total absolute score influence.
 
-## Required outputs
-1. Repository-native eight-case verifier-visible dataset.
-2. Separate hidden annotation/evaluation dataset.
-3. Minimal adapter/schema code if needed.
-4. Tests for cutoff enforcement and hidden-field isolation.
-5. One frozen run per case with the existing graph verifier.
-6. Machine-readable post-hoc consequence-recovery analysis.
-7. Human-readable pilot report.
+Order by descending absolute score influence.
 
-Report must include:
-- exact git commit/configuration;
-- model/provider settings by API role;
-- paths to benchmark/run artifacts;
-- per-case cutoff;
-- generated graph summary;
-- consequence-recovery findings;
-- evidence yield/relevance findings;
-- final hypothesis assessment;
-- comparison with hidden later resolution;
-- failure attribution;
-- descriptive aggregate summary;
-- recommendation on whether graph architecture warrants evaluation on a ~20-case benchmark.
+The Research Director should be able to adjudicate the most consequential failure modes without opening raw JSON traces.
 
-## Do not
-- Do not modify/tune the verifier based on these eight outcomes.
-- Do not expose post-cutoff resolver material to verifier context.
-- Do not expose hidden reference consequences before runs are frozen.
-- Do not reuse the spent ResearchBench reserve for tuning.
-- Do not manufacture binary labels for mixed/regime-dependent cases.
-- Do not treat silence as a null prediction.
-- Do not create synthetic competing hypotheses.
-- Do not rewrite the frozen hypotheses to make them easier to distinguish.
-- Do not interpret perturbation stability as calibrated scientific truth probability.
+Preferred formats:
+- Markdown for easy repository review;
+- JSONL/JSON for machine-readable annotations.
 
-## Acceptance criteria
-Complete when:
-1. all eight frozen cases from PART I are materialized exactly in repository-native form;
-2. cutoff enforcement and hidden-annotation isolation are tested;
-3. all eight are run through the pre-existing graph verifier without benchmark-specific tuning;
-4. full forensic artifacts are preserved;
-5. consequence recovery, historical evidence discovery, and final hypothesis comparison are evaluated separately;
-6. the pilot report explains where the method succeeds/fails and whether scaling to the larger benchmark is justified.
+Use repository-native locations such as `reports/`, `benchmark/`, or an existing analysis directory after inspecting conventions. Do not invent a parallel top-level structure unnecessarily.
 
-A low final ranking agreement is not an execution failure. The experiment diagnoses whether correct task semantics change the behavior of the existing consequence-based verification architecture.
+---
+
+# PART V — ADD NON-LLM ANALYSIS UTILITIES ONLY
+
+## 8. Implement deterministic analysis tooling
+It is acceptable and encouraged to add deterministic scripts that:
+- compute node score influence;
+- extract graph/evidence context;
+- generate review JSONL/Markdown;
+- summarize edge-label behavior on silent hypotheses;
+- calculate counterfactual score/ranking after mechanically removing selected nodes.
+
+These scripts must operate on the frozen run artifacts and must **not call an LLM** unless explicitly necessary to reproduce already-existing audit metadata.
+
+Do not add a new scientific classifier or automatic replacement for human judgment in this task.
+
+## 9. Add sanity checks
+Add tests/assertions where practical that verify:
+- every review node maps back to a real frozen-run graph node;
+- score contributions in the review packet reproduce the frozen aggregate within tolerance;
+- evidence spans in the packet are exactly those used by the original assessor;
+- no post-cutoff resolver or hidden benchmark annotation has been introduced into the human packet as if it were verifier evidence;
+- the packet distinguishes verifier output from post-hoc hidden benchmark context.
+
+---
+
+# PART VI — DO NOT MODIFY THE VERIFIER
+
+Do not, in this task:
+- change edge-assessor prompts;
+- change the meaning of `neutral`;
+- add hard silence gates;
+- change evidence-assessor prompts;
+- change edge/evidence ordinal mappings;
+- change aggregation;
+- change priors;
+- change graph generation;
+- change abstraction policy;
+- change retrieval;
+- rerun the eight cases with altered settings;
+- use the eight spent cases to select a fix.
+
+If you discover an obvious implementation bug while extracting artifacts, document it in the report but do not repair the scientific method unless required only to read/preserve the old artifacts.
+
+---
+
+# PART VII — REPORT BACK
+
+Create an executor report containing:
+
+## Preservation
+- exact original run path;
+- preserved/archive path;
+- checksums;
+- git commit(s) created for preservation/analysis tooling;
+- reproducibility limitations, especially any unresolved dirty-working-tree issue.
+
+## Review-set statistics
+- total generated nodes;
+- total score-moving nodes;
+- high-influence subset size covering ~80% of absolute influence;
+- counts by case;
+- counts by edge-label pattern;
+- counts of nodes with one or more hypotheses judged non-neutral despite not originating the proposition, without interpreting that automatically as scientific error.
+
+## Existing auditor comparison
+- counts from prior primary and secondary auditors;
+- disagreement rate;
+- cases where automated audit is especially unstable.
+
+## Paths
+Report exact repository paths for:
+- full machine-readable review set;
+- high-influence review set;
+- human-readable full review report;
+- priority review packet;
+- preservation archive / manifest;
+- deterministic extraction scripts/tests.
+
+## No scientific fix recommendation yet
+You may summarize observed mechanical patterns, but do **not** choose or implement a verifier fix. The next method decision will be based on human review labels supplied after this task.
+
+---
+
+# Acceptance criteria
+This task is complete when:
+1. the exact frozen eight-case pilot artifacts are durably preserved;
+2. all score-moving propositions are extracted into a reproducible machine-readable review set;
+3. a high-influence subset covering roughly 80% of absolute score influence is produced;
+4. each review record contains enough hypothesis, graph, evidence, and score context for manual scientific adjudication;
+5. blank human-label fields and a fixed review rubric are included;
+6. deterministic extraction/influence calculations are reproducible and sanity-checked;
+7. no verifier behavior has been changed and no eight-case rerun has been performed.
+
+The purpose of this directive is to create trustworthy human ground truth about the pilot failure mode before any method modification is attempted.
