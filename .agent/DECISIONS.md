@@ -485,3 +485,78 @@ ACCEPT.
 
 RATIONALE:
 The competing explanatory accounts were explicit before cutoff, address the same observed alignment, generate distinct expectations about fitness covariation and evolutionary-rate limitation, and the decisive analysis first became public after a clean 2025 cutoff.
+
+<!-- relay-decision:a256aef537b9f060bf942325 task_id:BENCH-GRAPH-REVIEW-001 -->
+## D045 — Research Director adjudication of the 40-node high-influence graph-pilot packet
+
+DECISION:
+A first-pass source-grounded adjudication of all 40 priority nodes was completed from the preserved review packet, ignoring the automated auditor labels during the primary scientific judgment. This adjudication is model-based Research Director review, not external domain-expert ground truth.
+
+PRIMARY CATEGORY COUNTS (40 nodes):
+- genuine_discriminator: 4
+- silence_as_null_error: 8
+- generic_component_fact: 14
+- compatible_non_discriminative: 8
+- evidence_construct_mismatch: 3
+- invalid_or_weak_implication: 3
+
+NODE-LEVEL PRIMARY LABELS:
+1 pfc_storage_vs_control-X2 — silence_as_null_error
+2 glnbp-X4 — silence_as_null_error
+3 eukaryogenesis-X7 — invalid_or_weak_implication
+4 glnbp-X11 — silence_as_null_error
+5 gcn4-X3 — generic_component_fact
+6 glnbp-X3 — generic_component_fact
+7 glnbp-X5 — genuine_discriminator
+8 forest-X1 — compatible_non_discriminative
+9 eukaryogenesis-X4 — generic_component_fact
+10 eukaryogenesis-X6 — generic_component_fact
+11 forest-X7 — compatible_non_discriminative
+12 pfc_interhemispheric-X2 — compatible_non_discriminative
+13 fly_wing-X2 — silence_as_null_error
+14 pfc_storage_vs_control-X6 — genuine_discriminator
+15 forest-X4 — compatible_non_discriminative
+16 forest-X5 — compatible_non_discriminative
+17 gcn4-X5 — compatible_non_discriminative
+18 glnbp-X15 — generic_component_fact
+19 pfc_storage_vs_control-X15 — evidence_construct_mismatch
+20 pfc_storage_vs_control-X24 — genuine_discriminator
+21 eukaryogenesis-X24 — generic_component_fact
+22 glnbp-X8 — generic_component_fact
+23 glnbp-X9 — genuine_discriminator
+24 pfc_storage_vs_control-X14 — evidence_construct_mismatch
+25 glnbp-X6 — generic_component_fact
+26 pfc_storage_vs_control-X3 — compatible_non_discriminative
+27 eukaryogenesis-X2 — silence_as_null_error
+28 eukaryogenesis-X10 — generic_component_fact
+29 eukaryogenesis-X12 — generic_component_fact
+30 eukaryogenesis-X22 — generic_component_fact
+31 forest-X23 — silence_as_null_error
+32 spider-X12 — generic_component_fact
+33 forest-X24 — silence_as_null_error
+34 glnbp-X17 — compatible_non_discriminative
+35 pfc_storage_vs_control-X13 — evidence_construct_mismatch
+36 forest-X15 — invalid_or_weak_implication
+37 gcn4-X18 — generic_component_fact
+38 gcn4-X23 — generic_component_fact
+39 gcn4-X9 — silence_as_null_error
+40 spider-X11 — invalid_or_weak_implication
+
+KEY INTERPRETATION:
+The failure is broader than a single silence bug. There are at least four distinct structural problems:
+1. silence converted into directional opposition;
+2. class-level/generalized component facts treated as hypothesis-specific evidence;
+3. one-sided valid predictions scored as if they discriminate despite the competitor being indeterminate;
+4. construct slippage, especially neural representation/decodability being treated as direct evidence of causal storage.
+
+CLEANEST GENUINE DISCRIMINATORS IN PRIORITY SET:
+- GlnBP X5: preferential ligand binding to closed/semi-closed versus open state.
+- PFC storage/control X6: predominance of control/prioritization versus content-specific signals.
+- PFC storage/control X24: lateral PFC task-demand/control signals versus specific memorized sensory features.
+- GlnBP X9: open-to-closed transition triggered by ligand binding versus pre-existing closure/capture.
+
+IMPORTANT NUANCE:
+Several one-sided propositions are scientifically useful evidence for one hypothesis but are not clean deterministic discriminators against a silent alternative. They may eventually become informative under an explicit background-probability/Bayesian model, but the current placeholder neutral mapping is not such a model. Do not automatically discard these propositions; distinguish 'useful one-sided prediction' from 'valid contrast'.
+
+NEXT STEP:
+Before method modification, encode these labels into the review JSONL with per-hypothesis prediction states and evidence-relevance notes, then mechanically recompute score attribution under reviewed categories (without rerunning any LLM). Use a separate development set for any actual verifier fix.
