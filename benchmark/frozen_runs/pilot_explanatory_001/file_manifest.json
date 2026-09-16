@@ -1,0 +1,1045 @@
+[
+ {
+  "path": "run/audit_checks.json",
+  "sha256": "c615187859d4e98c3cd80251577b1211c4d2535b8a4d70cc50813b94ed54e180",
+  "bytes": 4176,
+  "mtime_utc": "2026-09-16T10:04:07Z",
+  "kind": "post_hoc_analysis"
+ },
+ {
+  "path": "run/config.yaml",
+  "sha256": "4ca44cf9aa9a2d54ba34b19550f64d463ca0cb9e20e97c35978f7a1af29d4617",
+  "bytes": 5732,
+  "mtime_utc": "2026-09-15T15:28:51Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/cost_index.json",
+  "sha256": "9d1fa9182909b017db5f7475e051d849dfa7af41b2ab22e34196baa370a896ff",
+  "bytes": 92,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/cost_ledger.jsonl",
+  "sha256": "da20b81cfe4448b39351a07779c90722fd17409e8180066512373747cea71cef",
+  "bytes": 329996,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/events.jsonl",
+  "sha256": "68d4b9d15067e426d710276e6bdcf616435388461218ff7924780d18b50749d1",
+  "bytes": 9089332,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/evidence_analysis_events.jsonl",
+  "sha256": "f9d12fccb8385d479b098d866475509847b8be16c6dfe99adaa371f722be4c1f",
+  "bytes": 1637736,
+  "mtime_utc": "2026-09-16T09:55:59Z",
+  "kind": "post_hoc_analysis"
+ },
+ {
+  "path": "run/evidence_discovery.json",
+  "sha256": "3b736caa44921afbcd44083cb2a73a73f8c7c6a9f516424ff000b8e117a5b88a",
+  "bytes": 309026,
+  "mtime_utc": "2026-09-16T09:55:59Z",
+  "kind": "post_hoc_analysis"
+ },
+ {
+  "path": "run/hypothesis_comparison.json",
+  "sha256": "3e0c643687a15f61269154c4313effcb581d6fd761fa448657639ecf48b471f8",
+  "bytes": 26084,
+  "mtime_utc": "2026-09-16T09:55:59Z",
+  "kind": "post_hoc_analysis"
+ },
+ {
+  "path": "run/instances/eukaryogenesis_mito_timing/edge_judgments.json",
+  "sha256": "3bac128154971f82749e3594f23dba48f6e1ecff90a916fb484f403466436b8a",
+  "bytes": 23900,
+  "mtime_utc": "2026-09-15T15:55:18Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/eukaryogenesis_mito_timing/events.jsonl",
+  "sha256": "8915d90f17951efa9a1123b35eeed8eb45ec9da7ceba6c8ac52d474a874955d5",
+  "bytes": 711131,
+  "mtime_utc": "2026-09-15T15:55:18Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/eukaryogenesis_mito_timing/evidence.json",
+  "sha256": "26c81cb350ef15930ddc9a7b254831fbfdb87e99639ed01bb47c6b2e55b2a17b",
+  "bytes": 43250,
+  "mtime_utc": "2026-09-15T15:55:18Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/eukaryogenesis_mito_timing/graph.json",
+  "sha256": "eae97419ae4112a97ac27a2c5a1667ff05a365a65358e56d22da9074b92fce9d",
+  "bytes": 37518,
+  "mtime_utc": "2026-09-15T15:55:18Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/eukaryogenesis_mito_timing/input.json",
+  "sha256": "7e6501640576e66d257e3e921f0e1ec3caec23433a48db39f9a29f91a9d3d2ae",
+  "bytes": 1587,
+  "mtime_utc": "2026-09-15T15:45:10Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/eukaryogenesis_mito_timing/model_outputs.json",
+  "sha256": "d1b68fdda945ce560786ed7a4e89185dbec118e21e63c09059fa8490e4fb5d24",
+  "bytes": 556118,
+  "mtime_utc": "2026-09-15T15:55:18Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/eukaryogenesis_mito_timing/presentation.json",
+  "sha256": "e5b47e1fee5f20c2f742351603ebd3634ea8a9f7c51f154a2e8838983aeb18d5",
+  "bytes": 240,
+  "mtime_utc": "2026-09-15T15:45:10Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/eukaryogenesis_mito_timing/queries.json",
+  "sha256": "30a5adff5a2542f7218f5d39439c3b761e10fad8cd6b40147c4734a2ed7894ca",
+  "bytes": 23003,
+  "mtime_utc": "2026-09-15T15:55:18Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/eukaryogenesis_mito_timing/report.md",
+  "sha256": "8238fb091855bc9edfa99bcc57a10467b08670cd860b9adc39a934174043df84",
+  "bytes": 39252,
+  "mtime_utc": "2026-09-15T15:55:18Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/eukaryogenesis_mito_timing/result.json",
+  "sha256": "8ed7374980eadf27037b3d15586c4726930920d7e552db46129314a5be0a6848",
+  "bytes": 835,
+  "mtime_utc": "2026-09-15T15:55:18Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/eukaryogenesis_mito_timing/retrieval.json",
+  "sha256": "c547e83801786a261d14a9a99113f920cf5c7b2a721bd0ef3b39d5b9f51055de",
+  "bytes": 2312634,
+  "mtime_utc": "2026-09-15T15:55:18Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/eukaryogenesis_mito_timing/scores.json",
+  "sha256": "4aff3d391ea7653026a82e626848e8e16c8c167ed03ec1c0f504804eade480d2",
+  "bytes": 13354,
+  "mtime_utc": "2026-09-15T15:55:18Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/eukaryogenesis_mito_timing/yield_by_origin.json",
+  "sha256": "83e3751411f01f9f92946218c4e6b0ac325e0e3a88c2e67194c665622d3f80a6",
+  "bytes": 154,
+  "mtime_utc": "2026-09-15T15:55:18Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/fly_wing_constraint_vs_selection/edge_judgments.json",
+  "sha256": "056e2606680bd0c2ff6c37240980427a0fee2c4a451371e1d422b54e04213ae4",
+  "bytes": 25048,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/fly_wing_constraint_vs_selection/events.jsonl",
+  "sha256": "6bda87cdeb9d22acc1c5b8668c79661d50b3e474c5839c68852bc5bebce75be1",
+  "bytes": 677218,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/fly_wing_constraint_vs_selection/evidence.json",
+  "sha256": "ac513dd6f3c5afd6ebff1a2fc282bb5783ee090d8c76cef0c917abbd1f34dea8",
+  "bytes": 30208,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/fly_wing_constraint_vs_selection/graph.json",
+  "sha256": "781cfcdecb1fda49ae70018dde1ed8b6b4c31455a289717b7a9b345bee8b06df",
+  "bytes": 39843,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/fly_wing_constraint_vs_selection/input.json",
+  "sha256": "ac7884e17ae71471d3ec4a5544611f98d4f068afaef22608e0fd242dfdaccf2d",
+  "bytes": 1529,
+  "mtime_utc": "2026-09-15T16:28:06Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/fly_wing_constraint_vs_selection/model_outputs.json",
+  "sha256": "452f4475d57d0e07dada9b6b15d9b31bf67db42ecf0969be1cb4cf7edc69458c",
+  "bytes": 496243,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/fly_wing_constraint_vs_selection/presentation.json",
+  "sha256": "9d549d472177c3943544d050f85ea07208d39b8765d23cbee0a30589d97e740e",
+  "bytes": 252,
+  "mtime_utc": "2026-09-15T16:28:06Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/fly_wing_constraint_vs_selection/queries.json",
+  "sha256": "c32f4d35303885ab1d5d67d8a4d9a3de22cbe0c9a97d41e525572ebd0d408404",
+  "bytes": 24367,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/fly_wing_constraint_vs_selection/report.md",
+  "sha256": "a9f66fadd54dcd32bf7f13551e9495661d3a796510d782efccda0991030af6cf",
+  "bytes": 40804,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/fly_wing_constraint_vs_selection/result.json",
+  "sha256": "aa054d95bec33e88554840a00f83905582ab2a28245ca27b70389a16e71a9979",
+  "bytes": 840,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/fly_wing_constraint_vs_selection/retrieval.json",
+  "sha256": "3cc24a1ac413715815621411ac54cf14c8f7d7c3a9d76a2a8a6181b946154736",
+  "bytes": 2085302,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/fly_wing_constraint_vs_selection/scores.json",
+  "sha256": "3b1085a4b42d7f52555a9f29dd5e3960a7395a5dedb3e7426f194b31989da3a4",
+  "bytes": 13224,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/fly_wing_constraint_vs_selection/yield_by_origin.json",
+  "sha256": "2bcbe8fe75d1ba4871aaad435bfe1bf96a7067f5769690144b8c34728d7e75a2",
+  "bytes": 150,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/forest_fragmentation_resilience/edge_judgments.json",
+  "sha256": "c51a8cd96ff5b4e5766bf9f238c6a1c05f57b6c7f87faf5d25603ce4a488a425",
+  "bytes": 23440,
+  "mtime_utc": "2026-09-15T16:28:06Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/forest_fragmentation_resilience/events.jsonl",
+  "sha256": "499cbd2fd1383d15a9c1927fe1d64787552a3dcd214ca3c8af7c15255faea615",
+  "bytes": 695748,
+  "mtime_utc": "2026-09-15T16:28:06Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/forest_fragmentation_resilience/evidence.json",
+  "sha256": "e798c883e1329fc8c1cffa3822d0d83c97db1f75169a1473191ce3fde013ea47",
+  "bytes": 41214,
+  "mtime_utc": "2026-09-15T16:28:06Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/forest_fragmentation_resilience/graph.json",
+  "sha256": "e655e87b7599e7d1e6ff6810733b2dfb6e0b7d9c92290d3f97e23fecac66655e",
+  "bytes": 37544,
+  "mtime_utc": "2026-09-15T16:28:06Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/forest_fragmentation_resilience/input.json",
+  "sha256": "28a9e3187cdf194981a4d97555890bfa1e523ad01a23a7e636418ffc2bedf885",
+  "bytes": 1433,
+  "mtime_utc": "2026-09-15T16:17:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/forest_fragmentation_resilience/model_outputs.json",
+  "sha256": "083888ffc12cf271e8e8569ba8a349f4b4b1eb269cc9954c7f978f0aee2a1609",
+  "bytes": 546413,
+  "mtime_utc": "2026-09-15T16:28:06Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/forest_fragmentation_resilience/presentation.json",
+  "sha256": "6ee70968e7b47fb1ac7887fd2aa0298d7d88d18305ea108e3d4e69babe83f993",
+  "bytes": 250,
+  "mtime_utc": "2026-09-15T16:17:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/forest_fragmentation_resilience/queries.json",
+  "sha256": "28469b232e1aa6a1a623eef588e0a136a455a2c9e04ec66f09736b9c45288c64",
+  "bytes": 22833,
+  "mtime_utc": "2026-09-15T16:28:06Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/forest_fragmentation_resilience/report.md",
+  "sha256": "0feb049007f97047bc235a8f52d11d3b77303d94fee12f0ef89ecdff3430cf57",
+  "bytes": 39314,
+  "mtime_utc": "2026-09-15T16:28:06Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/forest_fragmentation_resilience/result.json",
+  "sha256": "76e580663b252604f5c1d41d1caf4f7b9cb5e14b774b40449f981700b0bffa8c",
+  "bytes": 841,
+  "mtime_utc": "2026-09-15T16:28:06Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/forest_fragmentation_resilience/retrieval.json",
+  "sha256": "a2425143c02f772bd249ade0c9ffb7addee80b758127fb8badb5c5f19cb71c73",
+  "bytes": 2203438,
+  "mtime_utc": "2026-09-15T16:28:06Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/forest_fragmentation_resilience/scores.json",
+  "sha256": "5c02bec0b557074281d98212b95d53ef7a3eff86097c2d5c5b7ac68af2f2f14e",
+  "bytes": 13321,
+  "mtime_utc": "2026-09-15T16:28:06Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/forest_fragmentation_resilience/yield_by_origin.json",
+  "sha256": "ee211bc7a9b52eccc224b4aaeb76750f93d7ed9e401794ce3901ec9440013318",
+  "bytes": 153,
+  "mtime_utc": "2026-09-15T16:28:06Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/gcn4_med15_complex_vs_condensate/edge_judgments.json",
+  "sha256": "9a00d6477c25e75a498847a23d9cb715c02aea7c75f7ed8da32789768a05c6e4",
+  "bytes": 24234,
+  "mtime_utc": "2026-09-15T15:45:10Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/gcn4_med15_complex_vs_condensate/events.jsonl",
+  "sha256": "37e1112e6db2845c47c20322bfc7e15953d5d3db7aa3177002f7c7cdd0093e4d",
+  "bytes": 696688,
+  "mtime_utc": "2026-09-15T15:45:10Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/gcn4_med15_complex_vs_condensate/evidence.json",
+  "sha256": "2e5a3d8146aa4be76d9542a3d7cda5727b3767cb0cb3a202b06a71bd36d00278",
+  "bytes": 40624,
+  "mtime_utc": "2026-09-15T15:45:10Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/gcn4_med15_complex_vs_condensate/graph.json",
+  "sha256": "3a404999acaa8e452af0f2ae54fe00260bff041898e6ad487fc78799f8e1de7e",
+  "bytes": 38662,
+  "mtime_utc": "2026-09-15T15:45:10Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/gcn4_med15_complex_vs_condensate/input.json",
+  "sha256": "7f89914197b7356bfaa29fac47ad388937b84e1001f98efb3c7efff5c24214ce",
+  "bytes": 1635,
+  "mtime_utc": "2026-09-15T15:37:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/gcn4_med15_complex_vs_condensate/model_outputs.json",
+  "sha256": "4a924f699bf864bb6a83f59b3809e1681ad70180bc610863c0159c56b79d12ba",
+  "bytes": 535003,
+  "mtime_utc": "2026-09-15T15:45:10Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/gcn4_med15_complex_vs_condensate/presentation.json",
+  "sha256": "2268cf8995c401ff84685b965119dc07753f095581e880fd807546016c15c5e4",
+  "bytes": 252,
+  "mtime_utc": "2026-09-15T15:37:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/gcn4_med15_complex_vs_condensate/queries.json",
+  "sha256": "00e974817e4e9e93809d0f5475b794e4fc86c3bb5875dc0ccf7309a392474d3a",
+  "bytes": 24058,
+  "mtime_utc": "2026-09-15T15:45:10Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/gcn4_med15_complex_vs_condensate/report.md",
+  "sha256": "b9d3d6831091b082fbb8b7447f07c0b5fbb7a449bdfc0a528201422ac3588b8a",
+  "bytes": 40535,
+  "mtime_utc": "2026-09-15T15:45:10Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/gcn4_med15_complex_vs_condensate/result.json",
+  "sha256": "8afddbcd3efeecbf1267c89c751fd496c5ba17213f9529ce55c171b1b07db5d2",
+  "bytes": 841,
+  "mtime_utc": "2026-09-15T15:45:10Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/gcn4_med15_complex_vs_condensate/retrieval.json",
+  "sha256": "9948e50de33e7a55c77fbb3546b1f1e34992a4e046fd6b6d02e0ff39aa97efdb",
+  "bytes": 2300728,
+  "mtime_utc": "2026-09-15T15:45:10Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/gcn4_med15_complex_vs_condensate/scores.json",
+  "sha256": "e520f8d8ec7c5dc5828a27efbeb0f62a6b5bea6b785d144de8d0c0ec0fb6d071",
+  "bytes": 13263,
+  "mtime_utc": "2026-09-15T15:45:10Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/gcn4_med15_complex_vs_condensate/yield_by_origin.json",
+  "sha256": "ddfe713e8fe33ea566fcf1bc4d68c9accab6a0aa0d593831ecb82029089b4166",
+  "bytes": 152,
+  "mtime_utc": "2026-09-15T15:45:10Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/glnbp_induced_fit_vs_conformational_selection/edge_judgments.json",
+  "sha256": "c16f2bd8ff50f15c9a7a23452c1f40b24cee9bcb6e23343833da7b51869b2155",
+  "bytes": 22005,
+  "mtime_utc": "2026-09-15T16:10:42Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/glnbp_induced_fit_vs_conformational_selection/events.jsonl",
+  "sha256": "bf0062864e17f502e11d49ae82463aae799fad2039515ec5cc1377d76d1d9223",
+  "bytes": 643829,
+  "mtime_utc": "2026-09-15T16:10:42Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/glnbp_induced_fit_vs_conformational_selection/evidence.json",
+  "sha256": "5eda14cd14299f1e8b915ec8e15873fe435a35669b3fa88e30812ade0b1cd4b9",
+  "bytes": 32487,
+  "mtime_utc": "2026-09-15T16:10:42Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/glnbp_induced_fit_vs_conformational_selection/graph.json",
+  "sha256": "15147675420f614c12f148432cc2efb4fadf849b97a214a1bc93061a67246d85",
+  "bytes": 35327,
+  "mtime_utc": "2026-09-15T16:10:42Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/glnbp_induced_fit_vs_conformational_selection/input.json",
+  "sha256": "1795b35063c593da3d83affebd8b9af2327810727e1936bbe475f34e1474dd30",
+  "bytes": 1304,
+  "mtime_utc": "2026-09-15T16:02:50Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/glnbp_induced_fit_vs_conformational_selection/model_outputs.json",
+  "sha256": "314c13085108be7bb4ce82ef1264f4cc91e3718960926026f5518c35dd9ee8b0",
+  "bytes": 493268,
+  "mtime_utc": "2026-09-15T16:10:42Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/glnbp_induced_fit_vs_conformational_selection/presentation.json",
+  "sha256": "f55276e2ae87adde7acb2cb08816ec3918e1ff9abea8214be377f25abc596c63",
+  "bytes": 278,
+  "mtime_utc": "2026-09-15T16:02:50Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/glnbp_induced_fit_vs_conformational_selection/queries.json",
+  "sha256": "adba4afc9922509c0a72b378a0470210d1ce4cebb7352a407334fb8e86903d66",
+  "bytes": 22885,
+  "mtime_utc": "2026-09-15T16:10:42Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/glnbp_induced_fit_vs_conformational_selection/report.md",
+  "sha256": "52145b4b608789d9da989f2c9f6e1d0649e7843ac5f63382caa7b8101cdbaf97",
+  "bytes": 37751,
+  "mtime_utc": "2026-09-15T16:10:42Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/glnbp_induced_fit_vs_conformational_selection/result.json",
+  "sha256": "7f00fc031231a194230ff1b342450ebe9e60a15abad8e4bd54ef84faf2933e34",
+  "bytes": 855,
+  "mtime_utc": "2026-09-15T16:10:42Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/glnbp_induced_fit_vs_conformational_selection/retrieval.json",
+  "sha256": "a1172946eef85227192748a3d633ab5d4abcc42403c4a9c64fc710253b6a49b4",
+  "bytes": 2138419,
+  "mtime_utc": "2026-09-15T16:10:42Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/glnbp_induced_fit_vs_conformational_selection/scores.json",
+  "sha256": "8d7468fa71eee386e655969592c9a55ae279266a69305230b68575b41ed1e784",
+  "bytes": 13288,
+  "mtime_utc": "2026-09-15T16:10:42Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/glnbp_induced_fit_vs_conformational_selection/yield_by_origin.json",
+  "sha256": "eaf7859301f982b8212d3c0a8ce8c0099a5bfb0fa932d237d9c63c12f4c2be45",
+  "bytes": 155,
+  "mtime_utc": "2026-09-15T16:10:42Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_interhemispheric_architecture/edge_judgments.json",
+  "sha256": "e764769bc962fd179ba29e084b40fe5cce123cb1a2729832f3044cee8083d6ce",
+  "bytes": 23829,
+  "mtime_utc": "2026-09-15T16:02:50Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_interhemispheric_architecture/events.jsonl",
+  "sha256": "0926e57e2beda07432cd274d058f9f6e00457cc4bea52b2e9063b27ef3c4a605",
+  "bytes": 670035,
+  "mtime_utc": "2026-09-15T16:02:50Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_interhemispheric_architecture/evidence.json",
+  "sha256": "e4ce76f307ec65b0826a4c0a9364525d02934fd8ad026b3c70b6fe4492537be0",
+  "bytes": 27339,
+  "mtime_utc": "2026-09-15T16:02:50Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_interhemispheric_architecture/graph.json",
+  "sha256": "4b0f6850344292967abe4c82c330a2ff262b4eb0ad5c6ab6f81eb07f79cc4cfa",
+  "bytes": 38333,
+  "mtime_utc": "2026-09-15T16:02:50Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_interhemispheric_architecture/input.json",
+  "sha256": "48bf683674b3c0cb89de6658f2b05e3dab1d0ba3bff0c73dde76acb8384a1c52",
+  "bytes": 1418,
+  "mtime_utc": "2026-09-15T15:55:18Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_interhemispheric_architecture/model_outputs.json",
+  "sha256": "c5765edc7a406debb74aa0ee0899d632a4603d0cae791266899e71d97571f0aa",
+  "bytes": 511369,
+  "mtime_utc": "2026-09-15T16:02:50Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_interhemispheric_architecture/presentation.json",
+  "sha256": "4a44ce6b1a2e60a648ea01808102015eaabcf77288cb8c73dbe2bb7c9cf4c2db",
+  "bytes": 254,
+  "mtime_utc": "2026-09-15T15:55:18Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_interhemispheric_architecture/queries.json",
+  "sha256": "37572673f8b8c11120a7b2154056c864a1a0ca050240faeec12219745d434f54",
+  "bytes": 24639,
+  "mtime_utc": "2026-09-15T16:02:50Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_interhemispheric_architecture/report.md",
+  "sha256": "bfaab6ac62b371bec3734a0c993dfe0897bc76593f43fc36a24699df84cbe782",
+  "bytes": 38974,
+  "mtime_utc": "2026-09-15T16:02:50Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_interhemispheric_architecture/result.json",
+  "sha256": "2f68793a542117015344b80c36f4ac3a2b4b425fce9d0c9e3899b398daccc888",
+  "bytes": 841,
+  "mtime_utc": "2026-09-15T16:02:50Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_interhemispheric_architecture/retrieval.json",
+  "sha256": "73e5cfc59838ad1f8dc25e86db484e19835aeac0140e51cd6faa2db77667b3d9",
+  "bytes": 2139905,
+  "mtime_utc": "2026-09-15T16:02:50Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_interhemispheric_architecture/scores.json",
+  "sha256": "ac33e1d978979043723c0bb932ee240965d84588012c4bac1b0ce890cb0ed88f",
+  "bytes": 13221,
+  "mtime_utc": "2026-09-15T16:02:50Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_interhemispheric_architecture/yield_by_origin.json",
+  "sha256": "2bcbe8fe75d1ba4871aaad435bfe1bf96a7067f5769690144b8c34728d7e75a2",
+  "bytes": 150,
+  "mtime_utc": "2026-09-15T16:02:50Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_storage_vs_control/edge_judgments.json",
+  "sha256": "41b2087cfe5ece1a2817498afe01db3784fc746e808a13a950ef6515c5a801f6",
+  "bytes": 25120,
+  "mtime_utc": "2026-09-15T15:37:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_storage_vs_control/events.jsonl",
+  "sha256": "484fb8eebfc62c9b5f85947368117dd14dc56449101905817a7e95a23a6eee7d",
+  "bytes": 714258,
+  "mtime_utc": "2026-09-15T15:37:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_storage_vs_control/evidence.json",
+  "sha256": "394d9592140000fb25670fe665c9fd2117f4588412ce70b11b315b8a283aaded",
+  "bytes": 39779,
+  "mtime_utc": "2026-09-15T15:37:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_storage_vs_control/graph.json",
+  "sha256": "9a9ede4eba152ec64df15a7f917ae39c728bcafd1b98ec0005801eb855ddb2c2",
+  "bytes": 39310,
+  "mtime_utc": "2026-09-15T15:37:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_storage_vs_control/input.json",
+  "sha256": "fe03664404de14b8013770ea722c44e1c2a00f6d15b2d6d27868414a9a8e03fa",
+  "bytes": 1435,
+  "mtime_utc": "2026-09-15T15:28:51Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_storage_vs_control/model_outputs.json",
+  "sha256": "60a50b805eff5093496e6cbfe1344453df42cc88eed72dca6c7ba63689c78cdb",
+  "bytes": 559233,
+  "mtime_utc": "2026-09-15T15:37:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_storage_vs_control/presentation.json",
+  "sha256": "9267c114fe79a4b05a063634a78a4ced1def8eed67b77ab6df08e4dc83f817bc",
+  "bytes": 232,
+  "mtime_utc": "2026-09-15T15:28:51Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_storage_vs_control/queries.json",
+  "sha256": "25310e8ae0cc1a90327ee6699578a5dfb12c694d96c58b1bd57ccae59caababa",
+  "bytes": 23941,
+  "mtime_utc": "2026-09-15T15:37:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_storage_vs_control/report.md",
+  "sha256": "6c59a251bf9dbd62d36b09e2aaea94e0f25453276e843378b56a2b1623443a02",
+  "bytes": 40038,
+  "mtime_utc": "2026-09-15T15:37:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_storage_vs_control/result.json",
+  "sha256": "941f1d535a5e775e91adb85b0f8ee1796d1d99d010a4514ddbe81bbe83180211",
+  "bytes": 833,
+  "mtime_utc": "2026-09-15T15:37:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_storage_vs_control/retrieval.json",
+  "sha256": "f204b054dd18511b071b783be85069929d6e13463aaa97039370f640de82e9bb",
+  "bytes": 2232858,
+  "mtime_utc": "2026-09-15T15:37:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_storage_vs_control/scores.json",
+  "sha256": "a1d61d59c1173c201054346a4b4e139d441731a47b9d46c884115efa12d5db2f",
+  "bytes": 13346,
+  "mtime_utc": "2026-09-15T15:37:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/pfc_storage_vs_control/yield_by_origin.json",
+  "sha256": "1abfa8634567ca2fc6cc01c4759dcc49f6ed21f05aab7288bc820a4229a04019",
+  "bytes": 155,
+  "mtime_utc": "2026-09-15T15:37:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/spider_orb_web_origin/edge_judgments.json",
+  "sha256": "cbee2096a6c32a3df69856541ade22ab6d94608ff44034ef6cc6858d92b822ef",
+  "bytes": 24091,
+  "mtime_utc": "2026-09-15T16:17:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/spider_orb_web_origin/events.jsonl",
+  "sha256": "69bf8009f4bb53468405f691fa0b8592143d1f67d84f625d282762c5f6d3ac20",
+  "bytes": 760819,
+  "mtime_utc": "2026-09-15T16:17:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/spider_orb_web_origin/evidence.json",
+  "sha256": "9457bda0aae812889382043ab4a044bda60d61fa19334f3f3120dd69cf018326",
+  "bytes": 31782,
+  "mtime_utc": "2026-09-15T16:17:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/spider_orb_web_origin/graph.json",
+  "sha256": "7bb7cdaec341d838536beb3a8342b7ec4548a520ac128ca71577ff9bfdbbcd1d",
+  "bytes": 37921,
+  "mtime_utc": "2026-09-15T16:17:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/spider_orb_web_origin/input.json",
+  "sha256": "02dc2eba25da87461b6665040c19dc65ef013dc107bd66edf92e0152d3a40fdd",
+  "bytes": 1331,
+  "mtime_utc": "2026-09-15T16:10:42Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/spider_orb_web_origin/model_outputs.json",
+  "sha256": "af46cda4c5111a749bfae0709cc0d41bf475975b03def0c97bf524e98f39c781",
+  "bytes": 581659,
+  "mtime_utc": "2026-09-15T16:17:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/spider_orb_web_origin/presentation.json",
+  "sha256": "970eb8a791d19f9fd6ddc4269d8db93ee0309d71d04cec189d6a2bf75ae43a7a",
+  "bytes": 230,
+  "mtime_utc": "2026-09-15T16:10:42Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/spider_orb_web_origin/queries.json",
+  "sha256": "c5a4f00a1189afcea989ddd9b4ae70ac67d91d221b4a3dd9041564b5865e96fb",
+  "bytes": 22860,
+  "mtime_utc": "2026-09-15T16:17:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/spider_orb_web_origin/report.md",
+  "sha256": "7a5cbf9aa06334efa020837f37df12d7286f8e278e37557d3f0e778bd5fbd8c9",
+  "bytes": 38919,
+  "mtime_utc": "2026-09-15T16:17:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/spider_orb_web_origin/result.json",
+  "sha256": "422af65bae57c78ae6781ed217c8a0f94dc51c9fe0467569899e2e8824ad2e0d",
+  "bytes": 829,
+  "mtime_utc": "2026-09-15T16:17:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/spider_orb_web_origin/retrieval.json",
+  "sha256": "f9bff1b212d141506cfce366def39f10709d582df7fccc614d16bf62c41cadc9",
+  "bytes": 2379438,
+  "mtime_utc": "2026-09-15T16:17:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/spider_orb_web_origin/scores.json",
+  "sha256": "40aad42f8560604f71908d616768cb8c89aa1953db93b092b8b7e3f850a4a79e",
+  "bytes": 13219,
+  "mtime_utc": "2026-09-15T16:17:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/instances/spider_orb_web_origin/yield_by_origin.json",
+  "sha256": "df6e8b3c5b169592a4990e4cd1dd3a7131c42e37850f515b44ad280c79f0a674",
+  "bytes": 151,
+  "mtime_utc": "2026-09-15T16:17:25Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/leak_audit.json",
+  "sha256": "9c37d094924de92fea151807e0b909de1e3a1c0f6aa73c3ef59f461eba2a5c2a",
+  "bytes": 2886,
+  "mtime_utc": "2026-09-16T09:51:35Z",
+  "kind": "post_hoc_analysis"
+ },
+ {
+  "path": "run/manifest.json",
+  "sha256": "b599029df3f99b0b3c2a1630d3f80d8f237823f3cb8507814c5b42630ba657f8",
+  "bytes": 5180,
+  "mtime_utc": "2026-09-15T15:28:51Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/manual_review/ratings_compared.json",
+  "sha256": "6931facb226de5955c056d9b8f7bc1596442214c1d165d11d62385a03b50dd04",
+  "bytes": 32458,
+  "mtime_utc": "2026-09-16T10:01:19Z",
+  "kind": "post_hoc_analysis"
+ },
+ {
+  "path": "run/manual_review/sample_blind.json",
+  "sha256": "bea8bdf8c7df166c44ec09c79a6658b490a3cc5e94357425a326a2785865d73c",
+  "bytes": 24633,
+  "mtime_utc": "2026-09-16T10:01:19Z",
+  "kind": "post_hoc_analysis"
+ },
+ {
+  "path": "run/manual_review/score_moving_nodes_for_expert_review.json",
+  "sha256": "77aa268e6ea419215785dfcc0cc9171f1e989112beceedda6b286c8a7b8d7440",
+  "bytes": 171931,
+  "mtime_utc": "2026-09-16T10:04:07Z",
+  "kind": "post_hoc_analysis"
+ },
+ {
+  "path": "run/metrics.json",
+  "sha256": "559530ba959e7fc89c7a664ab11bfb9e2361ddc05fa4fb15f271fcbb3a67e687",
+  "bytes": 8163,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/ranking_attribution.json",
+  "sha256": "95d4bfabb56400f39424596ce9bd0a3c5529d17ecab36f48b0d0b6b8b56c1e62",
+  "bytes": 4344,
+  "mtime_utc": "2026-09-16T10:02:35Z",
+  "kind": "post_hoc_analysis"
+ },
+ {
+  "path": "run/recovery.before_resummarise.json",
+  "sha256": "dae135b75b740971d13880afd8bcd7620350e7a1826c7d0bf3a6278ffc42e43c",
+  "bytes": 404724,
+  "mtime_utc": "2026-09-16T09:59:42Z",
+  "kind": "post_hoc_analysis"
+ },
+ {
+  "path": "run/recovery.json",
+  "sha256": "c65130aad62b354b287b379061d6579a53d5f6fd5cc84c0a68b1e1165f285b2e",
+  "bytes": 465752,
+  "mtime_utc": "2026-09-16T09:59:42Z",
+  "kind": "post_hoc_analysis"
+ },
+ {
+  "path": "run/recovery_events.aborted_sequential_attempt.jsonl",
+  "sha256": "389ef4721aeec8f2c2842fb538a9f307d1b43cd4b0fc65d9bb13715a0d3eaf6d",
+  "bytes": 125551,
+  "mtime_utc": "2026-09-16T09:52:44Z",
+  "kind": "post_hoc_analysis"
+ },
+ {
+  "path": "run/recovery_events.jsonl",
+  "sha256": "9869095524364292464f3f541a96cb6631df5901893e90cdeae57a273ff2e6fc",
+  "bytes": 1403436,
+  "mtime_utc": "2026-09-16T09:54:42Z",
+  "kind": "post_hoc_analysis"
+ },
+ {
+  "path": "run/summary.json",
+  "sha256": "c6d7ec5b27f67571c302154e8a3225dc6d5b6e6cc0a46246bf8a4926cb57d61c",
+  "bytes": 4933,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "run/summary.md",
+  "sha256": "cf7547f4237be46b8c47c29eefa81d20551d68c8a73473eaee1c970f56bd8a2a",
+  "bytes": 2192,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "verifier_run_output"
+ },
+ {
+  "path": "supplementary_scratch/comparison.log",
+  "sha256": "87809bee37b2711661775884003819de521db2a560137f58a650915ccb67d90f",
+  "bytes": 1781,
+  "mtime_utc": "2026-09-16T09:55:59Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/dryrun/instances/pfc_storage_vs_control/edge_judgments.json",
+  "sha256": "41b2087cfe5ece1a2817498afe01db3784fc746e808a13a950ef6515c5a801f6",
+  "bytes": 25120,
+  "mtime_utc": "2026-09-15T15:38:02Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/dryrun/instances/pfc_storage_vs_control/events.jsonl",
+  "sha256": "484fb8eebfc62c9b5f85947368117dd14dc56449101905817a7e95a23a6eee7d",
+  "bytes": 714258,
+  "mtime_utc": "2026-09-15T15:38:02Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/dryrun/instances/pfc_storage_vs_control/evidence.json",
+  "sha256": "394d9592140000fb25670fe665c9fd2117f4588412ce70b11b315b8a283aaded",
+  "bytes": 39779,
+  "mtime_utc": "2026-09-15T15:38:02Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/dryrun/instances/pfc_storage_vs_control/graph.json",
+  "sha256": "9a9ede4eba152ec64df15a7f917ae39c728bcafd1b98ec0005801eb855ddb2c2",
+  "bytes": 39310,
+  "mtime_utc": "2026-09-15T15:38:02Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/dryrun/instances/pfc_storage_vs_control/input.json",
+  "sha256": "fe03664404de14b8013770ea722c44e1c2a00f6d15b2d6d27868414a9a8e03fa",
+  "bytes": 1435,
+  "mtime_utc": "2026-09-15T15:38:02Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/dryrun/instances/pfc_storage_vs_control/model_outputs.json",
+  "sha256": "60a50b805eff5093496e6cbfe1344453df42cc88eed72dca6c7ba63689c78cdb",
+  "bytes": 559233,
+  "mtime_utc": "2026-09-15T15:38:02Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/dryrun/instances/pfc_storage_vs_control/presentation.json",
+  "sha256": "9267c114fe79a4b05a063634a78a4ced1def8eed67b77ab6df08e4dc83f817bc",
+  "bytes": 232,
+  "mtime_utc": "2026-09-15T15:38:02Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/dryrun/instances/pfc_storage_vs_control/queries.json",
+  "sha256": "25310e8ae0cc1a90327ee6699578a5dfb12c694d96c58b1bd57ccae59caababa",
+  "bytes": 23941,
+  "mtime_utc": "2026-09-15T15:38:02Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/dryrun/instances/pfc_storage_vs_control/report.md",
+  "sha256": "6c59a251bf9dbd62d36b09e2aaea94e0f25453276e843378b56a2b1623443a02",
+  "bytes": 40038,
+  "mtime_utc": "2026-09-15T15:38:02Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/dryrun/instances/pfc_storage_vs_control/result.json",
+  "sha256": "941f1d535a5e775e91adb85b0f8ee1796d1d99d010a4514ddbe81bbe83180211",
+  "bytes": 833,
+  "mtime_utc": "2026-09-15T15:38:02Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/dryrun/instances/pfc_storage_vs_control/retrieval.json",
+  "sha256": "f204b054dd18511b071b783be85069929d6e13463aaa97039370f640de82e9bb",
+  "bytes": 2232858,
+  "mtime_utc": "2026-09-15T15:38:02Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/dryrun/instances/pfc_storage_vs_control/scores.json",
+  "sha256": "a1d61d59c1173c201054346a4b4e139d441731a47b9d46c884115efa12d5db2f",
+  "bytes": 13346,
+  "mtime_utc": "2026-09-15T15:38:02Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/dryrun/instances/pfc_storage_vs_control/yield_by_origin.json",
+  "sha256": "1abfa8634567ca2fc6cc01c4759dcc49f6ed21f05aab7288bc820a4229a04019",
+  "bytes": 155,
+  "mtime_utc": "2026-09-15T15:38:02Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/dryrun/recovery.json",
+  "sha256": "3d3120cbec50e7514d29d6be041155b77e75fb774abc3c6c719de4eae3828292",
+  "bytes": 50826,
+  "mtime_utc": "2026-09-15T15:39:04Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/dryrun/recovery_events.jsonl",
+  "sha256": "a69bdd6926461a865f5fbbfe53e4922f69ff00413885c0a92586a98362218800",
+  "bytes": 172994,
+  "mtime_utc": "2026-09-15T15:39:04Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/dryrun/summary.json",
+  "sha256": "4ba0c8bbcb96269ae96591eaa6faf7c4d0568996a8014fc71bfbb5f118e9bf57",
+  "bytes": 78,
+  "mtime_utc": "2026-09-15T15:38:02Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/evidence.log",
+  "sha256": "2eca19fcb98abfb4e472a99fb821626ce27b33db8adeb14403ddfb7af3e05dd6",
+  "bytes": 24172,
+  "mtime_utc": "2026-09-16T09:55:59Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/manual_ratings_1.json",
+  "sha256": "0f2d57859359f038c606333eca03785fe8bb62728bdf474eed7da098b32e0006",
+  "bytes": 1616,
+  "mtime_utc": "2026-09-16T09:57:38Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/manual_ratings_2.json",
+  "sha256": "12d31660685ef7e2104fe1e058febf4ed6ab1ad5373b31083874b2434abe4662",
+  "bytes": 1957,
+  "mtime_utc": "2026-09-16T09:58:17Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/manual_review_sample.json",
+  "sha256": "bea8bdf8c7df166c44ec09c79a6658b490a3cc5e94357425a326a2785865d73c",
+  "bytes": 24633,
+  "mtime_utc": "2026-09-16T09:57:06Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/pilot_run.log",
+  "sha256": "47fac9d1e4b25322b3c968b226cecadff3026f7c309995ecd0231e8a7e014837",
+  "bytes": 34355,
+  "mtime_utc": "2026-09-15T16:38:35Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/posthoc.done",
+  "sha256": "418a5c17f33c70e99b0cc0a07fce69191489cfedc94164bfa903785777c5bd4b",
+  "bytes": 7,
+  "mtime_utc": "2026-09-16T09:55:59Z",
+  "kind": "supplementary_scratch"
+ },
+ {
+  "path": "supplementary_scratch/recovery.log",
+  "sha256": "8b45c7a837215f875953e1051f88501bba3b029b760fc9fd6ada6a765728c952",
+  "bytes": 27157,
+  "mtime_utc": "2026-09-16T09:54:42Z",
+  "kind": "supplementary_scratch"
+ }
+]

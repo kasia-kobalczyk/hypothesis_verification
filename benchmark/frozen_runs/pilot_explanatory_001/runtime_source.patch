@@ -1,0 +1,17 @@
+--- a/src/experiments/runner.py
++++ b/src/experiments/runner.py
+@@ -349,11 +349,9 @@
+         self._check_budget()
+ 
+         if config.dataset.status != "evaluation":
+-            # One source of truth for this wording: the log line and the
+-            # `interpretation_warning` in summary.json must not be able to say
+-            # different things about the same run.
+-            LOGGER.warning("%s (%s)", _interpretation_warning(config.dataset.status),
+-                           config.dataset.kind)
++            LOGGER.warning(
++                "DEVELOPMENT SET (%s): aggregate accuracy from this run is for debugging, "
++                "not evidence for the method", config.dataset.kind)
+         LOGGER.info(
+             "run %s: method=%s instances=%d llm=%s/%s",
+             self.run_id, self.method_name, len(instances), config.llm.provider, self.deployment,

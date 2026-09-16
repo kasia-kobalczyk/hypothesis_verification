@@ -11,3 +11,8 @@ __pycache__/
 runs/*
 !runs/.gitkeep
 data/cache/
+
+# Preserved run archives stay private: they contain full model traffic and ~3,800
+# retrieved third-party abstracts. Their SHA-256 and per-file checksums ARE tracked
+# (see benchmark/frozen_runs/*/PROVENANCE.md). Decision: human, BENCH-GRAPH-REVIEW-001.
+benchmark/frozen_runs/*/*.tar.gz

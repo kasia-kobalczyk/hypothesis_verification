@@ -1,0 +1,220 @@
+{
+ "total_generated_nodes": 192,
+ "score_moving_nodes": 78,
+ "score_moving_definition": "nodes whose log-likelihood contributions differ between the hypotheses by more than 1e-09 (i.e. they move the log-odds)",
+ "nodes_with_equal_nonzero_contributions_excluded": [
+  [
+   "fly_wing_constraint_vs_selection",
+   "X4"
+  ]
+ ],
+ "total_absolute_influence": 18.068710999999997,
+ "priority_nodes": 40,
+ "priority_share_of_influence": 0.8011982149695128,
+ "by_case": {
+  "eukaryogenesis_mito_timing": {
+   "generated_nodes": 24,
+   "score_moving_nodes": 15,
+   "priority_nodes": 8,
+   "share_of_total_influence": 0.2160762878990095,
+   "single_node_removals_changing_ranking_evidence_withheld": 0,
+   "single_node_removals_changing_ranking_node_deleted": 0
+  },
+  "fly_wing_constraint_vs_selection": {
+   "generated_nodes": 24,
+   "score_moving_nodes": 2,
+   "priority_nodes": 1,
+   "share_of_total_influence": 0.01713243407346545,
+   "single_node_removals_changing_ranking_evidence_withheld": 0,
+   "single_node_removals_changing_ranking_node_deleted": 0
+  },
+  "forest_fragmentation_resilience": {
+   "generated_nodes": 24,
+   "score_moving_nodes": 18,
+   "priority_nodes": 7,
+   "share_of_total_influence": 0.18341490989589682,
+   "single_node_removals_changing_ranking_evidence_withheld": 0,
+   "single_node_removals_changing_ranking_node_deleted": 0
+  },
+  "gcn4_med15_complex_vs_condensate": {
+   "generated_nodes": 24,
+   "score_moving_nodes": 11,
+   "priority_nodes": 5,
+   "share_of_total_influence": 0.11674844984791671,
+   "single_node_removals_changing_ranking_evidence_withheld": 7,
+   "single_node_removals_changing_ranking_node_deleted": 6
+  },
+  "glnbp_induced_fit_vs_conformational_selection": {
+   "generated_nodes": 24,
+   "score_moving_nodes": 11,
+   "priority_nodes": 9,
+   "share_of_total_influence": 0.23787811980611126,
+   "single_node_removals_changing_ranking_evidence_withheld": 0,
+   "single_node_removals_changing_ranking_node_deleted": 0
+  },
+  "pfc_interhemispheric_architecture": {
+   "generated_nodes": 24,
+   "score_moving_nodes": 3,
+   "priority_nodes": 1,
+   "share_of_total_influence": 0.03221463888597256,
+   "single_node_removals_changing_ranking_evidence_withheld": 0,
+   "single_node_removals_changing_ranking_node_deleted": 0
+  },
+  "pfc_storage_vs_control": {
+   "generated_nodes": 24,
+   "score_moving_nodes": 11,
+   "priority_nodes": 7,
+   "share_of_total_influence": 0.14760001419027627,
+   "single_node_removals_changing_ranking_evidence_withheld": 0,
+   "single_node_removals_changing_ranking_node_deleted": 0
+  },
+  "spider_orb_web_origin": {
+   "generated_nodes": 24,
+   "score_moving_nodes": 7,
+   "priority_nodes": 2,
+   "share_of_total_influence": 0.048935145401351535,
+   "single_node_removals_changing_ranking_evidence_withheld": 0,
+   "single_node_removals_changing_ranking_node_deleted": 0
+  }
+ },
+ "edge_label_patterns_full": {
+  "origin=implied | non_origin=neutral": 26,
+  "origin=implied | non_origin=unlikely": 21,
+  "origin=strongly_implied | non_origin=unlikely": 19,
+  "origin=implied | non_origin=implied": 3,
+  "origin=strongly_implied | non_origin=neutral": 2,
+  "origin=strongly_implied | non_origin=weakly_implied": 2,
+  "origin=implied | non_origin=weakly_implied": 2,
+  "origin=strongly_implied | non_origin=implied": 2,
+  "origin=neutral | non_origin=implied": 1
+ },
+ "edge_label_patterns_priority": {
+  "origin=implied | non_origin=unlikely": 18,
+  "origin=strongly_implied | non_origin=unlikely": 14,
+  "origin=implied | non_origin=neutral": 5,
+  "origin=strongly_implied | non_origin=weakly_implied": 2,
+  "origin=strongly_implied | non_origin=neutral": 1
+ },
+ "nodes_with_non_origin_hypothesis_non_neutral_full": 50,
+ "nodes_with_non_origin_hypothesis_non_neutral_priority": 34,
+ "supporting_spans_not_found_verbatim": 4,
+ "supporting_spans_total": 252,
+ "automated_audit_full": {
+  "primary_categories": {
+   "silence_as_null_error": 62,
+   "reference_discriminator_recovered": 7,
+   "novel_plausible_discriminator": 1,
+   "generic_component_fact": 3,
+   "compatible_non_discriminative": 5
+  },
+  "primary_opposition_calls": {
+   "manufactured_from_silence": 31,
+   "genuine": 8,
+   "one_sided_silence_labelled_neutral": 24,
+   "both_predict_same": 7,
+   "silence_given_directional_label": 8
+  },
+  "second_rater_overlap": 9,
+  "second_rater_discriminative_disagreements": 1,
+  "second_rater_status_disagreements": 2,
+  "retest_overlap": 11,
+  "retest_category_disagreements": 2
+ },
+ "automated_audit_priority": {
+  "primary_categories": {
+   "silence_as_null_error": 32,
+   "reference_discriminator_recovered": 6,
+   "novel_plausible_discriminator": 1,
+   "generic_component_fact": 1
+  },
+  "primary_opposition_calls": {
+   "manufactured_from_silence": 25,
+   "genuine": 7,
+   "one_sided_silence_labelled_neutral": 5,
+   "both_predict_same": 1,
+   "silence_given_directional_label": 2
+  },
+  "second_rater_overlap": 4,
+  "second_rater_discriminative_disagreements": 1,
+  "second_rater_status_disagreements": 2,
+  "retest_overlap": 7,
+  "retest_category_disagreements": 2
+ },
+ "automated_audit_instability_all_rerated_nodes": {
+  "coverage_note": "second rater: 3 random nodes per case; retest: one case only",
+  "by_case": {
+   "eukaryogenesis_mito_timing": {
+    "second_rater_n": 3,
+    "second_rater_discriminative_disagree": 1,
+    "second_rater_status_disagree": 1,
+    "retest_n": 0,
+    "retest_category_disagree": 0,
+    "retest_discriminative_disagree": 0
+   },
+   "fly_wing_constraint_vs_selection": {
+    "second_rater_n": 3,
+    "second_rater_discriminative_disagree": 0,
+    "second_rater_status_disagree": 1,
+    "retest_n": 0,
+    "retest_category_disagree": 0,
+    "retest_discriminative_disagree": 0
+   },
+   "forest_fragmentation_resilience": {
+    "second_rater_n": 3,
+    "second_rater_discriminative_disagree": 0,
+    "second_rater_status_disagree": 0,
+    "retest_n": 0,
+    "retest_category_disagree": 0,
+    "retest_discriminative_disagree": 0
+   },
+   "gcn4_med15_complex_vs_condensate": {
+    "second_rater_n": 3,
+    "second_rater_discriminative_disagree": 0,
+    "second_rater_status_disagree": 0,
+    "retest_n": 0,
+    "retest_category_disagree": 0,
+    "retest_discriminative_disagree": 0
+   },
+   "glnbp_induced_fit_vs_conformational_selection": {
+    "second_rater_n": 3,
+    "second_rater_discriminative_disagree": 0,
+    "second_rater_status_disagree": 1,
+    "retest_n": 0,
+    "retest_category_disagree": 0,
+    "retest_discriminative_disagree": 0
+   },
+   "pfc_interhemispheric_architecture": {
+    "second_rater_n": 3,
+    "second_rater_discriminative_disagree": 2,
+    "second_rater_status_disagree": 3,
+    "retest_n": 0,
+    "retest_category_disagree": 0,
+    "retest_discriminative_disagree": 0
+   },
+   "pfc_storage_vs_control": {
+    "second_rater_n": 3,
+    "second_rater_discriminative_disagree": 1,
+    "second_rater_status_disagree": 1,
+    "retest_n": 24,
+    "retest_category_disagree": 3,
+    "retest_discriminative_disagree": 1
+   },
+   "spider_orb_web_origin": {
+    "second_rater_n": 3,
+    "second_rater_discriminative_disagree": 2,
+    "second_rater_status_disagree": 2,
+    "retest_n": 0,
+    "retest_category_disagree": 0,
+    "retest_discriminative_disagree": 0
+   }
+  },
+  "totals": {
+   "second_rater_n": 24,
+   "second_rater_discriminative_disagree": 6,
+   "second_rater_status_disagree": 9,
+   "retest_n": 24,
+   "retest_category_disagree": 3,
+   "retest_discriminative_disagree": 1
+  }
+ }
+}
