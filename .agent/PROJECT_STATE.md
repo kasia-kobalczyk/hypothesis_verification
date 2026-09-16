@@ -1,92 +1,124 @@
 # PROJECT_STATE
 
 ## Active phase
-Interpret BENCH-GRAPH-PILOT-001 and decide the next method/benchmark-development step.
+Interpret BENCH-GRAPH-ATTRIBUTION-001 and decide the next human-review / method-development step.
 
-## Pilot execution
-Eight frozen explanatory-hypothesis cases were integrated and run once through the frozen `narrow_graph_v3_complete` / `consequence_graph` method with no benchmark-specific tuning.
+## Frozen pilot context
+Eight explanatory-hypothesis cases were run once through the frozen consequence-graph verifier. The benchmark was substantially better aligned than ResearchBench, producing much more contrastive graph structure and recovering known discriminating consequences in many cases. The eight pilot cases are now spent for method tuning.
 
-Run:
-- `runs/pilot_explanatory_001`
-- 8/8 cases completed, 0 errors
-- 784 verifier LLM calls; Azure deployment `gpt-4.1-kasia`
-- estimated cost $2.75
-- Semantic Scholar literature provider: 356 calls, 0 errors
-- cutoff/hidden-annotation audit scanned 4.79M model-traffic characters and 3,812 retrieved papers; 0 post-cutoff papers and 0 hidden-content hits
+## D045-based score attribution supersedes earlier LLM-auditor attribution
+Research Director first-pass adjudication of the 40 highest-influence nodes classified:
+- 4 genuine discriminators
+- 8 silence-as-null errors
+- 14 generic component facts
+- 8 compatible non-discriminative propositions
+- 3 evidence-construct mismatches
+- 3 invalid/weak implications
 
-## Robust structural result
-Compared with ResearchBench reserve-12 using the same frozen method and no post-hoc judge:
-- sign-opposed graph nodes: 5% -> 45%
-- negative edges: 2% -> 23%
-- informative-evidence nodes: 32% -> 41%
-- median score margin: 0.120 -> 0.389
-- margin > 0.5: 0/12 -> 4/8
+Claude then mechanically encoded these labels and reconstructed the frozen scores exactly, with no LLM calls and no verifier rerun.
 
-Interpretation: genuine competing explanations elicit substantially more contrastive graph structure than ResearchBench did.
+## Influence accounting across all eight cases
+Total absolute score influence: 18.07.
+Reviewed priority nodes: 14.48 (80.1%).
+Unreviewed score-moving nodes: 3.59 (19.9%).
 
-## Consequence discovery
-Post-hoc auditor reports:
-- 11/23 hidden reference discriminators recovered
-- recovered in 7/8 cases
-- 44/192 generated propositions classed as genuinely discriminative (41 reference matches + 3 novel plausible)
-- fly-wing recovered 0/3; generated mostly shared/compatible alignment propositions
+Share of total influence by D045 category:
+- generic component facts: 25.8%
+- silence errors: 20.2%
+- compatible non-discriminative: 15.2%
+- weak implication: 6.8%
+- genuine discriminators: 8.1%
+- construct mismatch: 4.0%
+- unreviewed: 19.9%
 
-## Major method failure exposed
-One-sided propositions are common: 127/192 propositions had at least one silent hypothesis.
-Across 131 silent (hypothesis, proposition) pairs, frozen edge assessor labelled the silent hypothesis:
-- neutral: 57 (44%)
-- unlikely/strongly_contradicted: 51 (39%)
-- implied/weakly/strongly implied: 23 (18%)
+Key conclusion: the method failure is broader than silence handling. Non-discriminative component and compatible facts together carry 41.0% of influence, about twice the influence of confirmed silence errors.
 
-Thus the assessor gives a directional label to a silent hypothesis 56% of the time despite `neutral` already being defined for silence.
+## Directional cases under D045 attribution
+Orientation below is H2 over H1; positive favors H2. In all four favored-resolution benchmark cases, later resolution favors H2.
 
-Of 87 sign-opposed nodes, the primary auditor classifies 33 as genuine and 51 as manufactured from silence; a blind second LLM rating gives roughly 36 genuine vs 40 manufactured. Exact majority is not robust, but silence-driven contrast is unquestionably a large share.
+### Eukaryogenesis
+Frozen: +2.42 H2 (agrees with later resolution).
+Reviewed genuine contribution: none.
+Silence: -0.24.
+Generic component facts: +2.02.
+Weak implication: +0.85.
+Unreviewed: -0.20.
+Removing confirmed errors only -> +1.82 H2, still agrees, but agreement is carried mainly by generic component facts.
+Strict genuine-only reviewed view -> tie; genuine + unreviewed -> -0.20 H1.
+Interpretation: apparent success is not supported by reviewed genuine discrimination.
 
-Manufactured opposition is directionally biased: of 31 manufactured nodes that affected a score, 29 favored the hypothesis that generated the proposition (8.52 log-odds total) and 2 favored the other (1.72). This recreates the historical component-truth failure: literature support for a one-sided consequence is converted into evidence against a silent competitor.
+### Fly-wing
+Frozen: +0.31 H2 (agrees).
+Reviewed genuine: none.
+Silence: +0.30.
+Unreviewed: +0.01.
+Removing confirmed errors -> +0.01 H2; strict reviewed-only -> tie.
+Interpretation: apparent success essentially disappears after removing reviewed silence error.
 
-## Historical evidence discovery
-For 44 genuine discriminators:
-- 36: no relevant pre-cutoff evidence identified by attribution judge
-- 7: informative evidence found
-- 1: generic compatibility only
-- 0 retrieval failures according to the attribution judge
+### GlnBP
+Frozen: +1.84 H2 (agrees with induced-fit resolution).
+Reviewed genuine discriminators: -0.38, i.e. point toward H1 overall in the frozen scoring.
+Silence errors: +1.63.
+Generic component facts: +0.92.
+Compatible non-discriminative: -0.19.
+Unreviewed: -0.13.
+Removing confirmed errors only -> +0.21 H2, still agrees because generic component facts carry the remaining direction.
+Strict genuine-only -> -0.38 H1; genuine + unreviewed -> -0.52 H1.
+Interpretation: the frozen agreement is not a clean success; the reviewed genuine discriminators do not support the later-favored H2 under the current scoring.
 
-Caveat: the evidence-attribution judge sees only retrieved papers, so true retrieval failures may be misclassified as no historical evidence.
+### PFC storage vs control
+Frozen: -1.21 H1 (opposes later control/H2 resolution).
+Reviewed genuine discriminators: +0.58 H2.
+Silence error: -0.89.
+Evidence-construct mismatch: -0.72.
+Compatible non-discriminative: -0.24.
+Unreviewed: +0.05.
+Removing confirmed errors -> +0.39 H2; strict genuine-only -> +0.58 H2.
+Interpretation: the sole directional failure reverses after removing confirmed errors; genuine reviewed discrimination actually points toward the later-supported control account.
 
-Interpretation: by construction, many decisive discriminators only became observable in the post-cutoff resolving study. The graph generator can recover them, but pre-cutoff literature often cannot settle them.
+## Non-directional cases
+Forest, Gcn4, PFC interhemispheric and spider have mixed/regime/component-wise benchmark resolutions and must not be reduced to winner accuracy. Their score leanings are reported only diagnostically.
 
-## Hypothesis-comparison observations
-Favored-resolution cases:
-- eukaryogenesis: top H2, matches later resolution, but score heavily driven by manufactured contrast (+2.13 vs +0.50 genuine)
-- GlnBP: top H2, matches later resolution; strongest case with +1.01 genuine and +0.78 manufactured contribution
-- fly-wing: top H2, matches later resolution, but match has no genuine discriminating basis (0 genuine; +0.30 manufactured)
-- PFC storage-vs-control: top H1, opposes later resolution; attribution is provisional, with historical evidence and auditor misclassification both relevant
+## Mechanical pattern across categories
+The non-originating hypothesis was assigned `unlikely`/`strongly_contradicted` in:
+- 8/8 silence errors
+- 13/14 generic component facts
+- 3/3 construct mismatches
+- 3/3 weak implications
+- 4/4 genuine discriminators
 
-Non-directional benchmark cases must not be evaluated as winner accuracy.
+All 14 generic component facts were literature-supported. This shows the core problem is not simply bad retrieval: true literature-backed propositions become hypothesis-specific evidence because cross-hypothesis edge judgments create artificial opposition.
 
-## Auditor limitations
-All recovery/evidence attribution judgments are LLM-based; no human domain expert has reviewed them.
-The recovery auditor over-calls silence/indeterminate and missed at least one explicit denial in hypothesis text.
-Robust conclusions are:
-1. structural behavior differs strongly from ResearchBench;
-2. silence-driven contrast is a large share of graph opposition;
-3. when one-sided support is treated directionally, it systematically favors the generating hypothesis.
-Per-case attribution and exact genuine/manufactured counts remain provisional.
+## Path-mediation limitation
+58/78 score-moving nodes depend on parent routes; 25 of those dependencies pass through reviewed nodes. Evidence-zeroing is the primary additive attribution. Graph-deletion sensitivity can remove inherited routes but may also remove legitimate portions. Neither uniquely isolates edge error without relabeling model judgments.
 
-## Reproducibility / artifact risk
-Executor report records that the run was performed from an uncommitted working tree on top of `c18edc29f93afaa4b9683bfed9473bb3fb659329`; run manifest had no git commit. `runs/` is gitignored and the 42 MB forensic run existed only on the execution disk at completion. Repository currently exposes the pilot report/integration, but artifact backup and exact-run preservation should be verified before further work.
+## Review coverage gaps
+Reviewed share is below 80.1% for:
+- spider: 45.4%
+- forest: 67.5%
+- PFC interhemispheric: 67.7%
+- Gcn4: 70.5%
+- eukaryogenesis: 79.5%
 
-## Current scientific conclusion
-The explanatory benchmark is substantially better aligned with the intended task than ResearchBench. The original consequence-generation idea shows real promise: it independently recovered about half of the known discriminating consequences across 7/8 cases.
+Recommended next human-review batch from executor:
+- spider X7, X24, X8, X22, X17
+- PFC interhemispheric X1, X23
+- fly-wing X19
+Then review remaining 30 nodes by influence if needed.
 
-However, final hypothesis comparison is presently confounded by a specific method failure: the edge assessor often converts hypothesis silence into directional opposition, causing supported one-sided/component consequences to count against silent competitors.
+## Current scientific interpretation
+1. Benchmark semantics were a major issue: genuine explanatory hypotheses do elicit substantially more contrastive consequence graphs than ResearchBench.
+2. Consequence generation remains promising as a capability in its own right.
+3. End-to-end hypothesis comparison is currently invalidated by a broader discrimination/relevance problem, not only silence-as-null.
+4. Only 8.1% of total score influence in the adjudicated accounting comes from reviewed genuine discriminators; generic component facts and compatible non-discriminative propositions dominate.
+5. The PFC storage/control case provides the clearest evidence that removing confirmed reasoning errors can reveal a correct underlying discriminative signal.
+6. GlnBP shows that even a scientifically good benchmark case can be scored in the correct direction for the wrong reasons.
 
-## Recommended next step
-Do not scale the frozen verifier unchanged to ~20 cases yet. Continue constructing the ~20-case benchmark, but treat these 8 pilot cases as spent for method tuning.
+## Next step
+Do not modify the verifier yet using these eight spent cases.
+First, finish human review of the low-coverage cases, recording per-hypothesis prediction states for each reviewed node rather than only a primary category. This will clarify which hypothesis is silent and whether a node is genuinely one-sided versus contradictory.
+After that, design and test any fix on a separate development set. Method-development priorities should include both:
+- explicit silence/indeterminate handling in cross-hypothesis edge assessment;
+- preventing generic/compatible component facts from counting as discriminative evidence merely because the competing hypothesis receives an `unlikely` edge.
 
-Before modifying the method:
-1. preserve/commit the exact pilot code and back up the full run artifacts;
-2. manually/expert-review the score-moving propositions (executor prepared 78 nodes; 40 carry ~80% of influence) to obtain trustworthy labels for genuine discrimination vs silence;
-3. use a separate development set to investigate edge-assessor silence handling / aggregation;
-4. randomize hypothesis IDs relative to later resolution in the larger benchmark;
-5. make consequence discovery a primary benchmark capability, with end-to-end historical hypothesis comparison secondary because decisive pre-cutoff evidence is often absent.
+Continue building the larger ~20-case benchmark in parallel, but keep the eight pilot cases out of tuning.
