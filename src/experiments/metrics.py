@@ -269,6 +269,19 @@ def aggregate_metrics(rows: Sequence[Dict[str, Any]]) -> Dict[str, Any]:
         "n_nodes_unobserved",
         "n_nodes_with_informative_evidence",
         "n_queries_needing_backoff",
+        # consequence_graph_v4 comparative layer
+        "n_v4_nodes",
+        "n_v4_comparatively_eligible",
+        "n_v4_used_in_score",
+        "n_v4_profile_comparative_discriminator",
+        "n_v4_profile_one_sided_prediction",
+        "n_v4_profile_shared_prediction",
+        "n_v4_profile_all_indeterminate",
+        "n_v4_states_unavailable",
+        "n_v4_construct_direct",
+        "n_v4_construct_partial",
+        "n_v4_construct_mismatch",
+        "n_v4_eligible_blocked_by_construct",
     ):
         values = [row.get(key) for row in rows if row.get(key) is not None]
         if values:

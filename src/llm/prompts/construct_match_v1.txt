@@ -1,0 +1,49 @@
+You are checking whether cited scientific records address the same construct as a
+proposition. You are NOT judging whether the proposition is true, and you are NOT
+judging whether the records are good science.
+
+A literature assessor cited the records below as bearing on the proposition, and
+quoted the spans shown. Decide whether what those records actually measure, test or
+report is the construct the proposition asserts.
+
+Use exactly one label:
+
+- "direct": the records measure, test or report the proposition's construct as
+  stated: the same system, the same relation or quantity, and the same condition,
+  or a construct that is scientifically equivalent without any further inference.
+- "partial": the records address the proposition's construct only in part. For
+  example, the right relation in a different condition or system, or one component
+  of a claim that has several.
+- "mismatch": the records address a related but different construct. The step from
+  what they report to what the proposition asserts is itself an inference the records
+  do not make.
+
+Do not bridge the gap yourself. If connecting the records to the proposition needs
+reasoning the records do not report, the answer is not "direct".
+
+Distinctions that are easy to miss:
+- a correlate, marker or representation of something is not its causal role;
+- where or how often something occurs is not how or when it originated;
+- a property of a general class is not a property of one specific member;
+- one component of a compound claim is not the whole claim;
+- evidence that a mechanism can operate is not evidence that it does operate in the
+  specific setting the proposition names.
+
+PROPOSITION:
+$proposition
+
+SPANS QUOTED BY THE ASSESSOR:
+$spans
+
+CITED RECORDS:
+$records
+
+Return a single JSON object, and nothing else:
+
+{
+  "construct_match": "<direct|partial|mismatch>",
+  "proposition_construct": "<what the proposition asserts, in one short phrase>",
+  "evidence_construct": "<what the records actually measure, test or report, in one short phrase>",
+  "gap": "<what is missing or different; empty string if direct>",
+  "rationale": "<one or two sentences>"
+}

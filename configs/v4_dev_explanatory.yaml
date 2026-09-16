@@ -1,0 +1,441 @@
+# BENCH-GRAPH-V4-DEV-001 -- v4 development runs on the 8 SPENT pilot cases.
+#
+# Identical to configs/pilot_explanatory.yaml except dataset.status, which is
+# `development`: these eight cases are an explicit development set for v4 and are
+# NOT held-out evidence. v4 itself is selected with `--method consequence_graph_v4`;
+# its prompts (prediction_state_v1, construct_match_v1) and its construct policy
+# (direct only) are fixed in code, so no method parameter lives here.
+#
+# BENCH-GRAPH-PILOT-001 -- explanatory-hypothesis diagnostic pilot.
+#
+# Derived from configs/mvp.yaml with THREE changes and no others:
+#   1. dataset.kind: instances -> cases
+#   2. dataset.status: development -> pilot_diagnostic
+#   3. dataset.case_path points at the frozen 8-case visible manifest
+#
+# The method block below is byte-identical to mvp.yaml, which is the frozen
+# narrow_graph_v3_complete configuration. That is the point of the pilot: the
+# question is how the EXISTING method behaves on genuine competing explanations,
+# so nothing here may be tuned for these eight cases. If you find yourself
+# editing a method parameter in this file, you are no longer running the pilot.
+#
+# There is no gold hypothesis in this benchmark. Ranking-accuracy metrics are
+# skipped rather than fabricated, and `status: pilot_diagnostic` stamps that into
+# every artifact.
+
+# MVP configuration (IMPLEMENTATION_SPEC.md §28).
+#
+# Everything that is likely to change scientifically lives here, not in Python.
+# Values marked TODO are deliberately unresolved and must be decided by the
+# research team, not by the implementation.
+
+run:
+  seed: 20260911
+  # How candidate hypotheses are ordered when shown to a model.
+  #   shuffled  : deterministic per-instance permutation + anonymised display
+  #               labels, so the gold hypothesis is not positionally identifiable.
+  #   as_loaded : gold first (debugging only; leaks gold position to the model).
+  hypothesis_order: shuffled
+  # Anonymise display labels ("Hypothesis A"...) instead of internal ids (H0...).
+  anonymise_labels: true
+  output_root: runs
+
+dataset:
+  path: data/researchbench_dev20.jsonl
+  # Frozen temporal metadata produced by `python -m src.benchmark.resolve_dates`.
+  metadata_path: data/metadata/source_dates.jsonl
+  # instances : 11-candidate ResearchBench slice (v1 dev20)
+  # pairs     : frozen gold-vs-negative pair slice (v2), loaded as k=2 instances
+  kind: cases
+  # The verifier-visible manifest. The hidden annotations live in
+  # benchmark/explanatory/cases_hidden.json, which no loader opens.
+  case_path: benchmark/explanatory/cases_visible.jsonl
+  # DEVELOPMENT/DEBUGGING. Both v1 and v2 are for building and debugging the
+  # method. On v1 a "shortest text first" rule scores 1.000 and on v2 a
+  # question-hidden judge recovers most labels, so aggregate accuracy on either
+  # is NOT evidence for the method. Runs stamp this into summary.json and every
+  # instance report. Set to `evaluation` only for a slice whose construction
+  # protocol was frozen in advance and whose style diagnostics are clean.
+  status: development
+  # v1's frozen R2 pair subset over the dev20 instances: a METRIC definition
+  # (accuracy over these pairs is primary; listwise is secondary), not a dataset.
+  pairs_path: benchmark/dev/pairs_v1.jsonl
+  # The v2 pair slice, used as the dataset when kind: pairs.
+  pair_slice_path: benchmark/v2/researchbench_v2_pairs.jsonl
+  negatives:
+    # Which negative pools enter the candidate set.
+    #   model : raw ResearchBench `model_negative_hypotheses` (screening rubric R2)
+    #   fake  : `fake_negative_hypotheses`
+    pools: [model]
+    # null = keep every negative in the pool. An integer keeps the first N in the
+    # original ResearchBench order (deterministic; debugging only).
+    max_negatives: null
+  # Literature-dependent methods refuse to run instances without a frozen cutoff.
+  require_cutoff: true
+  # Also refuse instances whose cutoff resolved but was flagged ambiguous.
+  # Off by default: an ambiguous cutoff is conservative (too early), so such
+  # items are run and counted in summary.json rather than dropped.
+  require_unambiguous_cutoff: false
+  # A review article as the source paper breaks task validity: its "gold
+  # hypothesis" summarises work already published, so the answer is in the
+  # pre-cutoff literature by construction. Observed on RBV2-0012-N00, whose
+  # source is a Trends in Cell Biology review -- retrieval returned the primary
+  # paper that established the phenomenon. Crossref types reviews as
+  # journal-article, so detection is venue/title matching on these patterns.
+  # `exclude` applies to newly built evaluation benchmarks; frozen development
+  # slices are only flagged (scripts/flag_review_sources.py).
+  review_sources:
+    enabled: true
+    action: exclude
+    venue_patterns:
+      - "Trends in "
+      - "Nature Reviews"
+      - "Annual Review"
+      - "Annual Reviews"
+      - "Current Opinion in"
+      - "Chemical Reviews"
+      - "Reviews of Modern Physics"
+      - "Physics Reports"
+      - "Living Reviews in"
+      - "Clinical Microbiology Reviews"
+      - "Pharmacological Reviews"
+      - "Physiological Reviews"
+      - "Endocrine Reviews"
+      - "Chemical Society Reviews"
+      - "WIREs"
+      - "Wiley Interdisciplinary Reviews"
+      - "Reviews in "
+      - " Reviews"
+      - "Annu. Rev."
+      # Removed after measurement: "Advances in " and "Progress in " matched
+      # Advances in Space Research and Progress in Natural Science, both primary
+      # research journals. Excluding them would have dropped valid rows and
+      # skewed the remaining set by discipline, which is worse than missing a
+      # review. " Surveys" was dropped for the same reason (unverified).
+    title_patterns:
+      - "a review of"
+      - "a review on"
+      - "a systematic review"
+      - "systematic review and meta-analysis"
+      - "a survey of"
+      - ": a review"
+      - "current perspectives on"
+      - "recent advances in"
+      - "recent progress in"
+      - "an overview of"
+
+temporal:
+  # A paper is eligible iff eligible_date <= cutoff_date (inclusive boundary).
+  boundary: inclusive
+  # Papers whose publication date cannot be established at all.
+  #   exclude : conservative, default
+  #   include : never use for benchmark runs
+  unknown_date_policy: exclude
+  # cutoff_date = earliest public availability of the source paper - N days.
+  cutoff_offset_days: 1
+  # Count a preprint posting of the source paper as public availability.
+  include_preprints_in_cutoff_basis: true
+  # Never return the source paper (or its linked preprint DOIs) as evidence.
+  block_source_doi: true
+  # Crossref links only a minority of preprints to their journal version, so DOI
+  # blocking alone cannot keep an *unlinked* preprint of the source paper out of
+  # the eligible set -- and that preprint states the very claim under test.
+  # Title matching against the source paper is the conservative fallback.
+  block_source_by_title: true
+  source_title_similarity_threshold: 0.92
+  # Require a shared author before treating a title match as the source study:
+  # block alternate versions of this study, not unrelated earlier papers by the
+  # same authors (and never on author overlap alone).
+  block_source_requires_author_overlap: true
+  # Find other records of the source study (including preprints Crossref does
+  # not link) and use the earliest as the cutoff basis. Thresholds are looser
+  # than literature.dedup on purpose: a false positive only moves the cutoff
+  # earlier and blocks one DOI, while a false negative leaks the source itself.
+  version_search:
+    enabled: true
+    provider: crossref   # TODO(research): add semantic_scholar once a key exists
+    rows: 20
+    # FROZEN FOR THE MVP (decided 2026-09-11). These two thresholds separate
+    # cleanly on the development slice -- true preprint/journal pairs score
+    # title 0.82-0.95 and author overlap 0.87-0.97, while
+    # same-author-different-study pairs score title 0.78-0.86 and author overlap
+    # 0.20-0.33 -- and `tests/test_frozen_thresholds.py` fails if they change.
+    #
+    # DO NOT tune them further on these 20 cases. Before a final benchmark,
+    # validate them on an independently sampled set of source/preprint and
+    # same-author-different-study pairs:
+    #     python scripts/validate_version_thresholds.py --labelled <file>
+    title_similarity_threshold: 0.75
+    title_similarity_threshold_no_authors: 0.92
+    min_author_overlap: 1
+    min_author_overlap_fraction: 0.5
+    include_types:
+      - journal-article
+      - posted-content
+      - proceedings-article
+      - report
+      - dissertation
+  # How to collapse several date estimates for one record.
+  #   latest   : assume the latest plausible date (conservative against leakage)
+  #   earliest : assume the earliest plausible date (maximises recall)
+  conflict_policy: latest
+  # Granularity fallbacks, applied under `conflict_policy: latest`.
+  year_only_day: last    # "2020" -> 2020-12-31
+  month_only_day: last   # "2020-03" -> 2020-03-31
+
+literature:
+  provider: semantic_scholar
+  include_preprints: true
+  top_k: 10
+  # Request top_k * overfetch_factor records so that locally filtered-out
+  # results do not shrink the returned set below top_k.
+  overfetch_factor: 3
+  # Ask the provider for a pre-cutoff window as well. This is an efficiency
+  # measure only; the authoritative filter is always applied locally.
+  provider_prefilter_by_date: true
+  # Cross-check provider dates against Crossref.
+  #   never | boundary_only | always
+  # `always` for the MVP: every retrieved record's date is verified against
+  # Crossref, at the cost of one (cached) lookup per record.
+  verify_dates_with_crossref: always
+  # Only consulted when verify_dates_with_crossref = boundary_only.
+  verify_boundary_window_days: 180
+  abstract_char_limit: 2000
+  http:
+    timeout_s: 30
+    # Semantic Scholar's /paper/search endpoint returns intermittent 500s and
+    # 429s in bursts; the same query succeeds on retry. A generous budget here
+    # matters because one unrecoverable query leaves the whole instance
+    # unscored (a partial score vector is not a ranking).
+    max_retries: 8
+    # S2 500s clear within seconds; a 3.0 base spent 55% of wall-clock sleeping.
+    backoff_base_s: 1.5
+    backoff_max_s: 90.0
+    min_request_interval_s: 1.1
+  cache:
+    enabled: true
+    dir: data/cache/literature
+    refresh: false
+    # offline: serve only from cache; a miss is an error, never an empty result.
+    offline: false
+  dedup:
+    enabled: true
+    title_similarity_threshold: 0.92
+    # Below this, records are kept separate and only flagged `possibly_related`.
+    possibly_related_threshold: 0.80
+    require_author_overlap: true
+
+crossref:
+  base_url: https://api.crossref.org
+  # Polite-pool contact address; also read from CROSSREF_MAILTO.
+  mailto: null
+  # Crossref date fields recorded as evidence of public availability.
+  date_fields:
+    - published-online
+    - published-print
+    - published
+    - issued
+    - posted
+    - created
+  # Subset of `date_fields` allowed to *set* the cutoff (null = all of them).
+  # `created` is excluded on purpose: it is the Crossref deposit timestamp, not a
+  # statement of public availability. It is still recorded, and an instance is
+  # flagged when `created` long precedes the selected basis, since that suggests
+  # an article-in-press was public before the cutoff.
+  cutoff_basis_fields:
+    - published-online
+    - published-print
+    - published
+    - issued
+    - posted
+  http:
+    timeout_s: 30
+    max_retries: 5
+    backoff_base_s: 2.0
+    backoff_max_s: 60.0
+    min_request_interval_s: 0.2
+  cache:
+    enabled: true
+    dir: data/cache/crossref
+
+llm:
+  # azure : Azure OpenAI (AZURE_API_KEY / AZURE_API_BASE / AZURE_API_VERSION)
+  # mock  : deterministic offline stub, for tests and plumbing checks
+  provider: azure
+  # Azure deployment name. null = take $LLM_MODEL from .env, else the built-in
+  # default (gpt-4.1-kasia). Resolution order: --model > this value > $LLM_MODEL
+  # > default. A LiteLLM-style `azure/<name>` is accepted and the prefix stripped.
+  deployment: null
+  temperature: 0.0
+  max_tokens: 4096
+  top_p: 1.0
+  seed: 20260911
+  request_timeout_s: 120
+  max_retries: 4
+  backoff_base_s: 2.0
+  # Extra attempts when the model returns unparsable JSON.
+  parse_retries: 2
+  json_mode: true
+
+prompts:
+  dir: src/llm/prompts
+  # There is deliberately no `include_cutoff_date` option: the cutoff is enforced
+  # by the backend and is never rendered into a prompt. A test asserts that no
+  # template mentions a cutoff or a date.
+
+baselines:
+  # Closed-book judge. Doubles as the explicit parametric-memorisation
+  # diagnostic: it sees no literature, so whatever it scores comes from the
+  # model's training data rather than from the pre-cutoff record.
+  direct_judge:
+    prompt_version: direct_judge_v2
+    # listwise is implemented; pairwise metrics are derived from listwise scores.
+    # TODO(research): decide whether a native pairwise prompt is required.
+    mode: listwise
+  direct_rag:
+    query_prompt_version: direct_rag_query_v2
+    assess_prompt_version: direct_rag_assess_v2
+    queries_per_hypothesis: 2
+    top_k: 10
+    max_papers_in_prompt: 10
+    # Primary scoring rule: ordinal evidence label -> centralised log-LR table.
+    # Ties (e.g. every candidate `no_evidence`) are a legitimate outcome and are
+    # reported as ties, not broken. Both rules are always written to scores.json;
+    # this only selects which one ranks.
+    #   ordinal_map : primary
+    #   llm_score   : secondary, the assessor's scalar
+    ranking_signal: ordinal_map
+    # Rewrite a support/contradiction label to `no_evidence` when the assessor
+    # was shown no papers at all. The model's original label and score are kept
+    # in evidence.json either way.
+    enforce_no_evidence_without_papers: true
+
+  # Artifact diagnostics. The gold hypotheses are short prose summaries; the
+  # negatives are long LLM proposals. These measure how much of any ranking
+  # signal is style rather than science, without rewriting the slice (§2, §34).
+  question_hidden_judge:
+    prompt_version: direct_judge_no_question_v1
+  style_artifact:
+    # Any key of src.baselines.artifact_baselines.surface_features:
+    # n_chars, n_words, n_lines, n_digits, digit_ratio, mean_word_length
+    feature: n_chars
+    prefer: longest
+
+ordinal_mappings_path: configs/ordinal_mappings.yaml
+
+# Cost accounting. `scripts/cost_dashboard.py --serve` renders these numbers.
+cost:
+  pricing_path: configs/pricing.yaml
+  # Instance-level event logs are excluded: the runner tees every call into both
+  # the run log and the instance log, so scanning both would double-count.
+  event_sources:
+    - runs/*/events.jsonl
+    # benchmark/* covers slice-construction runs (v1 pair audit, v2 build).
+    - benchmark/*/*_events.jsonl
+  # Project spend cap in USD. null = track but never block.
+  budget_usd: null
+  #   warn   : log loudly at run start when the cap is already exceeded
+  #   refuse : raise before any model call is made
+  on_exceed: warn
+
+# ---------------------------------------------------------------------------
+# Milestone 2 (consequence graph). Present so the values are already external;
+# no code reads them yet.
+# ---------------------------------------------------------------------------
+graph:
+  max_depth: 2
+  # consequence_generate_v2 generates ATOMIC, NON-CONTRASTIVE consequences: one
+  # relation/mechanism/measurement per node, with no instruction to distinguish
+  # the focal claim from the alternatives (it is not even shown them).
+  # Discrimination is measured afterwards by cross-evaluation. v1 asked each
+  # proposition to be discriminative on its own; measured effect was that
+  # evidence yield fell from 40% at k=2 to 4% at k=11. See DECISIONS #17.
+  generate_prompt: consequence_generate_v3
+  # Root consequences per candidate hypothesis. Prefer this to a global cap: it
+  # keeps its meaning when k changes.
+  max_root_consequences_per_hypothesis: 3
+  # Total safety cap, to bound cost if generation misbehaves. Must be at least
+  # k * max_root_consequences_per_hypothesis or build_graph refuses up front
+  # rather than quietly leaving candidates unexpanded. k=11 needs >= 33.
+  max_nodes: 80
+  # Children per proposition at depth >= 2.
+  max_children_per_node: 3
+  # none | lexical | llm   (llm unimplemented: what "equivalent" means is a
+  # research decision, not an implementation one -- see src/graph/merge.py)
+  # none, while generation is atomic. Measured on the consequence_generate_v2 A/B:
+  # 8 of 9 lexical merges collapsed scientifically distinct propositions (Autophagy
+  # into Necroptosis at 0.944 similarity; G6PD into IDH; opposite NADPH/NADP+
+  # directions in liver and heart into one node). Atomic propositions share a
+  # syntactic template and differ only in the entity or direction, so a scalar
+  # character-similarity threshold is structurally the wrong instrument -- the worst
+  # case scores 0.944 and a bar above that merges nothing at all. The damage also
+  # grows with k (1.8 merges/instance at k=2, 4.5 at k=4), i.e. worst in exactly the
+  # scalability regime we want to study. See DECISIONS #23.
+  semantic_merge_mode: none
+  # TODO(research): §14 leaves this unresolved. Working placeholder, unvalidated;
+  # conservative by design, since over-merging destroys real distinctions.
+  merge_threshold: 0.82
+
+retrieval:
+  queries_per_node: 2   # milestone 2 (consequence graph); unused in milestone 1
+
+  # Deterministic shaping applied to every generated query, enforced in code.
+  # Semantic Scholar's /paper/search behaves close to an AND over terms: on this
+  # slice the same question returns 2 results at ten words, 39 at five, 252 at
+  # three. Without a cap, generated queries return nothing and "nothing" is
+  # indistinguishable from "the literature is silent".
+  query_policy:
+    max_terms: 6
+    min_terms: 3
+    # Extra searches when a query returns zero PROVIDER results (never
+    # conditioned on what the results say). 0 disables backoff.
+    backoff_steps: 2
+    strip_direction_words: true
+    # Outcome-encoding words (spec §17). Stripped as standalone tokens only.
+    direction_words:
+      [increase, increases, increased, increasing,
+       decrease, decreases, decreased, decreasing,
+       higher, lower, elevated, reduces, reduction,
+       enhance, enhances, enhanced, enhancement,
+       improve, improves, improved, impair, impairs, impaired,
+       worsen, worsens, worsened,
+       support, supports, supporting, supported,
+       refute, refutes, confirm, confirms, confirmed,
+       prove, proves, proven, proof,
+       evidence, demonstrates, demonstrate, shows, show,
+       cause, causes, caused, causing]
+    # Entity names that legitimately contain a direction word; matched first so
+    # they survive the token pass. Add domain terms here as they come up.
+    protected_phrases:
+      - reduced graphene oxide
+      - increased intracranial pressure
+      - reduced glutathione
+    # Function words: no outcome, but they consume slots under the cap.
+    # Quoted: YAML 1.1 reads bare `on`/`no`/`yes` as booleans.
+    stopwords:
+      ["a", "an", "the", "of", "in", "on", "for", "and", "or", "with", "that",
+       "this", "these", "those", "to", "from", "by", "as", "at", "its", "their",
+       "between", "during", "via", "using", "based"]
+
+inference:
+  prior: uniform
+  # How several routes from one hypothesis to one proposition combine.
+  #   noisy_or | max | mean
+  # TODO(research): §22 leaves this unresolved; all three are implemented.
+  multi_parent_rule: noisy_or
+  # P(X_v = 1 | X_parent = 0). 0.5 = "a false parent tells us nothing", the
+  # conservative reading of an uncertain implication. TODO(research): unvalidated.
+  parent_false_baseline: 0.5
+
+evidence:
+  # The literature assessor for a proposition node.
+  #   evidence_assess_v2 (METHOD): judges only whether records DIRECTLY address the
+  #     node. Every inferential bridge lives in the graph edges, where it is
+  #     recorded, checkable and weighted.
+  #   evidence_assess_v1 (ABLATION): the broad assessor, which permits unrecorded
+  #     bridging. Measured on 20 held-out rows: it made negative-origin nodes
+  #     informative 27% of the time against 17% for gold-origin, i.e. it was
+  #     systematically easier to accumulate evidence for generic fabricated
+  #     alternatives than for the true novel finding. v2 removes that (12% vs 15%).
+  #     See DECISIONS #32-33.
+  assess_prompt: evidence_assess_v2

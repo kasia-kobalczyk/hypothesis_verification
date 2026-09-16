@@ -32,6 +32,7 @@ from src.baselines.artifact_baselines import QuestionHiddenJudge, StyleArtifactB
 from src.baselines.direct_judge import DirectJudge
 from src.baselines.direct_rag import DirectRag
 from src.methods.consequence_graph import ConsequenceGraphVerifier
+from src.methods.consequence_graph_v4 import ConsequenceGraphV4Verifier
 from src.benchmark.loader import (
     BenchmarkInstance,
     build_cutoff_registry,
@@ -85,6 +86,8 @@ METHODS: Dict[str, Type[Method]] = {
     "style_artifact": StyleArtifactBaseline,
     # The proposed method (milestone 2).
     "consequence_graph": ConsequenceGraphVerifier,
+    # BENCH-GRAPH-V4-DEV-001: v3 pipeline + discrimination-gated comparative scoring
+    "consequence_graph_v4": ConsequenceGraphV4Verifier,
 }
 
 # Artifacts the runner knows how to write, in a stable order.
@@ -98,6 +101,9 @@ ARTIFACT_FILES = (
     "edge_judgments",
     "scores",
     "yield_by_origin",
+    # v4 only: comparative layer, and v3's scores on the same graph for reference
+    "discrimination",
+    "scores_v3_reference",
 )
 
 
