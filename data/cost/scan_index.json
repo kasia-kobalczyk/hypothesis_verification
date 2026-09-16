@@ -298,5 +298,13 @@
   "runs/consequence_graph_20260913T170715Z_e0bed1a0/events.jsonl": {
     "offset": 11031303,
     "lines": 20234
+  },
+  "runs/pilot_smoke_mock/events.jsonl": {
+    "offset": 35258,
+    "lines": 16
+  },
+  "runs/pilot_explanatory_001/events.jsonl": {
+    "offset": 9089332,
+    "lines": 17577
   }
 }
