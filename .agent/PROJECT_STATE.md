@@ -1,93 +1,92 @@
 # PROJECT_STATE
 
 ## Active phase
-Freeze the benchmark schema and convert the first eight ACCEPT cases into structured dossiers compatible with the existing `kasia-kobalczyk/hypothesis_verification` repository and its consequence-graph experiment runner.
+Interpret BENCH-GRAPH-PILOT-001 and decide the next method/benchmark-development step.
 
-## Important execution architecture clarified from repository inspection
-- Claude Code is the executor / technical research agent, not the scientific verifier model.
-- The actual consequence-graph system is run through API-backed LLM agents/models inside the repository experiment harness.
-- Temporal safety is enforced by `LiteratureSearchService` and `CutoffRegistry`, not by trusting the agent to obey a date instruction.
-- Agents cannot choose or override cutoff dates through the literature-search API.
-- Search, citation/reference expansion, metadata lookup, and prompt rendering all reapply temporal filtering; post-cutoff records are withheld from model context.
-- The consequence-graph implementation already supports arbitrary k>=2 hypotheses conceptually, builds one shared proposition graph, cross-evaluates propositions against all hypotheses, retrieves proposition-level evidence, and performs Bayesian aggregation.
-- Run artifacts already preserve prompts, graph, edge judgments, queries, retrieval, evidence, scores and reports.
+## Pilot execution
+Eight frozen explanatory-hypothesis cases were integrated and run once through the frozen `narrow_graph_v3_complete` / `consequence_graph` method with no benchmark-specific tuning.
 
-## Frozen first tranche — ACCEPT
-1. PFC working-memory storage vs top-down control.
-2. Gcn4/Med15 soluble-complex vs transcriptional-condensate mechanisms.
-3. Eukaryogenesis mitochondria-early vs mitochondria-intermediate/late.
-4. Interhemispheric PFC specialized/lateralized vs redundant/shared storage.
-5. GlnBP conformational selection vs induced fit.
-6. Spider orb-web ancestral single origin/loss vs convergent independent origins.
-7. Forest fragmentation edge-stress/degradation vs resource-release/productivity mechanisms.
-8. Fly-wing developmental/genetic constraint vs correlational-selection explanation.
+Run:
+- `runs/pilot_explanatory_001`
+- 8/8 cases completed, 0 errors
+- 784 verifier LLM calls; Azure deployment `gpt-4.1-kasia`
+- estimated cost $2.75
+- Semantic Scholar literature provider: 356 calls, 0 errors
+- cutoff/hidden-annotation audit scanned 4.79M model-traffic characters and 3,812 retrieved papers; 0 post-cutoff papers and 0 hidden-content hits
 
-## Frozen benchmark-record schema
-Each case should contain:
-- case_id
-- title
-- domain
-- phenomenon
-- cutoff
-- hypotheses[]
-  - hypothesis_id
-  - source_faithful_text
-  - source_title
-  - source_identifier / DOI / URL where available
-  - source_public_date
-  - articulation_type: explicit_in_source | reconstructed_from_pre_cutoff_sources
-  - source_notes
-- pre_cutoff_context
-- consequence_matrix[]
-  - observable_or_test
-  - predictions_by_hypothesis
-  - scientific_rationale
-  - source_support
-  - silence_as_null_check
-- resolving_study
-  - citation
-  - DOI / preprint / repository identifiers
-  - journal_public_date
-  - earliest_public_date
-  - earliest_public_channel
-- resolving_observations[]
-- resolution
-  - type: favored | disfavored | mixed | regime_dependent | component_wise | unresolved
-  - summary
-- leakage_audit
-  - channels_checked
-  - pre_cutoff_equivalent_result_found
-  - findings
-  - remaining_uncertainty
-- construction_status
-- construction_rationale
-- ambiguities_and_limitations
-- benchmark_visibility
-  - visible_to_verifier: phenomenon, cutoff, hypothesis texts, pre-cutoff context / literature as task design permits
-  - hidden_annotations: consequence reference profile, resolving observations, resolution label, leakage notes
+## Robust structural result
+Compared with ResearchBench reserve-12 using the same frozen method and no post-hoc judge:
+- sign-opposed graph nodes: 5% -> 45%
+- negative edges: 2% -> 23%
+- informative-evidence nodes: 32% -> 41%
+- median score margin: 0.120 -> 0.389
+- margin > 0.5: 0/12 -> 4/8
 
-## Integration implication
-The first experiment should adapt the eight accepted cases into the repository's existing benchmark input conventions rather than create a parallel execution stack. Claude should implement the adapter/dataset integration and run the existing API-agent consequence-graph method under the current temporal harness. Hidden benchmark annotations should remain evaluation-only and must not enter model prompts.
+Interpretation: genuine competing explanations elicit substantially more contrastive graph structure than ResearchBench did.
 
-## Benchmark principles frozen with schema
-- cutoff >= 2024-01-01
-- phenomenon and hypotheses must predate cutoff
-- resolving evidence must be post-cutoff
-- alternatives must address the same phenomenon
-- meaningful observable consequence differences are required
-- silence is never converted into a null prediction
-- no retrospective sharpening to manufacture contrast
-- mixed/regime-dependent/component-wise resolutions are valid
-- resolving evidence and hidden annotations are not exposed to the verifier by default
-- reject rather than rescue structurally weak cases
+## Consequence discovery
+Post-hoc auditor reports:
+- 11/23 hidden reference discriminators recovered
+- recovered in 7/8 cases
+- 44/192 generated propositions classed as genuinely discriminative (41 reference matches + 3 novel plausible)
+- fly-wing recovered 0/3; generated mostly shared/compatible alignment propositions
 
-## Current audited counts
-- ACCEPT: 8
-- BORDERLINE: 4
-- REJECT: 5
+## Major method failure exposed
+One-sided propositions are common: 127/192 propositions had at least one silent hypothesis.
+Across 131 silent (hypothesis, proposition) pairs, frozen edge assessor labelled the silent hypothesis:
+- neutral: 57 (44%)
+- unlikely/strongly_contradicted: 51 (39%)
+- implied/weakly/strongly implied: 23 (18%)
 
-## Construction conclusion so far
-Recent explanatory-hypothesis benchmark construction is practically feasible, but the dominant cost is historical source auditing. The principal failure modes are pre-cutoff leakage, resolver-authored retrospective alternatives, hypotheses addressing different stages/aspects, asymmetric prediction structure, and disputes that were no longer genuinely live at the cutoff.
+Thus the assessor gives a directional label to a silent hypothesis 56% of the time despite `neutral` already being defined for silence.
 
-## Next execution target
-Write full dossiers and a machine-readable repository-compatible dataset for the eight accepted cases, then issue a bounded Claude directive to integrate those records into the existing experiment runner and run the pre-existing consequence-graph system without tuning it on these eight cases.
+Of 87 sign-opposed nodes, the primary auditor classifies 33 as genuine and 51 as manufactured from silence; a blind second LLM rating gives roughly 36 genuine vs 40 manufactured. Exact majority is not robust, but silence-driven contrast is unquestionably a large share.
+
+Manufactured opposition is directionally biased: of 31 manufactured nodes that affected a score, 29 favored the hypothesis that generated the proposition (8.52 log-odds total) and 2 favored the other (1.72). This recreates the historical component-truth failure: literature support for a one-sided consequence is converted into evidence against a silent competitor.
+
+## Historical evidence discovery
+For 44 genuine discriminators:
+- 36: no relevant pre-cutoff evidence identified by attribution judge
+- 7: informative evidence found
+- 1: generic compatibility only
+- 0 retrieval failures according to the attribution judge
+
+Caveat: the evidence-attribution judge sees only retrieved papers, so true retrieval failures may be misclassified as no historical evidence.
+
+Interpretation: by construction, many decisive discriminators only became observable in the post-cutoff resolving study. The graph generator can recover them, but pre-cutoff literature often cannot settle them.
+
+## Hypothesis-comparison observations
+Favored-resolution cases:
+- eukaryogenesis: top H2, matches later resolution, but score heavily driven by manufactured contrast (+2.13 vs +0.50 genuine)
+- GlnBP: top H2, matches later resolution; strongest case with +1.01 genuine and +0.78 manufactured contribution
+- fly-wing: top H2, matches later resolution, but match has no genuine discriminating basis (0 genuine; +0.30 manufactured)
+- PFC storage-vs-control: top H1, opposes later resolution; attribution is provisional, with historical evidence and auditor misclassification both relevant
+
+Non-directional benchmark cases must not be evaluated as winner accuracy.
+
+## Auditor limitations
+All recovery/evidence attribution judgments are LLM-based; no human domain expert has reviewed them.
+The recovery auditor over-calls silence/indeterminate and missed at least one explicit denial in hypothesis text.
+Robust conclusions are:
+1. structural behavior differs strongly from ResearchBench;
+2. silence-driven contrast is a large share of graph opposition;
+3. when one-sided support is treated directionally, it systematically favors the generating hypothesis.
+Per-case attribution and exact genuine/manufactured counts remain provisional.
+
+## Reproducibility / artifact risk
+Executor report records that the run was performed from an uncommitted working tree on top of `c18edc29f93afaa4b9683bfed9473bb3fb659329`; run manifest had no git commit. `runs/` is gitignored and the 42 MB forensic run existed only on the execution disk at completion. Repository currently exposes the pilot report/integration, but artifact backup and exact-run preservation should be verified before further work.
+
+## Current scientific conclusion
+The explanatory benchmark is substantially better aligned with the intended task than ResearchBench. The original consequence-generation idea shows real promise: it independently recovered about half of the known discriminating consequences across 7/8 cases.
+
+However, final hypothesis comparison is presently confounded by a specific method failure: the edge assessor often converts hypothesis silence into directional opposition, causing supported one-sided/component consequences to count against silent competitors.
+
+## Recommended next step
+Do not scale the frozen verifier unchanged to ~20 cases yet. Continue constructing the ~20-case benchmark, but treat these 8 pilot cases as spent for method tuning.
+
+Before modifying the method:
+1. preserve/commit the exact pilot code and back up the full run artifacts;
+2. manually/expert-review the score-moving propositions (executor prepared 78 nodes; 40 carry ~80% of influence) to obtain trustworthy labels for genuine discrimination vs silence;
+3. use a separate development set to investigate edge-assessor silence handling / aggregation;
+4. randomize hypothesis IDs relative to later resolution in the larger benchmark;
+5. make consequence discovery a primary benchmark capability, with end-to-end historical hypothesis comparison secondary because decisive pre-cutoff evidence is often absent.
