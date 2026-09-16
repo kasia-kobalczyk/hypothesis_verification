@@ -1,0 +1,654 @@
+{
+ "_about": {
+  "orientation": "all log-odds are log-score(H2) minus log-score(H1); positive supports H2",
+  "labels": "benchmark/review/graph_pilot_001/human_labels_D045.json (D045; model-based Research Director review, not external expert ground truth)",
+  "favoured_hypothesis_source": ".agent/PROJECT_STATE.md: H2 in all four `favored` cases"
+ },
+ "cases": {
+  "eukaryogenesis_mito_timing": {
+   "original": {
+    "scores": {
+     "H1": 0.08149125538252629,
+     "H2": 0.9185087446174738
+    },
+    "log_odds_H2_over_H1": 2.4222557065812005,
+    "top": "H2"
+   },
+   "later_resolution_favours": "H2",
+   "total_absolute_influence": 3.9042215171180032,
+   "reviewed_absolute_influence": 3.1052390554788514,
+   "unreviewed_absolute_influence": 0.7989824616391519,
+   "reviewed_log_odds_H2_over_H1": 2.6248150976328106,
+   "unreviewed_log_odds_H2_over_H1": -0.20255939105161008,
+   "categories": {
+    "genuine_discriminator": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "silence_as_null_error": {
+     "n_nodes": 1,
+     "contribution_H1": 0.4180370928606561,
+     "contribution_H2": 0.17782511393763573,
+     "log_odds_H2_over_H1": -0.24021197892302038,
+     "absolute_influence": 0.24021197892302038
+    },
+    "generic_component_fact": {
+     "n_nodes": 6,
+     "contribution_H1": 7.951252202615378,
+     "contribution_H2": 9.971087307923279,
+     "log_odds_H2_over_H1": 2.0198351053079007,
+     "absolute_influence": 2.0198351053079007
+    },
+    "compatible_non_discriminative": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "evidence_construct_mismatch": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "invalid_or_weak_implication": {
+     "n_nodes": 1,
+     "contribution_H1": -1.7131450816876077,
+     "contribution_H2": -0.8679531104396774,
+     "log_odds_H2_over_H1": 0.8451919712479303,
+     "absolute_influence": 0.8451919712479303
+    },
+    "unreviewed_score_moving": {
+     "n_nodes": 7,
+     "contribution_H1": 9.470767639240984,
+     "contribution_H2": 9.268208248189374,
+     "log_odds_H2_over_H1": -0.20255939105161008,
+     "absolute_influence": 0.7989824616391519
+    },
+    "non_moving": {
+     "n_nodes": 9,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    }
+   }
+  },
+  "fly_wing_constraint_vs_selection": {
+   "original": {
+    "scores": {
+     "H1": 0.4232216604217467,
+     "H2": 0.5767783395782533
+    },
+    "log_odds_H2_over_H1": 0.3095619708179806,
+    "top": "H2"
+   },
+   "later_resolution_favours": "H2",
+   "total_absolute_influence": 0.30956197081798054,
+   "reviewed_absolute_influence": 0.30230532017119105,
+   "unreviewed_absolute_influence": 0.0072566506467894865,
+   "reviewed_log_odds_H2_over_H1": 0.30230532017119105,
+   "unreviewed_log_odds_H2_over_H1": 0.0072566506467894865,
+   "categories": {
+    "genuine_discriminator": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "silence_as_null_error": {
+     "n_nodes": 1,
+     "contribution_H1": 0.17782511393763573,
+     "contribution_H2": 0.4801304341088268,
+     "log_odds_H2_over_H1": 0.30230532017119105,
+     "absolute_influence": 0.30230532017119105
+    },
+    "generic_component_fact": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "compatible_non_discriminative": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "evidence_construct_mismatch": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "invalid_or_weak_implication": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "unreviewed_score_moving": {
+     "n_nodes": 1,
+     "contribution_H1": 0.4720707299147487,
+     "contribution_H2": 0.4793273805615382,
+     "log_odds_H2_over_H1": 0.0072566506467894865,
+     "absolute_influence": 0.0072566506467894865
+    },
+    "non_moving": {
+     "n_nodes": 22,
+     "contribution_H1": 0.4180370928606561,
+     "contribution_H2": 0.4180370928606561,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    }
+   }
+  },
+  "forest_fragmentation_resilience": {
+   "original": {
+    "scores": {
+     "H1": 0.8363254590205298,
+     "H2": 0.16367454097947015
+    },
+    "log_odds_H2_over_H1": -1.6311378925137063,
+    "top": "H1"
+   },
+   "later_resolution_favours": null,
+   "total_absolute_influence": 3.3140745134495813,
+   "reviewed_absolute_influence": 2.236783453260636,
+   "unreviewed_absolute_influence": 1.0772910601889454,
+   "reviewed_log_odds_H2_over_H1": -1.8526773600878716,
+   "unreviewed_log_odds_H2_over_H1": 0.22153946757416665,
+   "categories": {
+    "genuine_discriminator": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "silence_as_null_error": {
+     "n_nodes": 2,
+     "contribution_H1": 2.361950117141234,
+     "contribution_H2": 1.952319258974352,
+     "log_odds_H2_over_H1": -0.4096308581668817,
+     "absolute_influence": 0.4096308581668817
+    },
+    "generic_component_fact": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "compatible_non_discriminative": {
+     "n_nodes": 4,
+     "contribution_H1": 0.16316145933850845,
+     "contribution_H2": -1.4719380891688634,
+     "log_odds_H2_over_H1": -1.6350995485073718,
+     "absolute_influence": 1.6350995485073718
+    },
+    "evidence_construct_mismatch": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "invalid_or_weak_implication": {
+     "n_nodes": 1,
+     "contribution_H1": 1.7619422128123445,
+     "contribution_H2": 1.9539952593987266,
+     "log_odds_H2_over_H1": 0.19205304658638211,
+     "absolute_influence": 0.19205304658638211
+    },
+    "unreviewed_score_moving": {
+     "n_nodes": 11,
+     "contribution_H1": 10.214852641430426,
+     "contribution_H2": 10.436392109004592,
+     "log_odds_H2_over_H1": 0.22153946757416665,
+     "absolute_influence": 1.0772910601889454
+    },
+    "non_moving": {
+     "n_nodes": 6,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    }
+   }
+  },
+  "gcn4_med15_complex_vs_condensate": {
+   "original": {
+    "scores": {
+     "H1": 0.4987750277391291,
+     "H2": 0.5012249722608709
+    },
+    "log_odds_H2_over_H1": 0.0048998988469364235,
+    "top": "H2"
+   },
+   "later_resolution_favours": null,
+   "total_absolute_influence": 2.1094930787309947,
+   "reviewed_absolute_influence": 1.4863928842717824,
+   "unreviewed_absolute_influence": 0.6231001944592123,
+   "reviewed_log_odds_H2_over_H1": -0.1595416806667449,
+   "unreviewed_log_odds_H2_over_H1": 0.16444157951368277,
+   "categories": {
+    "genuine_discriminator": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "silence_as_null_error": {
+     "n_nodes": 1,
+     "contribution_H1": 1.1629854344926398,
+     "contribution_H2": 0.976159629487176,
+     "log_odds_H2_over_H1": -0.18682580500546375,
+     "absolute_influence": 0.18682580500546375
+    },
+    "generic_component_fact": {
+     "n_nodes": 3,
+     "contribution_H1": 4.688319122332162,
+     "contribution_H2": 4.436283738041126,
+     "log_odds_H2_over_H1": -0.25203538429103567,
+     "absolute_influence": 1.0202475706365641
+    },
+    "compatible_non_discriminative": {
+     "n_nodes": 1,
+     "contribution_H1": 0.7701352867780858,
+     "contribution_H2": 1.0494547954078404,
+     "log_odds_H2_over_H1": 0.2793195086297545,
+     "absolute_influence": 0.2793195086297545
+    },
+    "evidence_construct_mismatch": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "invalid_or_weak_implication": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "unreviewed_score_moving": {
+     "n_nodes": 6,
+     "contribution_H1": 5.379855113122546,
+     "contribution_H2": 5.544296692636229,
+     "log_odds_H2_over_H1": 0.16444157951368277,
+     "absolute_influence": 0.6231001944592123
+    },
+    "non_moving": {
+     "n_nodes": 13,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    }
+   }
+  },
+  "glnbp_induced_fit_vs_conformational_selection": {
+   "original": {
+    "scores": {
+     "H1": 0.13689692411733193,
+     "H2": 0.863103075882668
+    },
+    "log_odds_H2_over_H1": 1.841305859037285,
+    "top": "H2"
+   },
+   "later_resolution_favours": "H2",
+   "total_absolute_influence": 4.298152053937604,
+   "reviewed_absolute_influence": 4.1250365613951985,
+   "unreviewed_absolute_influence": 0.173115492542405,
+   "reviewed_log_odds_H2_over_H1": 1.9762540470042578,
+   "unreviewed_log_odds_H2_over_H1": -0.1349481879669725,
+   "categories": {
+    "genuine_discriminator": {
+     "n_nodes": 2,
+     "contribution_H1": 2.103190569087246,
+     "contribution_H2": 1.7207526986198953,
+     "log_odds_H2_over_H1": -0.38243787046735067,
+     "absolute_influence": 0.8898450844602491
+    },
+    "silence_as_null_error": {
+     "n_nodes": 2,
+     "contribution_H1": -2.8899300911299166,
+     "contribution_H2": -1.2587249758138497,
+     "log_odds_H2_over_H1": 1.6312051153160674,
+     "absolute_influence": 1.6312051153160674
+    },
+    "generic_component_fact": {
+     "n_nodes": 4,
+     "contribution_H1": 4.346253675752324,
+     "contribution_H2": 5.2670714861857,
+     "log_odds_H2_over_H1": 0.9208178104333761,
+     "absolute_influence": 1.4106553533410469
+    },
+    "compatible_non_discriminative": {
+     "n_nodes": 1,
+     "contribution_H1": 1.1694906377650112,
+     "contribution_H2": 0.976159629487176,
+     "log_odds_H2_over_H1": -0.19333100827783511,
+     "absolute_influence": 0.19333100827783511
+    },
+    "evidence_construct_mismatch": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "invalid_or_weak_implication": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "unreviewed_score_moving": {
+     "n_nodes": 2,
+     "contribution_H1": 2.314366445781326,
+     "contribution_H2": 2.179418257814354,
+     "log_odds_H2_over_H1": -0.1349481879669725,
+     "absolute_influence": 0.173115492542405
+    },
+    "non_moving": {
+     "n_nodes": 13,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    }
+   }
+  },
+  "pfc_interhemispheric_architecture": {
+   "original": {
+    "scores": {
+     "H1": 0.6179218345531287,
+     "H2": 0.38207816544687123
+    },
+    "log_odds_H2_over_H1": -0.4807367588895375,
+    "top": "H1"
+   },
+   "later_resolution_favours": null,
+   "total_absolute_influence": 0.5820766394502254,
+   "reviewed_absolute_influence": 0.3942994099293867,
+   "unreviewed_absolute_influence": 0.18777722952083864,
+   "reviewed_log_odds_H2_over_H1": -0.3942994099293867,
+   "unreviewed_log_odds_H2_over_H1": -0.08643734896015076,
+   "categories": {
+    "genuine_discriminator": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "silence_as_null_error": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "generic_component_fact": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "compatible_non_discriminative": {
+     "n_nodes": 1,
+     "contribution_H1": 1.1644346967074726,
+     "contribution_H2": 0.7701352867780858,
+     "log_odds_H2_over_H1": -0.3942994099293867,
+     "absolute_influence": 0.3942994099293867
+    },
+    "evidence_construct_mismatch": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "invalid_or_weak_implication": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "unreviewed_score_moving": {
+     "n_nodes": 2,
+     "contribution_H1": 0.8466945331418503,
+     "contribution_H2": 0.7602571841816996,
+     "log_odds_H2_over_H1": -0.08643734896015076,
+     "absolute_influence": 0.18777722952083864
+    },
+    "non_moving": {
+     "n_nodes": 21,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    }
+   }
+  },
+  "pfc_storage_vs_control": {
+   "original": {
+    "scores": {
+     "H1": 0.7709983327003794,
+     "H2": 0.22900166729962063
+    },
+    "log_odds_H2_over_H1": -1.2139569267331662,
+    "top": "H1"
+   },
+   "later_resolution_favours": "H2",
+   "total_absolute_influence": 2.666944444703351,
+   "reviewed_absolute_influence": 2.4250245583228054,
+   "unreviewed_absolute_influence": 0.24191988638054546,
+   "reviewed_log_odds_H2_over_H1": -1.2686309231264985,
+   "unreviewed_log_odds_H2_over_H1": 0.054673996393333535,
+   "categories": {
+    "genuine_discriminator": {
+     "n_nodes": 2,
+     "contribution_H1": 1.892595001359041,
+     "contribution_H2": 2.4707918189571942,
+     "log_odds_H2_over_H1": 0.5781968175981534,
+     "absolute_influence": 0.5781968175981534
+    },
+    "silence_as_null_error": {
+     "n_nodes": 1,
+     "contribution_H1": 1.9558043671579695,
+     "contribution_H2": 1.0704586103006695,
+     "log_odds_H2_over_H1": -0.8853457568573,
+     "absolute_influence": 0.8853457568573
+    },
+    "generic_component_fact": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "compatible_non_discriminative": {
+     "n_nodes": 1,
+     "contribution_H1": 1.1644346967074726,
+     "contribution_H2": 0.9195159252536371,
+     "log_odds_H2_over_H1": -0.24491877145383545,
+     "absolute_influence": 0.24491877145383545
+    },
+    "evidence_construct_mismatch": {
+     "n_nodes": 3,
+     "contribution_H1": 5.1222626167435035,
+     "contribution_H2": 4.405699404329987,
+     "log_odds_H2_over_H1": -0.7165632124135165,
+     "absolute_influence": 0.7165632124135165
+    },
+    "invalid_or_weak_implication": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "unreviewed_score_moving": {
+     "n_nodes": 4,
+     "contribution_H1": 3.0665654238673437,
+     "contribution_H2": 3.1212394202606775,
+     "log_odds_H2_over_H1": 0.054673996393333535,
+     "absolute_influence": 0.24191988638054546
+    },
+    "non_moving": {
+     "n_nodes": 13,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    }
+   }
+  },
+  "spider_orb_web_origin": {
+   "original": {
+    "scores": {
+     "H1": 0.4241686724145701,
+     "H2": 0.5758313275854298
+    },
+    "log_odds_H2_over_H1": 0.3056835953344157,
+    "top": "H2"
+   },
+   "later_resolution_favours": null,
+   "total_absolute_influence": 0.8841959825810498,
+   "reviewed_absolute_influence": 0.4015401848058122,
+   "unreviewed_absolute_influence": 0.4826557977752376,
+   "reviewed_log_odds_H2_over_H1": 0.4015401848058122,
+   "unreviewed_log_odds_H2_over_H1": -0.09585658947139708,
+   "categories": {
+    "genuine_discriminator": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "silence_as_null_error": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "generic_component_fact": {
+     "n_nodes": 1,
+     "contribution_H1": 0.976159629487176,
+     "contribution_H2": 1.1908740092875245,
+     "log_odds_H2_over_H1": 0.21471437980034846,
+     "absolute_influence": 0.21471437980034846
+    },
+    "compatible_non_discriminative": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "evidence_construct_mismatch": {
+     "n_nodes": 0,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    },
+    "invalid_or_weak_implication": {
+     "n_nodes": 1,
+     "contribution_H1": 0.976159629487176,
+     "contribution_H2": 1.1629854344926398,
+     "log_odds_H2_over_H1": 0.18682580500546375,
+     "absolute_influence": 0.18682580500546375
+    },
+    "unreviewed_score_moving": {
+     "n_nodes": 5,
+     "contribution_H1": 4.416551289062731,
+     "contribution_H2": 4.320694699591335,
+     "log_odds_H2_over_H1": -0.09585658947139708,
+     "absolute_influence": 0.4826557977752376
+    },
+    "non_moving": {
+     "n_nodes": 17,
+     "contribution_H1": 0.0,
+     "contribution_H2": 0.0,
+     "log_odds_H2_over_H1": 0.0,
+     "absolute_influence": 0.0
+    }
+   }
+  }
+ },
+ "totals": {
+  "by_category": {
+   "genuine_discriminator": {
+    "n_nodes": 4,
+    "absolute_influence": 1.4680419020584026,
+    "signed_log_odds_H2_over_H1_summed_across_cases": 0.19575894713080277
+   },
+   "silence_as_null_error": {
+    "n_nodes": 8,
+    "absolute_influence": 3.6555248344399245,
+    "signed_log_odds_H2_over_H1_summed_across_cases": 0.2114960365345926
+   },
+   "generic_component_fact": {
+    "n_nodes": 14,
+    "absolute_influence": 4.6654524090858605,
+    "signed_log_odds_H2_over_H1_summed_across_cases": 2.9033319112505893
+   },
+   "compatible_non_discriminative": {
+    "n_nodes": 8,
+    "absolute_influence": 2.7469682467981835,
+    "signed_log_odds_H2_over_H1_summed_across_cases": -2.1883292295386747
+   },
+   "evidence_construct_mismatch": {
+    "n_nodes": 3,
+    "absolute_influence": 0.7165632124135165,
+    "signed_log_odds_H2_over_H1_summed_across_cases": -0.7165632124135165
+   },
+   "invalid_or_weak_implication": {
+    "n_nodes": 3,
+    "absolute_influence": 1.224070822839776,
+    "signed_log_odds_H2_over_H1_summed_across_cases": 1.224070822839776
+   },
+   "unreviewed_score_moving": {
+    "n_nodes": 38,
+    "absolute_influence": 3.5920987731531255,
+    "signed_log_odds_H2_over_H1_summed_across_cases": -0.07188982332215799
+   },
+   "non_moving": {
+    "n_nodes": 114,
+    "absolute_influence": 0.0,
+    "signed_log_odds_H2_over_H1_summed_across_cases": 0.0
+   }
+  },
+  "favored_cases_log_odds_toward_later_favoured_hypothesis": {
+   "genuine_discriminator": 0.19575894713080277,
+   "silence_as_null_error": 0.807952699706938,
+   "generic_component_fact": 2.9406529157412766,
+   "compatible_non_discriminative": -0.43824977973167056,
+   "evidence_construct_mismatch": -0.7165632124135165,
+   "invalid_or_weak_implication": 0.8451919712479303,
+   "unreviewed_score_moving": -0.27557693197845956
+  }
+ }
+}
