@@ -10,7 +10,7 @@ defaulting is exactly how v3 turned missing judgments into P = 0.5.
 from __future__ import annotations
 
 from collections import OrderedDict
-from typing import Any, Dict, Tuple
+from typing import Any, Dict, Optional, Tuple
 
 from src.benchmark.presentation import Presentation
 from src.graph.generate import _render_candidates
@@ -18,7 +18,12 @@ from src.inference.discrimination import StateError, normalise_scope, normalise_
 from src.llm.client import BaseLLMClient
 from src.llm.prompts import PromptLibrary
 
-STATE_PROMPT = "prediction_state_v3"
+# Development head. Iteration 3 (prediction_state_v3, explicit scope) regressed on both
+# replicates -- more manufactured contrasts, lower stability -- so the head reverted to
+# iteration 2's prompt (BENCH-GRAPH-V4-DEV-001, docs/V4_DEV_REPORT.md). The scope field
+# and its deterministic gate remain implemented and tested for prompts that emit it.
+STATE_PROMPT = "prediction_state_v2"
+SCOPE_PROMPTS = frozenset({"prediction_state_v3"})
 
 
 def parse_states(parsed: Dict[str, Any], presentation: Presentation) -> "OrderedDict[str, Dict[str, Any]]":
@@ -55,8 +60,11 @@ def parse_scope(parsed: Dict[str, Any]) -> "OrderedDict[str, Any]":
 
 def assess_prediction_states(
     llm: BaseLLMClient, prompts: PromptLibrary, *, proposition: str, presentation: Presentation,
-) -> Tuple["OrderedDict[str, Dict[str, Any]]", "OrderedDict[str, Any]", Dict[str, Any]]:
-    template = prompts.get(STATE_PROMPT)
+    prompt_name: str = None,
+) -> Tuple["OrderedDict[str, Dict[str, Any]]", "Optional[OrderedDict[str, Any]]", Dict[str, Any]]:
+    prompt_name = prompt_name or STATE_PROMPT
+    scoped = prompt_name in SCOPE_PROMPTS
+    template = prompts.get(prompt_name)
     messages = [{"role": "user", "content": template.render(
         proposition=proposition,
         candidates=_render_candidates(presentation),
@@ -65,9 +73,10 @@ def assess_prediction_states(
 
     def validate(parsed: Dict[str, Any]) -> None:
         parse_states(parsed, presentation)   # raises StateError (a ValueError) -> repair retry
-        parse_scope(parsed)
+        if scoped:
+            parse_scope(parsed)
 
-    response = llm.complete_json(messages, purpose="graph_v4.prediction_state", prompt_version=STATE_PROMPT,
+    response = llm.complete_json(messages, purpose="graph_v4.prediction_state", prompt_version=prompt_name,
                                  validator=validate)
     parsed = response.parsed or {}
-    return parse_states(parsed, presentation), parse_scope(parsed), response.record()
+    return parse_states(parsed, presentation), (parse_scope(parsed) if scoped else None), response.record()

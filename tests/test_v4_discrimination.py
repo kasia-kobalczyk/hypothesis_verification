@@ -404,7 +404,9 @@ def test_unknown_or_missing_scope_fails_closed():
         parse_scope({"proposition_scope": "somewhat_general"})
 
 
-def test_layer_buckets_out_of_scope_propositions(mappings):
+def test_layer_buckets_out_of_scope_propositions(mappings, monkeypatch):
+    import src.graph.prediction_state as ps
+    monkeypatch.setattr(ps, "STATE_PROMPT", "prediction_state_v3")
     llm = ScriptedLLM(
         states={"p1": {"proposition_scope": "broader_than_candidates",
                        "states": [_entry("A", "positive_or_present"), _entry("B", "negative_or_absent")]},
@@ -417,3 +419,9 @@ def test_layer_buckets_out_of_scope_propositions(mappings):
     assert [b["node_id"] for b in out["buckets"]["generic_or_possibility_claim"]] == ["X1"]
     assert out["nodes"]["X2"]["used_in_score"]
     assert out["nodes"]["X3"]["gate_reason"] == "prediction_states_unavailable"   # no scope -> fail closed
+
+
+def test_development_head_uses_the_iteration_2_state_prompt_without_scope():
+    """Iteration 3 regressed on both replicates; the head reverted to v2 (see V4_DEV_REPORT)."""
+    import src.graph.prediction_state as ps
+    assert ps.STATE_PROMPT == "prediction_state_v2" and ps.STATE_PROMPT not in ps.SCOPE_PROMPTS

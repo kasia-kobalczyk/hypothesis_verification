@@ -86,8 +86,8 @@ def run_v4_layer(
             states, scope, call = assess_prediction_states(llm, prompts, proposition=node["text"],
                                                            presentation=presentation)
             entry["states"] = states
-            entry["proposition_scope"] = scope["proposition_scope"]
-            entry["scope_basis"] = scope["scope_basis"]
+            entry["proposition_scope"] = scope["proposition_scope"] if scope else None
+            entry["scope_basis"] = scope["scope_basis"] if scope else None
             entry["state_call_id"] = call.get("call_id")
         except (LLMError, LLMParseError, StateError) as exc:
             entry["states"] = None
