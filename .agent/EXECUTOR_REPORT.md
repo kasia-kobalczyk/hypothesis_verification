@@ -1,213 +1,204 @@
-TASK_ID: BENCH-GRAPH-REVIEW-001
+TASK_ID: BENCH-GRAPH-ATTRIBUTION-001
 STATUS: COMPLETED
 
 SUMMARY:
-The frozen eight-case pilot run is preserved byte-for-byte in a checksummed archive, with a provenance record. The dirty working tree it ran from was reconstructed as `9559b30` plus a one-hunk, cosmetic patch. The patch is verified against the run's own console log and the session transcript's edit history.
+All 40 D045 labels were encoded into the review packet by mechanical transcription. A test re-parses D045 from `.agent/DECISIONS.md` and requires exact equality.
 
-From that archive, a deterministic, LLM-free builder produced the human review packet:
-- **Full set:** 78 score-moving nodes out of 192 generated.
-- **Priority set:** 40 nodes covering 80.1% of total absolute score influence, selected from verifier contributions only.
-- **Per record:** exact hypotheses, every cross-hypothesis edge route, byte-exact evidence text cut from the rendered assessor prompts, per-node contributions, exact single-node counterfactuals, non-authoritative auditor metadata, and blank human fields.
-- **Hidden resolutions:** kept in a separate labelled appendix.
+The frozen pilot scores were then reproduced exactly, with the verifier's own scoring code on the checksummed archive and no model or retrieval call. They were decomposed by reviewed category for every node, case and hypothesis. Counterfactual views were computed two ways:
 
-Twenty tests check that the packet is faithful to the frozen run. The verifier was not changed and nothing was rerun.
+- **Exact evidence-zeroing** (primary).
+- **Graph-deletion sensitivity**, because 58 of 78 score-moving nodes inherit part of P(X|H) through a parent.
 
-**Publication, per human decision:** the review packet, checksums, provenance record and tooling are pushed to `master`. The run archive itself is **private**: gitignored, never committed, and kept on the execution host. It contains full model traffic and about 3,800 third-party abstracts.
+The verifier was not changed and nothing was rerun.
+
+Main results (conditional on D045, which is model-based review, not expert ground truth):
+1. **None of the frozen verifier's three agreements with a later `favored` resolution rests on a reviewed genuine discriminator.**
+   - Eukaryogenesis and fly-wing have none.
+   - GlnBP's two genuine discriminators point against the later-favoured induced-fit account (−0.38). Its frozen +1.84 came from silence errors (+1.63) and generic component facts (+0.92).
+2. **Removing only the confirmed errors keeps the favoured direction in eukaryogenesis (+1.82) and GlnBP (+0.21),** but generic component facts carry it (+2.02 and +0.92). Fly-wing collapses to +0.007, from one unreviewed node.
+3. **The one failure reverses.** PFC storage-vs-control's genuine discriminators favour the later-supported control account (+0.58). One silence error (−0.89) and three construct mismatches (−0.72) outweighed them.
+4. **Six of eight cases have no reviewed genuine discriminator.**
+5. **Share of all score influence by category:**
+
+   | category | share |
+   |---|---|
+   | generic component facts | 25.8% |
+   | silence errors | 20.2% |
+   | compatible non-discriminative | 15.2% |
+   | weak implication | 6.8% |
+   | genuine discriminators | 8.1% |
+   | construct mismatch | 4.0% |
+   | unreviewed | 19.9% |
+
+   The problem is broader than silence handling: non-discriminative component and compatible facts (41.0%) outweigh silence errors (20.2%).
 
 CHANGES:
-Commit `3ff5a38`: preservation record.
-- `.gitignore`: adds `benchmark/frozen_runs/*/*.tar.gz`, so run archives stay private.
-- `benchmark/frozen_runs/pilot_explanatory_001/` (tracked):
-  - `pilot_explanatory_001.tar.gz.sha256`
-  - `SHA256SUMS`
-  - `file_manifest.json`: per-file size, mtime and kind
-  - `PROVENANCE.md`
-  - `runtime_source.patch`
-- `pilot_explanatory_001.tar.gz` (8.8 MB, 149 files): **private, not tracked.** It is in the same directory on the execution host, plus a second copy at `/mnt/data/knk25.data/private_artifacts/pilot_explanatory_001/` (checksum verified).
+Commit `dc13560`: D045 labels encoded.
+- `benchmark/review/graph_pilot_001/human_labels_D045.json` (new): 40 labels with D045 number and key, resolved case/node/review id, and provenance.
+- `scripts/build_review_packet.py`:
+  - loads label files;
+  - fills `human_primary_category`, `human_is_genuinely_discriminative` (true only for `genuine_discriminator`), `human_silence_as_null_error` (true only for `silence_as_null_error`), `human_reviewer`, `human_review_source` and `human_review_status`;
+  - rejects labels for nodes outside the review set;
+  - renders labels in the Markdown views.
+  - The blank field `reviewer` became `human_reviewer`, and `human_review_source` / `human_review_status` were added.
+- Regenerated: `review_set_full.jsonl`, `review_set_priority.jsonl`, `review_full.md`, `review_priority.md`.
+- `RUBRIC.md`, `README.md`: field names and label provenance.
+- `tests/test_review_packet.py`:
+  - the blank-field test now covers unlabelled nodes only;
+  - new tests check exact D045 transcription (numbering, keys, categories, stated counts);
+  - D045 keys must resolve to the priority set in rank order;
+  - labelled nodes carry exactly the D045 fields and nothing inferred.
 
-Commit `056280e`: review packet and tooling.
-- `scripts/build_review_packet.py`: deterministic builder. It imports only the verifier's graph schema and scoring code (read-only), and nothing from `src/llm`.
-- `tests/test_review_packet.py`: 20 sanity checks. The 18 that need the frozen run skip, with a pointer to `PROVENANCE.md`, wherever the private archive is absent; verified by removing it temporarily.
-- `benchmark/review/graph_pilot_001/`:
-  - `README.md`, `RUBRIC.md`
-  - `review_priority.md`, `review_full.md`
-  - `review_set_priority.jsonl`, `review_set_full.jsonl`
-  - `hidden_case_context.md`, `hidden_case_context.json`
-  - `stats.json`
+Commit `b552314`: attribution.
+- `scripts/analyze_review_attribution.py` (new): deterministic and LLM-free. It reuses the packet builder's archive verification, graph rebuild and reproduction check.
+- `benchmark/review/graph_pilot_001/attribution/` (new):
+  - `node_contributions.jsonl`
+  - `case_category_attribution.json`
+  - `counterfactual_views.json`
+  - `coverage.json`
+  - `ATTRIBUTION_REPORT.md`
+- `tests/test_review_attribution.py` (new, 14 tests).
 
-Also this report (`.agent/EXECUTOR_REPORT.md`).
+This report is in a third commit (see ARTIFACTS).
 
-Not modified:
-- `src/`, `configs/`: `git diff 4123d52 -- src configs` is empty.
-- `.agent/DIRECTIVE.md`, `PROJECT_STATE.md`, `DECISIONS.md`.
-- `runs/pilot_explanatory_001/`: still matches `SHA256SUMS`.
-
-Outside the repository, on the execution host:
-- `/mnt/data/knk25.data/private_artifacts/pilot_explanatory_001/`: second copy of the archive.
-- `/mnt/data/knk25.data/pilot_explanatory_001_scratch_holding/`: loose copies of the scratch-only files, which are also inside the archive.
+Not modified: `src/`, `configs/` (`git diff 4123d52 -- src configs` is empty); `.agent/DIRECTIVE.md`, `PROJECT_STATE.md`, `DECISIONS.md`; the private archive (checksum verified).
 
 RESULTS:
-## Preservation
-- Original run path: `runs/pilot_explanatory_001` (gitignored), 2026-09-15T15:28:51Z–16:38:35Z.
-- Preserved path: `benchmark/frozen_runs/pilot_explanatory_001/pilot_explanatory_001.tar.gz` (private, gitignored; second copy under `/mnt/data/knk25.data/private_artifacts/`). The checksums and manifest are tracked publicly.
-  - Archive SHA-256: `dd7e13610afd5eb4bdca78bdf3a4fa91d630142e69f900c4b019a673b754568e`
-  - Mapping: `runs/pilot_explanatory_001/` → `run/`; executor scratch → `supplementary_scratch/`.
-  - Verified by extracting the archive and checking all 149 per-file checksums.
-- File kinds in `file_manifest.json`:
-  - 112 `verifier_run_output` files (written during the run);
-  - 13 `post_hoc_analysis` files (written 2026-09-16; LLM auditor outputs and second-rater ratings);
-  - 24 `supplementary_scratch` files. These are the only copies of the run console log, the auditor retest pass on `pfc_storage_vs_control`, and the raw blind second-rater ratings. They lived only in `/tmp` before this task.
-- Model/provider per role:
-  - All 5 verifier roles (generate, root_edge, chain_edge, proposition_query, evidence_assess): Azure `gpt-4.1-kasia`, api_version 2024-05-01-preview, temperature 0.0, top_p 1.0, seed 20260911, JSON mode.
-  - Prompt SHAs from the run manifest equal the freeze.
-  - Literature: Semantic Scholar; Crossref date verification `always`.
-  - The ordinal mappings recorded in all 8 `scores.json` equal `configs/ordinal_mappings.yaml` (`v0-placeholder`).
-- Git commits created: `3ff5a38` (preservation record) and `056280e` (packet and tooling), plus this report. All are pushed to `master`. The archive bytes are in no commit, verified with `git rev-list --objects`.
-- Dirty working tree:
-  - The run came from uncommitted changes on `c18edc2`, and its manifest records no commit.
-  - Reconstruction: `git show 9559b30:src/experiments/runner.py` plus `runtime_source.patch`, which reverts one log-message wording change made at 15:35:51Z during the run.
-  - Evidence:
-    - The transcript shows no other write to verifier code during the run window.
-    - The run log's warning line matches the reconstructed code exactly.
-    - Audit prompts were briefly present in the prompt directory (15:31–15:36Z), but the run manifest lists only the 5 frozen prompts.
-  - The change is cosmetic and cannot have affected results.
+Orientation: log-odds = log-score(H2) − log-score(H1); positive supports H2. In all four `favored` cases the later resolution favours H2 (PROJECT_STATE).
 
-## Review-set statistics (exact, recomputed from the archive)
-- Total generated nodes: 192.
-- Score-moving nodes: 78. A node counts when its log-likelihood contributions differ between the two hypotheses (it moves the log-odds).
-  - Excluded: 1 node (`fly_wing` X4) that adds an equal, nonzero amount to both hypotheses.
-  - The packet's contributions sum to each case's frozen log-odds.
-- Priority set: 40 nodes, 80.1% of total absolute influence (total 18.07 log-odds units).
+Frozen scores reproduced:
+- Every case's scores, rounded P(X|H) and contributions match the frozen `scores.json` (build aborts otherwise).
+- Category buckets, including `non_moving`, sum to each case's frozen log-odds within 1e-9.
 
-| case | generated | score-moving | priority | share of influence | single removals that flip ranking (withheld / deleted) |
-|---|---|---|---|---|---|
-| eukaryogenesis_mito_timing | 24 | 15 | 8 | 21.6% | 0 / 0 |
-| fly_wing_constraint_vs_selection | 24 | 2 | 1 | 1.7% | 0 / 0 |
-| forest_fragmentation_resilience | 24 | 18 | 7 | 18.3% | 0 / 0 |
-| gcn4_med15_complex_vs_condensate | 24 | 11 | 5 | 11.7% | 7 / 6 |
-| glnbp_induced_fit_vs_conformational_selection | 24 | 11 | 9 | 23.8% | 0 / 0 |
-| pfc_interhemispheric_architecture | 24 | 3 | 1 | 3.2% | 0 / 0 |
-| pfc_storage_vs_control | 24 | 11 | 7 | 14.8% | 0 / 0 |
-| spider_orb_web_origin | 24 | 7 | 2 | 4.9% | 0 / 0 |
+Coverage:
+- Total absolute influence 18.07.
+- Reviewed: 40 nodes, 14.48 (80.1%). Unreviewed: 38 nodes, 3.59 (19.9%).
+- Below the packet-wide reviewed share:
+  - spider 45.4%
+  - forest 67.5%
+  - PFC interhemispheric 67.7%
+  - gcn4 70.5%
+  - eukaryogenesis 79.5%
 
-Direct edge-label pattern (the generating hypothesis's label | the other hypothesis's label):
+Signed log-odds by category (node counts in `ATTRIBUTION_REPORT.md` §2):
 
-| pattern | full set (78) | priority set (40) |
-|---|---|---|
-| implied \| neutral | 26 | 5 |
-| implied \| unlikely | 21 | 18 |
-| strongly_implied \| unlikely | 19 | 14 |
-| implied \| implied | 3 | 0 |
-| strongly_implied \| neutral | 2 | 1 |
-| strongly_implied \| weakly_implied | 2 | 2 |
-| implied \| weakly_implied | 2 | 0 |
-| strongly_implied \| implied | 2 | 0 |
-| neutral \| implied | 1 | 0 |
+| case | frozen | genuine | silence | generic | compatible | mismatch | weak | unreviewed |
+|---|---|---|---|---|---|---|---|---|
+| eukaryogenesis (fav H2) | +2.42 | · | −0.24 | +2.02 | · | · | +0.85 | −0.20 |
+| fly-wing (fav H2) | +0.31 | · | +0.30 | · | · | · | · | +0.01 |
+| forest (regime) | −1.63 | · | −0.41 | · | −1.64 | · | +0.19 | +0.22 |
+| gcn4 (mixed) | +0.00 | · | −0.19 | −0.25 | +0.28 | · | · | +0.16 |
+| GlnBP (fav H2) | +1.84 | −0.38 | +1.63 | +0.92 | −0.19 | · | · | −0.13 |
+| PFC interhemispheric (regime) | −0.48 | · | · | · | −0.39 | · | · | −0.09 |
+| PFC storage (fav H2) | −1.21 | +0.58 | −0.89 | · | −0.24 | −0.72 | · | +0.05 |
+| spider (component-wise) | +0.31 | · | · | +0.21 | · | · | +0.19 | −0.10 |
 
-- **Hypothesis that did not generate the proposition got a non-`neutral` direct label:** 50/78 nodes in the full set, 34/40 in the priority set.
-  - This is a mechanical count, not a finding of error: a non-generating hypothesis may legitimately predict or deny a proposition.
-  - In the priority set, 32/40 non-generating labels are `unlikely`.
+Counterfactual views (evidence-zeroed log-odds and top; `ATTRIBUTION_REPORT.md` §3 has graph-deletion values and relation to resolution):
 
-## Existing auditor comparison (non-authoritative)
-- **Primary recovery auditor, within the review set:**
-  - Full set (78): silence_as_null_error 62, reference_discriminator_recovered 7, novel_plausible_discriminator 1, generic_component_fact 3, compatible_non_discriminative 5.
-  - Priority set (40): 32 / 6 / 1 / 1 / 0.
-- **Opposition call derived from auditor plus edge labels:**
-  - Full set: manufactured_from_silence 31, genuine 8, one-sided silence labelled neutral 24, silence given same-sign directional label 8, both predict same 7.
-  - Priority set: 25 / 7 / 5 / 2 / 1.
-- **Secondary judgments** (all that exist, over every re-rated node, not only score-moving ones):
-  - **Blind second rating** (executor, an LLM; 3 random nodes per case, 24 total): the discriminative call disagreed in 6/24 (25%) and the per-hypothesis status in 9/24 (38%). Only 9 of these nodes are in the review set.
-  - **Primary auditor retest** (`pfc_storage_vs_control` only, 24 nodes): category disagreed in 3/24 (12.5%), discriminative call in 1/24. Only 11 of these nodes are score-moving.
-  - **Evidence-attribution auditor:** never re-rated, so its stability is unknown.
-- **Least stable cases:**
-  - `pfc_interhemispheric_architecture`: second rater disagreed on status 3/3 and on discriminative 2/3.
-  - `spider_orb_web_origin`: 2/3 and 2/3.
-  - `pfc_storage_vs_control`: retest changed 3/24 categories. The one explicitly documented auditor error (X15, H2's explicit denial called "silent") is priority rank 19.
-  - With n=3 per case, these are weak signals.
+| case | A1 genuine + unreviewed | A2 genuine only | B1 errors removed | B2 errors removed, reviewed only |
+|---|---|---|---|---|
+| eukaryogenesis | −0.20 H1 (opposes) | tie | +1.82 H2 (agrees) | +2.02 H2 (agrees) |
+| fly-wing | +0.01 H2 | tie | +0.01 H2 | tie |
+| forest | +0.22 H2; graph-deleted −0.47 H1 | tie | −1.41 H1 | −1.64 H1 |
+| gcn4 | +0.16 H2 | tie | +0.19 H2 | +0.03 H2 |
+| GlnBP | −0.52 H1 (opposes) | −0.38 H1 (opposes) | +0.21 H2 (agrees) | +0.35 H2 (agrees) |
+| PFC interhemispheric | −0.09 H1 | tie | −0.48 H1 | −0.39 H1 |
+| PFC storage | +0.63 H2 (agrees) | +0.58 H2 (agrees) | +0.39 H2 (agrees) | +0.33 H2 (agrees) |
+| spider | −0.10 H1 | tie | +0.12 H2 | +0.21 H2 |
 
-## Other mechanical observations (no interpretation)
-- `gcn4_med15_complex_vs_condensate` has case log-odds of about 0.002. Removing any of 7 of its 11 score-moving nodes flips its ranking. No single-node removal flips any other case.
-- `glnbp` X18 (rank 76, influence 0.019): the generating hypothesis H1 got a `neutral` direct edge while H2 got `implied`.
-- 4 of 252 assessor-cited "supporting spans" are only partly verbatim in the text shown (longest exact runs of 153–324 characters). Each span record carries this.
-- Frozen `scores.json` stores `P(X|H)` to 4 decimals and contributions to 6 (`src/inference/bayes.py:70-73`). The rebuild matches at exactly that precision. This is serialisation, not a bug.
+- Views A1 and D coincide, and so do A2 and C; each pair is implemented once (the directive allows this). View R (unreviewed only) is also reported.
+- Forest is the only case where the two decompositions disagree on ordering (view A1): unreviewed children inherit routes from reviewed parents.
+
+Directive §8 per case: does the frozen relation to the later resolution survive confirmed-error removal (B1)?
+- **Eukaryogenesis:** agrees → still agrees, carried by generic component facts.
+- **Fly-wing:** agrees → +0.007 from one unreviewed node; effectively disappears, and the strict view (B2) is a tie.
+- **GlnBP:** agrees → still agrees (+0.21), carried by generic component facts, while genuine discriminators alone oppose.
+- **PFC storage:** opposes → agrees.
+- **Non-directional cases:** leans reported only.
+
+Underdetermined once non-discriminative reviewed nodes are removed (A2 has no reviewed genuine discriminator): 6 of 8 cases, all except GlnBP and PFC storage.
+
+Mechanical pathway shared across categories:
+- The hypothesis that did not generate the proposition was labelled `unlikely`/`strongly_contradicted` in 8/8 silence errors, 13/14 generic component facts, 3/3 construct mismatches, 3/3 weak implications and 4/4 genuine discriminators.
+- All 14 generic component facts were literature-supported.
+- In GlnBP the silence errors worked through **contradiction**: evidence contradicted H1's own propositions, and the silent H2 was labelled `unlikely`, so H1's penalty became H2's gain.
+
+Next human-review batch, listed only, not labelled:
+- the 8 unreviewed nodes in the low-influence cases: spider X7, X24, X8, X22, X17; PFC interhemispheric X1, X23; fly-wing X19;
+- then the remaining 30 by influence (`coverage.json`).
 
 TESTS_AND_EVIDENCE:
-- `python3 -m pytest tests/ -q`: 479 passed, 1 xfailed (the pre-existing strict xfail). 459 before this task, plus 20 new. With the archive removed: 2 passed, 18 skipped with an explicit reason, and the builder refuses to run with a pointer to `PROVENANCE.md`.
-- `tests/test_review_packet.py` (20):
-  - the packet is built from the checksum-verified archive;
-  - the builder imports nothing from `src/llm`;
-  - every record is a real frozen node, with proposition text and origin identical;
-  - hypotheses and cutoff equal the verifier's `input.json`;
-  - every hypothesis is cross-evaluated, with exactly one origin;
-  - packet contributions sum to each case's frozen log-odds;
-  - influence is the contribution spread;
-  - the priority set is the minimal prefix reaching ≥80%;
-  - the withheld counterfactual is exact arithmetic;
-  - joining the packet's evidence blocks with the renderer's separator reproduces each assessor prompt's literature block byte-for-byte, and the raw assessor response matches;
-  - evidence labels, spans, key papers and rationale equal `evidence.json`;
-  - every shown paper's cutoff-filter date is on or before the cutoff;
-  - no hidden resolver DOI, and no 8-word window of any reference discriminator, resolving observation or resolution summary, appears in any verifier-output field;
-  - post-hoc metadata is labelled and separate, and resolutions are absent from `review_full.md`;
-  - all human fields are blank;
-  - selection is identical with all auditor code disabled;
-  - the committed packet files are byte-identical to a fresh build;
-  - the priority JSONL equals the flagged subset of the full set.
-- The builder also re-scores each case graph with `src.inference.bayes`. It aborts unless scores, rounded `P(X|H)` and contributions match the frozen `scores.json`. This check caught the 4-decimal serialisation, which was then handled exactly rather than by loosening tolerance.
-- The builder also rejects any evidence call that does not map to exactly one node (192/192 mapped), and any mismatch between prompt records and `retrieval.json` `papers_shown`.
-- Two faithfulness bugs in my own builder were caught by tests and fixed before commit. Joining record blocks with the wrong separator, and a trailing-newline `rstrip`, had silently altered 2 abstracts by one character.
-- Archive integrity: extracted, all 149 checksums verified, and the original `runs/` still matches.
-- Dirty-tree reconstruction: transcript edit-history query over the run window, the run console log, and `patch` reproducing the run-time file from `9559b30`.
+- `python3 -m pytest tests/ -q`: 496 passed, 1 xfailed (the pre-existing strict xfail).
+- With the private archive removed, the packet and attribution test files give 17 passed and 20 skipped (each skip explains the missing private archive), so a clean clone passes.
+- `tests/test_review_attribution.py` (14):
+  - no LLM imports;
+  - category buckets sum to each case's frozen log-odds, and those equal the frozen scores;
+  - non-moving nodes contribute zero log-odds;
+  - node table sums equal the category buckets;
+  - every view equals the sum of the categories it keeps (A1, A2, B1, B2, R and original checked independently of the producing code);
+  - confirmed errors are exactly the three named categories;
+  - scores, tops and relations are internally consistent in both decompositions;
+  - the original graph-deleted view equals evidence-zeroed;
+  - non-directional cases are never scored as agreement;
+  - node categories equal the label file, and unreviewed nodes are unlabelled;
+  - node classes equal the packet (40 / 38 / 114);
+  - coverage figures and the next-review queue are consistent;
+  - the report states that labels are not expert ground truth and proposes no fix;
+  - the committed outputs are byte-identical to a fresh build from the archive.
+- `tests/test_review_packet.py` (23): the 20 prior checks, with the blank-field test narrowed to unlabelled nodes, plus exact D045 transcription, resolution of D045 keys to the priority set in rank order, and labelled nodes carrying exactly D045 fields.
+- Pre-flight checks before encoding:
+  - D045 in `DECISIONS.md` and the directive list are identical (40 entries, numbered 1–40).
+  - Category counts match D045's stated 4/8/14/8/3/3.
+  - Every short key resolves to exactly one case.
+  - The labelled set equals the packet's priority set, and each D045 number equals the node's global influence rank.
 
 DECISIONS_AND_ASSUMPTIONS:
-- **Influence** is the log-odds spread of a node's contributions, relative to leaving the node unobserved. For k=2 that is the change in ranking evidence. Nodes that shift both log-scores equally are excluded, and the one such node is listed.
-- **The 80% priority set is global**, as specified. Consequently the fly-wing, PFC-interhemispheric and spider cases (1.7–4.9% of influence each) have only 1–2 priority nodes. Their remaining nodes are in the full set.
-- **Two counterfactuals are given:** evidence withheld (exact under additive aggregation) and node deleted (children lose the route through it; rescored with the verifier's code). They answer different questions and sometimes differ substantially.
-- **Evidence text comes from the rendered prompts** in `events.jsonl`, the ground truth of what the assessor read. Metadata comes from `retrieval.json`. The per-node evidence label has no per-paper decomposition in this method, so no per-paper contribution is invented; the packet says so in every record.
-- **Hidden context:** full resolutions and reference discriminators appear only in `hidden_case_context.*`. The auditor's matched-discriminator text stays in the collapsed, non-authoritative audit block, with a field name marking it as hidden context. `RUBRIC.md` recommends forming predictions before opening either.
-- **The packet is built from the archive, not from `runs/`,** so it depends only on repository-tracked, checksummed artifacts.
-- **Location** follows the existing convention: `benchmark/frozen/` and `benchmark/diagnostic/` → `benchmark/frozen_runs/` and `benchmark/review/`.
-- **Publication follows the human's decision:** push the packet and report, keep the archive private. The packet contains the abstracts shown for the 78 nodes, which the review needs, and the hidden annotations, which were already public via `.agent/DIRECTIVE.md`. The full archive, with every retrieved abstract and all model traffic, stays off GitHub.
-- **The three original local commits were never pushed.** They were rewritten into the commits above, so the archive never entered history.
+- **Labels are transcribed mechanically, not retyped.** D045 recorded only primary categories, so the booleans are derived exactly as the directive specifies and every other judgment field stays blank.
+- **One orientation everywhere: log-odds of H2 over H1.** The packet records log-odds in each graph's own hypothesis order, which is `[H2, H1]` for GlnBP, forest and fly-wing. The packet is not wrong (each record states its definition), but its values are not summed across cases.
+- **The favoured hypothesis for `favored` cases comes from PROJECT_STATE** (H2 in all four). No other case is mapped to a winner.
+- **Evidence-zeroing is the primary decomposition.** It is what the directive specifies and is exact and unique under additive aggregation. Graph deletion is reported as sensitivity: it removes routes to descendants, is computed with the verifier's scoring code, is not additive across nodes, and changes no model judgment.
+- **Non-moving nodes stay in every view.** They cannot change log-odds, and many are parents providing routes.
+- **Strict views set unreviewed nodes aside rather than judging them.** Every view states what it does with them.
+- **"Under-covered"** means a case's reviewed share is below the packet-wide reviewed share (80.1%), the packet's own design target, not a new threshold.
+- **The interpretation section is generated** with every number pulled from the computed data. It is labelled as executor interpretation, not a decision.
 
 UNCERTAINTIES_AND_LIMITATIONS:
-- **The dirty-tree reconstruction relies partly on the session transcript,** a local file outside the repository, together with the run log. File mtimes cannot corroborate it because a later checkout reset them.
-- **The literature cache is not preserved** (`data/cache/literature`, gitignored). Every retrieved record shown to the assessor is preserved, but raw provider payloads are not, and a rerun would query Semantic Scholar live.
-- **Auditor stability evidence is thin:** 24 second-rater nodes (3 per case) and a 24-node retest of one case. Case-level instability rankings rest on n=3.
-- **The second rater is an LLM** (the executor). No human has reviewed any node yet.
-- **The priority set is concentrated in five cases,** so priority-only review would say little about fly-wing, PFC-interhemispheric and spider.
-- **Word-window leak test boundaries:** it would miss a paraphrase of a hidden annotation, and it would flag a verbatim 8-word overlap that arose legitimately from pre-cutoff text (none occurred).
+- **All category attributions depend on D045,** a first-pass, model-based Research Director review. No per-hypothesis predictions were recorded, so silence errors cannot be split further (e.g. by which hypothesis was silent).
+- **19.9% of score influence is unreviewed.** In A1, eukaryogenesis flips to H1 and forest's sign depends on the decomposition, entirely on unreviewed nodes. Spider is only 45% covered.
+- **Path mediation:** 25 of the 58 parent-route dependencies run through reviewed nodes. Evidence-zeroing does not remove an erroneous parent edge's effect on children; graph deletion does, but removes the whole route, including any legitimate part. Neither isolates the error alone without relabelling edges, which would change a model judgment and was not done.
+- **Magnitudes rest on placeholder ordinal mappings (`v0-placeholder`).** Only signs and relative sizes are meaningful. With n = 8 cases, 4 of them directional, all conclusions are descriptive.
+- **Reliance on D045:** the analysis does not check whether D045 is correct. For example, GlnBP's reversal rests on two nodes labelled genuine (X5 at −0.64, X9 at +0.25).
 
 PROBLEMS_OR_RISKS:
-- **The private archive exists only on the execution host** (two copies, one machine). Durable off-host private storage still needs arranging. Until then, a disk loss would leave only the public checksums.
-- **Only whoever holds the archive can rebuild or re-verify the packet.** On a clean clone, the frozen-run tests skip rather than fail.
-- **The public packet includes abstracts** for the 78 nodes' shown papers. Semantic Scholar licence terms for redistribution have not been verified.
-- **The run manifest still records no git commit** for future runs. Fixing that would be a runner change, out of scope here.
-- **GitHub token:** the token embedded in the git remote URL is exposed in plain text and was printed in an earlier session. It should be revoked; the human was told.
+- **No bug found in the previous influence analysis.** Deterministic reconstruction matched exactly.
+- **Some earlier executor-reported figures, derived from the LLM auditor, are superseded by the D045-based attribution:**
+  - "GlnBP strongest case with +1.01 genuine" is now −0.38 genuine; the nodes the auditor called genuine (X4, X11) are D045 silence errors.
+  - "Eukaryogenesis +0.50 genuine" is now none.
+  - PROJECT_STATE currently carries the auditor-based figures.
+- **The private archive is still only on the execution host** (two copies, one machine).
 
 QUESTIONS_FOR_DIRECTOR:
-1. Should human review cover the 40-node priority set only, or also the remaining nodes of the three low-influence cases (fly-wing, PFC-interhemispheric, spider)? The global 80% rule gives those cases just 4 priority nodes combined.
-2. Should reviewers be blind to the post-hoc automated audit and the hidden resolutions? The packet supports both (collapsed audit, separate appendix). Blind review gives cleaner ground truth for auditing the auditor.
-3. Where should the private archive be stored durably off-host? Only its checksums are public.
+1. D045 recorded primary categories only. Should the next review round also record per-hypothesis predictions for silence errors, so silence can be split by which hypothesis was silent and whether the null label was absence or presence?
+2. Should the next batch be the 8 low-coverage-case nodes first, as listed, or the 30 remaining nodes by influence? The A1 results for eukaryogenesis and forest depend on the unreviewed nodes.
+3. Should generic component facts be treated as errors or as weak evidence in future accounting? Excluding them from the "remove confirmed errors" view, as specified, is what keeps eukaryogenesis and GlnBP agreeing.
 
 RECOMMENDED_NEXT_ACTION:
-(Recommendation only; no verifier fix proposed.)
-1. Arrange durable off-host private storage for the archive (checksum `dd7e1361…568e`).
-2. Have the human reviewer work through `benchmark/review/graph_pilot_001/review_priority.md`, following `RUBRIC.md`: predictions per hypothesis first, blind to the audit and hidden appendix. Record labels in `review_set_full.jsonl` `human_review` fields.
-3. Consider adding the non-priority nodes of the three low-influence cases, so every case has human labels.
-4. Once labels exist, compute human-vs-auditor agreement deterministically before any method decision.
+(Recommendation only; no fix proposed.)
+1. Update PROJECT_STATE's hypothesis-comparison figures to the D045-based attribution, which supersedes the auditor-based numbers.
+2. Label the next review batch, starting with the 8 low-coverage-case nodes, and record per-hypothesis predictions this time.
+3. Treat the finding that non-discriminative component and compatible facts carry more influence than silence errors as a primary input to method design, alongside silence handling. Any fix should be investigated on a separate development set.
 
 ARTIFACTS:
-- Preservation manifest (public) and archive (private): `benchmark/frozen_runs/pilot_explanatory_001/`
-  - `pilot_explanatory_001.tar.gz` (private; also at `/mnt/data/knk25.data/private_artifacts/pilot_explanatory_001/`), `pilot_explanatory_001.tar.gz.sha256`
-  - `SHA256SUMS`, `file_manifest.json`
-  - `PROVENANCE.md`, `runtime_source.patch`
-- Full machine-readable review set: `benchmark/review/graph_pilot_001/review_set_full.jsonl`
-- High-influence review set: `benchmark/review/graph_pilot_001/review_set_priority.jsonl`
-- Human-readable full review report: `benchmark/review/graph_pilot_001/review_full.md`
-- Priority review packet: `benchmark/review/graph_pilot_001/review_priority.md`
-- Rubric and usage: `benchmark/review/graph_pilot_001/RUBRIC.md`, `benchmark/review/graph_pilot_001/README.md`
-- Hidden post-hoc context: `benchmark/review/graph_pilot_001/hidden_case_context.md`, `.json`
-- Statistics: `benchmark/review/graph_pilot_001/stats.json`
-- Deterministic extraction script: `scripts/build_review_packet.py`
-- Tests: `tests/test_review_packet.py`
-- Original run (unchanged, gitignored): `runs/pilot_explanatory_001/`
+- Updated review set with D045 labels:
+  - `benchmark/review/graph_pilot_001/review_set_full.jsonl`
+  - `benchmark/review/graph_pilot_001/review_set_priority.jsonl`
+  - human-readable: `review_full.md`, `review_priority.md`
+- Label source: `benchmark/review/graph_pilot_001/human_labels_D045.json`
+- Per-node contribution table: `benchmark/review/graph_pilot_001/attribution/node_contributions.jsonl`
+- Per-case category attribution: `benchmark/review/graph_pilot_001/attribution/case_category_attribution.json`
+- Counterfactual scores and orderings: `benchmark/review/graph_pilot_001/attribution/counterfactual_views.json`
+- Coverage statistics and next review batch: `benchmark/review/graph_pilot_001/attribution/coverage.json`
+- Human-readable report: `benchmark/review/graph_pilot_001/attribution/ATTRIBUTION_REPORT.md`
+- Scripts: `scripts/analyze_review_attribution.py`, `scripts/build_review_packet.py`
+- Tests: `tests/test_review_attribution.py`, `tests/test_review_packet.py`
+- Git commits: `dc13560` (labels), `b552314` (attribution), plus the commit containing this report. All are on `master`.
