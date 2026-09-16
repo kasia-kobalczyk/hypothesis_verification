@@ -92,6 +92,18 @@ class BenchmarkInstance(BaseModel):
             )
         return gold[0]
 
+    @property
+    def has_gold(self) -> bool:
+        """Some benchmarks carry no gold at all.
+
+        The explanatory-hypothesis benchmark (BENCH-GRAPH-PILOT-001) resolves cases as
+        favored / mixed / regime_dependent / component_wise, and the resolution is a
+        HIDDEN annotation. Marking a winner in the verifier-visible dataset would embed
+        the answer in the benchmark input, so these instances carry none and
+        gold-dependent metrics are skipped rather than fabricated.
+        """
+        return sum(1 for h in self.hypotheses if h.gold) == 1
+
     def hypothesis(self, hypothesis_id: str) -> Hypothesis:
         for h in self.hypotheses:
             if h.id == hypothesis_id:
@@ -404,6 +416,132 @@ def load_k_set_instances(
         if missing:
             raise BenchmarkDataError("unknown k-set id(s): {}".format(sorted(missing)))
     LOGGER.info("loaded %d k-set instance(s) from %s", len(instances), path)
+    return instances
+
+
+# --------------------------------------------------------------------------- #
+# Hard projection for the explanatory-hypothesis benchmark
+# --------------------------------------------------------------------------- #
+# The benchmark is split into two files: `cases_visible.jsonl`, which the verifier
+# may see, and `cases_hidden.json`, which holds the resolving study, the resolution
+# label and the reference discriminators. Keeping them in separate files is a
+# convention; this whitelist is the enforcement.
+#
+# The loader projects every row down to these keys and REFUSES any key it does not
+# know. So if a hidden annotation is ever pasted into the visible file -- by a merge,
+# a regenerated manifest, or a well-meaning edit -- the run fails at load time
+# instead of quietly carrying the answer into the model's context. A whitelist fails
+# closed on fields nobody has thought of yet; a blacklist would not.
+VISIBLE_CASE_FIELDS = frozenset({
+    "case_id", "domain", "phenomenon", "cutoff", "hypotheses",
+})
+VISIBLE_HYPOTHESIS_FIELDS = frozenset({"hypothesis_id", "text"})
+
+
+def project_visible_case(row: Dict[str, Any], *, where: str) -> Dict[str, Any]:
+    """Return `row` restricted to verifier-visible fields, or raise.
+
+    Raises rather than dropping: a silently dropped field looks identical to a field
+    that was never there, and the difference matters when the thing dropped is the
+    answer.
+    """
+    unknown = sorted(set(row) - VISIBLE_CASE_FIELDS)
+    if unknown:
+        raise BenchmarkDataError(
+            "{}: case {} carries non-visible field(s) {}. The verifier-visible "
+            "dataset may contain only {}. Hidden annotations belong in "
+            "cases_hidden.json, which the loader never opens.".format(
+                where, row.get("case_id", "?"), unknown,
+                sorted(VISIBLE_CASE_FIELDS)))
+    hypotheses = []
+    for hyp in row.get("hypotheses") or []:
+        unknown_h = sorted(set(hyp) - VISIBLE_HYPOTHESIS_FIELDS)
+        if unknown_h:
+            raise BenchmarkDataError(
+                "{}: case {} hypothesis {} carries non-visible field(s) {}".format(
+                    where, row.get("case_id", "?"), hyp.get("hypothesis_id", "?"),
+                    unknown_h))
+        hypotheses.append({k: hyp[k] for k in VISIBLE_HYPOTHESIS_FIELDS if k in hyp})
+    projected = {k: row[k] for k in VISIBLE_CASE_FIELDS if k in row}
+    projected["hypotheses"] = hypotheses
+    return projected
+
+
+def load_case_instances(
+    config: AppConfig,
+    *,
+    dataset_path: "str | Path",
+    instance_ids: Optional[Sequence[str]] = None,
+    limit: Optional[int] = None,
+) -> List[BenchmarkInstance]:
+    """Load the explanatory-hypothesis benchmark (BENCH-GRAPH-PILOT-001).
+
+    Differs from the ResearchBench loaders in three ways, all forced by the benchmark
+    rather than chosen:
+
+    * **The cutoff is frozen in the record**, not resolved from Crossref. These are
+      curated historical cutoffs tied to a specific scientific dispute, and
+      re-deriving them from publication metadata would change their meaning.
+    * **No gold hypothesis.** The resolution is a hidden annotation, and half the
+      cases resolve mixed / regime-dependent / component-wise. Marking a winner here
+      would put the answer in the verifier input.
+    * **No source DOI.** The "source" would be the post-cutoff resolver, which must
+      not appear in verifier context at all. Temporal safety comes from the frozen
+      cutoff date, which every resolver postdates.
+
+    Only verifier-visible fields are read. The hidden annotations live in a separate
+    file that this function never opens.
+    """
+    path = resolve_path(dataset_path)
+    if not path.exists():
+        raise BenchmarkDataError("case slice not found: {}".format(path))
+
+    wanted = set(instance_ids) if instance_ids else None
+    instances: List[BenchmarkInstance] = []
+    for row in read_jsonl(path):
+        case_id = row.get("case_id")
+        if not case_id:
+            raise BenchmarkDataError("{}: row without case_id".format(path))
+        if wanted is not None and case_id not in wanted:
+            continue
+        row = project_visible_case(row, where=str(path))
+        hypotheses = [
+            Hypothesis(id=h["hypothesis_id"], text=h["text"], gold=False,
+                       source_field="frozen_manifest", source_index=index)
+            for index, h in enumerate(row.get("hypotheses") or [])
+        ]
+        if len(hypotheses) < 2:
+            raise BenchmarkDataError(
+                "{}: case {} has {} hypotheses, expected >= 2".format(
+                    path, case_id, len(hypotheses)))
+        instance = BenchmarkInstance(
+            id=case_id,
+            researchbench_sample_id="",
+            question=row.get("phenomenon") or "",
+            hypotheses=hypotheses,
+            source_doi="",
+            discipline=row.get("domain"),
+            raw=row,
+        )
+        from datetime import date as _date
+
+        cutoff = row.get("cutoff")
+        if not cutoff:
+            raise BenchmarkDataError("{}: case {} has no cutoff".format(path, case_id))
+        instance.cutoff_date = _date.fromisoformat(cutoff)
+        instance.cutoff_basis = "frozen_benchmark_manifest"
+        instance.cutoff_notes = (
+            "cutoff frozen in the benchmark manifest; not derived from publication "
+            "metadata. Every resolving study postdates it.")
+        instances.append(instance)
+        if limit is not None and len(instances) >= limit:
+            break
+
+    if wanted is not None:
+        missing = wanted - {i.id for i in instances}
+        if missing:
+            raise BenchmarkDataError("unknown case id(s): {}".format(sorted(missing)))
+    LOGGER.info("loaded %d explanatory case(s) from %s", len(instances), path)
     return instances
 
 

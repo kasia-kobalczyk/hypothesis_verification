@@ -1,0 +1,312 @@
+{
+  "WARNING": "HIDDEN EVALUATION ANNOTATIONS. Must never enter graph generation, retrieval queries, evidence-assessment prompts, aggregation inputs, or any other verifier context. Post-cutoff resolver material.",
+  "cases": {
+    "eukaryogenesis_mito_timing": {
+      "leakage_audit": "A Bristol MScR thesis awarded 2024-10-01 used related pre-LECA duplication timing but concluded in favor of a mitochondria-early scenario; contrary pre-cutoff evidence showing the dispute remained live, not leakage. No pre-2025 public preprint/abstract with the later result was located.",
+      "reference_discriminators": [
+        "Relative timing of pre-LECA duplications associated with cytoskeleton, membrane trafficking, endomembranes, phagocytosis, and nucleus versus mitochondrial acquisition.",
+        "Mitochondria-early predicts these major elaborations should predominantly postdate mitochondrial acquisition.",
+        "Complex-host/late-mitochondrion predicts substantial elaboration before mitochondrial acquisition."
+      ],
+      "resolution": {
+        "summary": "Rejects mitochondria-early scenarios and favors a complexified archaeal host with later mitochondrial acquisition, while not mapping perfectly onto every previously proposed late/intermediate scenario.",
+        "type": "favored"
+      },
+      "resolver": {
+        "earliest_public": {
+          "channel": "code/data release",
+          "date": "2025-10-21"
+        },
+        "journal": {
+          "date": "2025-12-03",
+          "doi": "10.1038/s41586-025-09808-z",
+          "venue": "Nature"
+        }
+      },
+      "resolving_observations": [
+        "Relaxed-clock dating of pre-LECA duplications placed elaboration of cytoskeleton, membrane trafficking, endomembrane, phagocytic machinery, and nucleus before mitochondrial endosymbiosis."
+      ],
+      "source_anchors": {
+        "H1": [
+          "Long-standing mitochondria-early eukaryogenesis models, including Martin-type syntrophic/hydrogen scenarios and reviews classifying mitochondria-early models."
+        ],
+        "H2": [
+          "Pre-2024/2025 reviews explicitly distinguishing mitochondria-early from mitochondria-late/intermediate models.",
+          "2015 review literature describing mitochondria-late hypotheses."
+        ]
+      }
+    },
+    "fly_wing_constraint_vs_selection": {
+      "leakage_audit": "No pre-2025 public version containing the 185-million-year analysis or fitness test was located.",
+      "reference_discriminators": [
+        "Simple constraint account predicts directions with little usable genetic/developmental variation should evolve more slowly.",
+        "A constraint rescue based on hidden deleterious pleiotropy predicts apparent standing variation in disfavored directions should covary with fitness costs, making that variation effectively unusable.",
+        "Correlational-selection account predicts substantial usable variation may exist without dictating evolutionary rates; alignment can instead track allometric/fitness structure shaped by selection."
+      ],
+      "resolution": {
+        "summary": "Correlational-selection/common-cause explanation favored over a simple constraint interpretation.",
+        "type": "favored"
+      },
+      "resolver": {
+        "dataset": {
+          "date": "2025-01-15",
+          "doi": "10.5061/dryad.08kprr599",
+          "venue": "Dryad"
+        },
+        "journal": {
+          "date": "2025-02-07",
+          "doi": "10.1038/s41559-025-02639-1",
+          "venue": "Nature Ecology & Evolution"
+        },
+        "preprint": {
+          "date": "2025-01-14",
+          "doi": "10.1101/2025.01.09.632237",
+          "venue": "bioRxiv"
+        }
+      },
+      "resolving_observations": [
+        "Alignment of developmental/standing variation and divergence extends across >900 dipteran taxa and ~185 My.",
+        "No genetic covariation between wing shape and measured fitness components supporting the hidden-deleterious-pleiotropy rescue of simple constraint.",
+        "Little evidence that genetic constraint determines macroevolutionary rates.",
+        "Allometric correlational selection emerges as a plausible common cause of developmental bias and deep divergence."
+      ],
+      "source_anchors": {
+        "H1": [
+          "Houle et al., Nature (2017), explicitly discussing developmental/genetic constraint and lines of least resistance for fly-wing evolution."
+        ],
+        "H2": [
+          "Rohner & Berger, PNAS (2023), explicitly presenting correlational selection as an alternative explanation for the observed alignment."
+        ]
+      }
+    },
+    "forest_fragmentation_resilience": {
+      "leakage_audit": "No equivalent global biome-resolved fragmentation-resilience result was located before cutoff.",
+      "reference_discriminators": [
+        "Edge-stress account predicts fragmentation should covary with hotter/drier local microclimate and lower resilience where heat/water stress dominates.",
+        "Resource-release account predicts fragmentation can increase light/resource availability and increase growth/recovery/resilience where stress penalties are weak.",
+        "If both are real, the sign of the fragmentation-resilience association should vary systematically by biome and covary with microclimate/resource differences."
+      ],
+      "resolution": {
+        "summary": "Both mechanisms operate, with dominance depending on biome/environmental context.",
+        "type": "regime_dependent"
+      },
+      "resolver": {
+        "earliest_public": {
+          "channel": "Zenodo code deposit",
+          "date": "2025-05-22",
+          "doi": "10.5281/zenodo.15488956"
+        },
+        "journal": {
+          "date": "2025-07-08",
+          "doi": "10.1038/s41559-025-02776-7",
+          "venue": "Nature Ecology & Evolution"
+        },
+        "note": "article received 2024-08-27; no preprint located"
+      },
+      "resolving_observations": [
+        "Significant fragmentation-resilience relationship in ~77% of fragmented forests with opposite signs by biome.",
+        "Tropical and temperate forests: fragmentation associated with increased local temperature/atmospheric dryness and lower resilience.",
+        "Boreal forests: fragmentation associated with decreased atmospheric dryness, enhanced light resources, and higher resilience."
+      ],
+      "source_anchors": {
+        "H1": [
+          "Koelemeijer et al., Ecological Applications (2023), drought-amplified edge effects.",
+          "Nunes et al., Nature Communications (2023), hotter/drier edge environments and biomass loss in Amazon fragments."
+        ],
+        "H2": [
+          "Morreale et al., Nature Communications (2021), reporting 36% higher growth and 24% higher biomass at temperate forest edges and attributing the effect largely to greater light availability/release from limiting constraints.",
+          "Related pre-cutoff European temperate-edge work reporting increased carbon stocks near edges."
+        ]
+      }
+    },
+    "gcn4_med15_complex_vs_condensate": {
+      "leakage_audit": "No effectively equivalent pre-2024 head-to-head Gcn4/Med15 result was located.",
+      "reference_discriminators": [
+        "Soluble-complex model: activity should track soluble Gcn4-Med15 binding/affinity under non-condensed conditions.",
+        "Condensate model: activity should track co-condensation/Med15 recruitment; prevailing DNA-scaffolded condensate framing also expected multivalent DNA binding to facilitate condensation.",
+        "Strong condensation need not monotonically enhance transcription if condensates and soluble complexes are coupled but functionally non-equivalent."
+      ],
+      "resolution": {
+        "summary": "Reconciliatory: soluble complexes and condensates are coupled routes; neither simple exclusive account is sufficient, and strong condensation can attenuate activity.",
+        "type": "mixed"
+      },
+      "resolver": {
+        "journal": {
+          "doi": "10.1016/j.molcel.2025.06.008",
+          "venue": "Molecular Cell 2025"
+        },
+        "preprint": {
+          "authors": "Bremer et al.",
+          "date": "2024-11-22",
+          "doi": "10.1101/2024.11.21.624739",
+          "venue": "bioRxiv v1"
+        }
+      },
+      "resolving_observations": [
+        "Homotypic Gcn4 condensation propensity alone poorly predicted activity.",
+        "DNA binding suppressed Gcn4 phase separation.",
+        "Soluble Med15 binding and co-condensation propensity largely covaried.",
+        "At strongest affinities, excess condensation was associated with lower-than-expected activity."
+      ],
+      "source_anchors": {
+        "H1": [
+          "Tuttle et al., Cell Reports (2018), Gcn4/Med15 dynamic multivalent binding.",
+          "Earlier and subsequent pre-2024 fuzzy-complex work on Gcn4-Med15."
+        ],
+        "H2": [
+          "Boija et al., Cell (2018), transcription-factor activation domains and phase separation/condensation with Mediator.",
+          "Subsequent pre-2024 transcriptional-condensate literature involving Gcn4/Med15."
+        ]
+      }
+    },
+    "glnbp_induced_fit_vs_conformational_selection": {
+      "leakage_audit": "No effectively equivalent pre-2024 integrated kinetic/thermodynamic result ruling out conformational selection over the accessible timescale was located.",
+      "reference_discriminators": [
+        "Conformational selection requires apo-GlnBP to populate/exchange into a ligand-binding-competent closed/semi-closed state on a timescale compatible with binding.",
+        "Induced fit does not require detectable pre-existing apo closed-state exchange; ligand binding can precede the major closure.",
+        "Global relationships among conformational-exchange rates, ligand-association kinetics, and equilibrium populations differ between mechanisms."
+      ],
+      "resolution": {
+        "summary": "Induced fit is the dominant mechanism over experimentally accessible timescales.",
+        "type": "favored"
+      },
+      "resolver": {
+        "later": "revisions 2025-11-21; version of record 2026-06-02",
+        "preprint": {
+          "date": "2024-03-25",
+          "doi": "10.7554/eLife.95304.1",
+          "venue": "eLife reviewed preprint v1"
+        }
+      },
+      "resolving_observations": [
+        "No detectable apo or holo exchange between open and (semi-)closed conformations over roughly 100 ns-10 ms.",
+        "Ligand binding tightly correlated with conformational change.",
+        "Global analysis made conformational selection compatible only with an extreme unobserved exchange faster than ~100 ns, while induced fit remained compatible with all observations."
+      ],
+      "source_anchors": {
+        "H1": [
+          "Wang et al., Angewandte Chemie International Edition (2016), PMID 27730716, combining NMR, MD, and smFRET and explicitly suggesting conformational selection from the apo ensemble."
+        ],
+        "H2": [
+          "Classical interpretation of open apo versus closed holo structures.",
+          "Chen et al., Communications Biology (2020), PMID 32747735, proposing a hybrid pathway with initial conformational selection followed by induced fit, demonstrating that mechanism remained unsettled."
+        ]
+      }
+    },
+    "pfc_interhemispheric_architecture": {
+      "leakage_audit": "No equivalent pre-cutoff simultaneous bilateral-PFC analysis with the later reconciliation was located.",
+      "reference_discriminators": [
+        "Specialized architecture: predominantly contralateral behavioral relevance; more independent hemisphere-specific storage; capacity advantage from separate pools.",
+        "Redundant architecture: either hemisphere can carry behaviorally useful information about both visual fields; greater robustness to unilateral disruption; duplicated representations trade capacity for robustness/precision.",
+        "Cross-hemisphere decoding-error correlations and hemisphere-local serial dependence distinguish aspects of redundancy versus independence."
+      ],
+      "resolution": {
+        "summary": "Reconciliatory: redundant weakly coupled architecture at low demand with specialization/capacity benefits emerging under greater demand.",
+        "type": "regime_dependent"
+      },
+      "resolver": {
+        "journal": {
+          "date": "2026-07-20",
+          "doi": "10.1038/s41467-026-75705-2",
+          "venue": "Nature Communications"
+        },
+        "preprint": {
+          "authors": "Tschiersch et al.",
+          "date": "2025-01-16",
+          "doi": "10.1101/2025.01.15.633176",
+          "venue": "bioRxiv"
+        }
+      },
+      "resolving_observations": [
+        "Both hemispheres predicted behavioral imprecision across the visual field.",
+        "Decoding errors were weakly correlated.",
+        "Serial-dependence effects remained local within hemispheres.",
+        "Network simulations showed redundancy can improve low-load robustness/precision, while lateralized inputs increase capacity under higher load."
+      ],
+      "source_anchors": {
+        "H1": [
+          "Bilateral-field-advantage literature.",
+          "Macaque electrophysiology showing stronger within-hemifield competition and contralateral organization.",
+          "Pre-cutoff literature supporting hemisphere-specific storage."
+        ],
+        "H2": [
+          "Unilateral-vs-bilateral perturbation results and shared-storage interpretations.",
+          "A Cerebral Cortex paper published 2024-11-14 explicitly described the live uncertainty as hemisphere-specific versus shared internal memory storage."
+        ]
+      }
+    },
+    "pfc_storage_vs_control": {
+      "leakage_audit": "No effectively equivalent pre-2024 public TMS result showing the counterintuitive low-priority improvement was located. A companion resource-allocation preprint was also first posted on 2024-05-12.",
+      "reference_discriminators": [
+        "Perturbing a true storage substrate should ordinarily degrade the stored memory representation.",
+        "Under the resource-control account, disrupting prioritization can counterintuitively improve low-priority items by redistributing limited mnemonic resources more evenly.",
+        "Priority allocation itself should become more even after disrupting a control locus."
+      ],
+      "resolution": {
+        "summary": "Top-down resource-control account favored over a simple storage account.",
+        "type": "favored"
+      },
+      "resolver": {
+        "journal": {
+          "doi": "10.1523/JNEUROSCI.1552-24.2025",
+          "venue": "Journal of Neuroscience 2025"
+        },
+        "preprint": {
+          "authors": "Hallenbeck et al.",
+          "date": "2024-05-12",
+          "doi": "10.1101/2024.05.11.593696",
+          "venue": "bioRxiv v1"
+        }
+      },
+      "resolving_observations": [
+        "Retinotopically guided sPCS TMS selectively improved low-priority-item memory and reduced prioritization rather than causing a general degradation of mnemonic quality.",
+        "IPS stimulation did not show the same pattern."
+      ],
+      "source_anchors": {
+        "H1": [
+          "Riley & Constantinidis (2016), review of PFC working-memory storage/persistent-activity accounts.",
+          "Classical PFC persistent-activity/storage literature cited therein."
+        ],
+        "H2": [
+          "Curtis & D'Esposito (2003).",
+          "D'Esposito & Postle (2015).",
+          "Serences (2016) and related pre-cutoff control/resource-allocation literature."
+        ]
+      }
+    },
+    "spider_orb_web_origin": {
+      "leakage_audit": "Targeted searches found no pre-2026 conference abstract/preprint/indexed result from this study. A public GitHub analysis repository exists now; repository history should be rechecked before final release (D041, flagged unresolved).",
+      "reference_discriminators": [
+        "Ancient-origin/loss predicts orb-associated genes inherited from a common ancestor should show relaxed selection and/or gene loss in descendant lineages that lost orb-weaving.",
+        "Convergent-origin predicts orb-associated genes should show convergent positive selection in independently orb-weaving lineages."
+      ],
+      "resolution": {
+        "summary": "Different components of modern orb-weaving likely have different evolutionary histories, some ancestral and lost, some convergent, others subsequently elaborated.",
+        "type": "component_wise"
+      },
+      "resolver": {
+        "preprint": {
+          "authors": "Runnels, Miller & Gordus",
+          "date": "2026-04-01",
+          "doi": "10.64898/2026.03.30.715290",
+          "venue": "bioRxiv"
+        }
+      },
+      "resolving_observations": [
+        "491 genes showed relaxed selection in non-orb-weavers, consistent with ancestral orb-associated functions followed by loss.",
+        "96 genes showed positive selection associated with orb-weaving, consistent with convergent evolution.",
+        "Additional orb-correlated gene loss/duplication patterns were found."
+      ],
+      "source_anchors": {
+        "H1": [
+          "Coddington et al., PeerJ (2019), arguing that spiders repeatedly lost rather than repeatedly gained foraging webs and recovering an ancient orb-origin reconstruction under their preferred coding/model."
+        ],
+        "H2": [
+          "Fernandez et al., Current Biology (2018), supporting repeated/convergent origins.",
+          "Kallal et al., Cladistics, first online 2020 / issue 2021, rejecting a single origin and recovering multiple convergent orb origins."
+        ]
+      }
+    }
+  },
+  "frozen_from": ".agent/DIRECTIVE.md BENCH-GRAPH-PILOT-001 PART I"
+}

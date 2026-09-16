@@ -53,13 +53,20 @@ class DatasetConfig(_Base):
     # pairs     : a frozen gold-vs-negative pair slice (v2), loaded as k=2 instances
     # k_sets    : a controlled listwise slice at one k (benchmark/k_slices/),
     #             every negative independently R2-screened; `k_set_path` selects it
-    kind: Literal["instances", "pairs", "k_sets"] = "instances"
+    # cases : the explanatory-hypothesis benchmark (BENCH-GRAPH-PILOT-001) -- frozen
+    #         cutoffs, no gold, hidden resolutions in a separate file
+    kind: Literal["instances", "pairs", "k_sets", "cases"] = "instances"
     # development : for building and debugging the method. Aggregate accuracy on
     #               such a slice is NOT evidence for the method — both v1 and v2
     #               carry artifacts that let a no-science baseline score highly.
     # evaluation  : a slice whose construction protocol was frozen in advance and
     #               whose style diagnostics are clean.
-    status: Literal["development", "evaluation"] = "development"
+    # pilot_diagnostic : a frozen slice run once to observe BEHAVIOUR, with no
+    #               tuning and no performance claim. Distinct from `evaluation`
+    #               because there is no gold and therefore nothing to be accurate
+    #               about, and distinct from `development` because nothing may be
+    #               tuned on it afterwards.
+    status: Literal["development", "evaluation", "pilot_diagnostic"] = "development"
     path: str = "data/researchbench_dev20.jsonl"
     metadata_path: str = "data/metadata/source_dates.jsonl"
     # v1's frozen R2 pair subset over the dev20 instances. Used for the PRIMARY
@@ -71,6 +78,7 @@ class DatasetConfig(_Base):
     # with scripts/build_k_slices.py; run one k per run and report stratified by
     # k, never averaged (chance top-1 is 1/k).
     k_set_path: str = "benchmark/k_slices/k3_sets.jsonl"
+    case_path: str = "benchmark/explanatory/cases_visible.jsonl"
     negatives: NegativesConfig = Field(default_factory=NegativesConfig)
     require_cutoff: bool = True
     # Also refuse instances whose cutoff resolved but was flagged ambiguous.

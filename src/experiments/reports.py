@@ -227,16 +227,20 @@ def render_instance_report(
     add("## Scores")
     add("")
     if result.scores:
-        add("| rank | label | hypothesis | score | gold |")
-        add("| --- | --- | --- | --- | --- |")
+        # A benchmark without gold (the explanatory-hypothesis pilot) gets no gold
+        # column at all rather than an empty one, so a reader cannot mistake the
+        # blanks for "every candidate was judged wrong".
+        gold_id = instance.gold_hypothesis.id if instance.has_gold else None
+        add("| rank | label | hypothesis | score |{}".format(" gold |" if gold_id else ""))
+        add("| --- | --- | --- | --- |{}".format(" --- |" if gold_id else ""))
         for position, hid in enumerate(result.ranking, start=1):
             add(
-                "| {} | {} | `{}` | {:.4g} | {} |".format(
+                "| {} | {} | `{}` | {:.4g} |{}".format(
                     position,
                     presentation.id_to_label.get(hid, "?"),
                     hid,
                     result.scores.get(hid, float("nan")),
-                    "**yes**" if hid == instance.gold_hypothesis.id else "",
+                    (" {} |".format("**yes**" if hid == gold_id else "")) if gold_id else "",
                 )
             )
         add("")
@@ -254,10 +258,18 @@ def render_instance_report(
             add("Partial scores (not used for ranking): `{}`".format(scores_artifact["partial_scores"]))
             add("")
 
-    add("- gold hypothesis: `{}` (label {})".format(
-        instance.gold_hypothesis.id, presentation.id_to_label.get(instance.gold_hypothesis.id, "?")
-    ))
-    if metrics:
+    if not instance.has_gold:
+        add(
+            "- no gold hypothesis: this benchmark carries no labelled winner, so "
+            "ranking-accuracy metrics are **not computed**. The ranking above is a "
+            "record of what the method did, not a score."
+        )
+    else:
+        add("- gold hypothesis: `{}` (label {})".format(
+            instance.gold_hypothesis.id,
+            presentation.id_to_label.get(instance.gold_hypothesis.id, "?"),
+        ))
+    if metrics and instance.has_gold:
         if metrics.get("pair_accuracy") is not None:
             add(
                 "- **pair accuracy (primary, frozen pairs): {:.3f}** "

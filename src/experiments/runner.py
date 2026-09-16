@@ -36,6 +36,7 @@ from src.benchmark.loader import (
     BenchmarkInstance,
     build_cutoff_registry,
     load_instances,
+    load_case_instances,
     load_k_set_instances,
     load_pair_instances,
 )
@@ -104,6 +105,22 @@ def build_method(name: str, config: AppConfig) -> Method:
     if name not in METHODS:
         raise KeyError("unknown method {!r}; available: {}".format(name, sorted(METHODS)))
     return METHODS[name](config)
+
+
+def _interpretation_warning(status: str) -> "str | None":
+    if status == "evaluation":
+        return None
+    if status == "pilot_diagnostic":
+        return (
+            "DIAGNOSTIC PILOT: this run is a behavioural observation, not a "
+            "performance measurement. The benchmark carries no gold hypothesis, so "
+            "no accuracy is computed; the ranking is a record of what the method "
+            "did. Nothing in the method may be tuned on these cases afterwards."
+        )
+    return (
+        "DEVELOPMENT SET: aggregate accuracy here is not evidence for the method. "
+        "Compare against the style_artifact and question_hidden_judge floors."
+    )
 
 
 class ExperimentRunner:
@@ -262,7 +279,11 @@ class ExperimentRunner:
     # ------------------------------------------------------------------ #
     def run(self) -> Dict[str, Any]:
         config = self.config
-        if config.dataset.kind == "k_sets":
+        if config.dataset.kind == "cases":
+            instances = load_case_instances(
+                config, dataset_path=config.dataset.case_path,
+                instance_ids=self.instance_ids)
+        elif config.dataset.kind == "k_sets":
             instances = load_k_set_instances(
                 config, dataset_path=config.dataset.k_set_path,
                 instance_ids=self.instance_ids)
@@ -287,6 +308,10 @@ class ExperimentRunner:
         pair_subset = None
         if config.dataset.kind == "pairs":
             LOGGER.info("pair slice: each instance is one gold-vs-negative pair")
+        elif config.dataset.kind == "cases":
+            LOGGER.info(
+                "explanatory-case slice: %d case(s), no gold hypothesis -- "
+                "gold-dependent metrics are skipped, not fabricated", len(instances))
         elif config.dataset.kind == "k_sets":
             sizes = sorted({len(i.hypotheses) for i in instances})
             LOGGER.info(
@@ -324,9 +349,11 @@ class ExperimentRunner:
         self._check_budget()
 
         if config.dataset.status != "evaluation":
-            LOGGER.warning(
-                "DEVELOPMENT SET (%s): aggregate accuracy from this run is for debugging, "
-                "not evidence for the method", config.dataset.kind)
+            # One source of truth for this wording: the log line and the
+            # `interpretation_warning` in summary.json must not be able to say
+            # different things about the same run.
+            LOGGER.warning("%s (%s)", _interpretation_warning(config.dataset.status),
+                           config.dataset.kind)
         LOGGER.info(
             "run %s: method=%s instances=%d llm=%s/%s",
             self.run_id, self.method_name, len(instances), config.llm.provider, self.deployment,
@@ -374,27 +401,33 @@ class ExperimentRunner:
                 if stem in result.artifacts:
                     write_json(instance_dir / "{}.json".format(stem), result.artifacts[stem])
 
-            row = instance_metrics(
-                instance,
-                result.scores,
-                diagnostics=dict(result.diagnostics),
-                # On a pair slice the instance IS the pair, so the primary metric
-                # comes from the instance itself. Same for a controlled k-set:
-                # every negative in it passed R2, so every gold-vs-negative
-                # comparison is a legitimate pair and at k=2 this reduces exactly
-                # to Acc_pair. On an 11-candidate ResearchBench slice the pairs
-                # come from v1's frozen R2 subset instead, because most of that
-                # row's candidates were never screened.
-                pair_negative_ids=(
-                    [h.id for h in instance.hypotheses if not h.gold]
-                    if config.dataset.kind in ("pairs", "k_sets")
-                    else (pair_subset.negatives_for(instance.id) if pair_subset is not None else None)
-                ),
-                pair_status=(
-                    "evaluable" if config.dataset.kind in ("pairs", "k_sets")
-                    else (pair_subset.status_for(instance.id) if pair_subset is not None else "evaluable")
-                ),
-            )
+            if not instance.has_gold:
+                row = {"instance_id": instance.id, "scored": False,
+                       "no_gold": True, "n_hypotheses": len(instance.hypotheses),
+                       "scores": result.scores, "ranking": result.ranking}
+                row.update(result.diagnostics)
+            else:
+                row = instance_metrics(
+                    instance,
+                    result.scores,
+                    diagnostics=dict(result.diagnostics),
+                    # On a pair slice the instance IS the pair, so the primary metric
+                    # comes from the instance itself. Same for a controlled k-set:
+                    # every negative in it passed R2, so every gold-vs-negative
+                    # comparison is a legitimate pair and at k=2 this reduces exactly
+                    # to Acc_pair. On an 11-candidate ResearchBench slice the pairs
+                    # come from v1's frozen R2 subset instead, because most of that
+                    # row's candidates were never screened.
+                    pair_negative_ids=(
+                        [h.id for h in instance.hypotheses if not h.gold]
+                        if config.dataset.kind in ("pairs", "k_sets")
+                        else (pair_subset.negatives_for(instance.id) if pair_subset is not None else None)
+                    ),
+                    pair_status=(
+                        "evaluable" if config.dataset.kind in ("pairs", "k_sets")
+                        else (pair_subset.status_for(instance.id) if pair_subset is not None else "evaluable")
+                    ),
+                )
             row["status"] = result.status
             row["method"] = self.method_name
             row["cutoff_date"] = instance.cutoff_date.isoformat() if instance.cutoff_date else None
@@ -425,11 +458,7 @@ class ExperimentRunner:
         summary = {
             "run_id": self.run_id,
             "dataset_status": config.dataset.status,
-            "interpretation_warning": (
-                None if config.dataset.status == "evaluation" else
-                "DEVELOPMENT SET: aggregate accuracy here is not evidence for the method. "
-                "Compare against the style_artifact and question_hidden_judge floors."
-            ),
+            "interpretation_warning": _interpretation_warning(config.dataset.status),
             "label": self.label,
             "method": self.method_name,
             "dataset": str(resolve_path(config.dataset.path)),

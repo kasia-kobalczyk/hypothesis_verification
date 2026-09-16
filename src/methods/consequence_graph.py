@@ -22,6 +22,8 @@ result.
 
 from __future__ import annotations
 
+import collections
+
 from typing import Any, Dict, List, Optional
 
 from src.common.errors import (
@@ -246,21 +248,25 @@ class ConsequenceGraphVerifier(Method):
                 "notes": propagation.notes,
             },
             "label_to_hypothesis_id": ctx.presentation.label_to_id,
-            "gold_id": ctx.instance.gold_hypothesis.id,
+            "gold_id": (ctx.instance.gold_hypothesis.id
+                        if ctx.instance.has_gold else None),
         }
         # Standing diagnostic (DECISIONS #33): evidence yield and contradiction rate
         # split by the hypothesis a node was generated from. The broad assessor made
         # negative-origin nodes informative 27% of the time against 17% for
         # gold-origin -- implicit bridging favours generic fabricated claims -- so
         # this asymmetry is tracked on every run rather than rediscovered.
-        gold_id = ctx.instance.gold_hypothesis.id
+        # No gold on benchmarks whose resolution is a hidden annotation; the
+        # by-origin diagnostic is then reported without a gold/negative split.
+        gold_id = ctx.instance.gold_hypothesis.id if ctx.instance.has_gold else None
         CONTRA = {"strong_contradiction", "contradiction", "weak_contradiction"}
-        by_origin: Dict[str, Dict[str, int]] = {
-            "gold": {"nodes": 0, "informative": 0, "contradiction": 0},
-            "negative": {"nodes": 0, "informative": 0, "contradiction": 0},
-        }
+        by_origin: Dict[str, Dict[str, int]] = collections.defaultdict(
+            lambda: {"nodes": 0, "informative": 0, "contradiction": 0})
         for node in graph.nodes.values():
-            scope = "gold" if node.generation_origin_hypothesis == gold_id else "negative"
+            if gold_id is None:
+                scope = "unlabelled"
+            else:
+                scope = "gold" if node.generation_origin_hypothesis == gold_id else "negative"
             by_origin[scope]["nodes"] += 1
             label = (evidence_artifact["by_node"].get(node.id, {})
                      .get("assessment", {}) or {}).get("evidence_label")
