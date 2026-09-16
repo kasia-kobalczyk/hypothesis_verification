@@ -1,319 +1,276 @@
-# DIRECTIVE — BENCH-GRAPH-REVIEW-001
+# DIRECTIVE — BENCH-GRAPH-ATTRIBUTION-001
 
 ## Objective
-Prepare the completed eight-case explanatory-benchmark graph pilot for rigorous human scientific review **without modifying the verifier**.
+Take the completed human adjudication of the 40-node high-influence review packet and mechanically recompute score attribution for the frozen eight-case explanatory-benchmark pilot.
 
-The immediate goal is to identify, preserve, and package the score-moving graph propositions so the Research Director can manually adjudicate whether each proposition represents:
+This is an **analysis-only** task. Do not modify the verifier, do not rerun any LLM or literature retrieval, and do not tune the method.
 
-1. a genuine discriminating consequence;
-2. a generic/component fact;
-3. an invalid or weak implication;
-4. a silence-as-null / manufactured-opposition error;
-5. or another clearly documented category.
+The purpose is to answer:
 
-This task is **forensic preparation only**. Do not tune or change the consequence generator, edge assessor, evidence assessor, priors, mappings, aggregation, retrieval, or prompts.
+> How much of each case’s frozen verifier score/ranking was driven by genuinely discriminative reasoning versus silence errors, generic component facts, construct mismatch, weak implications, or merely compatible non-discriminative propositions?
+
+Use the preserved frozen pilot artifacts and the Research Director adjudication recorded in decision D045 as the source of truth for the 40 priority-node labels.
 
 ---
 
-## Context
-The completed eight-case pilot showed:
-- substantially more contrastive graph structure than the historical ResearchBench reserve;
-- meaningful recovery of hidden scientific discriminators;
-- but a large apparent failure mode in which propositions generated from one hypothesis were scored directionally against hypotheses that may simply be silent about them.
+# PART I — LOAD AND ENCODE HUMAN ADJUDICATION
 
-The current post-hoc LLM auditor is useful diagnostically but is not authoritative enough to serve as scientific ground truth.
+## 1. Locate the preserved review artifacts
+Use the existing preserved packet under the repository review/frozen-run locations created by `BENCH-GRAPH-REVIEW-001`.
 
-We therefore need a compact, reproducible, human-reviewable packet derived from the **already frozen pilot run**.
+Expected review family:
+- `benchmark/review/graph_pilot_001/`
 
-Treat the eight pilot cases as spent for method tuning. Do not rerun them with changed settings.
+Verify exact paths rather than assuming them.
 
----
+## 2. Encode the 40 priority-node labels from D045
+Populate the human-review fields for the 40 priority nodes exactly according to the Research Director adjudication below.
 
-# PART I — PRESERVE THE EXACT PILOT STATE
+Primary category mapping:
 
-## 1. Identify the exact completed run
-Locate the completed eight-case pilot run and all associated artifacts.
+1. `pfc_storage_vs_control-X2` — `silence_as_null_error`
+2. `glnbp-X4` — `silence_as_null_error`
+3. `eukaryogenesis-X7` — `invalid_or_weak_implication`
+4. `glnbp-X11` — `silence_as_null_error`
+5. `gcn4-X3` — `generic_component_fact`
+6. `glnbp-X3` — `generic_component_fact`
+7. `glnbp-X5` — `genuine_discriminator`
+8. `forest-X1` — `compatible_non_discriminative`
+9. `eukaryogenesis-X4` — `generic_component_fact`
+10. `eukaryogenesis-X6` — `generic_component_fact`
+11. `forest-X7` — `compatible_non_discriminative`
+12. `pfc_interhemispheric-X2` — `compatible_non_discriminative`
+13. `fly_wing-X2` — `silence_as_null_error`
+14. `pfc_storage_vs_control-X6` — `genuine_discriminator`
+15. `forest-X4` — `compatible_non_discriminative`
+16. `forest-X5` — `compatible_non_discriminative`
+17. `gcn4-X5` — `compatible_non_discriminative`
+18. `glnbp-X15` — `generic_component_fact`
+19. `pfc_storage_vs_control-X15` — `evidence_construct_mismatch`
+20. `pfc_storage_vs_control-X24` — `genuine_discriminator`
+21. `eukaryogenesis-X24` — `generic_component_fact`
+22. `glnbp-X8` — `generic_component_fact`
+23. `glnbp-X9` — `genuine_discriminator`
+24. `pfc_storage_vs_control-X14` — `evidence_construct_mismatch`
+25. `glnbp-X6` — `generic_component_fact`
+26. `pfc_storage_vs_control-X3` — `compatible_non_discriminative`
+27. `eukaryogenesis-X2` — `silence_as_null_error`
+28. `eukaryogenesis-X10` — `generic_component_fact`
+29. `eukaryogenesis-X12` — `generic_component_fact`
+30. `eukaryogenesis-X22` — `generic_component_fact`
+31. `forest-X23` — `silence_as_null_error`
+32. `spider-X12` — `generic_component_fact`
+33. `forest-X24` — `silence_as_null_error`
+34. `glnbp-X17` — `compatible_non_discriminative`
+35. `pfc_storage_vs_control-X13` — `evidence_construct_mismatch`
+36. `forest-X15` — `invalid_or_weak_implication`
+37. `gcn4-X18` — `generic_component_fact`
+38. `gcn4-X23` — `generic_component_fact`
+39. `gcn4-X9` — `silence_as_null_error`
+40. `spider-X11` — `invalid_or_weak_implication`
 
-Expected run family:
-- `runs/pilot_explanatory_001`
+Do not alter these primary categories.
 
-Verify the exact path rather than assuming it.
+## 3. Human label metadata
+For each of the 40 nodes, set:
+- `human_primary_category` to the frozen value above;
+- `human_is_genuinely_discriminative = true` only for `genuine_discriminator`;
+- `human_silence_as_null_error = true` only for `silence_as_null_error`;
+- leave any more detailed per-hypothesis prediction fields blank unless they were explicitly recorded in D045 or can be transcribed from existing Research Director notes without inference.
 
-Record:
-- run ID / directory;
-- timestamp(s);
-- model/provider configuration for each API-backed role;
-- repository HEAD at time of preservation;
-- whether the original run was produced from a dirty working tree;
-- any local uncommitted files that materially affected the run;
-- environment/config files relevant to reproducibility.
+Do not invent missing human judgments.
 
-## 2. Preserve artifacts before doing anything else
-The executor report indicated that the full run may live under gitignored `runs/` and that the original run manifest did not capture a git commit.
+Mark provenance clearly, e.g.:
+- `human_reviewer = "Research Director"`
+- `human_review_source = "D045"`
+- `human_review_status = "first_pass_model_based_review"`
 
-Before analysis:
-- copy or archive the complete forensic run artifacts into a durable repository-tracked or otherwise explicitly preserved location;
-- do not overwrite or regenerate the original artifacts;
-- compute checksums for the preserved archive or key files;
-- document the mapping from original path to preserved path;
-- commit any code/config state needed to reproduce the analysis tooling.
-
-If exact source reconstruction of the original dirty working tree is impossible, state that clearly and preserve everything that remains available.
-
-Do **not** rerun the verifier merely to make the artifacts cleaner.
-
----
-
-# PART II — EXTRACT THE HUMAN REVIEW SET
-
-## 3. Define score-moving propositions from the frozen run
-Using the frozen pilot artifacts, identify all generated proposition nodes that have non-negligible influence on final hypothesis comparison.
-
-Prefer to reuse the influence/contribution calculations already produced by the pilot analysis if they are available.
-
-At minimum produce:
-
-### A. Full score-moving set
-All nodes whose evidence/edge contributions changed any hypothesis log-odds / score relative to the no-node baseline or otherwise affected ranking/support under the existing aggregation.
-
-### B. High-influence subset
-A compact subset explaining approximately 80% of total absolute score influence across the eight cases.
-
-The previous executor summary suggested roughly:
-- ~78 score-moving nodes total;
-- ~40 nodes accounting for ~80% of influence.
-
-Do not force those counts if the actual frozen artifacts differ. Recompute transparently from source artifacts and report exact counts.
-
-## 4. Do not pre-filter by the old LLM auditor
-The human packet must not contain only nodes already labeled “manufactured” or “genuine” by the automated auditor.
-
-Selection must be based on score influence / structural relevance from the frozen verifier output, not on the post-hoc auditor’s scientific judgment.
-
-The old auditor labels may be included as **non-authoritative metadata** for comparison, but they must not determine which nodes are reviewed.
+Important: this review is model-based Research Director adjudication, not external expert ground truth.
 
 ---
 
-# PART III — BUILD THE REVIEW PACKET
+# PART II — RECOMPUTE SCORE ATTRIBUTION MECHANICALLY
 
-## 5. Create one machine-readable record per review node
-For every node in the full score-moving set, create a structured record containing enough context for an independent human scientific judgment.
+## 4. Preserve the original frozen scores
+Before any counterfactual analysis, reproduce the original per-case score/log-odds contributions from the frozen run exactly within numerical tolerance.
 
-Required fields:
+Do not call any model.
 
-### Identity
-- `review_id`
-- `case_id`
-- `node_id`
-- `origin_hypothesis_id` (if applicable)
-- proposition text exactly as generated
-- proposition abstraction level/type if recorded by the pipeline
+For each case record:
+- original hypothesis scores/log-odds;
+- original ordering/support summary;
+- total absolute node contribution;
+- contribution from the 40 reviewed priority nodes;
+- contribution from unreviewed score-moving nodes.
 
-### Case context
-- phenomenon / scientific question
-- all competing hypothesis texts exactly as shown to the verifier
-- historical cutoff
+## 5. Attribute reviewed-node influence by human category
+For each case and each hypothesis, sum the signed and absolute contribution of reviewed nodes in these categories:
+- `genuine_discriminator`
+- `silence_as_null_error`
+- `generic_component_fact`
+- `compatible_non_discriminative`
+- `evidence_construct_mismatch`
+- `invalid_or_weak_implication`
 
-### Graph context
-- parent node(s), if any
-- edge path from originating hypothesis/root to the proposition
-- edge labels/strengths along that path
-- cross-hypothesis edge judgments for the proposition against **every** hypothesis
-- whether each hypothesis was the origin of the proposition or only cross-evaluated
+Also report totals across all eight cases.
 
-### Evidence context
-For every evidence item that materially affected the node score:
-- paper title
-- authors/year
-- DOI / PMID / Semantic Scholar ID / URL if available
-- publication/public date used by the cutoff filter
-- retrieved abstract/snippet/span actually shown to the evidence assessor
-- evidence judgment and direction
-- assessor rationale if stored
-- contribution to node / hypothesis score
+Where the original scoring contribution is pairwise or path-mediated rather than trivially node-local, use the exact deterministic decomposition already available from the frozen-run analysis. If attribution cannot be uniquely decomposed, document the limitation rather than approximating silently.
 
-Do not provide only paper IDs. The reviewer must see the exact textual evidence used by the system.
+## 6. Construct counterfactual score views
+Without changing any underlying model judgment, generate deterministic counterfactual score summaries by zeroing/removing contributions from reviewed nodes according to category.
 
-### Score influence
-- node-level contribution to each hypothesis score/log-odds
-- absolute influence measure used for ranking review priority
-- rank among nodes within the case
-- rank globally if useful
-- whether removing this node alone would change case ranking/support ordering, if straightforward to calculate without rerunning the LLM
+At minimum create these views:
 
-### Existing automated audit metadata
-Include, clearly labeled as non-authoritative:
-- prior auditor category, if any
-- whether the auditor called the opposition genuine/manufactured/silent
-- second-auditor judgment if available
-- disagreement flag between auditors
+### View A — `genuine_only_reviewed`
+Keep contribution from reviewed `genuine_discriminator` nodes only; zero all other reviewed-node contributions.
 
-### Human-review fields — initially blank
-Include fields to be filled manually:
-- `human_primary_category`
-- `human_prediction_for_each_hypothesis`
-- `human_is_genuinely_discriminative`
-- `human_silence_as_null_error`
-- `human_implication_validity`
-- `human_evidence_relevance`
-- `human_notes`
-- `human_confidence`
+Unreviewed score-moving nodes should be reported separately and should not be silently treated as valid or invalid.
 
-Do not auto-populate the human fields.
+Produce two variants if useful:
+- A1: reviewed genuine only + all unreviewed contributions untouched;
+- A2: reviewed genuine only, with all unreviewed score-moving contributions set aside/zeroed.
 
-## 6. Human review categories
-Provide this frozen rubric in the packet documentation.
+### View B — `remove_confirmed_errors`
+Zero reviewed nodes in:
+- `silence_as_null_error`
+- `evidence_construct_mismatch`
+- `invalid_or_weak_implication`
 
-### `genuine_discriminator`
-The proposition is scientifically implied/predicted by at least one hypothesis and the competing hypothesis/hypotheses make a meaningfully different positive prediction or are genuinely inconsistent with it.
+Keep reviewed:
+- genuine discriminators;
+- generic component facts;
+- compatible non-discriminative nodes;
 
-### `compatible_non_discriminative`
-The proposition may be true or supported, but it does not meaningfully distinguish the candidates.
+This isolates the effect of clearly erroneous reasoning from merely weak/non-discriminative evidence.
 
-### `generic_component_fact`
-The proposition is an abstract/component-level fact that can be supported independently of the distinctive composite explanatory hypothesis and therefore risks recreating the historical component-truth failure.
+### View C — `discriminative_only`
+Keep only reviewed `genuine_discriminator` contributions and set aside reviewed:
+- silence errors;
+- generic component facts;
+- compatible non-discriminative;
+- construct mismatch;
+- weak implications.
 
-### `silence_as_null_error`
-A hypothesis does not determine the proposition, but the system assigned it a directional null/opposite/contradictory judgment, thereby manufacturing contrast.
+Again, handle unreviewed nodes explicitly rather than assuming validity.
 
-### `invalid_or_weak_implication`
-The proposition is not adequately licensed by the originating hypothesis or requires an unstated scientific bridge too large to treat as an implication edge.
+### View D — `remove_non_discriminative_reviewed`
+Keep reviewed genuine discriminators only; remove reviewed generic/compatible/error categories, while leaving unreviewed contributions untouched.
 
-### `evidence_construct_mismatch`
-The evidence span is grounded in the cited source but addresses a different construct/proposition than the node.
+If A/D overlap, simplify but preserve at least one view with unreviewed nodes untouched and one strict reviewed-only view.
 
-### `valid_but_historically_uninformative`
-The discriminator is scientifically valid, but pre-cutoff evidence is absent/non-informative, so it should not materially resolve the hypotheses historically.
+## 7. Do not reinterpret mixed-resolution cases as binary accuracy
+For each case, compare counterfactual support to the benchmark resolution type only descriptively.
 
-Allow multiple flags where needed, but require one primary category.
+Allowed benchmark resolutions include:
+- favored;
+- mixed;
+- regime-dependent;
+- component-wise.
 
-Important distinction:
-- `silence` is not equivalent to `no change`, `negative`, `unlikely`, or `contradicted`.
-- Do not infer a null prediction unless the hypothesis substantively predicts a baseline/no-effect outcome.
+Do not convert mixed/regime-dependent cases to a forced winner metric.
 
 ---
 
-# PART IV — CREATE REVIEW VIEWS
+# PART III — CASE-LEVEL DIAGNOSTIC REPORT
 
-## 7. Produce two human-readable review artifacts
+## 8. For every case, report
+- original score/order;
+- total reviewed-node influence;
+- genuine-discriminator contribution;
+- silence-error contribution;
+- generic-component contribution;
+- compatible-non-discriminative contribution;
+- construct-mismatch contribution;
+- weak-implication contribution;
+- unreviewed score-moving contribution;
+- counterfactual ordering/support under each view;
+- whether the original apparent agreement/disagreement with later resolution survives after confirmed-error removal;
+- whether any conclusion becomes underdetermined once non-discriminative reviewed nodes are removed.
 
-### A. Full review table/report
-A readable document containing every score-moving node, grouped by case.
+## 9. Pay special attention to four cases
+### GlnBP
+Determine whether its apparent successful support for induced fit survives using only genuine reviewed discriminators.
 
-Each node should show, compactly but completely:
-- proposition;
-- origin hypothesis;
-- cross-hypothesis edge judgments;
-- evidence span(s);
-- node score influence;
-- prior automated audit metadata;
-- blank human-review fields / a stable review ID.
+### Eukaryogenesis
+The earlier analysis suggested correct final direction but substantial manufactured contrast. Quantify exactly how much support remains after removing reviewed invalid/generic/silence contributions.
 
-### B. High-influence priority packet
-A shorter document containing the subset responsible for ~80% of total absolute score influence.
+### Fly-wing
+Earlier analysis suggested a correct final direction with no genuine recovered discriminator in the priority set. Determine whether the apparent success disappears under reviewed attribution.
 
-Order by descending absolute score influence.
-
-The Research Director should be able to adjudicate the most consequential failure modes without opening raw JSON traces.
-
-Preferred formats:
-- Markdown for easy repository review;
-- JSONL/JSON for machine-readable annotations.
-
-Use repository-native locations such as `reports/`, `benchmark/`, or an existing analysis directory after inspecting conventions. Do not invent a parallel top-level structure unnecessarily.
-
----
-
-# PART V — ADD NON-LLM ANALYSIS UTILITIES ONLY
-
-## 8. Implement deterministic analysis tooling
-It is acceptable and encouraged to add deterministic scripts that:
-- compute node score influence;
-- extract graph/evidence context;
-- generate review JSONL/Markdown;
-- summarize edge-label behavior on silent hypotheses;
-- calculate counterfactual score/ranking after mechanically removing selected nodes.
-
-These scripts must operate on the frozen run artifacts and must **not call an LLM** unless explicitly necessary to reproduce already-existing audit metadata.
-
-Do not add a new scientific classifier or automatic replacement for human judgment in this task.
-
-## 9. Add sanity checks
-Add tests/assertions where practical that verify:
-- every review node maps back to a real frozen-run graph node;
-- score contributions in the review packet reproduce the frozen aggregate within tolerance;
-- evidence spans in the packet are exactly those used by the original assessor;
-- no post-cutoff resolver or hidden benchmark annotation has been introduced into the human packet as if it were verifier evidence;
-- the packet distinguishes verifier output from post-hoc hidden benchmark context.
+### PFC storage vs control
+The frozen verifier favored the later-disfavored storage account. Determine how much of that failure is attributable to construct mismatch, silence errors, versus genuinely discriminative nodes.
 
 ---
 
-# PART VI — DO NOT MODIFY THE VERIFIER
+# PART IV — OPTIONAL SENSITIVITY USING FULL 78-NODE SET
 
-Do not, in this task:
-- change edge-assessor prompts;
-- change the meaning of `neutral`;
-- add hard silence gates;
-- change evidence-assessor prompts;
-- change edge/evidence ordinal mappings;
-- change aggregation;
-- change priors;
-- change graph generation;
-- change abstraction policy;
-- change retrieval;
-- rerun the eight cases with altered settings;
-- use the eight spent cases to select a fix.
+## 10. Do not invent labels for the remaining 38 score-moving nodes
+The remaining score-moving nodes are not yet human-adjudicated.
 
-If you discover an obvious implementation bug while extracting artifacts, document it in the report but do not repair the scientific method unless required only to read/preserve the old artifacts.
+However, produce a transparent influence summary showing:
+- how much absolute score influence is already covered by the 40 adjudicated nodes;
+- how much remains in the 38 unreviewed nodes;
+- which cases are under-covered by the priority review.
+
+If the existing packet identifies case-coverage additions previously suggested for fly-wing, interhemispheric PFC, and spider, list them as the recommended next human-review batch.
+
+Do not auto-label these nodes in this directive.
 
 ---
 
-# PART VII — REPORT BACK
+# PART V — OUTPUTS
 
-Create an executor report containing:
+## 11. Machine-readable outputs
+Create repository-native artifacts containing:
+- updated review JSONL with D045 labels encoded;
+- per-node contribution table;
+- per-case category attribution table;
+- counterfactual scores/orderings under each deterministic view;
+- coverage statistics for reviewed vs unreviewed score-moving nodes.
 
-## Preservation
-- exact original run path;
-- preserved/archive path;
-- checksums;
-- git commit(s) created for preservation/analysis tooling;
-- reproducibility limitations, especially any unresolved dirty-working-tree issue.
+## 12. Human-readable report
+Create a concise report summarizing:
+- how much frozen score influence is explained by each adjudicated category;
+- which apparent pilot successes remain credible after review;
+- which disappear or become underdetermined;
+- which cases require review of additional nodes before firm attribution;
+- whether the dominant problem is best characterized as silence handling alone or a broader discrimination/relevance problem.
 
-## Review-set statistics
-- total generated nodes;
-- total score-moving nodes;
-- high-influence subset size covering ~80% of absolute influence;
-- counts by case;
-- counts by edge-label pattern;
-- counts of nodes with one or more hypotheses judged non-neutral despite not originating the proposition, without interpreting that automatically as scientific error.
+The report should clearly distinguish:
+- observed frozen verifier behavior;
+- human-adjudicated node categories;
+- deterministic counterfactual arithmetic;
+- interpretive conclusions.
 
-## Existing auditor comparison
-- counts from prior primary and secondary auditors;
-- disagreement rate;
-- cases where automated audit is especially unstable.
+## 13. Update executor report/state
+Report exact paths to all created artifacts and the git commit containing this analysis.
 
-## Paths
-Report exact repository paths for:
-- full machine-readable review set;
-- high-influence review set;
-- human-readable full review report;
-- priority review packet;
-- preservation archive / manifest;
-- deterministic extraction scripts/tests.
+---
 
-## No scientific fix recommendation yet
-You may summarize observed mechanical patterns, but do **not** choose or implement a verifier fix. The next method decision will be based on human review labels supplied after this task.
+# PART VI — DO NOT
+
+Do not:
+- modify the verifier;
+- change prompts, mappings, priors, aggregation, retrieval, or graph generation;
+- rerun any of the eight pilot cases;
+- call an LLM to relabel the remaining nodes;
+- treat D045 as external expert ground truth;
+- tune a silence fix using the eight spent cases;
+- reuse the ResearchBench reserve;
+- force mixed/regime-dependent benchmark cases into binary accuracy.
+
+If deterministic score reconstruction reveals a bug in the previous influence analysis, document it and stop before changing scientific code.
 
 ---
 
 # Acceptance criteria
-This task is complete when:
-1. the exact frozen eight-case pilot artifacts are durably preserved;
-2. all score-moving propositions are extracted into a reproducible machine-readable review set;
-3. a high-influence subset covering roughly 80% of absolute score influence is produced;
-4. each review record contains enough hypothesis, graph, evidence, and score context for manual scientific adjudication;
-5. blank human-label fields and a fixed review rubric are included;
-6. deterministic extraction/influence calculations are reproducible and sanity-checked;
-7. no verifier behavior has been changed and no eight-case rerun has been performed.
+Complete when:
+1. all 40 D045 labels are encoded exactly into the preserved review set;
+2. original frozen scores are deterministically reproduced;
+3. score influence is decomposed by human category per node/case/hypothesis;
+4. counterfactual score views are produced without any model rerun;
+5. the report states which apparent successes/failures survive after reviewed-error removal;
+6. residual influence from the 38 unreviewed score-moving nodes is quantified explicitly;
+7. no verifier behavior has been changed.
 
-The purpose of this directive is to create trustworthy human ground truth about the pilot failure mode before any method modification is attempted.
+The purpose is to obtain a trustworthy causal accounting of the pilot’s scores before deciding what method component, if any, should be redesigned.
