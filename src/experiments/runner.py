@@ -107,6 +107,31 @@ def build_method(name: str, config: AppConfig) -> Method:
     return METHODS[name](config)
 
 
+def _git_state() -> Dict[str, Any]:
+    """Commit and working-tree state at run start.
+
+    pilot_explanatory_001 ran from an uncommitted tree and its manifest recorded no
+    commit, so the source had to be reconstructed after the fact. Recording this costs
+    nothing and fails soft outside a git checkout.
+    """
+    import subprocess
+
+    def git(*args: str) -> "str | None":
+        try:
+            # rstrip only: porcelain lines start with a status column that may be a space
+            return subprocess.check_output(["git"] + list(args), cwd=str(resolve_path(".")),
+                                           stderr=subprocess.DEVNULL).decode("utf-8").rstrip("\n")
+        except Exception:  # noqa: BLE001
+            return None
+
+    status = git("status", "--porcelain")
+    return {
+        "commit": git("rev-parse", "HEAD"),
+        "dirty": bool(status) if status is not None else None,
+        "dirty_paths": sorted(line[3:] for line in status.splitlines()) if status else [],
+    }
+
+
 def _interpretation_warning(status: str) -> "str | None":
     if status == "evaluation":
         return None
@@ -149,7 +174,10 @@ class ExperimentRunner:
 
     # ------------------------------------------------------------------ #
     def _write_manifest(self, instances: List[BenchmarkInstance]) -> Dict[str, Any]:
-        dataset_path = resolve_path(self.config.dataset.path)
+        # A `cases` run reads `case_path`; recording `path` there named a file the run
+        # never opened (observed in pilot_explanatory_001).
+        dataset_path = resolve_path(
+            self.config.dataset.case_path if self.config.dataset.kind == "cases" else self.config.dataset.path)
         prompt_names = self.method.prompt_versions()
         from src.llm.prompts import PromptLibrary
 
@@ -170,6 +198,7 @@ class ExperimentRunner:
                 "max_negatives": self.config.dataset.negatives.max_negatives,
             },
             "prompts": prompts.manifest(prompt_names),
+            "git": _git_state(),
             "llm": {
                 "provider": self.config.llm.provider,
                 "deployment": self.deployment,

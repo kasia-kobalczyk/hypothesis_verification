@@ -827,3 +827,14 @@ def test_families_partition_every_node_exactly_once():
     members = [m for v in fams.values() for m in v]
     assert sorted(members) == sorted(graph.nodes), "families must partition the nodes"
     assert len(members) == len(set(members)), "a node may not appear in two families"
+
+
+def test_run_manifest_git_state_parses_porcelain_paths():
+    """Regression: stripping the whole `git status --porcelain` output removed the
+    leading status column of the first line and truncated its path."""
+    from src.experiments.runner import _git_state
+
+    state = _git_state()
+    assert set(state) == {"commit", "dirty", "dirty_paths"}
+    for path in state["dirty_paths"]:
+        assert (Path(__file__).resolve().parents[1] / path.split(" -> ")[-1]).exists() or path.endswith("/"), path
