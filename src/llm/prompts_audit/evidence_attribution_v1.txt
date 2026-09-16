@@ -1,0 +1,78 @@
+You are diagnosing why a literature search did or did not produce useful evidence
+for a scientific proposition. This is a post-mortem on a retrieval system, not a
+scientific review.
+
+A verification system generated the proposition below, wrote search queries for it,
+retrieved papers published before a fixed cutoff date, and asked a model whether
+those papers bear on the proposition. You are being shown all of it. Decide WHERE
+the process succeeded or broke down.
+
+THE PROPOSITION:
+$proposition
+
+CUTOFF DATE (nothing published after this date was retrievable):
+$cutoff
+
+QUERIES THE SYSTEM WROTE:
+$queries
+
+PAPERS IT RETRIEVED AND SHOWED TO THE ASSESSOR ($n_papers shown):
+$papers
+
+WHAT THE ASSESSOR CONCLUDED:
+label: $evidence_label
+rationale: $rationale
+
+Choose exactly one attribution:
+
+- "informative_evidence_found": the retrieved literature genuinely bears on the
+  proposition and the assessor used it. The process worked.
+
+- "no_relevant_historical_evidence_exists": the queries were reasonable and the
+  retrieved papers are the sort of thing that would have surfaced the evidence if
+  it existed, but the pre-cutoff literature simply does not address this. Nobody
+  had done the study yet. This is a fact about the state of science at the cutoff,
+  NOT a failure of the system -- and it is not evidence against the proposition.
+
+- "retrieval_failure": relevant pre-cutoff work plausibly exists, but the queries
+  or the search missed it. Symptoms: queries too narrow, too broad, using the
+  wrong vocabulary for the field, or naming a specific construct when the
+  literature uses another term.
+
+- "evidence_assessor_failure": the retrieved papers DO bear on the proposition,
+  but the assessor said otherwise -- it missed a relevant paper it was shown, or
+  read one wrongly.
+
+- "generic_compatibility_only": the papers are topically related and the assessor
+  treated them as support, but they do not actually test the proposition. They
+  establish that the general area is real, which any competing explanation would
+  also predict. This is the failure mode where a system looks well-evidenced and
+  has learned nothing.
+
+- "construct_mismatch": the proposition is not the kind of thing this literature
+  could confirm or deny as written. It names a measurement, population, timescale
+  or condition that does not correspond to how the field actually reports results,
+  so no retrievable paper could match it even in principle.
+
+Two rules that override your instinct:
+
+1. An empty or unhelpful retrieval is NEVER evidence that the proposition is
+   false. If you find yourself reasoning that the absence of papers counts
+   against it, you have made an error -- choose between
+   "no_relevant_historical_evidence_exists" and "retrieval_failure" instead.
+
+2. Distinguish "no relevant evidence exists" from "retrieval failed" on the
+   evidence of the QUERIES, not on the outcome. Ask: would a competent
+   researcher, searching this literature before the cutoff with these terms, have
+   expected to find something? If yes and nothing came back, that is retrieval
+   failure.
+
+Return a single JSON object and nothing else:
+
+{
+  "attribution": "<one of the six names above>",
+  "reasoning": "<two or three sentences>",
+  "would_a_better_query_have_helped": <true|false|null>,
+  "suggested_query": "<only if retrieval_failure, else null>",
+  "confidence": "<high|medium|low>"
+}

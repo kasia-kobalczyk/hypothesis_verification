@@ -1,0 +1,95 @@
+You are auditing a scientific reasoning system after the fact.
+
+The system was given a phenomenon and two competing explanations, and asked what
+else should be true if each explanation held. It generated the proposition below.
+Your job is to classify that proposition. You are NOT judging whether the system
+picked the right explanation, and you are NOT being asked what is true.
+
+PHENOMENON:
+$phenomenon
+
+COMPETING EXPLANATIONS:
+$hypotheses
+
+REFERENCE DISCRIMINATORS.
+These are the observable differences that the later resolving science actually
+turned on. They were hidden from the system when it generated its proposition;
+they are shown to you only so you can recognise a match. A proposition counts as
+recovering one if it targets the SAME observable contrast, even in different
+words, at a different level of detail, or with the direction stated the other way
+round. It does not count merely because it concerns the same topic.
+
+$reference_discriminators
+
+THE GENERATED PROPOSITION:
+$proposition
+
+STEP 1 — Predict the proposition's status under EACH explanation, separately.
+
+For each explanation, say what that explanation ON ITS OWN implies about the
+proposition. Use exactly one of:
+- "positive_or_present"   : the explanation implies this should hold / be observed
+- "negative_or_absent"    : the explanation implies this should NOT hold
+- "neutral_or_no_change"  : the explanation implies this specific quantity is
+                            unchanged -- an actual null prediction, positively made
+- "indeterminate"         : the explanation simply does not speak to this. It makes
+                            no commitment either way.
+
+The distinction between "neutral_or_no_change" and "indeterminate" is the single
+most important judgment you make here, so make it deliberately.
+
+"neutral_or_no_change" means the explanation genuinely predicts no effect: it says
+the quantity stays put. "indeterminate" means the explanation is silent -- it is
+compatible with the proposition being true and also with it being false.
+
+An explanation being silent is NOT a prediction of absence. If you find yourself
+reasoning "explanation B doesn't mention this, so under B it wouldn't happen",
+stop: that is "indeterminate", not "negative_or_absent". Silence is the most
+common way an audit like this manufactures a contrast that was never there.
+
+STEP 2 — Is the proposition genuinely discriminative?
+
+It is discriminative only if the two explanations yield DIFFERENT statuses AND
+neither status is "indeterminate". A contrast between a prediction and a silence
+is not a contrast.
+
+STEP 3 — Assign exactly one category.
+
+- "reference_discriminator_recovered": discriminative, and it targets the same
+  observable contrast as one of the reference discriminators above. Name which.
+
+- "novel_plausible_discriminator": discriminative and scientifically sound, but not
+  among the reference discriminators. This is a success, not a failure -- the
+  reference list is what the resolving study happened to use, not an exhaustive
+  list of what could have been used.
+
+- "compatible_non_discriminative": a real, checkable consequence, but both
+  explanations predict the same status. True, relevant, and no help in choosing.
+
+- "generic_component_fact": a background fact about the system, mechanism or
+  method that would be affirmed by the field regardless of which explanation holds.
+  It is assessable against literature -- that is what makes it tempting -- but it
+  carries no information about the dispute.
+
+- "invalid_or_unsupported": not a consequence of either explanation, scientifically
+  garbled, not empirically checkable as stated, or a restatement of the phenomenon.
+
+- "silence_as_null_error": it LOOKS discriminative only because one explanation is
+  silent about it and that silence has been read as a prediction of absence or of
+  no change. Use this when your Step 1 answer for one explanation is
+  "indeterminate" but the proposition is framed as though that explanation
+  positively predicts the opposite.
+
+Return a single JSON object and nothing else:
+
+{
+  "status_under_each": {
+    "<hypothesis label>": "<positive_or_present|negative_or_absent|neutral_or_no_change|indeterminate>"
+  },
+  "status_reasoning": "<one or two sentences, covering BOTH explanations>",
+  "is_discriminative": <true|false>,
+  "category": "<one of the six category names above>",
+  "matched_reference_discriminator": "<the reference discriminator it recovers, verbatim, or null>",
+  "category_reasoning": "<one or two sentences>",
+  "confidence": "<high|medium|low>"
+}
