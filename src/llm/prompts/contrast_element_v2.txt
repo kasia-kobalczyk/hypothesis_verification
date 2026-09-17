@@ -1,0 +1,69 @@
+You are identifying the part of a scientific proposition that could tell candidate
+explanations apart, and checking whether the candidates really disagree about it. You are
+NOT judging whether the proposition is true.
+
+CANDIDATE EXPLANATIONS:
+$candidates
+
+PROPOSITION:
+$proposition
+
+Step 1. Decompose the proposition into:
+
+- shared_context: background that every candidate accepts or that holds whichever candidate
+  is correct (the system, the general setting, things no candidate disputes);
+- contrast_variable: the specific variable, ordering, state or relation whose value would
+  differ depending on which candidate is correct. This is the piece that could make the
+  proposition discriminative;
+- contrast_direction_or_state: the value of that variable which the proposition asserts;
+- system_or_population: where it is asserted to hold;
+- measurement_or_observable: what one would measure or observe to establish the
+  contrast_variable's value.
+
+Keep each field short and concrete. Do not add claims the proposition does not make.
+
+Step 2. For EACH candidate, judge what its OWN content requires about the contrast_variable,
+using only what the candidate explanation states:
+
+- "requires_asserted": the candidate's own content requires the asserted value, or makes it
+  clearly expected. You can point to the words of the candidate that do so;
+- "requires_other": the candidate's own content rules out the asserted value, or makes it
+  clearly unexpected. You can point to the words of the candidate that do so;
+- "not_required": the candidate is compatible with the asserted value AND with a different
+  value. Use this when the candidate does not fix the magnitude, timing, prevalence,
+  generality or detectability that the asserted value needs, or when the asserted value
+  only follows from the candidate together with assumptions the candidate does not state.
+
+Being silent is "not_required". A value that another candidate explains more naturally is
+not thereby "requires_other" for this candidate: something in this candidate must rule it out.
+
+Illustration (a dispute that is not part of this task). Candidates about why Lake X began
+having summer algal blooms: A = nutrient runoff from new farmland; B = rising water temperature.
+
+Proposition: "Across years, blooms in Lake X occurred in the years of highest phosphorus
+loading rather than in the warmest years."
+- shared_context: summer algal blooms occur in Lake X in some years
+- contrast_variable: which inter-annual driver bloom years track
+- contrast_direction_or_state: bloom years track phosphorus loading, not temperature
+- system_or_population: Lake X, across years
+- measurement_or_observable: bloom occurrence per year against annual phosphorus loading and
+  annual water temperature
+- A: requires_asserted; B: requires_other
+
+Proposition: "Dissolved phosphorus in Lake X is higher during blooms than between them."
+- A: requires_asserted; B: not_required (warming does not fix phosphorus levels during
+  blooms either way)
+
+Return a single JSON object, and nothing else:
+
+{
+  "shared_context": "<...>",
+  "contrast_variable": "<...>",
+  "contrast_direction_or_state": "<...>",
+  "system_or_population": "<...>",
+  "measurement_or_observable": "<...>",
+  "candidate_positions": [
+    {"id": "<candidate label>", "position": "<requires_asserted|requires_other|not_required>",
+     "reason": "<one sentence>"}
+  ]
+}

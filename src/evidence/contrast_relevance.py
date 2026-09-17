@@ -15,7 +15,8 @@ from typing import Any, Dict, Mapping, Sequence, Tuple
 from src.graph.proposition_scope import render_element
 from src.inference.discrimination import derive_contrast_relevance
 
-RELEVANCE_PROMPT = "contrast_relevance_v1"
+# Iteration 2: v2 adds that capability shown in some other setting is "partly", not "yes".
+RELEVANCE_PROMPT = "contrast_relevance_v2"
 NO_SPANS = "(the assessor quoted no spans)"
 
 

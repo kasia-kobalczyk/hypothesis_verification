@@ -28,6 +28,7 @@ from src.graph.proposition_scope import (
     ELEMENT_PROMPT,
     SCOPE_PROMPT,
     parse_contrast_element,
+    parse_contrast_element_v2,
     parse_scope_class,
 )
 from src.inference import discrimination as d
@@ -172,9 +173,14 @@ def test_parse_scope_class_rejects_malformed_output(payload):
         parse_scope_class(payload)
 
 
+def _pos(a="requires_asserted", b="requires_other"):
+    return [{"id": "A", "position": a, "reason": "r"}, {"id": "B", "position": b, "reason": "r"}]
+
+
 def _element(**over):
+    """Valid for both element parsers: v1 reads has_contrast, v2 reads candidate_positions."""
     out = {"has_contrast": True, "shared_context": "c", "contrast_variable": "v", "contrast_direction_or_state": "s",
-           "system_or_population": "p", "measurement_or_observable": "m"}
+           "system_or_population": "p", "measurement_or_observable": "m", "candidate_positions": _pos()}
     out.update(over)
     return out
 
@@ -182,6 +188,8 @@ def _element(**over):
 def test_parse_contrast_element_keeps_exactly_the_directive_fields():
     parsed = parse_contrast_element(_element(extra="ignored"))
     assert list(parsed) == ["has_contrast"] + list(ELEMENT_FIELDS)
+    parsed = parse_contrast_element_v2(_element(extra="ignored"), _pres())
+    assert list(parsed) == list(ELEMENT_FIELDS) + ["candidate_positions", "positions_contrastive"]
     assert ELEMENT_FIELDS == ("shared_context", "contrast_variable", "contrast_direction_or_state",
                               "system_or_population", "measurement_or_observable")
 
@@ -286,10 +294,62 @@ def test_context_only_and_construct_mismatch_leave_scores_even(mappings):
 
 def test_layer_does_not_score_an_element_without_a_contrast(mappings):
     llm = ScriptedLLM(states={"p1": _states(*CON)}, scopes={"p1": _scope_payload()},
-                      elements={"p1": _element(has_contrast=False)}, relevance={"p1": _rel("yes")})
+                      elements={"p1": _element(has_contrast=False, candidate_positions=_pos(b="not_required"))},
+                      relevance={"p1": _rel("yes")})
     out = _layer(llm, mappings, {"X1": _ev("strong_support")}, n=1)
     assert out["nodes"]["X1"]["gate_reason"] == "no_contrast_bearing_element"
     assert out["scores"] == {"H1": 0.5, "H2": 0.5}
+
+
+@pytest.mark.parametrize("positions,contrastive", [
+    (("requires_asserted", "requires_other"), True), (("requires_other", "requires_asserted"), True),
+    (("requires_asserted", "not_required"), False), (("requires_asserted", "requires_asserted"), False),
+    (("not_required", "not_required"), False)])
+def test_v2_positions_must_form_a_contrast(positions, contrastive):
+    parsed = parse_contrast_element_v2(_element(has_contrast=not contrastive, candidate_positions=_pos(*positions)),
+                                       _pres())
+    assert parsed["positions_contrastive"] is contrastive                      # the model's has_contrast is ignored
+    assert parsed["candidate_positions"]["H1"]["position"] == positions[0]    # labels mapped to hypothesis ids
+
+
+@pytest.mark.parametrize("positions", [
+    [{"id": "A", "position": "requires_asserted"}],                                              # missing B
+    [{"id": "A", "position": "requires_asserted"}, {"id": "A", "position": "requires_other"}],   # duplicate
+    [{"id": "A", "position": "requires_asserted"}, {"id": "C", "position": "requires_other"}],   # unknown id
+    [{"id": "A", "position": "probably"}, {"id": "B", "position": "requires_other"}],            # unknown position
+    None])
+def test_v2_element_rejects_malformed_positions(positions):
+    with pytest.raises(ValueError):
+        parse_contrast_element_v2(_element(candidate_positions=positions), _pres())
+
+
+def test_v2_element_positions_pointing_against_the_states_do_not_score(mappings):
+    llm = ScriptedLLM(states={"p1": _states(*CON)}, scopes={"p1": _scope_payload()},
+                      elements={"p1": _element(candidate_positions=_pos("requires_other", "requires_asserted"))},
+                      relevance={"p1": _rel("yes")})
+    out = _layer(llm, mappings, {"X1": _ev("strong_support")}, n=1)
+    element = out["nodes"]["X1"]["contrast_element"]
+    assert element["positions_contrastive"] and not element["positions_agree_with_states"]
+    assert out["nodes"]["X1"]["gate_reason"] == "no_contrast_bearing_element"
+    assert out["scores"] == {"H1": 0.5, "H2": 0.5}
+
+
+def test_v2_element_extractor_does_not_see_the_states(mappings):
+    seen = []
+
+    class Recording(ScriptedLLM):
+        def complete_json(self, messages, **kw):
+            if kw["purpose"] == "graph_v4s.contrast_element":
+                seen.append(messages[-1]["content"])
+            return super().complete_json(messages, **kw)
+
+    llm = Recording(states={"p1": _states(*CON)}, scopes={"p1": _scope_payload()},
+                    elements={"p1": _element()}, relevance={"p1": _rel("yes")})
+    out = _layer(llm, mappings, {"X1": _ev("support")}, n=1)
+    assert ELEMENT_PROMPT == "contrast_element_v2" and len(seen) == 1
+    assert not any(state in seen[0] for state in ("positive_or_present", "negative_or_absent", "indeterminate"))
+    assert "$states" not in PromptLibrary(ROOT / "src" / "llm" / "prompts").get(ELEMENT_PROMPT).text
+    assert out["nodes"]["X1"]["used_in_score"]
 
 
 def test_one_sided_specific_proposition_is_not_scored(mappings):
@@ -359,7 +419,8 @@ def test_v4_and_v4_scope_are_both_registered_and_distinct():
     assert "construct_match_v2" in v4 and "construct_match_v2" not in v4s
 
 
-NEW_PROMPTS = (SCOPE_PROMPT, ELEMENT_PROMPT, RELEVANCE_PROMPT)
+NEW_PROMPTS = ("proposition_scope_v1", "contrast_element_v1", "contrast_relevance_v1",
+               "proposition_scope_v2", "contrast_element_v2", "contrast_relevance_v2")
 
 
 def test_v4_scope_prompts_obey_hidden_annotation_and_cutoff_invariants():
@@ -401,3 +462,45 @@ def test_v4_scope_code_never_names_hidden_annotations_or_audit_prompts():
                  "src/graph/proposition_scope.py", "src/evidence/contrast_relevance.py"):
         text = (ROOT / path).read_text(encoding="utf-8")
         assert "cases_hidden" not in text and "prompts_audit" not in text, path
+
+
+def test_verifier_wires_the_layer_into_the_v3_result(mappings, monkeypatch):
+    """run_instance: v3 result in, v4-scope scores/artifacts/diagnostics out, v3 kept as reference."""
+    from src.experiments.base import InstanceResult
+    from src.methods.consequence_graph import ConsequenceGraphVerifier
+    from src.methods.consequence_graph_v4_scope import METHOD_VERSION, ConsequenceGraphV4ScopeVerifier
+
+    graph = {"nodes": [{"id": "X1", "text": "p1", "generation_origin_hypothesis": "H1"},
+                       {"id": "X2", "text": "p2", "generation_origin_hypothesis": "H2"}]}
+    v3_scores = {"scores": {"H1": 0.3, "H2": 0.7}}
+    papers = [{"paper_id": "s2:1", "provider": "semantic_scholar", "title": "t", "abstract": "a"},
+              {"paper_id": "s2:2", "provider": "semantic_scholar", "title": "u", "abstract": "b"}]
+
+    def fake_v3(self, ctx):
+        return InstanceResult(instance_id="case", method=self.name, scores=dict(v3_scores["scores"]),
+                              artifacts={"scores": v3_scores, "graph": graph,
+                                         "evidence": {"by_node": {"X1": _ev("support", cited=("s2:2",)),
+                                                                  "X2": _ev("support")}},
+                                         "retrieval": {"by_node": {"X1": {"papers_shown": papers}}}})
+
+    monkeypatch.setattr(ConsequenceGraphVerifier, "run_instance", fake_v3)
+    rendered = []
+    llm = ScriptedLLM(states={"p1": _states(*CON), "p2": _states(*CON)},
+                      scopes={"p1": _scope_payload(), "p2": _scope_payload("broader_class_fact")},
+                      elements={"p1": _element(), "p2": _element()},
+                      relevance={"p1": _rel("yes"), "p2": _rel("yes")})
+    ctx = SimpleNamespace(
+        instance=SimpleNamespace(id="case", question="Why?"), presentation=_pres(), llm=llm,
+        prompts=PromptLibrary(ROOT / "src" / "llm" / "prompts"), mappings=mappings, errors=[],
+        config=AppConfig(),
+        literature=SimpleNamespace(render=lambda chosen: rendered.append([p.paper_id for p in chosen]) or "[1] r"))
+    result = ConsequenceGraphV4ScopeVerifier(AppConfig()).run_instance(ctx)
+
+    assert rendered == [["s2:2"]]                          # only the cited record, via the cutoff-enforcing renderer
+    assert result.artifacts["scores_v3_reference"] is v3_scores
+    assert result.artifacts["scores"]["method_version"] == METHOD_VERSION
+    assert result.artifacts["scores"]["v3_reference_scores"] == {"H1": 0.3, "H2": 0.7}
+    assert result.scores == result.artifacts["discrimination"]["scores"] and result.scores["H1"] > result.scores["H2"]
+    assert result.diagnostics["n_v4s_used_in_score"] == 1 and result.diagnostics["n_v4s_nodes"] == 2
+    # X2 has no retrieval entry, so no records: relevance cannot be judged and it cannot score
+    assert result.artifacts["discrimination"]["nodes"]["X2"]["gate_reason"] == "scope_broader_class_fact"

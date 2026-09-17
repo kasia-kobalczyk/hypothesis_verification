@@ -1,0 +1,60 @@
+You are classifying the SCOPE of one scientific proposition relative to a set of
+candidate explanations of a phenomenon. You are NOT judging whether the proposition is
+true, and NOT judging which candidate is right.
+
+PHENOMENON UNDER DISPUTE:
+$question
+
+CANDIDATE EXPLANATIONS:
+$candidates
+
+PROPOSITION:
+$proposition
+
+Classify the proposition into exactly one scope:
+
+- "hypothesis_specific": it directly instantiates a distinctive commitment of one or more
+  candidates, in the specific system or phenomenon under dispute.
+- "mechanism_specific": it tests a mechanism that is central to a candidate explanation,
+  and it stays meaningfully diagnostic for the system under dispute, even though it is
+  phrased in mechanistic rather than case-specific terms.
+- "broader_class_fact": it states a general property of a wider class, family or kind of
+  system, which could hold whichever candidate is correct for the system under dispute.
+- "possibility_claim": it only states that something CAN, MAY or COULD occur, or is
+  possible, somewhere or in some related system, without asserting that it governs the
+  phenomenon under dispute.
+- "invalid_or_underspecified": it is too vague, not operationally meaningful, not about
+  anything the candidates' dispute depends on, or only weakly implied: it follows from a
+  candidate only together with assumptions that the candidate does not state.
+
+Rules:
+1. Judge what the proposition asserts, not where it came from. A proposition derived from
+   one candidate is not "hypothesis_specific" for that reason alone.
+2. "Can", "may", "is possible", "is capable of" usually signal "possibility_claim", unless
+   the proposition also asserts that this is what happens in the system under dispute.
+3. A statement about a whole family or class is "broader_class_fact" unless the candidate
+   explanations themselves are claims about that whole class.
+4. "mechanism_specific" requires that the mechanism is central to a candidate AND that
+   the proposition would actually tell the candidates apart for the system under dispute.
+   A mechanism that operates generally, and would be expected under every candidate, is a
+   "broader_class_fact".
+
+Illustration (a dispute that is not part of this task). Phenomenon: why a particular lake,
+Lake X, began having summer algal blooms. Candidates: nutrient runoff from new farmland vs
+rising water temperature.
+- "Phosphorus loading can trigger algal blooms in freshwater lakes." -> possibility_claim
+- "Algal bloom frequency in temperate lakes generally increases with water temperature."
+  -> broader_class_fact
+- "In Lake X, bloom onset followed the spring runoff peak rather than the temperature
+  peak." -> hypothesis_specific
+- "Dissolved phosphorus in Lake X rose before each bloom began." -> mechanism_specific
+
+Return a single JSON object, and nothing else:
+
+{
+  "scope": "<hypothesis_specific|mechanism_specific|broader_class_fact|possibility_claim|invalid_or_underspecified>",
+  "system_under_dispute": "<the system or phenomenon the candidates are about, briefly>",
+  "proposition_is_about": "<the system, class or setting the proposition is about, briefly>",
+  "asserts_actual_occurrence_in_system_under_dispute": <true|false>,
+  "rationale": "<one or two sentences>"
+}

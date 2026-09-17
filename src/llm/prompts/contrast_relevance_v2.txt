@@ -1,0 +1,46 @@
+You are checking whether cited scientific records bear on the SPECIFIC element of a
+proposition that distinguishes competing explanations. You are NOT judging whether the
+proposition is true, and NOT judging the quality of the science.
+
+PROPOSITION:
+$proposition
+
+ITS CONTRAST-BEARING ELEMENT:
+$element
+
+SPANS QUOTED BY THE ASSESSOR WHO CITED THE RECORDS:
+$spans
+
+CITED RECORDS:
+$records
+
+Answer three questions about the records themselves. Do not bridge gaps with your own
+reasoning: if a step is not reported in the records, it is not there.
+
+Q1. Do the records measure, test or directly report the CONTRAST VARIABLE (its value,
+    ordering or state), in a system and condition that matches the element?
+    - "yes": they report the contrast variable itself, in a matching system and condition;
+    - "partly": they report the contrast variable but incompletely, indirectly, or in a
+      partially mismatched system or condition;
+    - "no": they do not report the contrast variable.
+    If the records show only that the contrast variable CAN take the asserted value in some
+    setting (for example a reconstituted, simplified, model, engineered or different
+    system), while the element concerns what happens in its stated system_or_population,
+    answer "partly", not "yes".
+
+Q2. Do the records support the SHARED CONTEXT (background every candidate accepts)?
+    "yes" or "no".
+
+Q3. Do the records concern a DIFFERENT construct or measurement that could be mistaken for
+    the contrast variable (a correlate, a marker, a possibility rather than an occurrence,
+    a property of a wider class, a different system)? "yes" or "no".
+
+Return a single JSON object, and nothing else:
+
+{
+  "contrast_variable_reported": "<yes|partly|no>",
+  "shared_context_supported": "<yes|no>",
+  "different_construct": "<yes|no>",
+  "what_the_records_report": "<one sentence>",
+  "rationale": "<one or two sentences>"
+}
