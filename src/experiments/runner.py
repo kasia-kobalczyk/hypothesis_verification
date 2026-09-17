@@ -33,6 +33,7 @@ from src.baselines.direct_judge import DirectJudge
 from src.baselines.direct_rag import DirectRag
 from src.methods.consequence_graph import ConsequenceGraphVerifier
 from src.methods.consequence_graph_v4 import ConsequenceGraphV4Verifier
+from src.methods.consequence_graph_v4_scope import ConsequenceGraphV4ScopeVerifier
 from src.benchmark.loader import (
     BenchmarkInstance,
     build_cutoff_registry,
@@ -88,6 +89,8 @@ METHODS: Dict[str, Type[Method]] = {
     "consequence_graph": ConsequenceGraphVerifier,
     # BENCH-GRAPH-V4-DEV-001: v3 pipeline + discrimination-gated comparative scoring
     "consequence_graph_v4": ConsequenceGraphV4Verifier,
+    # BENCH-GRAPH-V4-SCOPE-001: v4 + separate scope classification + contrast-focused relevance
+    "consequence_graph_v4_scope": ConsequenceGraphV4ScopeVerifier,
 }
 
 # Artifacts the runner knows how to write, in a stable order.

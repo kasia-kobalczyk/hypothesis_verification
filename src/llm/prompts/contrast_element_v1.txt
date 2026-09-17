@@ -1,0 +1,49 @@
+You are identifying the part of a scientific proposition that could tell candidate
+explanations apart. You are NOT judging whether the proposition is true.
+
+CANDIDATE EXPLANATIONS:
+$candidates
+
+WHAT EACH CANDIDATE WAS JUDGED TO PREDICT ABOUT THE PROPOSITION:
+$states
+
+PROPOSITION:
+$proposition
+
+Decompose the proposition into:
+
+- shared_context: background that every candidate accepts or that holds whichever candidate
+  is correct (the system, the general setting, things no candidate disputes);
+- contrast_variable: the specific variable, ordering, state or relation whose value the
+  candidates disagree about. This is the piece that makes the proposition discriminative;
+- contrast_direction_or_state: the value of that variable which the proposition asserts;
+- system_or_population: where it is asserted to hold;
+- measurement_or_observable: what one would measure or observe to establish the
+  contrast_variable's value.
+
+If no part of the proposition carries a disagreement between the candidates, set
+"has_contrast" to false and give the proposition's own central asserted variable as
+contrast_variable.
+
+Keep each field short and concrete. Do not add claims the proposition does not make.
+
+Illustration (a dispute that is not part of this task). Candidates about why Lake X began
+blooming: nutrient runoff vs rising temperature. Proposition: "In Lake X, bloom onset
+followed the spring runoff peak rather than the temperature peak."
+- shared_context: summer algal blooms occur in Lake X
+- contrast_variable: timing of bloom onset relative to runoff peak and temperature peak
+- contrast_direction_or_state: onset follows the runoff peak
+- system_or_population: Lake X
+- measurement_or_observable: dated bloom-onset records against runoff and temperature
+  time series
+
+Return a single JSON object, and nothing else:
+
+{
+  "has_contrast": <true|false>,
+  "shared_context": "<...>",
+  "contrast_variable": "<...>",
+  "contrast_direction_or_state": "<...>",
+  "system_or_population": "<...>",
+  "measurement_or_observable": "<...>"
+}

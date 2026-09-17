@@ -46,6 +46,7 @@ from src.llm.prompts import PromptLibrary  # noqa: E402
 from src.evidence.construct_match import CONSTRUCT_PROMPT  # noqa: E402
 from src.graph.prediction_state import STATE_PROMPT  # noqa: E402
 from src.methods.consequence_graph_v4 import METHOD_VERSION, run_v4_layer  # noqa: E402
+from src.methods import consequence_graph_v4_scope as v4s  # noqa: E402
 
 LOGGER = get_logger("v4.replay")
 CONFIG = ROOT / "configs" / "v4_dev_explanatory.yaml"
@@ -80,6 +81,7 @@ def main() -> int:
     parser.add_argument("--notes", default="")
     parser.add_argument("--workers", type=int, default=6)
     parser.add_argument("--cases", nargs="*", default=None)
+    parser.add_argument("--layer", choices=("v4", "v4_scope"), default="v4")
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
 
@@ -98,10 +100,12 @@ def main() -> int:
     write_json(out / "manifest.json", OrderedDict([
         ("replay_id", args.replay_id),
         ("stage", "A: v4 layer on frozen v3 pilot artifacts"),
-        ("method_version", METHOD_VERSION),
+        ("method_version", METHOD_VERSION if args.layer == "v4" else v4s.METHOD_VERSION),
+        ("layer", args.layer),
         ("source_archive_sha256", (bp.PRESERVED / "pilot_explanatory_001.tar.gz.sha256").read_text().split()[0]),
         ("git", _git_state()),
-        ("prompts", prompts.manifest([STATE_PROMPT, CONSTRUCT_PROMPT])),
+        ("prompts", prompts.manifest([STATE_PROMPT, CONSTRUCT_PROMPT] if args.layer == "v4" else
+                                     [v4s.STATE_PROMPT, v4s.SCOPE_PROMPT, v4s.ELEMENT_PROMPT, v4s.RELEVANCE_PROMPT])),
         ("llm", {"provider": config.llm.provider, "deployment": getattr(llm, "deployment", None),
                  "temperature": config.llm.temperature, "seed": config.llm.seed}),
         ("notes", args.notes),
@@ -123,12 +127,16 @@ def main() -> int:
                 chosen = [b for b in blocks if b[0] in set(cited)] if cited else blocks
                 return renumber(chosen) if chosen else None
 
-            layer = run_v4_layer(
+            common = dict(
                 instance_id=inst.name, presentation=presentation_from_frozen(inst), graph_record=graph_record,
                 evidence_by_node=evidence, records_for=records_for, llm=llm, prompts=prompts, mappings=mappings,
                 multi_parent_rule=frozen_scores["inference"]["multi_parent_rule"],
                 parent_false_baseline=frozen_scores["inference"]["parent_false_baseline"],
                 max_workers=args.workers)
+            if args.layer == "v4":
+                layer = run_v4_layer(**common)
+            else:
+                layer = v4s.run_v4_scope_layer(question=bp._load(inst / "input.json")["question"], **common)
             layer["v3_frozen_scores"] = frozen_scores["scores"]
             write_json(out / "instances" / inst.name / "discrimination.json", layer)
             summary[inst.name] = OrderedDict([

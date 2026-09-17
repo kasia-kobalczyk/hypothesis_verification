@@ -234,3 +234,120 @@ def summarise_gates(gates: Mapping[str, Mapping[str, Any]]) -> Dict[str, int]:
     out["n_eligible_blocked_by_construct"] = sum(
         1 for g in gates.values() if str(g.get("gate_reason", "")).startswith("construct_"))
     return out
+
+
+# =========================================================================== #
+# v4-scope (BENCH-GRAPH-V4-SCOPE-001)
+# =========================================================================== #
+# Scope is classified by a SEPARATE judgment from prediction state (the directive
+# forbids overloading the state prompt; iteration 3 of V4-DEV showed doing so made the
+# state classifier assign more contrasts). Evidence is judged against the proposition's
+# contrast-bearing element rather than its whole wording.
+
+SCOPE_CLASSES = ("hypothesis_specific", "mechanism_specific", "broader_class_fact",
+                 "possibility_claim", "invalid_or_underspecified")
+COMPARATIVE_SCOPE_CLASSES = frozenset({"hypothesis_specific", "mechanism_specific"})
+
+CONTRAST_RELEVANCE = ("contrast_direct", "contrast_partial", "context_only",
+                      "construct_mismatch", "no_evidence")
+# Main method: only evidence that directly bears on the contrast variable may score.
+# `contrast_partial` is recorded and reported as a separate sensitivity analysis.
+COMPARATIVE_RELEVANCE = frozenset({"contrast_direct"})
+SENSITIVITY_RELEVANCE = frozenset({"contrast_direct", "contrast_partial"})
+
+
+def normalise_scope_class(value: Any) -> str:
+    v = str(value or "").strip().lower().replace(" ", "_").replace("-", "_")
+    if v not in SCOPE_CLASSES:
+        raise StateError("unknown scope class {!r}".format(value))
+    return v
+
+
+def derive_contrast_relevance(contrast_variable_reported: Any, shared_context_supported: Any,
+                              different_construct: Any) -> str:
+    """Relevance category from the three structured answers, never from a holistic label.
+
+    * contrast variable reported `yes`      -> contrast_direct
+    * contrast variable reported `partly`   -> contrast_partial
+    * not reported, different construct     -> construct_mismatch
+    * not reported, shared context only     -> context_only
+    * not reported, nothing relevant        -> no_evidence
+
+    When the records neither report the contrast variable but DO concern a different
+    construct, `construct_mismatch` wins over `context_only`: it is the more specific
+    failure, and both contribute zero.
+    """
+    def yn(x, allowed):
+        s = str(x or "").strip().lower()
+        if s not in allowed:
+            raise ValueError("expected one of {}, got {!r}".format(allowed, x))
+        return s
+
+    reported = yn(contrast_variable_reported, ("yes", "partly", "no"))
+    context = yn(shared_context_supported, ("yes", "no"))
+    different = yn(different_construct, ("yes", "no"))
+    if reported == "yes":
+        return "contrast_direct"
+    if reported == "partly":
+        return "contrast_partial"
+    if different == "yes":
+        return "construct_mismatch"
+    if context == "yes":
+        return "context_only"
+    return "no_evidence"
+
+
+def gate_node_scope(
+    *,
+    node_id: str,
+    hypothesis_ids: Sequence[str],
+    states: Optional[Mapping[str, Mapping[str, Any]]],
+    scope: Optional[str],
+    evidence_label: Optional[str],
+    contrast_relevance: Optional[str],
+    allowed_relevance: frozenset = COMPARATIVE_RELEVANCE,
+) -> Dict[str, Any]:
+    """v4-scope gate. A proposition scores only if ALL hold, checked in this order:
+
+    1. prediction states exist and form a determinate contrast (unchanged v4 rule);
+    2. its scope is hypothesis- or mechanism-specific;
+    3. its evidence label is informative;
+    4. the evidence bears directly on its contrast-bearing element.
+
+    The order fixes which reason is recorded; each check is necessary on its own, so a
+    later check can never re-admit what an earlier one excluded. In particular a scope
+    judgment can never make a one-sided proposition comparative.
+    """
+    record: "OrderedDict[str, Any]" = OrderedDict([("node_id", node_id)])
+    if not states:
+        record.update(profile_class=None, comparatively_eligible=False, scope=scope,
+                      scope_eligible=None, used_in_score=False, gate_reason="prediction_states_unavailable")
+        return record
+    flat = {h: normalise_state(s["state"]) for h, s in states.items()}
+    profile = classify_profile(flat, hypothesis_ids)
+    record["profile_class"] = profile
+    record["comparatively_eligible"] = is_comparatively_eligible(profile)
+    record["scope"] = scope
+    record["scope_eligible"] = None if scope is None else normalise_scope_class(scope) in COMPARATIVE_SCOPE_CLASSES
+    record["evidence_label"] = evidence_label
+    record["contrast_relevance"] = contrast_relevance
+
+    if not record["comparatively_eligible"]:
+        reason = "profile_{}".format(profile)
+    elif scope is None:
+        reason = "scope_unavailable"
+    elif not record["scope_eligible"]:
+        reason = "scope_{}".format(normalise_scope_class(scope))
+    elif evidence_label is None:
+        reason = "no_evidence_assessment"
+    elif evidence_label in UNINFORMATIVE_EVIDENCE:
+        reason = "uninformative_evidence"
+    elif contrast_relevance is None:
+        reason = "contrast_relevance_unavailable"
+    elif contrast_relevance not in allowed_relevance:
+        reason = "relevance_{}".format(contrast_relevance)
+    else:
+        reason = None
+    record["used_in_score"] = reason is None
+    record["gate_reason"] = reason or "scored"
+    return record

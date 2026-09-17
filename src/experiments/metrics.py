@@ -283,6 +283,11 @@ def aggregate_metrics(rows: Sequence[Dict[str, Any]]) -> Dict[str, Any]:
         "n_v4_construct_partial",
         "n_v4_construct_mismatch",
         "n_v4_eligible_blocked_by_construct",
+        # consequence_graph_v4_scope
+        "n_v4s_nodes",
+        "n_v4s_comparatively_eligible",
+        "n_v4s_comparative_and_scope_eligible",
+        "n_v4s_used_in_score",
     ):
         values = [row.get(key) for row in rows if row.get(key) is not None]
         if values:
