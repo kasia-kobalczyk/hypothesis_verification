@@ -23,9 +23,9 @@ discriminates?* (contrast relevance).
 v3 pipeline, UNCHANGED            v4-scope comparative layer (replaces v3 scoring)
 ──────────────────────────        ─────────────────────────────────────────────────────────────
 consequence_generate_v3           prediction_state_v2   (LLM; the v4 head prompt, pinned by name)
-v3 edge judgments (not scored)    proposition_scope_v1  (LLM; separate call, every node)
-proposition_query_v1              contrast_element_v1   (LLM; nodes with informative evidence)
-retrieval (cutoff-enforced)       contrast_relevance_v1 (LLM; nodes with an element and records)
+v3 edge judgments (not scored)    proposition_scope_v2  (LLM; separate call, every node)
+proposition_query_v1              contrast_element_v2   (LLM; nodes with informative evidence)
+retrieval (cutoff-enforced)       contrast_relevance_v2 (LLM; nodes with an element and records)
 evidence_assess_v2 ────────────▶  gate_node_scope       (deterministic)
                                   score_gated           (verifier's score_hypotheses, unchanged)
 ```
@@ -40,7 +40,11 @@ relevance for every proposition with informative evidence, not only for otherwis
 ones. That costs extra calls but is what the directive's §10 specificity-assessability table
 needs (scope × evidence for *all* generated propositions). Only the gate decides what scores.
 
-## 3. Proposition scope (`proposition_scope_v1`, `src/graph/proposition_scope.py`)
+Prompt versions below are the final development version (iteration 2). The iteration-1 prompts
+(`*_v1`) remain in `src/llm/prompts/` for provenance; differences are noted in each section and in
+`docs/V4_SCOPE_REPORT.md` §1.
+
+## 3. Proposition scope (`proposition_scope_v2`, `src/graph/proposition_scope.py`)
 
 | class | eligible to score | meaning |
 | --- | --- | --- |
@@ -48,7 +52,7 @@ needs (scope × evidence for *all* generated propositions). Only the gate decide
 | `mechanism_specific` | yes | tests a mechanism central to a candidate and remains diagnostic for the system under dispute |
 | `broader_class_fact` | no | general property of a wider class; may hold whichever candidate is right |
 | `possibility_claim` | no | only that something can / may occur, somewhere, without asserting it governs the phenomenon |
-| `invalid_or_underspecified` | no | too vague or not operationally meaningful |
+| `invalid_or_underspecified` | no | too vague, not operationally meaningful, or only weakly implied (follows from a candidate only with assumptions it does not state; added in v2) |
 
 - A **separate call**, never a field of the prediction-state response (directive §3). The
   state prompt is `prediction_state_v2`, byte-identical to the v4 head; a test pins this.
@@ -62,21 +66,27 @@ needs (scope × evidence for *all* generated propositions). Only the gate decide
 - The illustration is a generic invented dispute (a lake's algal blooms), not a development case;
   a test checks the new prompts for distinctive terms of all 8 development cases.
 
-## 4. Contrast-bearing element (`contrast_element_v1`)
+## 4. Contrast-bearing element (`contrast_element_v2`)
 
-Given the candidates, the recorded prediction states and the proposition, the extractor returns:
+Given the candidates and the proposition (v2: **not** the recorded prediction states), the extractor returns:
 
 ```json
-{"has_contrast": true,
- "shared_context": "...", "contrast_variable": "...", "contrast_direction_or_state": "...",
- "system_or_population": "...", "measurement_or_observable": "..."}
+{"shared_context": "...", "contrast_variable": "...", "contrast_direction_or_state": "...",
+ "system_or_population": "...", "measurement_or_observable": "...",
+ "candidate_positions": [{"id": "A", "position": "requires_asserted|requires_other|not_required", "reason": "..."}]}
 ```
 
-Every field is a required non-empty string; `has_contrast` a required boolean. The proposition
-text is kept alongside. `has_contrast: false` means the extractor found no part of the proposition
-that carries a disagreement between the candidates; such a proposition cannot score.
+Every field is a required non-empty string; `candidate_positions` must cover every candidate exactly
+once. The proposition text is kept alongside. `has_contrast` is derived in code: every candidate takes a
+position (none `not_required`), the positions differ, **and** they point the same way as the recorded
+prediction states (`positive_or_present` ↔ `requires_asserted`; `negative_or_absent` / `substantive_null`
+↔ `requires_other`). A proposition whose element has no contrast cannot score.
 
-## 5. Contrast relevance (`contrast_relevance_v1`, `src/evidence/contrast_relevance.py`)
+v1 showed the extractor the recorded states and asked it for `has_contrast` directly. v2 was meant as a
+second, state-blind implication check; in stage A it agreed with the state judge on almost every
+comparative proposition (see the report, §6 and §11).
+
+## 5. Contrast relevance (`contrast_relevance_v2`, `src/evidence/contrast_relevance.py`)
 
 The judge sees the proposition, its element, the assessor's quoted spans and the exact cited
 records (every shown record if none were cited). It never sees the evidence label or the
@@ -91,7 +101,9 @@ assessor's rationale. It answers three structured questions; the category is der
 | no | no | no | `no_evidence` | no |
 
 Q1 = `yes` with Q3 = `yes` is kept as `contrast_direct` (records may report the variable and also
-a correlate) and is counted separately in the development metrics.
+a correlate) and is counted separately in the development metrics. v2 adds to Q1: if the records show
+only that the variable *can* take the asserted value in some other setting (reconstituted, simplified,
+model, engineered or different system), the answer is `partly`.
 
 ## 6. Gate (`gate_node_scope`, deterministic)
 
@@ -105,7 +117,7 @@ A proposition scores only if all hold; the first failing check is the recorded r
 5. the evidence assessment exists and is informative → else `no_evidence_assessment` /
    `uninformative_evidence`;
 6. a contrast element exists → else `contrast_element_unavailable`;
-7. it carries a contrast (`has_contrast`) → else `no_contrast_bearing_element`;
+7. it carries a contrast (`has_contrast`, derived as in §4) → else `no_contrast_bearing_element`;
 8. relevance was judged → else `contrast_relevance_unavailable`;
 9. relevance ∈ allowed (main method: `contrast_direct`) → else `relevance_<category>`.
 

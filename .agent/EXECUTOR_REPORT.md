@@ -1,241 +1,314 @@
-TASK_ID: BENCH-GRAPH-V4-DEV-001
-STATUS: BLOCKED
+TASK_ID: BENCH-GRAPH-V4-SCOPE-001
+STATUS: COMPLETED
 
 SUMMARY:
-v4 (`consequence_graph_v4`) was implemented as a versioned method on top of the unchanged v3 pipeline. It adds:
-- explicit per-hypothesis prediction states, kept separate from strength;
-- a deterministic discrimination gate;
-- element-wise construct matching;
-- gated scoring through the verifier's own `score_hypotheses`.
+v4-scope (`consequence_graph_v4_scope`) was implemented as a new versioned method on top of the unchanged v3 pipeline. Prior v4 stays registered and reproducible. It adds four things before comparative scoring:
+- a separate proposition-scope classifier;
+- a contrast-bearing-element extractor;
+- evidence relevance judged against that element;
+- a deterministic gate.
 
-`indeterminate` never has a likelihood. One-sided, shared and all-indeterminate propositions are kept descriptively and contribute zero.
+Only propositions that meet all of these score:
+- a determinate cross-hypothesis contrast (the prior-v4 state gate, unchanged);
+- `hypothesis_specific` or `mechanism_specific` scope;
+- informative evidence;
+- an element that carries a contrast;
+- `contrast_direct` relevance.
 
-It was developed on the eight spent cases in two stages:
-- **Stage A:** three iterations, each replayed twice on the frozen v3 pilot, so propositions and evidence are identical to v3.
-- **Stage B:** an end-to-end v4 run, plus an unchanged v3 re-run as a noise floor.
+Everything else is kept descriptively and contributes zero; `contrast_partial` is reported as a sensitivity analysis only.
 
-The directive cannot be completed (criterion 10, freeze) without a Research Director decision, so v4 was NOT frozen. The human made two decisions during the task, both recorded:
-- only `direct` construct matches may score, chosen before any results;
-- after iteration 2: fix the state side only, keep direct-only, do not freeze, and escalate the evidence policy to the Director.
+Development followed the human's replicate plan (below): 2 iterations × 3 stage-A replays on the frozen v3 pilot, then 3 fresh end-to-end runs of the final version, each followed by the consequence-recovery auditor.
+
+**Recommendation: do not freeze; continue development.** v4 was not frozen.
 
 What was learned:
-1. **The state classifier gets the reviewed silence judgments right** (20/20 unqualified D046 states in every replicate), and v4 removes the categorical silence errors and neutral-mapping pseudo-discrimination by construction. Compatible propositions and weak implications drop to zero influence.
-2. **It still gives determinate contrasts to class-level and possibility claims** ("ligand binding *can* occur in periplasmic binding proteins…"). An advisory scope rule (iteration 2) did not remove them. An explicit, gated scope field (iteration 3) made the classifier assign *more* contrasts and lowered stability, so the head was reverted to iteration 2.
-3. **Under direct-only with element-wise construct matching, nothing scores on any development case** in either replicate. All four D045 genuine discriminators are eligible but blocked as `partial`.
-4. **In the live v4 run, the only 3 propositions that scored are class-level "can occur" claims**, one of them text-identical to a pilot proposition D045 labelled `generic_component_fact`. Both of v4's live "agreements" with later resolutions (eukaryogenesis, GlnBP) rest on them. Construct gating favours generic facts, which abstracts state outright, over specific discriminators, which they rarely fully establish.
-5. **Allowing `partial` evidence would not fix this:** 16–30 nodes would score per replicate, only 2–4 of them genuine discriminators.
-6. **v3's case-level outcomes are not reproducible.** An unchanged v3 re-run flipped two of the four directional cases (PFC storage 0.23→0.68 toward H2; fly-wing 0.58→0.42), although generation and graph structure were stable (87 vs 84 sign-opposed nodes).
-7. **Consequence discovery is unchanged:** 11/23 reference discriminators recovered in the frozen pilot, the v3 re-run and the v4 run.
+1. **Prediction-state behaviour is preserved.** Same state prompt; D046 unqualified agreement 20/20 in all 6 replicates; indeterminate rate and between-replicate agreement are within prior-v4 run-to-run noise.
+2. **Scope works as intended.**
+   - No broader-class or possibility proposition scored in any stage-A replicate.
+   - All 14 reviewed generic component facts are unscored in every iteration-2 replicate (13/14 in iteration 1).
+   - All 4 reviewed genuine discriminators are scope-eligible with a contrast-bearing element in every replicate.
+   - Stage-B exception: a proposition text-identical to a reviewed generic fact (`eukaryogenesis-X6`) was classified `hypothesis_specific` and scored in 2 of 3 fresh runs.
+3. **Genuine discriminators still almost never score.** Their pre-cutoff evidence is `contrast_partial`: `contrast_direct` in 1 of 24 stage-A node-replicates. Their records address the contrast variable only partly (e.g. apo/holo structures that do not show binding order).
+4. **What does score (4–6 of 192 nodes) is dominated by reviewed implication errors.**
+   - Iteration 2 influence: silence errors 63–84%, weak implications 16–28%, genuine discriminators 0/0/13%.
+   - Generic facts, compatible facts and construct mismatches: 0%, against v3's 26%, 17% and 7%.
+   - The recurring errors (`glnbp-X4`, `glnbp-X11`, `pfc_storage-X2`, `eukaryogenesis-X7`, `forest-X15`) get determinate, opposed states. gpt-4.1 reproduces the same contrast when separately asked each candidate's position on the contrast variable without seeing the states (iteration 2).
+   - Prior v4 did not score these nodes only because its whole-proposition construct match rated their evidence partial or mismatch.
+5. **Specificity–assessability trade-off, quantified.**
+   - Specific propositions (about two thirds) have informative historical evidence less often than broad ones: 37–38% vs 48–50% in every replicate.
+   - `hypothesis_specific` is the least assessable class: 30% informative, 6% contrast-direct (iteration 2).
+   - The directness gap depends on the relevance prompt: broad propositions got direct evidence about twice as often under relevance v1 (17–21% vs 9–10%), but similarly often under v2 (10–13% vs 11–12%).
+6. **`context_only` and `construct_mismatch` are almost never assigned** (at most 3 per stage-A replicate or stage-B run, among 77–89 judged nodes). The records the v3 assessor cited nearly always report the contrast variable at least partly, so the operative separation is `contrast_direct` vs `contrast_partial`.
+7. **`contrast_partial` sensitivity.**
+   - It is the only route by which genuine discriminators carry material influence: 21–35% share in iteration 2.
+   - It re-admits 1–2 generic facts and leaves silence errors the largest category (35–44%).
+   - It is not clean or stable enough to define the method.
+8. **Stage B.**
+   - Scored propositions: 4–6 per run. Six of 15 are text-identical to reviewed pilot nodes, and all six are reviewed failures.
+   - Executor's reading, not labels: 4 of the other 9 closely paraphrase reviewed genuine discriminators.
+   - Case directions are not stable (eukaryogenesis favours H1 in run 1 and H2 in runs 2–3); four cases tie in every run.
+9. **Consequence discovery is largely preserved.** 9, 10 and 10 of 23 reference discriminators, against 11 in each of the three earlier runs. The layer runs after generation and cannot affect it, but the drop appears in all three runs.
 
 CHANGES:
-Commits on `master` since the directive (`3a1ca78`), with dates:
-- `f9ff82f`: D046 labels transcribed mechanically; v3 attribution recomputed under D045+D046 (`attribution_d045_d046/`), including the D046 split between categorical silence errors and neutral-mapping pseudo-discrimination.
-- `f95195a`: run manifests now record git state, and record the case manifest actually read for `kind: cases` (provenance only).
-- `83b707f`: v4 iteration 1.
-  - New: `src/inference/discrimination.py`, `src/graph/prediction_state.py`, `src/evidence/construct_match.py`, `src/methods/consequence_graph_v4.py`.
-  - Prompts `prediction_state_v1`, `construct_match_v1`.
-  - Runner registration and artifacts; aggregator counters.
-  - `configs/v4_dev_explanatory.yaml` (differs from the pilot config only in `dataset.status: development`).
-  - `scripts/replay_v4_on_frozen.py`; tests.
-- `7f4718b`: iteration 2. `prediction_state_v2` adds a scope rule; `construct_match_v2` is element-wise with the gating label derived in code. Plus `scripts/analyze_v4_development.py`.
-- `6817782`: iteration 3. `prediction_state_v3` adds an explicit, required scope field; the gate treats out-of-scope propositions as `generic_or_possibility_claim`. Plus iteration 1–2 metrics and `docs/V4_DESIGN.md`.
-- `a770f94`: development head reverted to `prediction_state_v2` + `construct_match_v2`. The v3 prompt and scope gate remain implemented and tested but inactive.
-- `fd1b248`: partial-evidence sensitivity by category, report generator, stage-B comparison script.
-- Final commit (this report): stage-B comparison, `docs/V4_DEV_REPORT.md`, private-run checksum manifest.
+New method, all additive:
+- `src/methods/consequence_graph_v4_scope.py`: `run_v4_scope_layer`, `ConsequenceGraphV4ScopeVerifier`, `METHOD_VERSION`, and `STATE_PROMPT="prediction_state_v2"` pinned by name. The layer records states, scope, element, relevance, gate, contribution and `sensitivity_used_in_score` per node, plus buckets by gate reason, sensitivity scores, errors and call ids.
+- `src/graph/proposition_scope.py` (scope and element judgments):
+  - `SCOPE_PROMPT`, `ELEMENT_PROMPT`, `ELEMENT_FIELDS`, `POSITIONS`;
+  - parsers `parse_scope_class`, `parse_contrast_element` (v1), `parse_contrast_element_v2`;
+  - `derive_positions_contrastive`, `positions_agree_with_states`;
+  - `assess_scope`, `extract_contrast_element` (dispatches v1/v2).
+- `src/evidence/contrast_relevance.py`: `RELEVANCE_PROMPT`, `parse_contrast_relevance`, `assess_contrast_relevance`.
+- `src/inference/discrimination.py` (appended; existing v4 functions untouched): `SCOPE_CLASSES`, `COMPARATIVE_SCOPE_CLASSES`, `CONTRAST_RELEVANCE`, `COMPARATIVE_RELEVANCE`, `SENSITIVITY_RELEVANCE`, `normalise_scope_class`, `derive_contrast_relevance`, `gate_node_scope`.
+- Prompts in `src/llm/prompts/`:
+  - `proposition_scope_v1.txt` and `_v2.txt`;
+  - `contrast_element_v1.txt` and `_v2.txt`;
+  - `contrast_relevance_v1.txt` and `_v2.txt`.
+  - The only illustration is an invented lake/algal-bloom dispute; there is no development-case content.
+- `src/experiments/runner.py`: registers `consequence_graph_v4_scope` in `METHODS`.
+- `src/experiments/metrics.py`: `n_v4s_*` diagnostic counters.
+- `scripts/replay_v4_on_frozen.py`: `--layer v4|v4_scope`. The default `v4` path is unchanged; `v4_scope` passes the case question from the frozen `input.json`.
 
-Not modified: v3 code path (`src/methods/consequence_graph.py`, v3 prompts; frozen prompt SHAs still pass), `configs/mvp.yaml`, `configs/pilot_explanatory.yaml`, `configs/ordinal_mappings.yaml`, `.agent/DIRECTIVE.md`, `PROJECT_STATE.md`, `DECISIONS.md`, and hidden benchmark annotations. No held-out case was used.
+Analysis and reporting:
+- `scripts/analyze_v4_scope.py`: deterministic stage-A metrics.
+  - It re-derives every gate and score from recorded judgments as a consistency check.
+  - Sections: state preservation vs prior v4 and D046; scope vs D045/D046; contrast relevance; scope × evidence table; influence composition; partial sensitivity; scored nodes; pairwise stability; per case.
+- `scripts/compare_v4_scope_runs.py`: stage-B comparison.
+  - It covers the frozen pilot, the v3 rerun, the prior v4 run and the 3 v4-scope runs: generation structure, consequence discovery, and the v4-scope layer with exact-text label transfer.
+- `scripts/build_v4_scope_report.py`: generates `docs/V4_SCOPE_REPORT.md`.
+
+Tests:
+- `tests/test_v4_scope.py` (71 tests):
+  - scope separation from states, and the state prompt pinned to the v4 head with no scope vocabulary;
+  - broad, possibility and invalid scope never scores, including under the sensitivity policy;
+  - only `contrast_direct` scores; context-only, mismatch, partial and no-evidence never move the main score;
+  - scope never makes one-sided or shared profiles comparative;
+  - fail-closed behaviour for every LLM call;
+  - strict element parsing (v1 and v2); v2 positions must contrast and agree with states; the v2 extractor never sees states;
+  - relevance derivation table;
+  - verifier wiring through `run_instance`, with the cutoff-enforcing renderer and only cited records;
+  - registration of v4 and v4-scope as distinct methods;
+  - prompt invariants: no hidden placeholders, no "cutoff", no dates, JSON present, no distinctive development-case terms (the term list is checked against the visible case file);
+  - no `cases_hidden` / `prompts_audit` in the new code.
+- `tests/test_v4_scope_analysis.py` (11 tests): evidence column, scope × evidence rates, composition shares.
+
+Docs:
+- `docs/V4_SCOPE_DESIGN.md`: scope, element and relevance schemas, the gate, and the v1→v2 differences.
+- `docs/V4_SCOPE_REPORT.md`: the full development report with all tables.
+
+Outputs:
+- `benchmark/v4_scope/iter01/development_metrics.json` and `benchmark/v4_scope/iter02/development_metrics.json`.
+- `benchmark/v4_scope/stage_b/run_comparison.json`.
+- `benchmark/frozen_runs/v4_scope_runs/{MANIFEST.md, SHA256SUMS, v4_scope_runs.tar.gz.sha256}`, with the tarball itself private and gitignored.
+
+Not modified: `.agent/DIRECTIVE.md`, `PROJECT_STATE.md`, `DECISIONS.md`; the v3 and prior v4 method code and prompts; ordinal mappings; configs; D045/D046 labels; earlier runs and archives. `data/cost/ledger.jsonl` and `scan_index.json` were updated automatically by the LLM client.
 
 RESULTS:
-Configuration:
-- All LLM roles: Azure `gpt-4.1-kasia`, api_version 2024-05-01-preview, temperature 0, seed 20260911.
-- Literature: Semantic Scholar with Crossref date verification.
-- Development head: `prediction_state_v2`, `construct_match_v2`, construct policy direct-only, frozen `v0-placeholder` mappings, `independent` aggregation passed explicitly.
+Setup:
+- Commits:
+  - `b05c35e`: layer and tests;
+  - `a2f34d3`: `has_contrast` gate; iteration-1 replays;
+  - `222d4fa`: iteration-2 prompts; iteration-2 replays;
+  - `753a86c`: metrics and stage-B script; stage-B runs, with method code identical to `222d4fa`;
+  - the commit containing this report: report generator, stage-B comparison, archive checksums.
+- Model: Azure OpenAI `gpt-4.1-kasia` (api 2024-05-01-preview), temperature 0, seed 20260911, JSON mode.
+- Literature: Semantic Scholar + Crossref with the frozen per-case cutoffs; cache at `data/cache/literature`.
+- Config and mappings: `configs/v4_dev_explanatory.yaml` (pilot config with `dataset.status: development`); ordinal mappings `v0-placeholder`.
+- Replicates: 2 iterations × 3 stage-A replicates on 192 frozen-pilot nodes, plus 3 stage-B runs of iteration 2. Every stage-A gate and score re-derives exactly from the recorded judgments. LLM layer errors: 0 everywhere.
 
-Development iterations: 3, plus a revert of the head. Every stage-A iteration was replayed twice.
+Methodological changes, in order:
+- iter01: the directive's design.
+  - The gate order is state profile → scope → informative evidence → element with a contrast → relevance, with `contrast_direct` only.
+  - The `has_contrast` requirement was added before any replicate ran. A first launch was stopped after about 1 minute with no case finished, and deleted.
+- iter02:
+  - scope v2: `invalid_or_underspecified` also covers "only weakly implied", as in the directive's own definition, which v1 had omitted;
+  - element v2: the extractor no longer sees states and gives each candidate's position on the contrast variable. `has_contrast` is derived in code: the positions must contrast and agree with the states;
+  - relevance v2: capability shown in another setting is `partly`.
+  - Motivation: in iteration 1, all 6 scored nodes per replicate were reviewed failures.
+- Iteration stopped after iter02. The same errors recur in every replicate and every iteration, and a further same-model prompt change aimed at 5 contested nodes would be label-fitting.
 
-| iteration | change | why |
-|---|---|---|
-| 1 | initial design | — |
-| 2 | scope rule; element-wise construct match, label derived in code | reviewed generic facts scored via class-level contrasts; PFC X15 (a D045 mismatch) judged `direct`; single construct flips swung cases |
-| 3 | explicit, gated scope field | 5/14 reviewed generic facts still eligible |
-| head | back to iteration 2 | iteration 3 regressed on both replicates |
+State preservation (prior v4 ×2 → iter01 ×3 → iter02 ×3):
+- Indeterminate pair rate: 33%, 33% → 30–32% → 31–33%.
+- Comparative profiles: 43, 48 → 50–55 → 46–52.
+- D046 agreement: unqualified 20/20 throughout; all pairs 21/24 → 22–23/24 → 22/24.
+- Between-replicate state-pair agreement (of 384): prior v4 365 → iter01 361–366 → iter02 364–370.
 
-No case-specific rule, no answer leakage, no numeric change, no policy change.
+Scope, D045/D046 category × scope (iteration 2, summed over 3 replicates; columns hypothesis-specific / mechanism-specific / broader class / possibility / invalid):
 
-Stage A, per replicate (192 nodes):
+| category | hyp | mech | broad | poss | invalid |
+| --- | --- | --- | --- | --- | --- |
+| genuine | 3 | 9 | 0 | 0 | 0 |
+| silence error | 5 | 20 | 5 | 0 | 0 |
+| generic fact | 3 | 5 | 16 | 18 | 0 |
+| compatible | 15 | 15 | 6 | 0 | 0 |
+| construct mismatch | 4 | 14 | 3 | 3 | 0 |
+| weak implication | 6 | 0 | 3 | 3 | 0 |
 
-| iteration | pairs indeterminate | comparative / one-sided / shared / out-of-scope | scored | construct direct/partial/mismatch | stability: states / construct |
-|---|---|---|---|---|---|
-| 1 | 33% | 47/113/26/0 · 44/119/26/0 | 5 · 5 | 10/63/6 · 9/64/6 | 366/384 · 76/79 |
-| 2 | 33% | 43/120/25/0 · 48/117/23/0 | 0 · 0 | 5/71/3 · 6/69/4 | 365/384 · 75/79 |
-| 3 | 30% | 62/92/26/10 · 64/89/25/12 | 3 · 2 | 8/68/3 · 6/70/3 | 354/384 · 75/79 |
+`invalid_or_underspecified` was never assigned.
 
-v3 on the same 78 score-moving nodes (edges read as states): 19% `neutral`; 40 sign-opposed, 29 one-sided, 9 shared. v3 scored every node with an evidence label.
+Reviewed generic facts, successfully gated:
+- 14/14 in all iteration-2 replicates (iteration 1: 13/14 in all three; `gcn4-X23` scored).
+- Scope made 11–12 of the 14 non-comparative; the rest were stopped by state profile or partial relevance. Per-node detail: report §3.
 
-Alignment with D045/D046 (eligible / scored, rep1 · rep2):
+Reviewed genuine discriminators (`glnbp-X5`, `glnbp-X9`, `pfc_storage-X6`, `pfc_storage-X24`):
+- Scope-eligible 4/4 in all 6 replicates.
+- Comparative and scope-eligible 3–4/4.
+- Relevance `contrast_partial` except `glnbp-X9` in iter02 rep3 (direct, scored).
 
-| category (n) | iteration 1 | iteration 2 (head) | iteration 3 |
-|---|---|---|---|
-| genuine (4) | 3/1 · 2/0 | 3/0 · 4/0 | 4/0 · 4/0 |
-| silence error (10) | 4/1 · 4/1 | 4/0 · 4/0 | 6/0 · 6/0 |
-| generic fact (14) | 5/2 · 6/3 | 5/0 · 5/0 | 8/1 · 8/2 |
-| compatible (12) | 0/0 · 0/0 | 0/0 · 0/0 | 2/1 · 2/0 |
-| construct mismatch (8) | 3/1 · 1/1 | 3/0 · 3/0 | 3/1 · 3/0 |
-| weak implication (4) | 2/0 · 2/0 | 1/0 · 1/0 | 3/0 · 2/0 |
+Scored nodes by scope:
+- Stage A: 100% hypothesis- or mechanism-specific (iter01 4 mech + 2 hyp per replicate; iter02 3 mech + 1–3 hyp). 0 broad or possibility.
+- Stage B: 10 hypothesis-specific and 5 mechanism-specific across 15.
 
-- **Prediction-state confusion against D046:** unqualified states 20/20 in all six replicates; all states including the 4 qualified ones, 21–22/24.
-- **Silence errors now gated:** 9/10 (iteration 1), 10/10 (iteration 2).
-- **Genuine discriminators:**
-  - Head: all 4 eligible in rep2, 3 in rep1 (PFC X24 was one-sided once), all blocked `construct_partial`.
-  - Iteration 1: PFC X24 scored once.
+Contrast relevance on the 79 informative-evidence nodes (stage A):
 
-Score-influence composition (|log-odds|):
+| | direct | partial | context only | mismatch | no evidence | element without contrast |
+| --- | --- | --- | --- | --- | --- | --- |
+| iter01 | 24–26 | 51–53 | 0–1 | 1–2 | 0–1 | 7–8 |
+| iter02 | 20–24 | 55–59 | 0–1 | 0 | 0 | 57–60 |
 
-| category | v3 frozen | iteration 1 | iteration 2 (head) | iteration 3 |
-|---|---|---|---|---|
-| genuine | 1.47 (8%) | 1.46 · 0 | 0 · 0 | 0 · 0 |
-| silence error | 4.02 (22%) | 1.63 · 1.63 | 0 · 0 | 0 · 0 |
-| generic fact | 4.67 (26%) | 1.91 · 2.87 | 0 · 0 | 1.46 · 2.20 |
-| compatible | 3.08 (17%) | 0 · 0 | 0 · 0 | 0.96 · 0 |
-| construct mismatch | 1.28 (7%) | 1.46 · 1.46 | 0 · 0 | 1.46 · 0 |
-| weak implication | 1.24 (7%) | 0 · 0 | 0 · 0 | 0 · 0 |
-| unreviewed | 2.32 (13%) | 0 · 0 | 0 · 0 | 0 · 0 |
-| total | 18.07 | 6.47 · 5.96 | 0 · 0 | 3.88 · 2.20 |
+On eligible nodes with a contrast, iteration 2 had 4–6 direct and 4–7 partial.
 
-Counts of what was gated:
-- **One-sided propositions gated (head):** 120 and 117 of 192.
-- **Shared:** 25 and 23.
-- **Construct blocks on eligible propositions:** 20 and 19 (18 `partial` each, plus 2 and 1 `mismatch`).
-- **Construct labels over all informative evidence:** 71/69 partial, 3/4 mismatch.
+Influence composition (|log-odds H2−H1|):
 
-Partial-evidence sensitivity (sensitivity only, not the policy): nodes that would score, by category, 16–19 in iterations 1–2 and 28–30 in iteration 3, of which genuine discriminators are 2–4. Case scores would also be unstable between replicates (eukaryogenesis 0.20 vs 0.85 in iteration 2).
+| category | v3 frozen | iter01 | iter02 |
+| --- | --- | --- | --- |
+| genuine | 8% | 0% | 0 / 0 / 13% |
+| silence error | 22% | 40–45% | 63–84% |
+| generic fact | 26% | 18–20% | 0% |
+| compatible | 17% | 0% | 0% |
+| construct mismatch | 7% | 11–19% | 0% |
+| weak implication | 7% | 15–31% | 16–28% |
+| unreviewed | 13% | 0% | 0% |
+| total | 18.1 | 7.2–8.1 | 5.6–7.5 |
 
-Stage B, end-to-end runs:
+Prior v4 scored no node in stage A, so it has no composition.
 
-| run | cost | ok/error | nodes | abstraction mix | v3 sign-opposed nodes | reference discriminators recovered |
-|---|---|---|---|---|---|---|
-| frozen pilot | $2.75 | 8/0 | 192 | 64/64/64 | 87 | 11/23 (7 cases) |
-| v3 re-run | $2.71 | 8/0 | 192 | 65/63/64 | 84 | 11/23 (6 cases) |
-| v4 run | $3.76 | 8/0 | 192 | 64/64/64 | 84 | 11/23 (7 cases) |
+Specificity × assessability (iteration 2):
 
-The v4 run had 3 retrieval rate-limit errors (Semantic Scholar), recorded as errors and not as no-evidence.
+| | P(informative evidence) | P(contrast-direct) |
+| --- | --- | --- |
+| hypothesis-specific | 30% | 6% |
+| mechanism-specific | 46% | 17% |
+| broader class | 52% | 9% |
+| possibility | 42% | 15% |
+| specific, all replicates of both iterations | 37–38% | — |
+| broad, all replicates of both iterations | 48–50% | — |
 
-Per-case P(H2) (frozen v3 / v3 re-run / v3 scoring on the v4 run's graph / v4):
+`contrast_partial` sensitivity, iteration 2 (not the method):
+- Scored nodes 5→12, 4→9, 6→10.
+- Added: genuine 4, 4 and 2; generic facts re-entering 2, 1 and 2 (`eukaryogenesis-X6`, `gcn4-X23`); construct mismatch 1, 0 and 0.
+- Genuine share 28%, 35% and 21%; silence share 35%, 44% and 43%.
 
-| case | frozen v3 | v3 re-run | v3 on v4 graph | v4 |
-|---|---|---|---|---|
-| eukaryogenesis | .92 | .82 | .86 | .71 |
-| fly-wing | .58 | .42 | .56 | .50 |
-| forest | .16 | .18 | .06 | .50 |
-| gcn4 | .50 | .22 | .44 | .50 |
-| GlnBP | .86 | .88 | .96 | .95 |
-| PFC interhemispheric | .38 | .35 | .41 | .50 |
-| PFC storage | .23 | .68 | .66 | .50 |
-| spider | .58 | .64 | .76 | .50 |
+Stability, iteration 2 pairwise:
+- scored vs not: 191, 191, 190 of 192;
+- scope class: 181–189 of 192;
+- relevance: 73 of 79;
+- `has_contrast`: 74–75 of 79.
+- Case scores were identical across replicates in 5 of 8 cases (6 of 8 in iteration 1); ties in every replicate in 4 cases.
 
-The v4 run scored exactly 3 propositions:
-- eukaryogenesis X16, "An archaeal cell lacking mitochondria can possess a dynamic actin cytoskeleton";
-- GlnBP X2 and X8, "Ligand binding (to a substrate-binding protein / to the open conformation of periplasmic binding proteins) can occur before a conformational change". X8 is text-identical to pilot X8, labelled `generic_component_fact`.
+Stage B (runs `v4scope_explanatory_001/002/003`):
+- 8/8 cases ok in each run, $4.61, $4.56 and $4.49.
+- Recovery: 9/23, 10/23 and 10/23 (pilot, v3 rerun and prior v4: 11/23 each). Novel plausible discriminators: 3, 4 and 5.
+- Scored nodes: 5, 6 and 4. Text-identical to reviewed failures: `glnbp-X4` (silence error) in all 3 runs, `glnbp-X11` (silence error) once, `eukaryogenesis-X6` (generic fact) twice.
+- Case scores are unstable across runs:
+  - eukaryogenesis 0.58/0.42, 0.16/0.84 and 0.35/0.65 (H1/H2);
+  - GlnBP H2 0.84, 0.99 and 0.66;
+  - PFC storage H2 0.52, 0.72 and 0.72;
+  - spider: tie, 0.61/0.39, tie;
+  - four cases tie in all runs.
 
-Per-case qualitative changes (head, stage A):
-- **PFC storage:** silence and construct-mismatch support for storage is suppressed, but the genuine control-favouring discriminators are blocked by construct `partial`, so the case ties.
-- **GlnBP:** the silence-driven induced-fit advantage disappears in stage A (tie). In the live run, induced fit returns via family-level "can" claims.
-- **Eukaryogenesis:** generic component facts no longer dominate in stage A (tie). In the live run, one possibility claim scores.
-- **Fly-wing:** the silence-driven apparent success disappears (tie).
-- **Mixed and regime-dependent cases:** all tie; none were forced into a binary.
-
-Consequence discovery: preserved. Generation is unchanged in v4, and all generation and discovery statistics are within the v3 run-to-run range.
-
-Freeze readiness: not ready.
-- **Met:** acceptance criteria 1–7 and 9.
-- **Criterion 8, not met usably:** failure categories lose influence in stage A only because nothing scores, genuine discriminators are unusable, and in the live run only generic/possibility claims scored.
-- **Criterion 10:** withheld pending the Director.
+Spend (list price, unverified): about $26.5 in total.
+- stage-A replays, including the 1-case smoke test: $12.44;
+- stage-B runs: $13.66;
+- recovery auditor: about $2.23, estimated from token usage in `recovery_events.jsonl`;
+- the stopped first launch: a small amount not captured in the ledger.
 
 TESTS_AND_EVIDENCE:
-- `python3 -m pytest tests/ -q`: 569 passed, 1 xfailed (the pre-existing strict xfail).
-  - `tests/test_v4_discrimination.py` (60 tests) covers:
-    - profile classes per the directive; `indeterminate` is not `substantive_null`; a missing hypothesis is an error, not indeterminate;
-    - k>2 with an indeterminate hypothesis is never eligible; `indeterminate` has no likelihood; determinate states need a strength; state→label mapping uses only the frozen scale;
-    - only `direct` construct matches score; one-sided propositions never score, even with strong direct evidence; missing states or construct fail closed;
-    - one-sided support leaves scores exactly 0.5/0.5, and the D046 neutral-mapping case moves v3 but not v4;
-    - a contrast's log-odds equals the closed form; blocked nodes contribute nothing; malformed LLM output is rejected;
-    - the construct label is derived from elements, and the holistic impression never overrides it;
-    - the scripted-LLM layer keeps ineligible nodes descriptively and fails closed on LLM errors;
-    - the scope gate (implemented, inactive at head); the head uses the iteration 2 prompt;
-    - v3 and v4 are both registered and distinct; v4 prompts obey the hidden-annotation and cutoff invariants; v4 code never names hidden annotations; the dev config differs from the pilot config only in status.
-  - Tests for D046 transcription and combined attribution (packet 27, attribution 22) were added earlier in this task.
-- The live v4 integration was checked on the first completed case (all artifacts, no errors) and then over 8/8 cases.
-- The stage-A replays are node-identical to the frozen pilot; `analyze_v4_development.py` aborts if the replay nodes differ.
-- Private run archive: 9 runs, 315 files, verified by extraction.
-- Spend at unverified list prices: runs $6.47 + replays $6.60 + recovery auditor $1.50 ≈ **$14.60**.
+- `python3 -m pytest tests/ -q`: 651 passed, 1 xfailed (the pre-existing strict xfail on the merger defect).
+- The v4-scope, v4-scope analysis and v4 discrimination test files: 142 passed.
+- Stage-A replays: `python3 scripts/replay_v4_on_frozen.py --layer v4_scope --replay-id v4scope_replay_iter0{1,2}{,_rep2,_rep3}`. Before each run, the frozen pilot archive is extracted and checked against its SHA256SUMS by `build_review_packet.extract_verified`.
+- Analysis: `python3 scripts/analyze_v4_scope.py --replay runs/v4scope_replay_iter0N{,_rep2,_rep3} --name iter0N`. Its consistency section reports `ok` for all 6 replicates: every gate reason, `used_in_score` and case score re-derived from recorded judgments with the committed gate code.
+- Stage B: `python3 -m src.experiments.run --method consequence_graph_v4_scope --config configs/v4_dev_explanatory.yaml --run-id v4scope_explanatory_00N`, then `python3 scripts/analyze_pilot_recovery.py --run runs/v4scope_explanatory_00N --workers 6`, then `python3 scripts/compare_v4_scope_runs.py`.
+- Report: `python3 scripts/build_v4_scope_report.py`.
+- Run manifests were checked. At every run start, no run-relevant path was uncommitted: dirty paths were only the cost ledger, docs and analysis scripts/outputs. The exception is the 1-case wiring smoke test, which ran before the layer was committed.
+- Archive:
+  - `benchmark/frozen_runs/v4_scope_runs/v4_scope_runs.tar.gz`, SHA-256 `d09257cb…1cddda`, 473 files;
+  - extracted into a scratch directory and verified file by file against SHA256SUMS;
+  - second copy in `/mnt/data/knk25.data/private_artifacts/v4_scope_runs/` with a matching hash;
+  - `git check-ignore` confirms the tarball is ignored.
+  - Manifests record only true/false presence flags for API-key environment variables, no secret values.
+- Key claims were checked by hand against the recorded judgments:
+  - `glnbp-X4` states, positions and relevance rationale (report §11), and the candidate texts in `benchmark/explanatory/cases_visible.jsonl`;
+  - prior-v4 gate reasons for the four comparative silence errors (construct `partial` or `mismatch` in both prior-v4 replicates);
+  - the stage-B paraphrase reading, done by listing each unmatched scored proposition beside all reviewed pilot propositions of its case.
 
 DECISIONS_AND_ASSUMPTIONS:
-- **v4 wraps v3 rather than editing it.** It calls v3's `run_instance`, then replaces scoring. This is the least invasive route and keeps v3 scores on the same graph as `scores_v3_reference`.
-- **The prediction-state prompt excludes the research question,** as v3's edge assessor did, to avoid "A or B?" framing pressure.
-- **Chain edges are not used in v4 scoring,** so no inherited predictions. `substantive_null` scores on the negative side of the frozen scale. Positive vs positive at different strengths is `shared`. For k>2, any indeterminate hypothesis makes the proposition ineligible (the pilot is k=2).
-- **Construct match sees cited records only,** or all shown records if none were cited, and never sees the evidence label or rationale.
-- **Human decisions** (recorded in memory and here): direct-only, chosen before results; a v3 noise-floor re-run; after iteration 2, state-side fixes only, no freeze, escalation.
-- **D045/D046 were used diagnostically.** No change targeted a specific node. Iteration choices were compared on pooled replicates because single-run case outcomes flip on single judgments.
-- **The head reverted to iteration 2** by its pre-stated criterion: fewest reviewed failure-category nodes eligible while genuine discriminators stay eligible.
+- Human decision for this directive: iterate on 3 stage-A replays per iteration, then run 3 fresh end-to-end runs once for the final version. Followed.
+- A new method version was built (`consequence_graph_v4_scope`) rather than modifying `consequence_graph_v4`, so prior v4 remains reproducible.
+- Scope for every proposition; element and relevance for every proposition with informative evidence and states, not only eligible ones. This is so the §10 assessability table covers all scopes. Only the gate decides what scores.
+- The scope prompt sees the research question, because scope is relative to the system under dispute. The state prompt still does not see it.
+- Categories are derived in code from structured answers, never from a holistic label:
+  - relevance comes from Q1–Q3;
+  - element v2 `has_contrast` requires positions that contrast and agree with the states.
+  - Q1 `yes` with Q3 `yes` is kept as `contrast_direct` and counted separately; it never occurred.
+- Iteration 2 was chosen as the final version, before stage B, on stage-A structural criteria:
+  - it removes generic, compatible and construct-mismatch influence;
+  - it gates all 14 generic facts;
+  - it keeps the genuine discriminators eligible;
+  - it is equally stable.
+  - Its higher silence-error share reflects the same persistent errors over a smaller total.
+- Iteration was stopped at 2 because the remaining errors are identical across iterations and replicates, and further same-model prompt changes would target ≤5 contested nodes. This is a judgement, not a directive rule.
+- No numeric mapping changed; `indeterminate` contributes zero; no held-out case, hidden annotation or ResearchBench reserve was used.
+- Later-resolution direction appears in the report only as a descriptive column; it was not used in any decision.
+- Stage-B label transfer uses exact text only. The paraphrase reading in the report is the executor's and is explicitly marked as not labels.
+- Consequence discovery is judged "largely preserved" (9–10 vs 11 of 23). The drop is not attributable to the layer, but it is consistent across the 3 runs.
 
 UNCERTAINTIES_AND_LIMITATIONS:
-- **All reviewed-category metrics depend on D045/D046,** first-pass model-based review with no human expert. The live v4 run's propositions are unreviewed; the exact-text match covers only 1 of 3.
-- **n = 8 development cases, 4 directional.** Magnitudes rest on placeholder mappings.
-- **Run-to-run variance is large at case level for both v3 and v4.** Replicates show ~5% state flips and ~4% construct flips, enough to move a case when few nodes score.
-- **The construct judge's `partial` rate (~85–90% of informative evidence)** may partly reflect abstract-only evidence (no full texts) rather than genuine construct gaps. Not tested.
-- **Stage B is one v4 run and one v3 re-run;** stage-B conclusions are single-run.
-- **The v4 run has 3 retrieval rate-limit errors** (eukaryogenesis X7, X9; GlnBP X14).
+- **Label base.** D045/D046 are model-based development labels on 52 of 192 nodes, with only 4 genuine discriminators, so composition shares rest on very few nodes.
+  - The five recurring scored errors carry primary-category labels only (all five are D045 labels, with no per-hypothesis states recorded).
+  - At least `glnbp-X4` is a subtle reading. The proposition says apo-GlnBP *adopts* a closed conformation; one candidate says it *samples* one.
+  - If these labels change, the influence picture changes substantially.
+- **One model.** All judgments use gpt-4.1 at temperature 0, so replicate variation is sampling nondeterminism, not model diversity. The element-v2 "independent" check turned out not to be independent.
+- **Evidence reuse in stage A.** Replays reuse the frozen v3 evidence labels and cited records, and the relevance judge sees only those records.
+- **Confounded iteration.** Iteration 2 changed three prompts at once, so their separate effects are not identified. The relevance-v2 clause may explain why broad propositions' direct rate fell.
+- **Stage-B instability.** 4–6 scored propositions per run; case outcomes flip between runs.
+- **Recovery auditor.** It is an LLM judgment with a known bias toward "silence" (pilot report).
+- **Costs.** List-price estimates. The auditor cost is estimated from tokens, and the stopped launch is not in the ledger.
 
 PROBLEMS_OR_RISKS:
-- **v3 defects found, not fixed** (the directive forbids changing v3; documented in `docs/V4_DESIGN.md` §8):
-  1. `inference.aggregation` is never passed to `score_hypotheses` (config ignored; runs were `independent`, as configured);
-  2. `evidence_assess_v2` claims supporting spans are checked automatically, and nothing checks them;
-  3. root-edge validation does not require every hypothesis, so a missing one becomes 0.5;
-  4. a duplicate `_finalise` in `bayes.py`, and a stale `ASSESS_PROMPT` constant pinned by a test.
-- **v3 pilot conclusions that relied on case-level direction (e.g. "3/4 agree") are within run-to-run noise.**
-- **Private archives** (pilot and development runs) exist only on the execution host; off-host private storage is still needed.
-- **The git remote URL still embeds a GitHub token.**
+- **Residual failure is implication-side.** Silence errors and weak implications carry most remaining influence (63–84% silence in stage A), and the same readings recur in every replicate, iteration and stage-B run. The scope and relevance layers cannot see this failure. Prompt changes within this directive's allowed levers did not decorrelate it, because the same model reproduces the reading.
+- **Evidence-policy dilemma persists.** Direct-only leaves genuine discriminators almost always unscored. Allowing partial evidence admits them but also admits generic facts and keeps silence errors dominant.
+- **Scope misclassification in live runs.** A reviewed generic fact (`eukaryogenesis-X6`) was classified `hypothesis_specific` and scored in 2 of 3 fresh runs.
+- **Abstention and instability.** In 4 of 8 cases the method ties in every run; where it does decide, 1–3 propositions decide the case and directions can flip between runs.
+- **Consequence recovery dipped slightly.** 9–10/23 in all 3 v4-scope runs vs 11/23 in all 3 earlier runs. It is not attributable to the method, but it should be watched.
+- **Token still exposed (standing).** The git remote URL still embeds a GitHub token; printed git output was redacted.
 
 QUESTIONS_FOR_DIRECTOR:
-1. **Evidence-directness policy** (the blocking decision). Direct-only with faithful element-wise matching scores nothing on the development cases, and where it scores in a live run it selects class-level "can" claims. `partial` re-admits mostly reviewed failures. Should v4 require:
-   - (a) direct only, accepting abstention;
-   - (b) direct or partial;
-   - (c) a narrower rule, e.g. `direct` only for the element that carries the cross-hypothesis contrast (would need its own design and development);
-   - (d) or should comparative scoring be paused until the state side is fixed?
-2. **State-side approach.** Prompt refinement did not remove contrasts on class-level and possibility claims, and iteration 3 regressed. Should the next attempt move this out of the per-hypothesis prompt, e.g. a separate scope classifier with its own validation labels, or restricting generation of class-level "can" propositions from comparative use? The directive asks that mechanistic/class-level generation be preserved, so this needs a direction.
-3. **Development labels.** Should D045/D046-style review be extended with scope labels (within / broader / possibility) for the reviewed nodes? That would let a scope classifier be validated rather than inferred from outcomes.
-4. **Case-level variance.** Given v3's flips on re-run, should future evaluation use multiple runs per case, with case outcomes reported as distributions?
+1. Should the next iteration target the implication side directly? For example, a determinate contrast could be required to be confirmed by an independent judge (a different model family) before a proposition may score. Same-model re-asking reproduced the errors in this task.
+2. Should the five recurring scored nodes (`glnbp-X4`, `glnbp-X11`, `pfc_storage-X2`, `eukaryogenesis-X7`, `forest-X15`) be re-adjudicated with per-hypothesis states, ideally by a domain expert? D045 recorded only primary categories for all five, and `glnbp-X4` turns on "adopts" vs "samples".
+3. What is the evidence policy for `contrast_partial`: stay excluded, admit with a separately justified discount (a numeric-mapping decision this task did not make), or report as a secondary score?
+4. Is abstention (ties when no contrast-direct pre-cutoff evidence exists) acceptable as a primary outcome? If so, should held-out evaluation measure coverage alongside direction?
 
 RECOMMENDED_NEXT_ACTION:
-(Recommendation only.)
-1. Decide the evidence policy (Q1) before any freeze. My recommendation is (d): keep v4's gate, and treat scoring as not yet valid until class-level and possibility claims can no longer receive determinate contrasts.
-2. Collect scope labels for the reviewed nodes (Q3), then develop and validate scope classification separately from prediction states.
-3. Adopt replicate runs for any case-level claim, v3 or v4.
-4. Arrange off-host private storage for the run archives.
+Do not freeze v4-scope for held-out evaluation.
+
+Recommendation only:
+1. Keep the scope layer and the contrast-bearing element. They do what they were designed for and are stable.
+2. Next, address the implication side with a decorrelated check on determinate contrasts. One option: a second model family must agree on each candidate's position on the contrast variable. Validate it on the same 8 spent cases, after the recurring contested nodes have been re-adjudicated with per-hypothesis states.
+3. Keep `contrast_direct` as the main policy until a Director decision on partial evidence.
 
 ARTIFACTS:
-- Design: `docs/V4_DESIGN.md`
-- Development report (generated): `docs/V4_DEV_REPORT.md` (`scripts/build_v4_dev_report.py`)
-- Code:
-  - `src/methods/consequence_graph_v4.py`
-  - `src/inference/discrimination.py` (prediction-state schema, gate, gated scoring)
-  - `src/graph/prediction_state.py`
-  - `src/evidence/construct_match.py`
-- Prompts: `src/llm/prompts/prediction_state_v1|v2|v3.txt`, `construct_match_v1|v2.txt` (head: v2/v2)
-- Config: `configs/v4_dev_explanatory.yaml`
-- Tests: `tests/test_v4_discrimination.py`, `tests/test_review_packet.py`, `tests/test_review_attribution.py`
-- Stage A:
-  - `scripts/replay_v4_on_frozen.py`, `scripts/analyze_v4_development.py`
-  - metrics: `benchmark/v4_dev/iter01|iter02|iter03/development_metrics.json`
-- Stage B: `scripts/compare_v3_v4_runs.py`, `benchmark/v4_dev/stage_b/run_comparison.json`
-- D046 labels and v3 attribution:
-  - `benchmark/review/graph_pilot_001/human_labels_D046.json`
-  - `benchmark/review/graph_pilot_001/attribution_d045_d046/`
-  - `scripts/transcribe_decision_labels.py`
-- Run paths (gitignored; private archive `benchmark/frozen_runs/v4_dev_runs/`, SHA-256 `5f7f0ffe…529d`, second copy `/mnt/data/knk25.data/private_artifacts/v4_dev_runs/`):
-  - `runs/v3_rerun_explanatory_001`
-  - `runs/v4_dev_explanatory_001`
-  - `runs/v4_replay_smoke_pfc`
-  - `runs/v4_replay_pilot_iter01`, `_rep2`
-  - `runs/v4_replay_pilot_iter02`, `_rep2`
-  - `runs/v4_replay_pilot_iter03`, `_rep2`
+- Report: `docs/V4_SCOPE_REPORT.md`.
+- Design: `docs/V4_SCOPE_DESIGN.md`.
+- Stage-A metrics: `benchmark/v4_scope/iter01/development_metrics.json`, `benchmark/v4_scope/iter02/development_metrics.json`.
+- Stage-B comparison: `benchmark/v4_scope/stage_b/run_comparison.json`.
+- Method: `src/methods/consequence_graph_v4_scope.py`, `src/graph/proposition_scope.py`, `src/evidence/contrast_relevance.py`, `src/inference/discrimination.py` (gate_node_scope section).
+- Prompts: `src/llm/prompts/proposition_scope_v{1,2}.txt`, `src/llm/prompts/contrast_element_v{1,2}.txt`, `src/llm/prompts/contrast_relevance_v{1,2}.txt`.
+- Tests: `tests/test_v4_scope.py`, `tests/test_v4_scope_analysis.py`.
+- Scripts: `scripts/analyze_v4_scope.py`, `scripts/compare_v4_scope_runs.py`, `scripts/build_v4_scope_report.py`, `scripts/replay_v4_on_frozen.py` (`--layer v4_scope`).
+- Runs (gitignored, archived privately):
+  - `runs/v4scope_replay_smoke_glnbp`;
+  - `runs/v4scope_replay_iter01{,_rep2,_rep3}`;
+  - `runs/v4scope_replay_iter02{,_rep2,_rep3}`;
+  - `runs/v4scope_explanatory_00{1,2,3}`, including `recovery.json`.
+- Archive checksums: `benchmark/frozen_runs/v4_scope_runs/{MANIFEST.md, SHA256SUMS, v4_scope_runs.tar.gz.sha256}`.
+- Private archive: `benchmark/frozen_runs/v4_scope_runs/v4_scope_runs.tar.gz`, with a copy in `/mnt/data/knk25.data/private_artifacts/v4_scope_runs/`.

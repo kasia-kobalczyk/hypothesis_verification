@@ -342,5 +342,45 @@
   "runs/v4_dev_explanatory_001/events.jsonl": {
     "offset": 10689583,
     "lines": 17586
+  },
+  "runs/v4scope_replay_iter01/events.jsonl": {
+    "offset": 2958189,
+    "lines": 543
+  },
+  "runs/v4scope_replay_smoke_glnbp/events.jsonl": {
+    "offset": 349048,
+    "lines": 70
+  },
+  "runs/v4scope_replay_iter01_rep2/events.jsonl": {
+    "offset": 2955676,
+    "lines": 542
+  },
+  "runs/v4scope_replay_iter01_rep3/events.jsonl": {
+    "offset": 3017846,
+    "lines": 546
+  },
+  "runs/v4scope_replay_iter02/events.jsonl": {
+    "offset": 3199504,
+    "lines": 550
+  },
+  "runs/v4scope_replay_iter02_rep2/events.jsonl": {
+    "offset": 3208448,
+    "lines": 552
+  },
+  "runs/v4scope_replay_iter02_rep3/events.jsonl": {
+    "offset": 3189612,
+    "lines": 548
+  },
+  "runs/v4scope_explanatory_001/events.jsonl": {
+    "offset": 12267588,
+    "lines": 17894
+  },
+  "runs/v4scope_explanatory_002/events.jsonl": {
+    "offset": 12214990,
+    "lines": 17949
+  },
+  "runs/v4scope_explanatory_003/events.jsonl": {
+    "offset": 12086328,
+    "lines": 18009
   }
 }
