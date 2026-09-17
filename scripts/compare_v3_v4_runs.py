@@ -42,6 +42,25 @@ def _load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def reviewed_texts() -> Dict[str, Dict[str, str]]:
+    """Exact proposition text -> reviewed label, from the frozen-pilot review packet.
+
+    Exact string equality only: a live run regenerates propositions, and any fuzzier
+    matching would be a judgment this deterministic script must not make.
+    """
+    labels = {}
+    for name in ("human_labels_D045.json", "human_labels_D046.json"):
+        for l in _load(ROOT / "benchmark" / "review" / "graph_pilot_001" / name)["labels"]:
+            labels[l["review_id"]] = l["human_primary_category"]
+    out = {}
+    packet = ROOT / "benchmark" / "review" / "graph_pilot_001" / "review_set_full.jsonl"
+    for line in packet.read_text(encoding="utf-8").splitlines():
+        r = json.loads(line)
+        if r["review_id"] in labels:
+            out[r["proposition"]["text"]] = {"review_id": r["review_id"], "category": labels[r["review_id"]]}
+    return out
+
+
 def run_summary(run: Path) -> Dict[str, Any]:
     cases = OrderedDict()
     all_texts, levels, depths = [], Counter(), Counter()
@@ -67,7 +86,15 @@ def run_summary(run: Path) -> Dict[str, Any]:
             layer = _load(disc)
             entry["v3_reference_scores_same_graph"] = scores.get("v3_reference_scores")
             entry["v4_summary"] = layer["summary"]
-            entry["v4_scored_nodes"] = [nid for nid, r in layer["nodes"].items() if r["used_in_score"]]
+            reviewed = reviewed_texts()
+            entry["v4_scored_nodes"] = [OrderedDict([
+                ("node_id", nid), ("text", r["text"]),
+                ("states", {h: "{}/{}".format(s["state"], s["strength"]) for h, s in r["states"].items()}),
+                ("evidence_label", r["evidence_label"]),
+                ("construct_elements", [(e["status"], e["element"]) for e in r["construct"]["elements"]]),
+                ("log_odds_H2_over_H1", r["contribution"]["H2"] - r["contribution"]["H1"]),
+                ("identical_text_reviewed_in_pilot", reviewed.get(r["text"])),
+            ]) for nid, r in layer["nodes"].items() if r["used_in_score"]]
         cases[inst.name] = entry
     tokens = [t for text in all_texts for t in re.findall(r"[a-z]{4,}", text.lower())]
     return OrderedDict([

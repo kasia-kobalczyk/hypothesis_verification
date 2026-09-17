@@ -109,9 +109,44 @@ Genuine discriminators would be a minority of the scored nodes in 6 of 6 replica
 
 ## 6. End-to-end runs (stage B)
 
-_Not yet available._
+| run | calls | cost $ | ok/err | nodes | unique | abstraction specific/mechanistic/class | mean chars | content TTR | v3 sign-opposed nodes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| pilot_explanatory_001 (frozen v3) | 784 | 2.75 | 8/0 | 192 | 192 | 64/64/64 | 135 | 0.229 | 87 |
+| v3_rerun_explanatory_001 | 784 | 2.71 | 8/0 | 192 | 191 | 65/63/64 | 131 | 0.236 | 84 |
+| v4_dev_explanatory_001 | 1052 | 3.76 | 8/0 | 192 | 192 | 64/64/64 | 132 | 0.236 | 84 |
+
+Case scores P(H2) — frozen v3 · v3 re-run · v4 run (v3 on the v4 run's own graph → v4):
+
+| case | frozen v3 | v3 re-run | v4 run: v3 scoring on same graph | v4 run: v4 |
+| --- | --- | --- | --- | --- |
+| eukaryogenesis_mito_timing | 0.92 | 0.82 | 0.86 | 0.71 |
+| fly_wing_constraint_vs_selection | 0.58 | 0.42 | 0.56 | 0.50 |
+| forest_fragmentation_resilience | 0.16 | 0.18 | 0.06 | 0.50 |
+| gcn4_med15_complex_vs_condensate | 0.50 | 0.22 | 0.44 | 0.50 |
+| glnbp_induced_fit_vs_conformational_selection | 0.86 | 0.88 | 0.96 | 0.95 |
+| pfc_interhemispheric_architecture | 0.38 | 0.35 | 0.41 | 0.50 |
+| pfc_storage_vs_control | 0.23 | 0.68 | 0.66 | 0.50 |
+| spider_orb_web_origin | 0.58 | 0.64 | 0.76 | 0.50 |
+
+**What v4 scored in the live run** (3 proposition(s); all other cases tie). These propositions were regenerated and are unreviewed; an exact-text match to a reviewed pilot proposition is shown where one exists.
+
+| case | node | proposition | states (H1 · H2) | evidence | construct elements | log-odds H2:H1 | identical reviewed pilot proposition |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| eukaryogenesis_mito_timing | X16 | An archaeal cell lacking mitochondria can possess a dynamic actin cytoskeleton. | negative_or_absent/moderate · positive_or_present/strong | strong_support | established: archaeal cell lacking mitochondria; established: can possess a dynamic actin cytoskeleton | +0.89 | none |
+| glnbp_induced_fit_vs_conformational_selection | X2 | Ligand binding to a substrate-binding protein can occur before the protein undergoes a major conformational change to a closed state. | negative_or_absent/strong · positive_or_present/strong | strong_support | established: Ligand binding to a substrate-binding protein; established: can occur before the protein undergoes a major conformational change to a closed state | +1.46 | none |
+| glnbp_induced_fit_vs_conformational_selection | X8 | Ligand binding can occur to the open conformation of periplasmic binding proteins before a conformational change to the closed state. | negative_or_absent/strong · positive_or_present/strong | strong_support | established: Ligand binding can occur to the open conformation of periplasmic binding proteins; established: before a conformational change to the closed state | +1.46 | `glnbp_induced_fit_vs_conformational_selection-X8` — generic_component_fact |
+
+**Consequence discovery** (post-hoc recovery auditor, identical for every run; known bias toward calling hypotheses silent):
+
+| run | reference discriminators recovered | cases with any recovery | novel plausible |
+| --- | --- | --- | --- |
+| pilot_explanatory_001 (frozen v3) | 11/23 | 7/8 | 3 |
+| v3_rerun_explanatory_001 | 11/23 | 6/8 | 7 |
+| v4_dev_explanatory_001 | 11/23 | 7/8 | 6 |
 
 ## 7. Freeze readiness
 
-**Not ready to freeze.** Acceptance criteria 1–7 and 9 are met: states are separate from strength; `indeterminate` never scores; gating precedes aggregation; one-sided propositions are retained descriptively; construct mismatch cannot score; v3 is untouched and reproducible; v4 has been run on the eight development cases; generation is unchanged. Criterion 8 is not met in a usable form: failure categories do lose relative influence, but only because nothing scores, and the reviewed genuine discriminators are not usable. Criterion 10 (freeze) is withheld pending the Director's decision on the evidence policy.
+**Not ready to freeze.** Acceptance criteria 1–7 and 9 are met: states are separate from strength; `indeterminate` never scores; gating precedes aggregation; one-sided propositions are retained descriptively; construct mismatch cannot score; v3 is untouched and reproducible; v4 has been run on the eight development cases; generation is unchanged. Criterion 8 is not met in a usable form: in the stage-A replays failure categories lose relative influence only because nothing scores at all, the reviewed genuine discriminators are not usable, and in the live run the only propositions that score belong to the generic/possibility failure class (below). Criterion 10 (freeze) is withheld pending the Director's decision on the evidence policy.
+
+**The two gates interact in the wrong direction.** In the live v4 run, 3 proposition(s) scored; 3 of them assert only that something *can* occur, and 1 is text-identical to a pilot proposition labelled `generic_component_fact`. General claims are exactly what abstracts state outright, so they pass element-wise construct matching as `direct`, while specific discriminators rarely have every element established. Under direct-only, construct gating therefore selects FOR the generic-fact failure class that the state side has not removed. Relaxing construct strictness would re-admit reviewed failures (section 5); tightening it leaves generic facts as the only thing that scores. Both routes need the state-side problem (contrast assigned to class-level and possibility claims) solved first.
 

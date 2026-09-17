@@ -279,6 +279,21 @@ def build() -> str:
                 "{:.2f}".format(v4["v3_reference_scores_same_graph"]["H2"]) if v4 and v4.get("v3_reference_scores_same_graph") else "—",
                 "{:.2f}".format(v4["scores"]["H2"]) if v4 else "—"))
         add("")
+        v4run = stage_b.get("v4_dev_explanatory_001", {}).get("generation_and_structure", {})
+        scored = [(cid, n) for cid, c in v4run.get("cases", {}).items() for n in c.get("v4_scored_nodes", [])]
+        add("**What v4 scored in the live run** ({} proposition(s); all other cases tie). These propositions were "
+            "regenerated and are unreviewed; an exact-text match to a reviewed pilot proposition is shown where one "
+            "exists.".format(len(scored)))
+        add("")
+        add("| case | node | proposition | states (H1 · H2) | evidence | construct elements | log-odds H2:H1 | identical reviewed pilot proposition |")
+        add("| --- | --- | --- | --- | --- | --- | --- | --- |")
+        for cid, n in scored:
+            m = n["identical_text_reviewed_in_pilot"]
+            add("| {} | {} | {} | {} · {} | {} | {} | {:+.2f} | {} |".format(
+                cid, n["node_id"], n["text"], n["states"].get("H1"), n["states"].get("H2"), n["evidence_label"],
+                "; ".join("{}: {}".format(s, e) for s, e in n["construct_elements"]), n["log_odds_H2_over_H1"],
+                "`{}` — {}".format(m["review_id"][4:], m["category"]) if m else "none"))
+        add("")
         add("**Consequence discovery** (post-hoc recovery auditor, identical for every run; known bias toward "
             "calling hypotheses silent):")
         add("")
@@ -300,11 +315,28 @@ def build() -> str:
     add("**Not ready to freeze.** Acceptance criteria 1–7 and 9 are met: states are separate from strength; "
         "`indeterminate` never scores; gating precedes aggregation; one-sided propositions are retained "
         "descriptively; construct mismatch cannot score; v3 is untouched and reproducible; v4 has been run on the "
-        "eight development cases; generation is unchanged. Criterion 8 is not met in a usable form: failure "
-        "categories do lose relative influence, but only because nothing scores, and the reviewed genuine "
-        "discriminators are not usable. Criterion 10 (freeze) is withheld pending the Director's decision on the "
+        "eight development cases; generation is unchanged. Criterion 8 is not met in a usable form: in the "
+        "stage-A replays failure categories lose relative influence only because nothing scores at all, the "
+        "reviewed genuine discriminators are not usable, and in the live run the only propositions that score "
+        "belong to the generic/possibility failure class (below). Criterion 10 (freeze) is withheld pending the Director's decision on the "
         "evidence policy.")
     add("")
+    if stage_b:
+        v4run = stage_b.get("v4_dev_explanatory_001", {}).get("generation_and_structure", {})
+        scored = [n for c in v4run.get("cases", {}).values() for n in c.get("v4_scored_nodes", [])]
+        generic_match = sum(1 for n in scored if (n["identical_text_reviewed_in_pilot"] or {}).get("category")
+                            == "generic_component_fact")
+        modal = sum(1 for n in scored if " can " in " {} ".format(n["text"].lower()))
+        add("**The two gates interact in the wrong direction.** In the live v4 run, {} proposition(s) scored; {} "
+            "of them assert only that something *can* occur, and {} is text-identical to a pilot proposition "
+            "labelled `generic_component_fact`. General claims are exactly what abstracts state outright, so they "
+            "pass element-wise construct matching as `direct`, while specific discriminators rarely have every "
+            "element established. Under direct-only, construct gating therefore selects FOR the generic-fact "
+            "failure class that the state side has not removed. Relaxing construct strictness would re-admit "
+            "reviewed failures (section 5); tightening it leaves generic facts as the only thing that scores. "
+            "Both routes need the state-side problem (contrast assigned to class-level and possibility claims) "
+            "solved first.".format(len(scored), modal, generic_match))
+        add("")
     return "\n".join(L)
 
 

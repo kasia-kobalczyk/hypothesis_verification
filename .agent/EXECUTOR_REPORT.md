@@ -1,204 +1,241 @@
-TASK_ID: BENCH-GRAPH-ATTRIBUTION-001
-STATUS: COMPLETED
+TASK_ID: BENCH-GRAPH-V4-DEV-001
+STATUS: BLOCKED
 
 SUMMARY:
-All 40 D045 labels were encoded into the review packet by mechanical transcription. A test re-parses D045 from `.agent/DECISIONS.md` and requires exact equality.
+v4 (`consequence_graph_v4`) was implemented as a versioned method on top of the unchanged v3 pipeline. It adds:
+- explicit per-hypothesis prediction states, kept separate from strength;
+- a deterministic discrimination gate;
+- element-wise construct matching;
+- gated scoring through the verifier's own `score_hypotheses`.
 
-The frozen pilot scores were then reproduced exactly, with the verifier's own scoring code on the checksummed archive and no model or retrieval call. They were decomposed by reviewed category for every node, case and hypothesis. Counterfactual views were computed two ways:
+`indeterminate` never has a likelihood. One-sided, shared and all-indeterminate propositions are kept descriptively and contribute zero.
 
-- **Exact evidence-zeroing** (primary).
-- **Graph-deletion sensitivity**, because 58 of 78 score-moving nodes inherit part of P(X|H) through a parent.
+It was developed on the eight spent cases in two stages:
+- **Stage A:** three iterations, each replayed twice on the frozen v3 pilot, so propositions and evidence are identical to v3.
+- **Stage B:** an end-to-end v4 run, plus an unchanged v3 re-run as a noise floor.
 
-The verifier was not changed and nothing was rerun.
+The directive cannot be completed (criterion 10, freeze) without a Research Director decision, so v4 was NOT frozen. The human made two decisions during the task, both recorded:
+- only `direct` construct matches may score, chosen before any results;
+- after iteration 2: fix the state side only, keep direct-only, do not freeze, and escalate the evidence policy to the Director.
 
-Main results (conditional on D045, which is model-based review, not expert ground truth):
-1. **None of the frozen verifier's three agreements with a later `favored` resolution rests on a reviewed genuine discriminator.**
-   - Eukaryogenesis and fly-wing have none.
-   - GlnBP's two genuine discriminators point against the later-favoured induced-fit account (−0.38). Its frozen +1.84 came from silence errors (+1.63) and generic component facts (+0.92).
-2. **Removing only the confirmed errors keeps the favoured direction in eukaryogenesis (+1.82) and GlnBP (+0.21),** but generic component facts carry it (+2.02 and +0.92). Fly-wing collapses to +0.007, from one unreviewed node.
-3. **The one failure reverses.** PFC storage-vs-control's genuine discriminators favour the later-supported control account (+0.58). One silence error (−0.89) and three construct mismatches (−0.72) outweighed them.
-4. **Six of eight cases have no reviewed genuine discriminator.**
-5. **Share of all score influence by category:**
-
-   | category | share |
-   |---|---|
-   | generic component facts | 25.8% |
-   | silence errors | 20.2% |
-   | compatible non-discriminative | 15.2% |
-   | weak implication | 6.8% |
-   | genuine discriminators | 8.1% |
-   | construct mismatch | 4.0% |
-   | unreviewed | 19.9% |
-
-   The problem is broader than silence handling: non-discriminative component and compatible facts (41.0%) outweigh silence errors (20.2%).
+What was learned:
+1. **The state classifier gets the reviewed silence judgments right** (20/20 unqualified D046 states in every replicate), and v4 removes the categorical silence errors and neutral-mapping pseudo-discrimination by construction. Compatible propositions and weak implications drop to zero influence.
+2. **It still gives determinate contrasts to class-level and possibility claims** ("ligand binding *can* occur in periplasmic binding proteins…"). An advisory scope rule (iteration 2) did not remove them. An explicit, gated scope field (iteration 3) made the classifier assign *more* contrasts and lowered stability, so the head was reverted to iteration 2.
+3. **Under direct-only with element-wise construct matching, nothing scores on any development case** in either replicate. All four D045 genuine discriminators are eligible but blocked as `partial`.
+4. **In the live v4 run, the only 3 propositions that scored are class-level "can occur" claims**, one of them text-identical to a pilot proposition D045 labelled `generic_component_fact`. Both of v4's live "agreements" with later resolutions (eukaryogenesis, GlnBP) rest on them. Construct gating favours generic facts, which abstracts state outright, over specific discriminators, which they rarely fully establish.
+5. **Allowing `partial` evidence would not fix this:** 16–30 nodes would score per replicate, only 2–4 of them genuine discriminators.
+6. **v3's case-level outcomes are not reproducible.** An unchanged v3 re-run flipped two of the four directional cases (PFC storage 0.23→0.68 toward H2; fly-wing 0.58→0.42), although generation and graph structure were stable (87 vs 84 sign-opposed nodes).
+7. **Consequence discovery is unchanged:** 11/23 reference discriminators recovered in the frozen pilot, the v3 re-run and the v4 run.
 
 CHANGES:
-Commit `dc13560`: D045 labels encoded.
-- `benchmark/review/graph_pilot_001/human_labels_D045.json` (new): 40 labels with D045 number and key, resolved case/node/review id, and provenance.
-- `scripts/build_review_packet.py`:
-  - loads label files;
-  - fills `human_primary_category`, `human_is_genuinely_discriminative` (true only for `genuine_discriminator`), `human_silence_as_null_error` (true only for `silence_as_null_error`), `human_reviewer`, `human_review_source` and `human_review_status`;
-  - rejects labels for nodes outside the review set;
-  - renders labels in the Markdown views.
-  - The blank field `reviewer` became `human_reviewer`, and `human_review_source` / `human_review_status` were added.
-- Regenerated: `review_set_full.jsonl`, `review_set_priority.jsonl`, `review_full.md`, `review_priority.md`.
-- `RUBRIC.md`, `README.md`: field names and label provenance.
-- `tests/test_review_packet.py`:
-  - the blank-field test now covers unlabelled nodes only;
-  - new tests check exact D045 transcription (numbering, keys, categories, stated counts);
-  - D045 keys must resolve to the priority set in rank order;
-  - labelled nodes carry exactly the D045 fields and nothing inferred.
+Commits on `master` since the directive (`3a1ca78`), with dates:
+- `f9ff82f`: D046 labels transcribed mechanically; v3 attribution recomputed under D045+D046 (`attribution_d045_d046/`), including the D046 split between categorical silence errors and neutral-mapping pseudo-discrimination.
+- `f95195a`: run manifests now record git state, and record the case manifest actually read for `kind: cases` (provenance only).
+- `83b707f`: v4 iteration 1.
+  - New: `src/inference/discrimination.py`, `src/graph/prediction_state.py`, `src/evidence/construct_match.py`, `src/methods/consequence_graph_v4.py`.
+  - Prompts `prediction_state_v1`, `construct_match_v1`.
+  - Runner registration and artifacts; aggregator counters.
+  - `configs/v4_dev_explanatory.yaml` (differs from the pilot config only in `dataset.status: development`).
+  - `scripts/replay_v4_on_frozen.py`; tests.
+- `7f4718b`: iteration 2. `prediction_state_v2` adds a scope rule; `construct_match_v2` is element-wise with the gating label derived in code. Plus `scripts/analyze_v4_development.py`.
+- `6817782`: iteration 3. `prediction_state_v3` adds an explicit, required scope field; the gate treats out-of-scope propositions as `generic_or_possibility_claim`. Plus iteration 1–2 metrics and `docs/V4_DESIGN.md`.
+- `a770f94`: development head reverted to `prediction_state_v2` + `construct_match_v2`. The v3 prompt and scope gate remain implemented and tested but inactive.
+- `fd1b248`: partial-evidence sensitivity by category, report generator, stage-B comparison script.
+- Final commit (this report): stage-B comparison, `docs/V4_DEV_REPORT.md`, private-run checksum manifest.
 
-Commit `b552314`: attribution.
-- `scripts/analyze_review_attribution.py` (new): deterministic and LLM-free. It reuses the packet builder's archive verification, graph rebuild and reproduction check.
-- `benchmark/review/graph_pilot_001/attribution/` (new):
-  - `node_contributions.jsonl`
-  - `case_category_attribution.json`
-  - `counterfactual_views.json`
-  - `coverage.json`
-  - `ATTRIBUTION_REPORT.md`
-- `tests/test_review_attribution.py` (new, 14 tests).
-
-This report is in a third commit (see ARTIFACTS).
-
-Not modified: `src/`, `configs/` (`git diff 4123d52 -- src configs` is empty); `.agent/DIRECTIVE.md`, `PROJECT_STATE.md`, `DECISIONS.md`; the private archive (checksum verified).
+Not modified: v3 code path (`src/methods/consequence_graph.py`, v3 prompts; frozen prompt SHAs still pass), `configs/mvp.yaml`, `configs/pilot_explanatory.yaml`, `configs/ordinal_mappings.yaml`, `.agent/DIRECTIVE.md`, `PROJECT_STATE.md`, `DECISIONS.md`, and hidden benchmark annotations. No held-out case was used.
 
 RESULTS:
-Orientation: log-odds = log-score(H2) − log-score(H1); positive supports H2. In all four `favored` cases the later resolution favours H2 (PROJECT_STATE).
+Configuration:
+- All LLM roles: Azure `gpt-4.1-kasia`, api_version 2024-05-01-preview, temperature 0, seed 20260911.
+- Literature: Semantic Scholar with Crossref date verification.
+- Development head: `prediction_state_v2`, `construct_match_v2`, construct policy direct-only, frozen `v0-placeholder` mappings, `independent` aggregation passed explicitly.
 
-Frozen scores reproduced:
-- Every case's scores, rounded P(X|H) and contributions match the frozen `scores.json` (build aborts otherwise).
-- Category buckets, including `non_moving`, sum to each case's frozen log-odds within 1e-9.
+Development iterations: 3, plus a revert of the head. Every stage-A iteration was replayed twice.
 
-Coverage:
-- Total absolute influence 18.07.
-- Reviewed: 40 nodes, 14.48 (80.1%). Unreviewed: 38 nodes, 3.59 (19.9%).
-- Below the packet-wide reviewed share:
-  - spider 45.4%
-  - forest 67.5%
-  - PFC interhemispheric 67.7%
-  - gcn4 70.5%
-  - eukaryogenesis 79.5%
+| iteration | change | why |
+|---|---|---|
+| 1 | initial design | — |
+| 2 | scope rule; element-wise construct match, label derived in code | reviewed generic facts scored via class-level contrasts; PFC X15 (a D045 mismatch) judged `direct`; single construct flips swung cases |
+| 3 | explicit, gated scope field | 5/14 reviewed generic facts still eligible |
+| head | back to iteration 2 | iteration 3 regressed on both replicates |
 
-Signed log-odds by category (node counts in `ATTRIBUTION_REPORT.md` §2):
+No case-specific rule, no answer leakage, no numeric change, no policy change.
 
-| case | frozen | genuine | silence | generic | compatible | mismatch | weak | unreviewed |
-|---|---|---|---|---|---|---|---|---|
-| eukaryogenesis (fav H2) | +2.42 | · | −0.24 | +2.02 | · | · | +0.85 | −0.20 |
-| fly-wing (fav H2) | +0.31 | · | +0.30 | · | · | · | · | +0.01 |
-| forest (regime) | −1.63 | · | −0.41 | · | −1.64 | · | +0.19 | +0.22 |
-| gcn4 (mixed) | +0.00 | · | −0.19 | −0.25 | +0.28 | · | · | +0.16 |
-| GlnBP (fav H2) | +1.84 | −0.38 | +1.63 | +0.92 | −0.19 | · | · | −0.13 |
-| PFC interhemispheric (regime) | −0.48 | · | · | · | −0.39 | · | · | −0.09 |
-| PFC storage (fav H2) | −1.21 | +0.58 | −0.89 | · | −0.24 | −0.72 | · | +0.05 |
-| spider (component-wise) | +0.31 | · | · | +0.21 | · | · | +0.19 | −0.10 |
+Stage A, per replicate (192 nodes):
 
-Counterfactual views (evidence-zeroed log-odds and top; `ATTRIBUTION_REPORT.md` §3 has graph-deletion values and relation to resolution):
+| iteration | pairs indeterminate | comparative / one-sided / shared / out-of-scope | scored | construct direct/partial/mismatch | stability: states / construct |
+|---|---|---|---|---|---|
+| 1 | 33% | 47/113/26/0 · 44/119/26/0 | 5 · 5 | 10/63/6 · 9/64/6 | 366/384 · 76/79 |
+| 2 | 33% | 43/120/25/0 · 48/117/23/0 | 0 · 0 | 5/71/3 · 6/69/4 | 365/384 · 75/79 |
+| 3 | 30% | 62/92/26/10 · 64/89/25/12 | 3 · 2 | 8/68/3 · 6/70/3 | 354/384 · 75/79 |
 
-| case | A1 genuine + unreviewed | A2 genuine only | B1 errors removed | B2 errors removed, reviewed only |
+v3 on the same 78 score-moving nodes (edges read as states): 19% `neutral`; 40 sign-opposed, 29 one-sided, 9 shared. v3 scored every node with an evidence label.
+
+Alignment with D045/D046 (eligible / scored, rep1 · rep2):
+
+| category (n) | iteration 1 | iteration 2 (head) | iteration 3 |
+|---|---|---|---|
+| genuine (4) | 3/1 · 2/0 | 3/0 · 4/0 | 4/0 · 4/0 |
+| silence error (10) | 4/1 · 4/1 | 4/0 · 4/0 | 6/0 · 6/0 |
+| generic fact (14) | 5/2 · 6/3 | 5/0 · 5/0 | 8/1 · 8/2 |
+| compatible (12) | 0/0 · 0/0 | 0/0 · 0/0 | 2/1 · 2/0 |
+| construct mismatch (8) | 3/1 · 1/1 | 3/0 · 3/0 | 3/1 · 3/0 |
+| weak implication (4) | 2/0 · 2/0 | 1/0 · 1/0 | 3/0 · 2/0 |
+
+- **Prediction-state confusion against D046:** unqualified states 20/20 in all six replicates; all states including the 4 qualified ones, 21–22/24.
+- **Silence errors now gated:** 9/10 (iteration 1), 10/10 (iteration 2).
+- **Genuine discriminators:**
+  - Head: all 4 eligible in rep2, 3 in rep1 (PFC X24 was one-sided once), all blocked `construct_partial`.
+  - Iteration 1: PFC X24 scored once.
+
+Score-influence composition (|log-odds|):
+
+| category | v3 frozen | iteration 1 | iteration 2 (head) | iteration 3 |
 |---|---|---|---|---|
-| eukaryogenesis | −0.20 H1 (opposes) | tie | +1.82 H2 (agrees) | +2.02 H2 (agrees) |
-| fly-wing | +0.01 H2 | tie | +0.01 H2 | tie |
-| forest | +0.22 H2; graph-deleted −0.47 H1 | tie | −1.41 H1 | −1.64 H1 |
-| gcn4 | +0.16 H2 | tie | +0.19 H2 | +0.03 H2 |
-| GlnBP | −0.52 H1 (opposes) | −0.38 H1 (opposes) | +0.21 H2 (agrees) | +0.35 H2 (agrees) |
-| PFC interhemispheric | −0.09 H1 | tie | −0.48 H1 | −0.39 H1 |
-| PFC storage | +0.63 H2 (agrees) | +0.58 H2 (agrees) | +0.39 H2 (agrees) | +0.33 H2 (agrees) |
-| spider | −0.10 H1 | tie | +0.12 H2 | +0.21 H2 |
+| genuine | 1.47 (8%) | 1.46 · 0 | 0 · 0 | 0 · 0 |
+| silence error | 4.02 (22%) | 1.63 · 1.63 | 0 · 0 | 0 · 0 |
+| generic fact | 4.67 (26%) | 1.91 · 2.87 | 0 · 0 | 1.46 · 2.20 |
+| compatible | 3.08 (17%) | 0 · 0 | 0 · 0 | 0.96 · 0 |
+| construct mismatch | 1.28 (7%) | 1.46 · 1.46 | 0 · 0 | 1.46 · 0 |
+| weak implication | 1.24 (7%) | 0 · 0 | 0 · 0 | 0 · 0 |
+| unreviewed | 2.32 (13%) | 0 · 0 | 0 · 0 | 0 · 0 |
+| total | 18.07 | 6.47 · 5.96 | 0 · 0 | 3.88 · 2.20 |
 
-- Views A1 and D coincide, and so do A2 and C; each pair is implemented once (the directive allows this). View R (unreviewed only) is also reported.
-- Forest is the only case where the two decompositions disagree on ordering (view A1): unreviewed children inherit routes from reviewed parents.
+Counts of what was gated:
+- **One-sided propositions gated (head):** 120 and 117 of 192.
+- **Shared:** 25 and 23.
+- **Construct blocks on eligible propositions:** 20 and 19 (18 `partial` each, plus 2 and 1 `mismatch`).
+- **Construct labels over all informative evidence:** 71/69 partial, 3/4 mismatch.
 
-Directive §8 per case: does the frozen relation to the later resolution survive confirmed-error removal (B1)?
-- **Eukaryogenesis:** agrees → still agrees, carried by generic component facts.
-- **Fly-wing:** agrees → +0.007 from one unreviewed node; effectively disappears, and the strict view (B2) is a tie.
-- **GlnBP:** agrees → still agrees (+0.21), carried by generic component facts, while genuine discriminators alone oppose.
-- **PFC storage:** opposes → agrees.
-- **Non-directional cases:** leans reported only.
+Partial-evidence sensitivity (sensitivity only, not the policy): nodes that would score, by category, 16–19 in iterations 1–2 and 28–30 in iteration 3, of which genuine discriminators are 2–4. Case scores would also be unstable between replicates (eukaryogenesis 0.20 vs 0.85 in iteration 2).
 
-Underdetermined once non-discriminative reviewed nodes are removed (A2 has no reviewed genuine discriminator): 6 of 8 cases, all except GlnBP and PFC storage.
+Stage B, end-to-end runs:
 
-Mechanical pathway shared across categories:
-- The hypothesis that did not generate the proposition was labelled `unlikely`/`strongly_contradicted` in 8/8 silence errors, 13/14 generic component facts, 3/3 construct mismatches, 3/3 weak implications and 4/4 genuine discriminators.
-- All 14 generic component facts were literature-supported.
-- In GlnBP the silence errors worked through **contradiction**: evidence contradicted H1's own propositions, and the silent H2 was labelled `unlikely`, so H1's penalty became H2's gain.
+| run | cost | ok/error | nodes | abstraction mix | v3 sign-opposed nodes | reference discriminators recovered |
+|---|---|---|---|---|---|---|
+| frozen pilot | $2.75 | 8/0 | 192 | 64/64/64 | 87 | 11/23 (7 cases) |
+| v3 re-run | $2.71 | 8/0 | 192 | 65/63/64 | 84 | 11/23 (6 cases) |
+| v4 run | $3.76 | 8/0 | 192 | 64/64/64 | 84 | 11/23 (7 cases) |
 
-Next human-review batch, listed only, not labelled:
-- the 8 unreviewed nodes in the low-influence cases: spider X7, X24, X8, X22, X17; PFC interhemispheric X1, X23; fly-wing X19;
-- then the remaining 30 by influence (`coverage.json`).
+The v4 run had 3 retrieval rate-limit errors (Semantic Scholar), recorded as errors and not as no-evidence.
+
+Per-case P(H2) (frozen v3 / v3 re-run / v3 scoring on the v4 run's graph / v4):
+
+| case | frozen v3 | v3 re-run | v3 on v4 graph | v4 |
+|---|---|---|---|---|
+| eukaryogenesis | .92 | .82 | .86 | .71 |
+| fly-wing | .58 | .42 | .56 | .50 |
+| forest | .16 | .18 | .06 | .50 |
+| gcn4 | .50 | .22 | .44 | .50 |
+| GlnBP | .86 | .88 | .96 | .95 |
+| PFC interhemispheric | .38 | .35 | .41 | .50 |
+| PFC storage | .23 | .68 | .66 | .50 |
+| spider | .58 | .64 | .76 | .50 |
+
+The v4 run scored exactly 3 propositions:
+- eukaryogenesis X16, "An archaeal cell lacking mitochondria can possess a dynamic actin cytoskeleton";
+- GlnBP X2 and X8, "Ligand binding (to a substrate-binding protein / to the open conformation of periplasmic binding proteins) can occur before a conformational change". X8 is text-identical to pilot X8, labelled `generic_component_fact`.
+
+Per-case qualitative changes (head, stage A):
+- **PFC storage:** silence and construct-mismatch support for storage is suppressed, but the genuine control-favouring discriminators are blocked by construct `partial`, so the case ties.
+- **GlnBP:** the silence-driven induced-fit advantage disappears in stage A (tie). In the live run, induced fit returns via family-level "can" claims.
+- **Eukaryogenesis:** generic component facts no longer dominate in stage A (tie). In the live run, one possibility claim scores.
+- **Fly-wing:** the silence-driven apparent success disappears (tie).
+- **Mixed and regime-dependent cases:** all tie; none were forced into a binary.
+
+Consequence discovery: preserved. Generation is unchanged in v4, and all generation and discovery statistics are within the v3 run-to-run range.
+
+Freeze readiness: not ready.
+- **Met:** acceptance criteria 1–7 and 9.
+- **Criterion 8, not met usably:** failure categories lose influence in stage A only because nothing scores, genuine discriminators are unusable, and in the live run only generic/possibility claims scored.
+- **Criterion 10:** withheld pending the Director.
 
 TESTS_AND_EVIDENCE:
-- `python3 -m pytest tests/ -q`: 496 passed, 1 xfailed (the pre-existing strict xfail).
-- With the private archive removed, the packet and attribution test files give 17 passed and 20 skipped (each skip explains the missing private archive), so a clean clone passes.
-- `tests/test_review_attribution.py` (14):
-  - no LLM imports;
-  - category buckets sum to each case's frozen log-odds, and those equal the frozen scores;
-  - non-moving nodes contribute zero log-odds;
-  - node table sums equal the category buckets;
-  - every view equals the sum of the categories it keeps (A1, A2, B1, B2, R and original checked independently of the producing code);
-  - confirmed errors are exactly the three named categories;
-  - scores, tops and relations are internally consistent in both decompositions;
-  - the original graph-deleted view equals evidence-zeroed;
-  - non-directional cases are never scored as agreement;
-  - node categories equal the label file, and unreviewed nodes are unlabelled;
-  - node classes equal the packet (40 / 38 / 114);
-  - coverage figures and the next-review queue are consistent;
-  - the report states that labels are not expert ground truth and proposes no fix;
-  - the committed outputs are byte-identical to a fresh build from the archive.
-- `tests/test_review_packet.py` (23): the 20 prior checks, with the blank-field test narrowed to unlabelled nodes, plus exact D045 transcription, resolution of D045 keys to the priority set in rank order, and labelled nodes carrying exactly D045 fields.
-- Pre-flight checks before encoding:
-  - D045 in `DECISIONS.md` and the directive list are identical (40 entries, numbered 1–40).
-  - Category counts match D045's stated 4/8/14/8/3/3.
-  - Every short key resolves to exactly one case.
-  - The labelled set equals the packet's priority set, and each D045 number equals the node's global influence rank.
+- `python3 -m pytest tests/ -q`: 569 passed, 1 xfailed (the pre-existing strict xfail).
+  - `tests/test_v4_discrimination.py` (60 tests) covers:
+    - profile classes per the directive; `indeterminate` is not `substantive_null`; a missing hypothesis is an error, not indeterminate;
+    - k>2 with an indeterminate hypothesis is never eligible; `indeterminate` has no likelihood; determinate states need a strength; state→label mapping uses only the frozen scale;
+    - only `direct` construct matches score; one-sided propositions never score, even with strong direct evidence; missing states or construct fail closed;
+    - one-sided support leaves scores exactly 0.5/0.5, and the D046 neutral-mapping case moves v3 but not v4;
+    - a contrast's log-odds equals the closed form; blocked nodes contribute nothing; malformed LLM output is rejected;
+    - the construct label is derived from elements, and the holistic impression never overrides it;
+    - the scripted-LLM layer keeps ineligible nodes descriptively and fails closed on LLM errors;
+    - the scope gate (implemented, inactive at head); the head uses the iteration 2 prompt;
+    - v3 and v4 are both registered and distinct; v4 prompts obey the hidden-annotation and cutoff invariants; v4 code never names hidden annotations; the dev config differs from the pilot config only in status.
+  - Tests for D046 transcription and combined attribution (packet 27, attribution 22) were added earlier in this task.
+- The live v4 integration was checked on the first completed case (all artifacts, no errors) and then over 8/8 cases.
+- The stage-A replays are node-identical to the frozen pilot; `analyze_v4_development.py` aborts if the replay nodes differ.
+- Private run archive: 9 runs, 315 files, verified by extraction.
+- Spend at unverified list prices: runs $6.47 + replays $6.60 + recovery auditor $1.50 ≈ **$14.60**.
 
 DECISIONS_AND_ASSUMPTIONS:
-- **Labels are transcribed mechanically, not retyped.** D045 recorded only primary categories, so the booleans are derived exactly as the directive specifies and every other judgment field stays blank.
-- **One orientation everywhere: log-odds of H2 over H1.** The packet records log-odds in each graph's own hypothesis order, which is `[H2, H1]` for GlnBP, forest and fly-wing. The packet is not wrong (each record states its definition), but its values are not summed across cases.
-- **The favoured hypothesis for `favored` cases comes from PROJECT_STATE** (H2 in all four). No other case is mapped to a winner.
-- **Evidence-zeroing is the primary decomposition.** It is what the directive specifies and is exact and unique under additive aggregation. Graph deletion is reported as sensitivity: it removes routes to descendants, is computed with the verifier's scoring code, is not additive across nodes, and changes no model judgment.
-- **Non-moving nodes stay in every view.** They cannot change log-odds, and many are parents providing routes.
-- **Strict views set unreviewed nodes aside rather than judging them.** Every view states what it does with them.
-- **"Under-covered"** means a case's reviewed share is below the packet-wide reviewed share (80.1%), the packet's own design target, not a new threshold.
-- **The interpretation section is generated** with every number pulled from the computed data. It is labelled as executor interpretation, not a decision.
+- **v4 wraps v3 rather than editing it.** It calls v3's `run_instance`, then replaces scoring. This is the least invasive route and keeps v3 scores on the same graph as `scores_v3_reference`.
+- **The prediction-state prompt excludes the research question,** as v3's edge assessor did, to avoid "A or B?" framing pressure.
+- **Chain edges are not used in v4 scoring,** so no inherited predictions. `substantive_null` scores on the negative side of the frozen scale. Positive vs positive at different strengths is `shared`. For k>2, any indeterminate hypothesis makes the proposition ineligible (the pilot is k=2).
+- **Construct match sees cited records only,** or all shown records if none were cited, and never sees the evidence label or rationale.
+- **Human decisions** (recorded in memory and here): direct-only, chosen before results; a v3 noise-floor re-run; after iteration 2, state-side fixes only, no freeze, escalation.
+- **D045/D046 were used diagnostically.** No change targeted a specific node. Iteration choices were compared on pooled replicates because single-run case outcomes flip on single judgments.
+- **The head reverted to iteration 2** by its pre-stated criterion: fewest reviewed failure-category nodes eligible while genuine discriminators stay eligible.
 
 UNCERTAINTIES_AND_LIMITATIONS:
-- **All category attributions depend on D045,** a first-pass, model-based Research Director review. No per-hypothesis predictions were recorded, so silence errors cannot be split further (e.g. by which hypothesis was silent).
-- **19.9% of score influence is unreviewed.** In A1, eukaryogenesis flips to H1 and forest's sign depends on the decomposition, entirely on unreviewed nodes. Spider is only 45% covered.
-- **Path mediation:** 25 of the 58 parent-route dependencies run through reviewed nodes. Evidence-zeroing does not remove an erroneous parent edge's effect on children; graph deletion does, but removes the whole route, including any legitimate part. Neither isolates the error alone without relabelling edges, which would change a model judgment and was not done.
-- **Magnitudes rest on placeholder ordinal mappings (`v0-placeholder`).** Only signs and relative sizes are meaningful. With n = 8 cases, 4 of them directional, all conclusions are descriptive.
-- **Reliance on D045:** the analysis does not check whether D045 is correct. For example, GlnBP's reversal rests on two nodes labelled genuine (X5 at −0.64, X9 at +0.25).
+- **All reviewed-category metrics depend on D045/D046,** first-pass model-based review with no human expert. The live v4 run's propositions are unreviewed; the exact-text match covers only 1 of 3.
+- **n = 8 development cases, 4 directional.** Magnitudes rest on placeholder mappings.
+- **Run-to-run variance is large at case level for both v3 and v4.** Replicates show ~5% state flips and ~4% construct flips, enough to move a case when few nodes score.
+- **The construct judge's `partial` rate (~85–90% of informative evidence)** may partly reflect abstract-only evidence (no full texts) rather than genuine construct gaps. Not tested.
+- **Stage B is one v4 run and one v3 re-run;** stage-B conclusions are single-run.
+- **The v4 run has 3 retrieval rate-limit errors** (eukaryogenesis X7, X9; GlnBP X14).
 
 PROBLEMS_OR_RISKS:
-- **No bug found in the previous influence analysis.** Deterministic reconstruction matched exactly.
-- **Some earlier executor-reported figures, derived from the LLM auditor, are superseded by the D045-based attribution:**
-  - "GlnBP strongest case with +1.01 genuine" is now −0.38 genuine; the nodes the auditor called genuine (X4, X11) are D045 silence errors.
-  - "Eukaryogenesis +0.50 genuine" is now none.
-  - PROJECT_STATE currently carries the auditor-based figures.
-- **The private archive is still only on the execution host** (two copies, one machine).
+- **v3 defects found, not fixed** (the directive forbids changing v3; documented in `docs/V4_DESIGN.md` §8):
+  1. `inference.aggregation` is never passed to `score_hypotheses` (config ignored; runs were `independent`, as configured);
+  2. `evidence_assess_v2` claims supporting spans are checked automatically, and nothing checks them;
+  3. root-edge validation does not require every hypothesis, so a missing one becomes 0.5;
+  4. a duplicate `_finalise` in `bayes.py`, and a stale `ASSESS_PROMPT` constant pinned by a test.
+- **v3 pilot conclusions that relied on case-level direction (e.g. "3/4 agree") are within run-to-run noise.**
+- **Private archives** (pilot and development runs) exist only on the execution host; off-host private storage is still needed.
+- **The git remote URL still embeds a GitHub token.**
 
 QUESTIONS_FOR_DIRECTOR:
-1. D045 recorded primary categories only. Should the next review round also record per-hypothesis predictions for silence errors, so silence can be split by which hypothesis was silent and whether the null label was absence or presence?
-2. Should the next batch be the 8 low-coverage-case nodes first, as listed, or the 30 remaining nodes by influence? The A1 results for eukaryogenesis and forest depend on the unreviewed nodes.
-3. Should generic component facts be treated as errors or as weak evidence in future accounting? Excluding them from the "remove confirmed errors" view, as specified, is what keeps eukaryogenesis and GlnBP agreeing.
+1. **Evidence-directness policy** (the blocking decision). Direct-only with faithful element-wise matching scores nothing on the development cases, and where it scores in a live run it selects class-level "can" claims. `partial` re-admits mostly reviewed failures. Should v4 require:
+   - (a) direct only, accepting abstention;
+   - (b) direct or partial;
+   - (c) a narrower rule, e.g. `direct` only for the element that carries the cross-hypothesis contrast (would need its own design and development);
+   - (d) or should comparative scoring be paused until the state side is fixed?
+2. **State-side approach.** Prompt refinement did not remove contrasts on class-level and possibility claims, and iteration 3 regressed. Should the next attempt move this out of the per-hypothesis prompt, e.g. a separate scope classifier with its own validation labels, or restricting generation of class-level "can" propositions from comparative use? The directive asks that mechanistic/class-level generation be preserved, so this needs a direction.
+3. **Development labels.** Should D045/D046-style review be extended with scope labels (within / broader / possibility) for the reviewed nodes? That would let a scope classifier be validated rather than inferred from outcomes.
+4. **Case-level variance.** Given v3's flips on re-run, should future evaluation use multiple runs per case, with case outcomes reported as distributions?
 
 RECOMMENDED_NEXT_ACTION:
-(Recommendation only; no fix proposed.)
-1. Update PROJECT_STATE's hypothesis-comparison figures to the D045-based attribution, which supersedes the auditor-based numbers.
-2. Label the next review batch, starting with the 8 low-coverage-case nodes, and record per-hypothesis predictions this time.
-3. Treat the finding that non-discriminative component and compatible facts carry more influence than silence errors as a primary input to method design, alongside silence handling. Any fix should be investigated on a separate development set.
+(Recommendation only.)
+1. Decide the evidence policy (Q1) before any freeze. My recommendation is (d): keep v4's gate, and treat scoring as not yet valid until class-level and possibility claims can no longer receive determinate contrasts.
+2. Collect scope labels for the reviewed nodes (Q3), then develop and validate scope classification separately from prediction states.
+3. Adopt replicate runs for any case-level claim, v3 or v4.
+4. Arrange off-host private storage for the run archives.
 
 ARTIFACTS:
-- Updated review set with D045 labels:
-  - `benchmark/review/graph_pilot_001/review_set_full.jsonl`
-  - `benchmark/review/graph_pilot_001/review_set_priority.jsonl`
-  - human-readable: `review_full.md`, `review_priority.md`
-- Label source: `benchmark/review/graph_pilot_001/human_labels_D045.json`
-- Per-node contribution table: `benchmark/review/graph_pilot_001/attribution/node_contributions.jsonl`
-- Per-case category attribution: `benchmark/review/graph_pilot_001/attribution/case_category_attribution.json`
-- Counterfactual scores and orderings: `benchmark/review/graph_pilot_001/attribution/counterfactual_views.json`
-- Coverage statistics and next review batch: `benchmark/review/graph_pilot_001/attribution/coverage.json`
-- Human-readable report: `benchmark/review/graph_pilot_001/attribution/ATTRIBUTION_REPORT.md`
-- Scripts: `scripts/analyze_review_attribution.py`, `scripts/build_review_packet.py`
-- Tests: `tests/test_review_attribution.py`, `tests/test_review_packet.py`
-- Git commits: `dc13560` (labels), `b552314` (attribution), plus the commit containing this report. All are on `master`.
+- Design: `docs/V4_DESIGN.md`
+- Development report (generated): `docs/V4_DEV_REPORT.md` (`scripts/build_v4_dev_report.py`)
+- Code:
+  - `src/methods/consequence_graph_v4.py`
+  - `src/inference/discrimination.py` (prediction-state schema, gate, gated scoring)
+  - `src/graph/prediction_state.py`
+  - `src/evidence/construct_match.py`
+- Prompts: `src/llm/prompts/prediction_state_v1|v2|v3.txt`, `construct_match_v1|v2.txt` (head: v2/v2)
+- Config: `configs/v4_dev_explanatory.yaml`
+- Tests: `tests/test_v4_discrimination.py`, `tests/test_review_packet.py`, `tests/test_review_attribution.py`
+- Stage A:
+  - `scripts/replay_v4_on_frozen.py`, `scripts/analyze_v4_development.py`
+  - metrics: `benchmark/v4_dev/iter01|iter02|iter03/development_metrics.json`
+- Stage B: `scripts/compare_v3_v4_runs.py`, `benchmark/v4_dev/stage_b/run_comparison.json`
+- D046 labels and v3 attribution:
+  - `benchmark/review/graph_pilot_001/human_labels_D046.json`
+  - `benchmark/review/graph_pilot_001/attribution_d045_d046/`
+  - `scripts/transcribe_decision_labels.py`
+- Run paths (gitignored; private archive `benchmark/frozen_runs/v4_dev_runs/`, SHA-256 `5f7f0ffe…529d`, second copy `/mnt/data/knk25.data/private_artifacts/v4_dev_runs/`):
+  - `runs/v3_rerun_explanatory_001`
+  - `runs/v4_dev_explanatory_001`
+  - `runs/v4_replay_smoke_pfc`
+  - `runs/v4_replay_pilot_iter01`, `_rep2`
+  - `runs/v4_replay_pilot_iter02`, `_rep2`
+  - `runs/v4_replay_pilot_iter03`, `_rep2`

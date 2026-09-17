@@ -1,0 +1,580 @@
+{
+ "pilot_explanatory_001 (frozen v3)": {
+  "run": "pilot_explanatory_001",
+  "llm_calls": 784,
+  "cost_usd": 2.745342000000001,
+  "n_ok": 8,
+  "n_error": 0,
+  "generation_and_structure": {
+   "n_nodes": 192,
+   "unique_proposition_texts": 192,
+   "abstraction_levels": {
+    "specific": 64,
+    "mechanistic": 64,
+    "class": 64
+   },
+   "depths": {
+    "1": 48,
+    "2": 144
+   },
+   "mean_proposition_chars": 134.69791666666666,
+   "content_type_token_ratio": 0.22914307285768215,
+   "sign_opposed_v3_edge_nodes": 87,
+   "cases": {
+    "eukaryogenesis_mito_timing": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 16,
+     "scores": {
+      "H1": 0.08149125538252629,
+      "H2": 0.9185087446174738
+     }
+    },
+    "fly_wing_constraint_vs_selection": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 3,
+     "scores": {
+      "H2": 0.5767783395782533,
+      "H1": 0.4232216604217467
+     }
+    },
+    "forest_fragmentation_resilience": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 7,
+     "scores": {
+      "H2": 0.16367454097947015,
+      "H1": 0.8363254590205298
+     }
+    },
+    "gcn4_med15_complex_vs_condensate": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 13,
+     "scores": {
+      "H1": 0.4987750277391291,
+      "H2": 0.5012249722608709
+     }
+    },
+    "glnbp_induced_fit_vs_conformational_selection": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 21,
+     "scores": {
+      "H2": 0.863103075882668,
+      "H1": 0.13689692411733193
+     }
+    },
+    "pfc_interhemispheric_architecture": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 3,
+     "scores": {
+      "H1": 0.6179218345531287,
+      "H2": 0.38207816544687123
+     }
+    },
+    "pfc_storage_vs_control": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 10,
+     "scores": {
+      "H1": 0.7709983327003794,
+      "H2": 0.22900166729962063
+     }
+    },
+    "spider_orb_web_origin": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 14,
+     "scores": {
+      "H1": 0.4241686724145701,
+      "H2": 0.5758313275854298
+     }
+    }
+   }
+  },
+  "consequence_discovery": {
+   "available": true,
+   "categories": {
+    "reference_discriminator_recovered": 41,
+    "novel_plausible_discriminator": 3,
+    "compatible_non_discriminative": 20,
+    "generic_component_fact": 5,
+    "invalid_or_unsupported": 0,
+    "silence_as_null_error": 123
+   },
+   "reference_discriminators_recovered": 11,
+   "reference_discriminators_total": 23,
+   "cases_with_any_recovery": 7,
+   "per_case_recovered": {
+    "eukaryogenesis_mito_timing": "3/3",
+    "fly_wing_constraint_vs_selection": "0/3",
+    "forest_fragmentation_resilience": "1/3",
+    "gcn4_med15_complex_vs_condensate": "1/3",
+    "glnbp_induced_fit_vs_conformational_selection": "2/3",
+    "pfc_interhemispheric_architecture": "2/3",
+    "pfc_storage_vs_control": "1/3",
+    "spider_orb_web_origin": "1/2"
+   },
+   "novel_plausible_discriminators": 3
+  }
+ },
+ "v3_rerun_explanatory_001": {
+  "run": "v3_rerun_explanatory_001",
+  "llm_calls": 784,
+  "cost_usd": 2.707981999999999,
+  "n_ok": 8,
+  "n_error": 0,
+  "generation_and_structure": {
+   "n_nodes": 192,
+   "unique_proposition_texts": 191,
+   "abstraction_levels": {
+    "specific": 65,
+    "mechanistic": 63,
+    "class": 64
+   },
+   "depths": {
+    "1": 48,
+    "2": 144
+   },
+   "mean_proposition_chars": 131.08854166666666,
+   "content_type_token_ratio": 0.23625096824167313,
+   "sign_opposed_v3_edge_nodes": 84,
+   "cases": {
+    "eukaryogenesis_mito_timing": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 19,
+     "scores": {
+      "H1": 0.17833233969401904,
+      "H2": 0.821667660305981
+     }
+    },
+    "fly_wing_constraint_vs_selection": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 3,
+     "scores": {
+      "H2": 0.41873103827315494,
+      "H1": 0.5812689617268452
+     }
+    },
+    "forest_fragmentation_resilience": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 4,
+     "scores": {
+      "H2": 0.18387625440175537,
+      "H1": 0.8161237455982446
+     }
+    },
+    "gcn4_med15_complex_vs_condensate": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 10,
+     "scores": {
+      "H1": 0.7778586443835851,
+      "H2": 0.22214135561641488
+     }
+    },
+    "glnbp_induced_fit_vs_conformational_selection": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 18,
+     "scores": {
+      "H2": 0.8759762075982042,
+      "H1": 0.12402379240179587
+     }
+    },
+    "pfc_interhemispheric_architecture": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 8,
+     "scores": {
+      "H1": 0.6546472234159887,
+      "H2": 0.3453527765840113
+     }
+    },
+    "pfc_storage_vs_control": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 7,
+     "scores": {
+      "H1": 0.31764503805744565,
+      "H2": 0.6823549619425544
+     }
+    },
+    "spider_orb_web_origin": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 15,
+     "scores": {
+      "H1": 0.3586447791532816,
+      "H2": 0.6413552208467185
+     }
+    }
+   }
+  },
+  "consequence_discovery": {
+   "available": true,
+   "categories": {
+    "reference_discriminator_recovered": 40,
+    "novel_plausible_discriminator": 7,
+    "compatible_non_discriminative": 26,
+    "generic_component_fact": 3,
+    "invalid_or_unsupported": 0,
+    "silence_as_null_error": 116
+   },
+   "reference_discriminators_recovered": 11,
+   "reference_discriminators_total": 23,
+   "cases_with_any_recovery": 6,
+   "per_case_recovered": {
+    "eukaryogenesis_mito_timing": "3/3",
+    "fly_wing_constraint_vs_selection": "1/3",
+    "forest_fragmentation_resilience": "2/3",
+    "gcn4_med15_complex_vs_condensate": "1/3",
+    "glnbp_induced_fit_vs_conformational_selection": "2/3",
+    "pfc_interhemispheric_architecture": "2/3",
+    "pfc_storage_vs_control": "0/3",
+    "spider_orb_web_origin": "0/2"
+   },
+   "novel_plausible_discriminators": 7
+  }
+ },
+ "v4_dev_explanatory_001": {
+  "run": "v4_dev_explanatory_001",
+  "llm_calls": 1052,
+  "cost_usd": 3.75952,
+  "n_ok": 8,
+  "n_error": 0,
+  "generation_and_structure": {
+   "n_nodes": 192,
+   "unique_proposition_texts": 192,
+   "abstraction_levels": {
+    "specific": 64,
+    "mechanistic": 64,
+    "class": 64
+   },
+   "depths": {
+    "1": 48,
+    "2": 144
+   },
+   "mean_proposition_chars": 132.07291666666666,
+   "content_type_token_ratio": 0.2364057076745083,
+   "sign_opposed_v3_edge_nodes": 84,
+   "cases": {
+    "eukaryogenesis_mito_timing": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 17,
+     "scores": {
+      "H1": 0.2920712328025439,
+      "H2": 0.7079287671974562
+     },
+     "v3_reference_scores_same_graph": {
+      "H1": 0.1443590187637845,
+      "H2": 0.8556409812362155
+     },
+     "v4_summary": {
+      "n_nodes": 24,
+      "n_profile_comparative_discriminator": 12,
+      "n_profile_one_sided_prediction": 11,
+      "n_profile_shared_prediction": 1,
+      "n_profile_all_indeterminate": 0,
+      "n_profile_partially_indeterminate_contrast": 0,
+      "n_profile_generic_or_possibility_claim": 0,
+      "n_states_unavailable": 0,
+      "n_comparatively_eligible": 12,
+      "n_used_in_score": 1,
+      "n_construct_direct": 4,
+      "n_construct_partial": 10,
+      "n_construct_mismatch": 0,
+      "n_eligible_blocked_by_construct": 4
+     },
+     "v4_scored_nodes": [
+      {
+       "node_id": "X16",
+       "text": "An archaeal cell lacking mitochondria can possess a dynamic actin cytoskeleton.",
+       "states": {
+        "H1": "negative_or_absent/moderate",
+        "H2": "positive_or_present/strong"
+       },
+       "evidence_label": "strong_support",
+       "construct_elements": [
+        [
+         "established",
+         "archaeal cell lacking mitochondria"
+        ],
+        [
+         "established",
+         "can possess a dynamic actin cytoskeleton"
+        ]
+       ],
+       "log_odds_H2_over_H1": 0.8853457568573,
+       "identical_text_reviewed_in_pilot": null
+      }
+     ]
+    },
+    "fly_wing_constraint_vs_selection": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 4,
+     "scores": {
+      "H2": 0.5,
+      "H1": 0.5
+     },
+     "v3_reference_scores_same_graph": {
+      "H2": 0.5601159090408595,
+      "H1": 0.4398840909591405
+     },
+     "v4_summary": {
+      "n_nodes": 24,
+      "n_profile_comparative_discriminator": 1,
+      "n_profile_one_sided_prediction": 11,
+      "n_profile_shared_prediction": 12,
+      "n_profile_all_indeterminate": 0,
+      "n_profile_partially_indeterminate_contrast": 0,
+      "n_profile_generic_or_possibility_claim": 0,
+      "n_states_unavailable": 0,
+      "n_comparatively_eligible": 1,
+      "n_used_in_score": 0,
+      "n_construct_direct": 0,
+      "n_construct_partial": 4,
+      "n_construct_mismatch": 0,
+      "n_eligible_blocked_by_construct": 0
+     },
+     "v4_scored_nodes": []
+    },
+    "forest_fragmentation_resilience": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 5,
+     "scores": {
+      "H2": 0.5,
+      "H1": 0.5
+     },
+     "v3_reference_scores_same_graph": {
+      "H2": 0.05617674433571317,
+      "H1": 0.9438232556642868
+     },
+     "v4_summary": {
+      "n_nodes": 24,
+      "n_profile_comparative_discriminator": 0,
+      "n_profile_one_sided_prediction": 24,
+      "n_profile_shared_prediction": 0,
+      "n_profile_all_indeterminate": 0,
+      "n_profile_partially_indeterminate_contrast": 0,
+      "n_profile_generic_or_possibility_claim": 0,
+      "n_states_unavailable": 0,
+      "n_comparatively_eligible": 0,
+      "n_used_in_score": 0,
+      "n_construct_direct": 1,
+      "n_construct_partial": 12,
+      "n_construct_mismatch": 1,
+      "n_eligible_blocked_by_construct": 0
+     },
+     "v4_scored_nodes": []
+    },
+    "gcn4_med15_complex_vs_condensate": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 13,
+     "scores": {
+      "H1": 0.5,
+      "H2": 0.5
+     },
+     "v3_reference_scores_same_graph": {
+      "H1": 0.5597471462546318,
+      "H2": 0.4402528537453682
+     },
+     "v4_summary": {
+      "n_nodes": 24,
+      "n_profile_comparative_discriminator": 2,
+      "n_profile_one_sided_prediction": 22,
+      "n_profile_shared_prediction": 0,
+      "n_profile_all_indeterminate": 0,
+      "n_profile_partially_indeterminate_contrast": 0,
+      "n_profile_generic_or_possibility_claim": 0,
+      "n_states_unavailable": 0,
+      "n_comparatively_eligible": 2,
+      "n_used_in_score": 0,
+      "n_construct_direct": 0,
+      "n_construct_partial": 10,
+      "n_construct_mismatch": 0,
+      "n_eligible_blocked_by_construct": 0
+     },
+     "v4_scored_nodes": []
+    },
+    "glnbp_induced_fit_vs_conformational_selection": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 18,
+     "scores": {
+      "H2": 0.948998458583158,
+      "H1": 0.05100154141684203
+     },
+     "v3_reference_scores_same_graph": {
+      "H2": 0.9556021459646138,
+      "H1": 0.044397854035386076
+     },
+     "v4_summary": {
+      "n_nodes": 24,
+      "n_profile_comparative_discriminator": 18,
+      "n_profile_one_sided_prediction": 5,
+      "n_profile_shared_prediction": 1,
+      "n_profile_all_indeterminate": 0,
+      "n_profile_partially_indeterminate_contrast": 0,
+      "n_profile_generic_or_possibility_claim": 0,
+      "n_states_unavailable": 0,
+      "n_comparatively_eligible": 18,
+      "n_used_in_score": 2,
+      "n_construct_direct": 4,
+      "n_construct_partial": 7,
+      "n_construct_mismatch": 1,
+      "n_eligible_blocked_by_construct": 5
+     },
+     "v4_scored_nodes": [
+      {
+       "node_id": "X2",
+       "text": "Ligand binding to a substrate-binding protein can occur before the protein undergoes a major conformational change to a closed state.",
+       "states": {
+        "H2": "positive_or_present/strong",
+        "H1": "negative_or_absent/strong"
+       },
+       "evidence_label": "strong_support",
+       "construct_elements": [
+        [
+         "established",
+         "Ligand binding to a substrate-binding protein"
+        ],
+        [
+         "established",
+         "can occur before the protein undergoes a major conformational change to a closed state"
+        ]
+       ],
+       "log_odds_H2_over_H1": 1.461775659113791,
+       "identical_text_reviewed_in_pilot": null
+      },
+      {
+       "node_id": "X8",
+       "text": "Ligand binding can occur to the open conformation of periplasmic binding proteins before a conformational change to the closed state.",
+       "states": {
+        "H2": "positive_or_present/strong",
+        "H1": "negative_or_absent/strong"
+       },
+       "evidence_label": "strong_support",
+       "construct_elements": [
+        [
+         "established",
+         "Ligand binding can occur to the open conformation of periplasmic binding proteins"
+        ],
+        [
+         "established",
+         "before a conformational change to the closed state"
+        ]
+       ],
+       "log_odds_H2_over_H1": 1.461775659113791,
+       "identical_text_reviewed_in_pilot": {
+        "review_id": "GP1-glnbp_induced_fit_vs_conformational_selection-X8",
+        "category": "generic_component_fact"
+       }
+      }
+     ]
+    },
+    "pfc_interhemispheric_architecture": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 1,
+     "scores": {
+      "H1": 0.5,
+      "H2": 0.5
+     },
+     "v3_reference_scores_same_graph": {
+      "H1": 0.58549570218811,
+      "H2": 0.4145042978118901
+     },
+     "v4_summary": {
+      "n_nodes": 24,
+      "n_profile_comparative_discriminator": 0,
+      "n_profile_one_sided_prediction": 18,
+      "n_profile_shared_prediction": 5,
+      "n_profile_all_indeterminate": 1,
+      "n_profile_partially_indeterminate_contrast": 0,
+      "n_profile_generic_or_possibility_claim": 0,
+      "n_states_unavailable": 0,
+      "n_comparatively_eligible": 0,
+      "n_used_in_score": 0,
+      "n_construct_direct": 0,
+      "n_construct_partial": 3,
+      "n_construct_mismatch": 0,
+      "n_eligible_blocked_by_construct": 0
+     },
+     "v4_scored_nodes": []
+    },
+    "pfc_storage_vs_control": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 10,
+     "scores": {
+      "H1": 0.5,
+      "H2": 0.5
+     },
+     "v3_reference_scores_same_graph": {
+      "H1": 0.3406807162133345,
+      "H2": 0.6593192837866654
+     },
+     "v4_summary": {
+      "n_nodes": 24,
+      "n_profile_comparative_discriminator": 10,
+      "n_profile_one_sided_prediction": 9,
+      "n_profile_shared_prediction": 4,
+      "n_profile_all_indeterminate": 1,
+      "n_profile_partially_indeterminate_contrast": 0,
+      "n_profile_generic_or_possibility_claim": 0,
+      "n_states_unavailable": 0,
+      "n_comparatively_eligible": 10,
+      "n_used_in_score": 0,
+      "n_construct_direct": 0,
+      "n_construct_partial": 11,
+      "n_construct_mismatch": 0,
+      "n_eligible_blocked_by_construct": 7
+     },
+     "v4_scored_nodes": []
+    },
+    "spider_orb_web_origin": {
+     "n_nodes": 24,
+     "n_sign_opposed_v3_edges": 16,
+     "scores": {
+      "H1": 0.5,
+      "H2": 0.5
+     },
+     "v3_reference_scores_same_graph": {
+      "H1": 0.24196046311133845,
+      "H2": 0.7580395368886615
+     },
+     "v4_summary": {
+      "n_nodes": 24,
+      "n_profile_comparative_discriminator": 8,
+      "n_profile_one_sided_prediction": 16,
+      "n_profile_shared_prediction": 0,
+      "n_profile_all_indeterminate": 0,
+      "n_profile_partially_indeterminate_contrast": 0,
+      "n_profile_generic_or_possibility_claim": 0,
+      "n_states_unavailable": 0,
+      "n_comparatively_eligible": 8,
+      "n_used_in_score": 0,
+      "n_construct_direct": 2,
+      "n_construct_partial": 6,
+      "n_construct_mismatch": 0,
+      "n_eligible_blocked_by_construct": 2
+     },
+     "v4_scored_nodes": []
+    }
+   }
+  },
+  "consequence_discovery": {
+   "available": true,
+   "categories": {
+    "reference_discriminator_recovered": 43,
+    "novel_plausible_discriminator": 6,
+    "compatible_non_discriminative": 24,
+    "generic_component_fact": 6,
+    "invalid_or_unsupported": 1,
+    "silence_as_null_error": 112
+   },
+   "reference_discriminators_recovered": 11,
+   "reference_discriminators_total": 23,
+   "cases_with_any_recovery": 7,
+   "per_case_recovered": {
+    "eukaryogenesis_mito_timing": "2/3",
+    "fly_wing_constraint_vs_selection": "0/3",
+    "forest_fragmentation_resilience": "2/3",
+    "gcn4_med15_complex_vs_condensate": "1/3",
+    "glnbp_induced_fit_vs_conformational_selection": "2/3",
+    "pfc_interhemispheric_architecture": "2/3",
+    "pfc_storage_vs_control": "1/3",
+    "spider_orb_web_origin": "1/2"
+   },
+   "novel_plausible_discriminators": 6
+  }
+ }
+}
