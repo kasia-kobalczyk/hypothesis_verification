@@ -48,7 +48,7 @@ OUT_ROOT = ROOT / "benchmark" / "v4_scope"
 PRIOR_V4 = [ROOT / "runs" / "v4_replay_pilot_iter02", ROOT / "runs" / "v4_replay_pilot_iter02_rep2"]
 CATEGORIES = dev.CATEGORIES
 UNREVIEWED = "unreviewed"
-EVIDENCE_COLUMNS = ["no_evidence_assessment", "no_evidence", "mixed", "element_unavailable", "no_contrast_bearing_element",
+EVIDENCE_COLUMNS = ["no_evidence_assessment", "no_evidence", "mixed", "element_unavailable",
                     "relevance_unavailable", "contrast_direct", "contrast_partial", "context_only",
                     "construct_mismatch", "relevance_no_evidence"]
 
@@ -77,6 +77,12 @@ def relevance_of(rec):
 
 
 def evidence_column(rec) -> str:
+    """Evidence availability / contrast relevance, whatever the node's eligibility.
+
+    Relevance is judged for every node with informative evidence and an element, including
+    nodes whose element carries no contrast, so the assessability table can show it; the
+    `has_contrast` outcome is counted separately (`n_has_contrast_false`).
+    """
     label = rec.get("evidence_label")
     if label is None:
         return "no_evidence_assessment"
@@ -84,8 +90,6 @@ def evidence_column(rec) -> str:
         return label
     if not rec.get("contrast_element"):
         return "element_unavailable"
-    if not rec["contrast_element"]["has_contrast"]:
-        return "no_contrast_bearing_element"
     rel = relevance_of(rec)
     if rel is None:
         return "relevance_unavailable"
@@ -211,8 +215,11 @@ def contrast_block(nodes, labels, v3) -> Dict[str, Any]:
                      and nodes[r]["contrast_relevance"].get("different_construct") == "yes"]
     context_generic = [r for r in informative if cat(r) in ("generic_component_fact", "compatible_non_discriminative")
                        and relevance_of(nodes[r]) in ("context_only", "construct_mismatch", "no_evidence")]
+    eligible_with_contrast = [r for r in eligible if (nodes[r].get("contrast_element") or {}).get("has_contrast")]
     return OrderedDict([
         ("n_informative_evidence_nodes", len(informative)),
+        ("relevance_comparative_scope_eligible_and_has_contrast",
+         dict(Counter(evidence_column(nodes[r]) for r in eligible_with_contrast))),
         ("relevance_all_informative", dict(Counter(evidence_column(nodes[r]) for r in informative))),
         ("relevance_comparative_and_scope_eligible", dict(Counter(evidence_column(nodes[r]) for r in eligible))),
         ("relevance_by_human_category", OrderedDict(
@@ -239,6 +246,8 @@ def scope_x_evidence(nodes, restrict=None) -> Dict[str, Any]:
         counts = Counter(evidence_column(r) for r in recs)
         n_inf = sum(counts[c] for c in EVIDENCE_COLUMNS if c not in ("no_evidence_assessment", "no_evidence", "mixed"))
         rows[s] = OrderedDict([("n", len(recs))] + [(c, counts[c]) for c in EVIDENCE_COLUMNS] + [
+            ("n_has_contrast_false", sum(1 for r in recs if r.get("contrast_element")
+                                         and not r["contrast_element"]["has_contrast"])),
             ("p_informative_evidence", _frac(n_inf, len(recs))),
             ("p_contrast_direct", _frac(counts["contrast_direct"], len(recs))),
             ("p_contrast_direct_or_partial", _frac(counts["contrast_direct"] + counts["contrast_partial"], len(recs))),

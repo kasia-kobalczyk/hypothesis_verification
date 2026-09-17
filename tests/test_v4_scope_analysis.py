@@ -25,7 +25,7 @@ def _rec(scope="hypothesis_specific", label="support", element=True, has_contras
     (_rec(label="no_evidence"), "no_evidence"),
     (_rec(label="mixed"), "mixed"),
     (_rec(element=False, relevance=None), "element_unavailable"),
-    (_rec(has_contrast=False), "no_contrast_bearing_element"),
+    (_rec(has_contrast=False), "contrast_direct"),          # relevance shown whatever has_contrast is
     (_rec(relevance=None), "relevance_unavailable"),
     (_rec(relevance="context_only"), "context_only"),
     (_rec(relevance="no_evidence"), "relevance_no_evidence"),
