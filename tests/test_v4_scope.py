@@ -54,9 +54,10 @@ def _pres():
                                  PresentedHypothesis("B", "H2", "second", False)], seed_key="s", order="as_loaded")
 
 
-def _gate(states=CONTRAST, scope="hypothesis_specific", label="support", relevance="contrast_direct", **kw):
+def _gate(states=CONTRAST, scope="hypothesis_specific", label="support", relevance="contrast_direct",
+          has_contrast=True, **kw):
     return d.gate_node_scope(node_id="X1", hypothesis_ids=H, states=states, scope=scope, evidence_label=label,
-                             contrast_relevance=relevance, **kw)
+                             has_contrast=has_contrast, contrast_relevance=relevance, **kw)
 
 
 # --------------------------------------------------------------------------- #
@@ -106,8 +107,15 @@ def test_uninformative_evidence_never_scores(label):
 def test_missing_judgments_fail_closed():
     assert _gate(states=None)["gate_reason"] == "prediction_states_unavailable"
     assert _gate(scope=None)["gate_reason"] == "scope_unavailable"
+    assert _gate(has_contrast=None)["gate_reason"] == "contrast_element_unavailable"
     with pytest.raises(d.StateError):
         _gate(scope="fairly_specific")
+
+
+def test_element_without_a_contrast_never_scores_even_with_direct_relevance():
+    for allowed in (d.COMPARATIVE_RELEVANCE, d.SENSITIVITY_RELEVANCE):
+        g = _gate(has_contrast=False, relevance="contrast_direct", allowed_relevance=allowed)
+        assert not g["used_in_score"] and g["gate_reason"] == "no_contrast_bearing_element"
 
 
 def test_gate_ignores_the_origin_of_a_proposition():
@@ -276,6 +284,14 @@ def test_context_only_and_construct_mismatch_leave_scores_even(mappings):
     assert out["sensitivity_contrast_partial_allowed"]["scores"] == {"H1": 0.5, "H2": 0.5}
 
 
+def test_layer_does_not_score_an_element_without_a_contrast(mappings):
+    llm = ScriptedLLM(states={"p1": _states(*CON)}, scopes={"p1": _scope_payload()},
+                      elements={"p1": _element(has_contrast=False)}, relevance={"p1": _rel("yes")})
+    out = _layer(llm, mappings, {"X1": _ev("strong_support")}, n=1)
+    assert out["nodes"]["X1"]["gate_reason"] == "no_contrast_bearing_element"
+    assert out["scores"] == {"H1": 0.5, "H2": 0.5}
+
+
 def test_one_sided_specific_proposition_is_not_scored(mappings):
     llm = ScriptedLLM(states={"p1": _states("positive_or_present", "indeterminate")},
                       scopes={"p1": _scope_payload("hypothesis_specific")},
@@ -304,7 +320,7 @@ def test_layer_fails_closed_on_each_llm_error(mappings):
                             ("graph_v4s.contrast_element", "p3"), ("graph_v4s.contrast_relevance", "p4")}, **tables)
     out = _layer(llm, mappings, {n: _ev("support") for n in ("X1", "X2", "X3", "X4")})
     assert [out["nodes"]["X{}".format(i)]["gate_reason"] for i in range(1, 5)] == [
-        "prediction_states_unavailable", "scope_unavailable", "contrast_relevance_unavailable",
+        "prediction_states_unavailable", "scope_unavailable", "contrast_element_unavailable",
         "contrast_relevance_unavailable"]
     assert out["scores"] == {"H1": 0.5, "H2": 0.5}
     assert {e["where"] for e in out["errors"]} == {"prediction_state", "scope", "contrast_element",

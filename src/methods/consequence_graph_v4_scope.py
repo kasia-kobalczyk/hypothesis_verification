@@ -144,6 +144,7 @@ def run_v4_scope_layer(
         return OrderedDict((nid, gate_node_scope(
             node_id=nid, hypothesis_ids=hypothesis_ids, states=e["states"],
             scope=(e["scope"] or {}).get("scope"), evidence_label=e["evidence_label"],
+            has_contrast=(e["contrast_element"] or {}).get("has_contrast"),
             contrast_relevance=(e["contrast_relevance"] or {}).get("contrast_relevance"),
             allowed_relevance=allowed)) for nid, e in judged.items())
 
@@ -168,7 +169,7 @@ def run_v4_scope_layer(
     for nid, entry in judged.items():
         record = OrderedDict(entry)
         record.update((k, v) for k, v in gates[nid].items() if k not in ("node_id", "scope", "contrast_relevance",
-                                                                          "evidence_label"))
+                                                                          "evidence_label", "has_contrast"))
         record["sensitivity_used_in_score"] = sens_gates[nid]["used_in_score"]
         record["contribution"] = OrderedDict((h, contributions.get(nid, {}).get(h, 0.0)) for h in hypothesis_ids)
         node_records[nid] = record
@@ -184,7 +185,7 @@ def run_v4_scope_layer(
                                                   if s["state"] in DETERMINATE)),
             ("indeterminate_hypotheses", [h for h, s in states.items() if s["state"] == "indeterminate"]),
             ("scope", g.get("scope")), ("evidence_label", g.get("evidence_label")),
-            ("contrast_relevance", g.get("contrast_relevance")),
+            ("has_contrast", g.get("has_contrast")), ("contrast_relevance", g.get("contrast_relevance")),
         ]))
 
     return OrderedDict([

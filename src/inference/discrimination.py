@@ -304,6 +304,7 @@ def gate_node_scope(
     states: Optional[Mapping[str, Mapping[str, Any]]],
     scope: Optional[str],
     evidence_label: Optional[str],
+    has_contrast: Optional[bool],
     contrast_relevance: Optional[str],
     allowed_relevance: frozenset = COMPARATIVE_RELEVANCE,
 ) -> Dict[str, Any]:
@@ -312,7 +313,9 @@ def gate_node_scope(
     1. prediction states exist and form a determinate contrast (unchanged v4 rule);
     2. its scope is hypothesis- or mechanism-specific;
     3. its evidence label is informative;
-    4. the evidence bears directly on its contrast-bearing element.
+    4. a contrast-bearing element was extracted and actually carries a contrast
+       (`has_contrast`), so there is a specific element for the evidence to bear on;
+    5. the evidence bears directly on that element.
 
     The order fixes which reason is recorded; each check is necessary on its own, so a
     later check can never re-admit what an earlier one excluded. In particular a scope
@@ -330,6 +333,7 @@ def gate_node_scope(
     record["scope"] = scope
     record["scope_eligible"] = None if scope is None else normalise_scope_class(scope) in COMPARATIVE_SCOPE_CLASSES
     record["evidence_label"] = evidence_label
+    record["has_contrast"] = has_contrast
     record["contrast_relevance"] = contrast_relevance
 
     if not record["comparatively_eligible"]:
@@ -342,6 +346,10 @@ def gate_node_scope(
         reason = "no_evidence_assessment"
     elif evidence_label in UNINFORMATIVE_EVIDENCE:
         reason = "uninformative_evidence"
+    elif has_contrast is None:
+        reason = "contrast_element_unavailable"
+    elif not has_contrast:
+        reason = "no_contrast_bearing_element"
     elif contrast_relevance is None:
         reason = "contrast_relevance_unavailable"
     elif contrast_relevance not in allowed_relevance:
