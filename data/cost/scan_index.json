@@ -306,5 +306,41 @@
   "runs/pilot_explanatory_001/events.jsonl": {
     "offset": 9089332,
     "lines": 17577
+  },
+  "runs/v3_rerun_explanatory_001/events.jsonl": {
+    "offset": 8911066,
+    "lines": 17458
+  },
+  "runs/v4_replay_pilot_iter01/events.jsonl": {
+    "offset": 1626709,
+    "lines": 271
+  },
+  "runs/v4_replay_pilot_iter01_rep2/events.jsonl": {
+    "offset": 1624786,
+    "lines": 271
+  },
+  "runs/v4_replay_smoke_pfc/events.jsonl": {
+    "offset": 227856,
+    "lines": 35
+  },
+  "runs/v4_replay_pilot_iter02/events.jsonl": {
+    "offset": 1749408,
+    "lines": 271
+  },
+  "runs/v4_replay_pilot_iter02_rep2/events.jsonl": {
+    "offset": 1749388,
+    "lines": 271
+  },
+  "runs/v4_replay_pilot_iter03/events.jsonl": {
+    "offset": 2024786,
+    "lines": 275
+  },
+  "runs/v4_replay_pilot_iter03_rep2/events.jsonl": {
+    "offset": 2006882,
+    "lines": 271
+  },
+  "runs/v4_dev_explanatory_001/events.jsonl": {
+    "offset": 10689583,
+    "lines": 17586
   }
 }
